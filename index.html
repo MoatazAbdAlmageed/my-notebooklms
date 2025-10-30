@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My notebooklms</title>
+</head>
+
+<body>
+    <ul id="fileList"></ul>
+
+    <script src="fileList.js"></script>
+    <script>
+        const ul = document.getElementById('fileList');
+        files.forEach(file => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = file;
+            a.textContent = file;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
