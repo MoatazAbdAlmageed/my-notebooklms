@@ -1,209 +1,262 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wp</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dark.css">
 </head>
 
 <body>
-    <p>يا فندم، طلبك بسيط وجميل، ده ملخص للكتاب بالهجة المصرية، وبعده هتلاقي تفاصيل المحتويات من الفصول والأجزاء زي ما
-        طلبت بالظبط.</p>
-    <hr>
-    <h3 id="-">تعريف بمحتوى الكتاب (بلهجة مصرية مبسطة)</h3>
-    <p>يا فندم، الكتاب ده اسمه <strong>Pro WordPress Theme Development</strong> (تطوير ثيمات ووردبريس الاحترافي)،
-        والكاتب بتاعه هو <strong>آدم أونيشي</strong>.</p>
-    <p>الهدف الأساسي من الكتاب ده هو إنه يدخلك <strong>بشكل عميق في عالم تطوير الثيمات لووردبريس</strong>، عشان تبقى
-        مطور محترف. الكتاب ده يعتبر <strong>دليلك الشامل</strong> لـ &quot;ثيمنج ووردبريس&quot; (WordPress Theming).</p>
-    <p>الكتاب بيغطي كل حاجة ممكن تتخيلها بخصوص الموضوع. هتبدأ تتعلم الـ<strong>Template Files الأساسية</strong>، وهتفهم
-        إزاي تشتغل بـ<strong>أنواع المحتوى المخصصة (Custom Post Types) والتصنيفات المخصصة (Taxonomies)</strong>.</p>
-    <p>والأهم، الكتاب ده بيعلمك إزاي تعمل <strong>تخصيص كامل للثيم بتاعك</strong> (Theme Customization)، وإزاي تفهم
-        <strong>المفاهيم الأساسية</strong> اللي ووردبريس شغال بيها من جوه، لدرجة إنك تقدر تعمل <strong>وظائف متقدمة
-            جداً</strong> في الموقع.
-    </p>
-    <p>ده غير إنه بيوريك إزاي تعمل <strong>إضافات (Plugins) خاصة بيك</strong> من الصفر، وإزاي تتعامل مع نظام المستخدمين
-        والصلاحيات (Users, Roles, and Capabilities).</p>
-    <hr>
-    <h3 id="-">محتويات الكتاب من الفصول والأجزاء</h3>
-    <p>الكتاب ده بيغطي مواضيع كتير متقسمة على فصول رئيسية، وده عرض لأبواب وفصول الكتاب المتاحة في المصادر:</p>
-    <table>
-        <thead>
-            <tr>
-                <th style="">الفصل (Chapter)</th>
-                <th style="">العنوان (Title)</th>
-                <th style="">الأقسام الرئيسية المذكورة</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style=""><strong>الفصل 1</strong></td>
-                <td style=""><strong>Getting Started</strong> (البدء)</td>
-                <td style="">-</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 2</strong></td>
-                <td style=""><strong>Theme Anatomy and Template Hierarchy</strong> (تشريح الثيم وتسلسل
-                    القوالب)</td>
-                <td style="">-</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 3</strong></td>
-                <td style=""><strong>Content Options and the Loop</strong> (خيارات المحتوى والحلقة)</td>
-                <td style="">Properties and Global Variables (خصائص ومتغيرات WP_Query)، Template Tags
-                    (وسوم القوالب)، Using <code>body_class()</code> and <code>post_class()</code> (استخدام دوال
-                    الكلاسات)، Building Your Theme, Part 2 (بناء الثيم، الجزء 2)، Summary (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 4</strong></td>
-                <td style=""><strong>Using Custom Post Types</strong> (استخدام أنواع المنشورات المخصصة)
-                </td>
-                <td style="">Everything Is a Post (كل شيء هو منشور)، When Do I Need a Custom Post Type?
-                    (متى أحتاج CPT؟)، What Is a Custom Post Type Used for? (لِمَ يُستخدم CPT؟)، Creating Custom Post
-                    Types (إنشاء CPT)، Displaying Custom Post Types (عرض CPT)، Extending Post Types (توسيع أنواع
-                    المنشورات)، Building Your Theme, Part 3 (بناء الثيم، الجزء 3)، Summary (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 5</strong></td>
-                <td style=""><strong>Creating Custom Taxonomies and Fields</strong> (إنشاء التصنيفات
-                    والحقول المخصصة)</td>
-                <td style="">Introducing Taxonomies (مقدمة للتصنيفات).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 6</strong></td>
-                <td style=""><strong>Customize with Hooks, Shortcodes, and Widgets</strong> (التخصيص
-                    باستخدام Hooks و Shortcodes و Widgets)</td>
-                <td style="">-</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 7</strong></td>
-                <td style=""><strong>Theme Options and the Theme Customizer</strong> (خيارات الثيم ومخصص
-                    الثيم)</td>
-                <td style="">Adding a Logo Option (إضافة خيار شعار)، Adding a Featured Post Option (إضافة
-                    خيار منشور مميز)، Adding a Color Palette Option (إضافة خيار لوحة الألوان)، Summary (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 8</strong></td>
-                <td style=""><strong>Users, Roles, and Capabilities</strong> (المستخدمون، الأدوار،
-                    والصلاحيات)</td>
-                <td style="">User System (نظام المستخدم)، Customizing Roles and Capabilities (تخصيص
-                    الأدوار والصلاحيات)، Customizing User Login (تخصيص تسجيل دخول المستخدم)، Managing Users and User
-                    Data (إدارة المستخدمين وبياناتهم)، Building Your Theme, Part 7 (بناء الثيم، الجزء 7)، Summary
-                    (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 9</strong></td>
-                <td style=""><strong>Plugins: When the Time Is Right</strong> (الإضافات: متى يحين الوقت
-                    المناسب)</td>
-                <td style="">Plugins Bring Power, but Can Also Facilitate Evil (الإضافات تجلب القوة وقد
-                    تسهل الشر)، Is a Plugin the Right Option? (هل الإضافة هي الخيار الصحيح؟)، Making Your Theme
-                    Compatible with Plugins (جعل الثيم متوافقاً مع الإضافات)، How to Select a Plugin (كيف تختار إضافة).
-                </td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 12</strong></td>
-                <td style=""><strong>WordPress Comments and Internationalization</strong> (تعليقات
-                    ووردبريس والتدويل)</td>
-                <td style="">WordPress Comments (تعليقات ووردبريس)، Internationalization (التدويل)،
-                    Summary (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 13</strong></td>
-                <td style=""><strong>Plugin Development</strong> (تطوير الإضافات)</td>
-                <td style="">Writing Your First Plugin (كتابة أول إضافة لك)، Encapsulating a Plugin in a
-                    Class (تغليف الإضافة في فئة)، Dealing with Data (التعامل مع البيانات: إنشاء جدول، إضافة/تحديث
-                    البيانات)، Initializing and Cleaning Up (التهيئة والتنظيف)، Admin Settings Pages (صفحات إعدادات
-                    المدير)، Adding to the Plugin Repository (الإضافة إلى مستودع الإضافات)، Summary (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>الفصل 14</strong></td>
-                <td style=""><strong>WordPress Multisite</strong> (ووردبريس متعدد المواقع)</td>
-                <td style="">When to Use Multisite (متى تستخدم Multisite)، Installing and Configuring
-                    Multisite (تثبيت وتهيئة Multisite)، Users in Multisite (المستخدمون في Multisite)، Theme Development
-                    for Multisite (تطوير الثيمات لـ Multisite)، Plugins with Multisite (الإضافات مع Multisite)، Summary
-                    (ملخص).</td>
-            </tr>
-            <tr>
-                <td style=""><strong>أجزاء إضافية</strong></td>
-                <td style=""><strong>About the Author</strong> (عن المؤلف)، <strong>About the Technical
-                        Reviewer</strong> (عن المراجع التقني)، <strong>Acknowledgments</strong> (شكر وتقدير)،
-                    <strong>Introduction</strong> (مقدمة)، <strong>Index</strong> (فهرس).
-                </td>
-                <td style="">-</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><em>(ملاحظة: تظهر الفصول من 10 إلى 12 وأقسامها في الفهارس الداخلية المستخرجة في المصادر، حتى لو لم يتم إدراجها في
-            قائمة &quot;Contents at a Glance&quot; الأولى.)</em></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>يا فندم، طلبك بسيط وجميل، ده ملخص للكتاب بالهجة المصرية، وبعده هتلاقي تفاصيل المحتويات من الفصول
+                    والأجزاء زي ما
+                    طلبت بالظبط.</p>
+                <hr>
+                <h3 id="-">تعريف بمحتوى الكتاب (بلهجة مصرية مبسطة)</h3>
+                <p>يا فندم، الكتاب ده اسمه <strong>Pro WordPress Theme Development</strong> (تطوير ثيمات ووردبريس
+                    الاحترافي)،
+                    والكاتب بتاعه هو <strong>آدم أونيشي</strong>.</p>
+                <p>الهدف الأساسي من الكتاب ده هو إنه يدخلك <strong>بشكل عميق في عالم تطوير الثيمات لووردبريس</strong>،
+                    عشان تبقى
+                    مطور محترف. الكتاب ده يعتبر <strong>دليلك الشامل</strong> لـ &quot;ثيمنج ووردبريس&quot; (WordPress
+                    Theming).</p>
+                <p>الكتاب بيغطي كل حاجة ممكن تتخيلها بخصوص الموضوع. هتبدأ تتعلم الـ<strong>Template Files
+                        الأساسية</strong>، وهتفهم
+                    إزاي تشتغل بـ<strong>أنواع المحتوى المخصصة (Custom Post Types) والتصنيفات المخصصة
+                        (Taxonomies)</strong>.</p>
+                <p>والأهم، الكتاب ده بيعلمك إزاي تعمل <strong>تخصيص كامل للثيم بتاعك</strong> (Theme Customization)،
+                    وإزاي تفهم
+                    <strong>المفاهيم الأساسية</strong> اللي ووردبريس شغال بيها من جوه، لدرجة إنك تقدر تعمل <strong>وظائف
+                        متقدمة
+                        جداً</strong> في الموقع.
+                </p>
+                <p>ده غير إنه بيوريك إزاي تعمل <strong>إضافات (Plugins) خاصة بيك</strong> من الصفر، وإزاي تتعامل مع نظام
+                    المستخدمين
+                    والصلاحيات (Users, Roles, and Capabilities).</p>
+                <hr>
+                <h3 id="-">محتويات الكتاب من الفصول والأجزاء</h3>
+                <p>الكتاب ده بيغطي مواضيع كتير متقسمة على فصول رئيسية، وده عرض لأبواب وفصول الكتاب المتاحة في المصادر:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="">الفصل (Chapter)</th>
+                            <th style="">العنوان (Title)</th>
+                            <th style="">الأقسام الرئيسية المذكورة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style=""><strong>الفصل 1</strong></td>
+                            <td style=""><strong>Getting Started</strong> (البدء)</td>
+                            <td style="">-</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 2</strong></td>
+                            <td style=""><strong>Theme Anatomy and Template Hierarchy</strong> (تشريح الثيم وتسلسل
+                                القوالب)</td>
+                            <td style="">-</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 3</strong></td>
+                            <td style=""><strong>Content Options and the Loop</strong> (خيارات المحتوى والحلقة)</td>
+                            <td style="">Properties and Global Variables (خصائص ومتغيرات WP_Query)، Template Tags
+                                (وسوم القوالب)، Using <code>body_class()</code> and <code>post_class()</code> (استخدام
+                                دوال
+                                الكلاسات)، Building Your Theme, Part 2 (بناء الثيم، الجزء 2)، Summary (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 4</strong></td>
+                            <td style=""><strong>Using Custom Post Types</strong> (استخدام أنواع المنشورات المخصصة)
+                            </td>
+                            <td style="">Everything Is a Post (كل شيء هو منشور)، When Do I Need a Custom Post Type?
+                                (متى أحتاج CPT؟)، What Is a Custom Post Type Used for? (لِمَ يُستخدم CPT؟)، Creating
+                                Custom Post
+                                Types (إنشاء CPT)، Displaying Custom Post Types (عرض CPT)، Extending Post Types (توسيع
+                                أنواع
+                                المنشورات)، Building Your Theme, Part 3 (بناء الثيم، الجزء 3)، Summary (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 5</strong></td>
+                            <td style=""><strong>Creating Custom Taxonomies and Fields</strong> (إنشاء التصنيفات
+                                والحقول المخصصة)</td>
+                            <td style="">Introducing Taxonomies (مقدمة للتصنيفات).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 6</strong></td>
+                            <td style=""><strong>Customize with Hooks, Shortcodes, and Widgets</strong> (التخصيص
+                                باستخدام Hooks و Shortcodes و Widgets)</td>
+                            <td style="">-</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 7</strong></td>
+                            <td style=""><strong>Theme Options and the Theme Customizer</strong> (خيارات الثيم ومخصص
+                                الثيم)</td>
+                            <td style="">Adding a Logo Option (إضافة خيار شعار)، Adding a Featured Post Option (إضافة
+                                خيار منشور مميز)، Adding a Color Palette Option (إضافة خيار لوحة الألوان)، Summary
+                                (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 8</strong></td>
+                            <td style=""><strong>Users, Roles, and Capabilities</strong> (المستخدمون، الأدوار،
+                                والصلاحيات)</td>
+                            <td style="">User System (نظام المستخدم)، Customizing Roles and Capabilities (تخصيص
+                                الأدوار والصلاحيات)، Customizing User Login (تخصيص تسجيل دخول المستخدم)، Managing Users
+                                and User
+                                Data (إدارة المستخدمين وبياناتهم)، Building Your Theme, Part 7 (بناء الثيم، الجزء 7)،
+                                Summary
+                                (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 9</strong></td>
+                            <td style=""><strong>Plugins: When the Time Is Right</strong> (الإضافات: متى يحين الوقت
+                                المناسب)</td>
+                            <td style="">Plugins Bring Power, but Can Also Facilitate Evil (الإضافات تجلب القوة وقد
+                                تسهل الشر)، Is a Plugin the Right Option? (هل الإضافة هي الخيار الصحيح؟)، Making Your
+                                Theme
+                                Compatible with Plugins (جعل الثيم متوافقاً مع الإضافات)، How to Select a Plugin (كيف
+                                تختار إضافة).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 12</strong></td>
+                            <td style=""><strong>WordPress Comments and Internationalization</strong> (تعليقات
+                                ووردبريس والتدويل)</td>
+                            <td style="">WordPress Comments (تعليقات ووردبريس)، Internationalization (التدويل)،
+                                Summary (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 13</strong></td>
+                            <td style=""><strong>Plugin Development</strong> (تطوير الإضافات)</td>
+                            <td style="">Writing Your First Plugin (كتابة أول إضافة لك)، Encapsulating a Plugin in a
+                                Class (تغليف الإضافة في فئة)، Dealing with Data (التعامل مع البيانات: إنشاء جدول،
+                                إضافة/تحديث
+                                البيانات)، Initializing and Cleaning Up (التهيئة والتنظيف)، Admin Settings Pages (صفحات
+                                إعدادات
+                                المدير)، Adding to the Plugin Repository (الإضافة إلى مستودع الإضافات)، Summary (ملخص).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>الفصل 14</strong></td>
+                            <td style=""><strong>WordPress Multisite</strong> (ووردبريس متعدد المواقع)</td>
+                            <td style="">When to Use Multisite (متى تستخدم Multisite)، Installing and Configuring
+                                Multisite (تثبيت وتهيئة Multisite)، Users in Multisite (المستخدمون في Multisite)، Theme
+                                Development
+                                for Multisite (تطوير الثيمات لـ Multisite)، Plugins with Multisite (الإضافات مع
+                                Multisite)، Summary
+                                (ملخص).</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>أجزاء إضافية</strong></td>
+                            <td style=""><strong>About the Author</strong> (عن المؤلف)، <strong>About the Technical
+                                    Reviewer</strong> (عن المراجع التقني)، <strong>Acknowledgments</strong> (شكر
+                                وتقدير)،
+                                <strong>Introduction</strong> (مقدمة)، <strong>Index</strong> (فهرس).
+                            </td>
+                            <td style="">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><em>(ملاحظة: تظهر الفصول من 10 إلى 12 وأقسامها في الفهارس الداخلية المستخرجة في المصادر، حتى لو لم
+                        يتم إدراجها في
+                        قائمة &quot;Contents at a Glance&quot; الأولى.)</em></p>
 
 
 
-    <p>يا فندم، الفصل الأول ده هو المدخل الأساسي بتاعك لعالم تطوير الثيمات، واسمه <strong>&quot;Getting Started&quot;
-            (البدء)</strong>. الكتاب بياخدك في الفصل ده في رحلة سريعة عشان يفهمك إيه هو ووردبريس وإزاي تبدأ تجهز نفسك
-        كمطور، وبيركز على قواعد كتابة الأكواد اللي لازم تمشي عليها.</p>
-    <p>هنا شرح مستفيض للفصل الأول بالأمثلة والأكواد زي ما طلبت بالظبط:</p>
-    <hr>
-    <h2 id="-getting-started-">شرح الفصل الأول: Getting Started (الْبَدْء)</h2>
-    <p>الفصل الأول بيبدأ بتعريف بأصل ووردبريس، وبيغطي الأفكار الفلسفية لطريقة البناء، وكمان بيدخل في التفاصيل المهمة
-        المتعلقة بقواعد كتابة كود PHP في سياق تطوير الثيمات.</p>
-    <h3 id="1-">1. مقدمة عن ووردبريس ودوره</h3>
-    <p>الفصل بيوضح تاريخ الووردبريس:</p>
-    <ul>
-        <li><strong>البداية والتطور:</strong> ووردبريس اتعمل سنة <strong>2003</strong> على إيد <strong>مات مولينويج
-                ومارك ليتل</strong>. الفكرة كانت إنه يكون نظام <strong>للنشر الشخصي يكون معماري وأنيق</strong>. بدأ كفرع
-            من نظام قديم اسمه <code>b2/cafelog</code>.</li>
-        <li><strong>أشهر CMS:</strong> ووردبريس حالياً هو <strong>أشهر نظام لإدارة المحتوى (CMS)</strong> على الويب،
-            وأكتر من 60% من المواقع اللي بتستخدم أنظمة إدارة محتوى بتعتمد عليه.</li>
-        <li><strong>التحول الكامل لـ CMS:</strong> بعد إصدار <strong>نسخة 3.0 (Thelonious) في 2010</strong>، اللي قدمت
-            <strong>أنواع المنشورات المخصصة (custom post types)</strong> والقوائم المخصصة، زاد استخدام ووردبريس كنظام
-            إدارة محتوى متكامل.
-        </li>
-        <li><strong>المجتمع (Community):</strong> ووردبريس بيعتبر <strong>مشروع بيحركه المجتمع
-                (community-driven)</strong> لأنه مفتوح المصدر. أي حد يقدر يشارك في تطوير الكود الأساسي، أو التوثيق
-            (WordPress Codex)، أو حتى في تطوير الإضافات والثيمات المتاحة.</li>
-    </ul>
-    <h3 id="2-">2. تجهيز البيئة والتعمق في الثيمات</h3>
-    <p>الفصل بيلمح على الحاجات اللي محتاجها عشان تبدأ:</p>
-    <ul>
-        <li><strong>تنصيب ووردبريس:</strong> الكتاب بيشرح إنه بعد ما تكون جهزت السيرفر المحلي (زي AMPs)، عملية تنصيب
-            ووردبريس سهلة جداً وبتسمى <strong>&quot;Famous 5-Minute Install&quot;</strong>.</li>
-        <li><strong>نقاش البناء:</strong> بيفتح الفصل نقاش مهم بين <strong>بناء الثيم من الصفر (from Scratch)</strong>
-            أو الاعتماد على حلول جاهزة زي <strong>Frameworks</strong> (أطر العمل).<ul>
-                <li><strong>مميزات الحلول الجاهزة:</strong> أطر العمل (زي Twitter Bootstrap) ممكن تخلي إنتاج النماذج
-                    الأولية (prototypes) سريع جداً.</li>
-                <li><strong>رأي الكاتب:</strong> يفضل البناء من الصفر أو باستخدام أساس أنت اللي مطوره بنفسك. ده لأن
-                    الاعتماد على الحلول الجاهزة في <strong>كود الإنتاج (production code)</strong> ممكن يعمل مشاكل زي الـ
-                    Markup الضعيف أو صعوبة الصيانة بعد كده.</li>
-            </ul>
-        </li>
-    </ul>
-    <h3 id="3-php-">3. أساسيات الـ PHP وقواعد كتابة الأكواد</h3>
-    <p>ده جزء مهم جداً في الفصل، وبيركز على القواعد اللي لازم يلتزم بيها المطور عشان يكتب كود متوافق مع ووردبريس ويكون
-        مقروء (Readability).</p>
-    <h4 id="-alternate-syntax-">أ. البنية البديلة لجمل التحكم (Alternate Syntax)</h4>
-    <p>في تطوير ثيمات ووردبريس، هتلاقي المطورين بيستخدموا طريقة مختلفة لكتابة جمل التحكم زي <code>if</code> و
-        <code>while</code>، وده بيحسن قراءة الملفات اللي فيها مزيج من PHP و HTML.
-    </p>
-    <ul>
-        <li><strong>الطريقة العادية (اللي بتستخدم الأقواس المعقوفة):</strong>
-            <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-title">if</span><span class="hljs-params">( condition )</span></span> {
+                <p>يا فندم، الفصل الأول ده هو المدخل الأساسي بتاعك لعالم تطوير الثيمات، واسمه <strong>&quot;Getting
+                        Started&quot;
+                        (البدء)</strong>. الكتاب بياخدك في الفصل ده في رحلة سريعة عشان يفهمك إيه هو ووردبريس وإزاي تبدأ
+                    تجهز نفسك
+                    كمطور، وبيركز على قواعد كتابة الأكواد اللي لازم تمشي عليها.</p>
+                <p>هنا شرح مستفيض للفصل الأول بالأمثلة والأكواد زي ما طلبت بالظبط:</p>
+                <hr>
+                <h2 id="-getting-started-">شرح الفصل الأول: Getting Started (الْبَدْء)</h2>
+                <p>الفصل الأول بيبدأ بتعريف بأصل ووردبريس، وبيغطي الأفكار الفلسفية لطريقة البناء، وكمان بيدخل في
+                    التفاصيل المهمة
+                    المتعلقة بقواعد كتابة كود PHP في سياق تطوير الثيمات.</p>
+                <h3 id="1-">1. مقدمة عن ووردبريس ودوره</h3>
+                <p>الفصل بيوضح تاريخ الووردبريس:</p>
+                <ul>
+                    <li><strong>البداية والتطور:</strong> ووردبريس اتعمل سنة <strong>2003</strong> على إيد <strong>مات
+                            مولينويج
+                            ومارك ليتل</strong>. الفكرة كانت إنه يكون نظام <strong>للنشر الشخصي يكون معماري
+                            وأنيق</strong>. بدأ كفرع
+                        من نظام قديم اسمه <code>b2/cafelog</code>.</li>
+                    <li><strong>أشهر CMS:</strong> ووردبريس حالياً هو <strong>أشهر نظام لإدارة المحتوى (CMS)</strong>
+                        على الويب،
+                        وأكتر من 60% من المواقع اللي بتستخدم أنظمة إدارة محتوى بتعتمد عليه.</li>
+                    <li><strong>التحول الكامل لـ CMS:</strong> بعد إصدار <strong>نسخة 3.0 (Thelonious) في 2010</strong>،
+                        اللي قدمت
+                        <strong>أنواع المنشورات المخصصة (custom post types)</strong> والقوائم المخصصة، زاد استخدام
+                        ووردبريس كنظام
+                        إدارة محتوى متكامل.
+                    </li>
+                    <li><strong>المجتمع (Community):</strong> ووردبريس بيعتبر <strong>مشروع بيحركه المجتمع
+                            (community-driven)</strong> لأنه مفتوح المصدر. أي حد يقدر يشارك في تطوير الكود الأساسي، أو
+                        التوثيق
+                        (WordPress Codex)، أو حتى في تطوير الإضافات والثيمات المتاحة.</li>
+                </ul>
+                <h3 id="2-">2. تجهيز البيئة والتعمق في الثيمات</h3>
+                <p>الفصل بيلمح على الحاجات اللي محتاجها عشان تبدأ:</p>
+                <ul>
+                    <li><strong>تنصيب ووردبريس:</strong> الكتاب بيشرح إنه بعد ما تكون جهزت السيرفر المحلي (زي AMPs)،
+                        عملية تنصيب
+                        ووردبريس سهلة جداً وبتسمى <strong>&quot;Famous 5-Minute Install&quot;</strong>.</li>
+                    <li><strong>نقاش البناء:</strong> بيفتح الفصل نقاش مهم بين <strong>بناء الثيم من الصفر (from
+                            Scratch)</strong>
+                        أو الاعتماد على حلول جاهزة زي <strong>Frameworks</strong> (أطر العمل).<ul>
+                            <li><strong>مميزات الحلول الجاهزة:</strong> أطر العمل (زي Twitter Bootstrap) ممكن تخلي إنتاج
+                                النماذج
+                                الأولية (prototypes) سريع جداً.</li>
+                            <li><strong>رأي الكاتب:</strong> يفضل البناء من الصفر أو باستخدام أساس أنت اللي مطوره بنفسك.
+                                ده لأن
+                                الاعتماد على الحلول الجاهزة في <strong>كود الإنتاج (production code)</strong> ممكن يعمل
+                                مشاكل زي الـ
+                                Markup الضعيف أو صعوبة الصيانة بعد كده.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="3-php-">3. أساسيات الـ PHP وقواعد كتابة الأكواد</h3>
+                <p>ده جزء مهم جداً في الفصل، وبيركز على القواعد اللي لازم يلتزم بيها المطور عشان يكتب كود متوافق مع
+                    ووردبريس ويكون
+                    مقروء (Readability).</p>
+                <h4 id="-alternate-syntax-">أ. البنية البديلة لجمل التحكم (Alternate Syntax)</h4>
+                <p>في تطوير ثيمات ووردبريس، هتلاقي المطورين بيستخدموا طريقة مختلفة لكتابة جمل التحكم زي <code>if</code>
+                    و
+                    <code>while</code>، وده بيحسن قراءة الملفات اللي فيها مزيج من PHP و HTML.
+                </p>
+                <ul>
+                    <li><strong>الطريقة العادية (اللي بتستخدم الأقواس المعقوفة):</strong>
+                        <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-title">if</span><span class="hljs-params">( condition )</span></span> {
     <span class="hljs-comment">// do something</span>
 }
 </code></pre>
-        </li>
-        <li><strong>الطريقة البديلة (WordPress Style):</strong> بنستخدم نقطتين رأسيتين (الكولون <code>:</code>) بدلاً من
-            القوس الافتتاحي، وكلمة نهاية للجملة (زي <code>endif;</code> أو <code>endwhile;</code>) بدلاً من القوس
-            الإغلاقي.</li>
-    </ul>
-    <p><strong>مثال على البنية البديلة (كود):</strong></p>
-    <pre><code class="lang-php"><span class="hljs-keyword">if</span>( condition ):
+                    </li>
+                    <li><strong>الطريقة البديلة (WordPress Style):</strong> بنستخدم نقطتين رأسيتين (الكولون
+                        <code>:</code>) بدلاً من
+                        القوس الافتتاحي، وكلمة نهاية للجملة (زي <code>endif;</code> أو <code>endwhile;</code>) بدلاً من
+                        القوس
+                        الإغلاقي.
+                    </li>
+                </ul>
+                <p><strong>مثال على البنية البديلة (كود):</strong></p>
+                <pre><code class="lang-php"><span class="hljs-keyword">if</span>( condition ):
     // <span class="hljs-keyword">do</span> something
 <span class="hljs-keyword">endif</span><span class="hljs-comment">;</span>
 </code></pre>
-    <p><strong>مثال على استخدامها في الحلقة (The Loop) من ثيم Twenty Twelve:</strong></p>
-    <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> ( have_posts() ) : <span class="hljs-meta">?&gt;</span></span>
+                <p><strong>مثال على استخدامها في الحلقة (The Loop) من ثيم Twenty Twelve:</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> ( have_posts() ) : <span class="hljs-meta">?&gt;</span></span>
     <span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-comment">/* Start the Loop */</span> <span class="hljs-meta">?&gt;</span></span>
     <span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">while</span> ( have_posts() ) :
         the_post(); <span class="hljs-meta">?&gt;</span></span>
@@ -214,62 +267,80 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"entry-title"</span>&gt;</span><span class="php"><span class="hljs-meta">&lt;?php</span> _e( <span class="hljs-string">'Nothing Found'</span>, <span class="hljs-string">'twentyeleven'</span> ); <span class="hljs-meta">?&gt;</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">endif</span>; <span class="hljs-keyword">endwhile</span>; <span class="hljs-meta">?&gt;</span></span>
 </code></pre>
-    <p><strong>ملحوظة مهمة:</strong> الكاتب بيأكد إن البنية البديلة دي المفروض تستخدم بشكل أساسي في <strong>ملفات
-            القوالب اللي بتطلع HTML</strong>. لكن لو بتكتب كود في ملف <strong>functions file</strong> (ملف الوظائف) أو
-        كود ملوش علاقة مباشرة بالـ HTML، الأفضل إنك تستخدم البنية القياسية اللي فيها الأقواس المعقوفة.</p>
-    <h4 id="-yoda-condition-">ب. قاعدة يودا (Yoda Condition)</h4>
-    <p>دي قاعدة ممتازة عشان تخلي الكود بتاعك نظيف وآمن من الأخطاء السهلة. القاعدة بتلزمك إنك تخلي <strong>المتغير اللي
-            بتقارنه في الجهة اليمين</strong> من جملة الشرط.</p>
-    <p><strong>ليه بنستخدمها؟</strong> لو نسيت علامة يساوي واحدة بالغلط (مثلاً كتبت <code>=</code> بدل <code>==</code>)،
-        الكود هيطلع خطأ (parse error) بدلاً من إنه يرجع قيمة <code>true</code> بالغلط ويتسبب في مشكلة صعبة تكتشفها.</p>
-    <p><strong>مثال على قاعدة يودا (كود):</strong></p>
-    <pre><code class="lang-php"><span class="hljs-keyword">if</span> ( <span class="hljs-literal">true</span> == $the_force ) {
+                <p><strong>ملحوظة مهمة:</strong> الكاتب بيأكد إن البنية البديلة دي المفروض تستخدم بشكل أساسي في
+                    <strong>ملفات
+                        القوالب اللي بتطلع HTML</strong>. لكن لو بتكتب كود في ملف <strong>functions file</strong> (ملف
+                    الوظائف) أو
+                    كود ملوش علاقة مباشرة بالـ HTML، الأفضل إنك تستخدم البنية القياسية اللي فيها الأقواس المعقوفة.
+                </p>
+                <h4 id="-yoda-condition-">ب. قاعدة يودا (Yoda Condition)</h4>
+                <p>دي قاعدة ممتازة عشان تخلي الكود بتاعك نظيف وآمن من الأخطاء السهلة. القاعدة بتلزمك إنك تخلي
+                    <strong>المتغير اللي
+                        بتقارنه في الجهة اليمين</strong> من جملة الشرط.
+                </p>
+                <p><strong>ليه بنستخدمها؟</strong> لو نسيت علامة يساوي واحدة بالغلط (مثلاً كتبت <code>=</code> بدل
+                    <code>==</code>)،
+                    الكود هيطلع خطأ (parse error) بدلاً من إنه يرجع قيمة <code>true</code> بالغلط ويتسبب في مشكلة صعبة
+                    تكتشفها.
+                </p>
+                <p><strong>مثال على قاعدة يودا (كود):</strong></p>
+                <pre><code class="lang-php"><span class="hljs-keyword">if</span> ( <span class="hljs-literal">true</span> == $the_force ) {
     $victorious = you_will( $be );
 }
 </code></pre>
-    <h4 id="-objects-and-variables-">ج. المتغيرات والأشياء (Objects and Variables)</h4>
-    <p>بيتم تقديم مفهوم الـ<strong>كلاسات والأشياء (Objects and Classes)</strong>، وبتبدأ تتعرف على كلاس مهم جداً في
-        ووردبريس وهو <strong>WP_Query</strong>. ده الكلاس المسؤول عن استرجاع المحتوى.</p>
-    <p><strong>مثال على استدعاء ميثود من كلاس WP_Query:</strong></p>
-    <pre><code class="lang-php"><span class="hljs-variable">$new_query</span>-&gt;the_post();
+                <h4 id="-objects-and-variables-">ج. المتغيرات والأشياء (Objects and Variables)</h4>
+                <p>بيتم تقديم مفهوم الـ<strong>كلاسات والأشياء (Objects and Classes)</strong>، وبتبدأ تتعرف على كلاس مهم
+                    جداً في
+                    ووردبريس وهو <strong>WP_Query</strong>. ده الكلاس المسؤول عن استرجاع المحتوى.</p>
+                <p><strong>مثال على استدعاء ميثود من كلاس WP_Query:</strong></p>
+                <pre><code class="lang-php"><span class="hljs-variable">$new_query</span>-&gt;the_post();
 </code></pre>
-    <p>هتتعمق في فهم <code>WP_Query</code> أكتر في الفصل الثالث عشان تعرف إزاي تجيب المحتوى لملفات القوالب.</p>
-    <h4 id="-naming-conventions-">د. قواعد التسمية (Naming Conventions)</h4>
-    <p>في ووردبريس، لازم تلتزم بقواعد تسمية صارمة. كل الكلمات في أسماء الدوال والمتغيرات لازم تتفصل بـ
-        <strong>Underscores (الشرطة السفلية <code>_</code>)</strong> في كل الأوقات.
-    </p>
+                <p>هتتعمق في فهم <code>WP_Query</code> أكتر في الفصل الثالث عشان تعرف إزاي تجيب المحتوى لملفات القوالب.
+                </p>
+                <h4 id="-naming-conventions-">د. قواعد التسمية (Naming Conventions)</h4>
+                <p>في ووردبريس، لازم تلتزم بقواعد تسمية صارمة. كل الكلمات في أسماء الدوال والمتغيرات لازم تتفصل بـ
+                    <strong>Underscores (الشرطة السفلية <code>_</code>)</strong> في كل الأوقات.
+                </p>
 
 
-    <p>أهلاً بك يا فندم، طلبك على عيني وراسي. الفصل التاني ده هو اللي بيعرفك على &quot;خريطة الشغل&quot; أو الهيكل
-        العظمي (Anatomy) بتاع الثيم بتاعك، وإزاي ووردبريس بيقرر هيعرض إيه وإزاي.</p>
-    <p>ده شرح مستفيض للفصل الثاني <strong>&quot;Theme Anatomy and Template Hierarchy&quot; (تشريح الثيم وتسلسل
-            القوالب)</strong> بالهجة المصرية، مع الأمثلة والأكواد:</p>
-    <hr>
-    <h2 id="-">شرح الفصل الثاني: تشريح الثيم وتسلسل القوالب</h2>
-    <p>الفصل التاني ده يعتبر هو البوصلة بتاعتك في عالم ووردبريس. بيشرحلك إيه هي الملفات الأساسية اللي مينفعش الثيم بتاعك
-        يشتغل من غيرها، وإيه الدوال (Functions) اللي لازم تكون موجودة، والأهم من كده، بيشرحلك إزاي ووردبريس بيفكر عشان
-        يعرض الصفحة اللي بيطلبها المستخدم.</p>
-    <h3 id="1-bare-minimum-files-">1. الملفات الأساسية المطلوبة (Bare Minimum Files)</h3>
-    <p>يا فندم، أي ثيم ووردبريس عشان يشتغل لازم يكون فيه ملفين على الأقل:</p>
-    <ol>
-        <li><strong><code>style.css</code>:</strong> ملف الـ CSS اللي بيحدد شكل الثيم.</li>
-        <li><strong><code>index.php</code>:</strong> ده الملف اللي بيعرض المحتوى الأساسي (المحتوى الاحتياطي أو الـ
-            Fallback).</li>
-    </ol>
-    <h4 id="-style-css-">أ. ملف الـ <code>style.css</code> (بطاقة تعريف الثيم)</h4>
-    <p>ملف الـ <code>style.css</code> مش بس للستايل، ده كمان <strong>بطاقة تعريف الثيم</strong>. لازم يكون فيه تعليق
-        (Comment Block) في الأول بيحتوي على البيانات الأساسية اللي ووردبريس بيحتاجها عشان يتعرف على الثيم ويظهره في لوحة
-        التحكم.</p>
-    <p><strong>أهم البيانات اللي لازم تكون في التعليق:</strong></p>
-    <ul>
-        <li><code>Theme Name</code>: اسم الثيم.</li>
-        <li><code>Author</code>: اسم المطور.</li>
-        <li><code>Version</code>: رقم إصدار الثيم.</li>
-        <li><code>Text Domain</code>: مُعرّف فريد بيستخدم في عملية الترجمة (Internationalization)، وده بيكون غالبًا نسخة
-            مصغرة من اسم الثيم.</li>
-    </ul>
-    <p><strong>مثال لكود الـ <code>style.css</code> Header:</strong></p>
-    <pre><code class="lang-css"><span class="hljs-comment">/*
+                <p>أهلاً بك يا فندم، طلبك على عيني وراسي. الفصل التاني ده هو اللي بيعرفك على &quot;خريطة الشغل&quot; أو
+                    الهيكل
+                    العظمي (Anatomy) بتاع الثيم بتاعك، وإزاي ووردبريس بيقرر هيعرض إيه وإزاي.</p>
+                <p>ده شرح مستفيض للفصل الثاني <strong>&quot;Theme Anatomy and Template Hierarchy&quot; (تشريح الثيم
+                        وتسلسل
+                        القوالب)</strong> بالهجة المصرية، مع الأمثلة والأكواد:</p>
+                <hr>
+                <h2 id="-">شرح الفصل الثاني: تشريح الثيم وتسلسل القوالب</h2>
+                <p>الفصل التاني ده يعتبر هو البوصلة بتاعتك في عالم ووردبريس. بيشرحلك إيه هي الملفات الأساسية اللي مينفعش
+                    الثيم بتاعك
+                    يشتغل من غيرها، وإيه الدوال (Functions) اللي لازم تكون موجودة، والأهم من كده، بيشرحلك إزاي ووردبريس
+                    بيفكر عشان
+                    يعرض الصفحة اللي بيطلبها المستخدم.</p>
+                <h3 id="1-bare-minimum-files-">1. الملفات الأساسية المطلوبة (Bare Minimum Files)</h3>
+                <p>يا فندم، أي ثيم ووردبريس عشان يشتغل لازم يكون فيه ملفين على الأقل:</p>
+                <ol>
+                    <li><strong><code>style.css</code>:</strong> ملف الـ CSS اللي بيحدد شكل الثيم.</li>
+                    <li><strong><code>index.php</code>:</strong> ده الملف اللي بيعرض المحتوى الأساسي (المحتوى الاحتياطي
+                        أو الـ
+                        Fallback).</li>
+                </ol>
+                <h4 id="-style-css-">أ. ملف الـ <code>style.css</code> (بطاقة تعريف الثيم)</h4>
+                <p>ملف الـ <code>style.css</code> مش بس للستايل، ده كمان <strong>بطاقة تعريف الثيم</strong>. لازم يكون
+                    فيه تعليق
+                    (Comment Block) في الأول بيحتوي على البيانات الأساسية اللي ووردبريس بيحتاجها عشان يتعرف على الثيم
+                    ويظهره في لوحة
+                    التحكم.</p>
+                <p><strong>أهم البيانات اللي لازم تكون في التعليق:</strong></p>
+                <ul>
+                    <li><code>Theme Name</code>: اسم الثيم.</li>
+                    <li><code>Author</code>: اسم المطور.</li>
+                    <li><code>Version</code>: رقم إصدار الثيم.</li>
+                    <li><code>Text Domain</code>: مُعرّف فريد بيستخدم في عملية الترجمة (Internationalization)، وده بيكون
+                        غالبًا نسخة
+                        مصغرة من اسم الثيم.</li>
+                </ul>
+                <p><strong>مثال لكود الـ <code>style.css</code> Header:</strong></p>
+                <pre><code class="lang-css"><span class="hljs-comment">/*
  * Theme Name: Pro WordPress Theme Development
  * Author: Adam Onishi
  * Description: An example theme for the Pro WordPress theme development book
@@ -277,26 +348,32 @@
  * Text Domain: prowordpress
  */</span>
 </code></pre>
-    <p><strong>ملاحظة إضافية:</strong> عشان الثيم يظهر بشكل حلو في قائمة الثيمات، لازم تحط صورة اسمها
-        <strong><code>screenshot.png</code></strong> (موصى بحجم 600x450px) في الجذر بتاع مجلد الثيم.
-    </p>
-    <h3 id="2-core-template-files-">2. الملفات المشتركة الأساسية (Core Template Files)</h3>
-    <p>عشان الثيم يبقى عملي، بتحتاج تقسمه لأجزاء مشتركة بتظهر في كل الصفحات، زي الهيدر والفوتر والسايدبار:</p>
-    <h4 id="-header-php-">أ. <code>header.php</code></h4>
-    <p>الملف ده بيحتوي على بداية كود الـ HTML، من أول &lt;<code>!DOCTYPE html</code>&gt; لحد بداية جسم الصفحة
-        &lt;<code>body</code>&gt;، وأيضاً وسم &lt;<code>header</code>&gt; بتاع الموقع.</p>
-    <p><strong>أهم الدوال اللي لازم تحطها في ملف <code>header.php</code>:</strong></p>
-    <ol>
-        <li><strong><code>wp_head()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل قفلة وسم الـ
-            <code>&lt;head&gt;</code>. وظيفتها إنها بتسمح لووردبريس وللإضافات إنهم يضيفوا ملفات CSS أو أكواد Scripts أو
-            Meta Tags في المكان الصح في الصفحة.
-        </li>
-        <li><strong><code>language_attributes()</code>:</strong> بتتحط في وسم الـ <code>&lt;html &gt;</code>.</li>
-        <li><strong><code>bloginfo(&#39;charset&#39;)</code>:</strong> بتعرض الـ Encoding بتاع الموقع.</li>
-        <li><strong><code>wp_title()</code>:</strong> بتعرض عنوان الصفحة.</li>
-    </ol>
-    <p><strong>مثال لكود في <code>header.php</code>:</strong></p>
-    <pre><code class="lang-php"><span class="xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+                <p><strong>ملاحظة إضافية:</strong> عشان الثيم يظهر بشكل حلو في قائمة الثيمات، لازم تحط صورة اسمها
+                    <strong><code>screenshot.png</code></strong> (موصى بحجم 600x450px) في الجذر بتاع مجلد الثيم.
+                </p>
+                <h3 id="2-core-template-files-">2. الملفات المشتركة الأساسية (Core Template Files)</h3>
+                <p>عشان الثيم يبقى عملي، بتحتاج تقسمه لأجزاء مشتركة بتظهر في كل الصفحات، زي الهيدر والفوتر والسايدبار:
+                </p>
+                <h4 id="-header-php-">أ. <code>header.php</code></h4>
+                <p>الملف ده بيحتوي على بداية كود الـ HTML، من أول &lt;<code>!DOCTYPE html</code>&gt; لحد بداية جسم
+                    الصفحة
+                    &lt;<code>body</code>&gt;، وأيضاً وسم &lt;<code>header</code>&gt; بتاع الموقع.</p>
+                <p><strong>أهم الدوال اللي لازم تحطها في ملف <code>header.php</code>:</strong></p>
+                <ol>
+                    <li><strong><code>wp_head()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل قفلة
+                        وسم الـ
+                        <code>&lt;head&gt;</code>. وظيفتها إنها بتسمح لووردبريس وللإضافات إنهم يضيفوا ملفات CSS أو أكواد
+                        Scripts أو
+                        Meta Tags في المكان الصح في الصفحة.
+                    </li>
+                    <li><strong><code>language_attributes()</code>:</strong> بتتحط في وسم الـ
+                        <code>&lt;html &gt;</code>.
+                    </li>
+                    <li><strong><code>bloginfo(&#39;charset&#39;)</code>:</strong> بتعرض الـ Encoding بتاع الموقع.</li>
+                    <li><strong><code>wp_title()</code>:</strong> بتعرض عنوان الصفحة.</li>
+                </ol>
+                <p><strong>مثال لكود في <code>header.php</code>:</strong></p>
+                <pre><code class="lang-php"><span class="xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-js"</span> &lt;?<span class="hljs-attr">php</span> <span class="hljs-attr">language_attributes</span>(); ?&gt;</span>&gt;
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"&lt;?php bloginfo( 'charset' ); ?&gt;"</span> /&gt;</span>
@@ -311,91 +388,107 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;?php echo home_url(); ?&gt;"</span>&gt;</span>Pro WordPress Theme Development<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></span>
 </code></pre>
-    <h4 id="-footer-php-">ب. <code>footer.php</code></h4>
-    <p>الملف ده بيحتوي على نهاية الـ HTML (قفلة جسم الصفحة و الـ HTML).</p>
-    <p><strong>أهم الدوال اللي لازم تحطها في ملف <code>footer.php</code>:</strong></p>
-    <ol>
-        <li><strong><code>wp_footer()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل قفلة وسم الـ
-            <code>&lt;/body&gt;</code>. وظيفتها إنها بتضيف الأكواد اللازمة في نهاية الصفحة، زي أكواد الإحصائيات
-            (Analytics) أو شريط الإدارة بتاع ووردبريس (Admin Bar) اللي بيظهر لما تكون مسجل دخول. لو نسيتها، ممكن بعض
-            الإضافات ما تشتغلش صح.
-        </li>
-    </ol>
-    <h4 id="-sidebar-php-comments-php-">ج. <code>sidebar.php</code> و <code>comments.php</code></h4>
-    <ul>
-        <li><strong><code>sidebar.php</code>:</strong> يُستخدم لعرض المحتوى الجانبي المتكرر في صفحات كتير، زي الـ
-            Widgets.</li>
-        <li><strong><code>comments.php</code>:</strong> يُستخدم لتوليد كود الـ HTML الخاص بنظام التعليقات في منشور معين.
-        </li>
-    </ul>
-    <h3 id="3-template-hierarchy-">3. التسلسل الهرمي للقوالب (Template Hierarchy)</h3>
-    <p>هنا بتيجي النقطة الأهم في الفصل ده. إزاي ووردبريس بيقرر يستخدم ملف <code>page.php</code> ولا ملف
-        <code>single.php</code> ولا <code>index.php</code>؟ بيستخدم نظام <strong>الأولوية (Priority)</strong>.
-    </p>
-    <p><strong>القاعدة:</strong> ووردبريس بيبدأ يبحث عن الملف <strong>الأكثر تحديداً</strong> (Most Specific) لنوع
-        المحتوى ده. لو مالقاهوش، بيرجع تدريجياً للملف الأعم، لحد ما يوصل لـ <code>index.php</code> اللي هو الـ Fallback
-        النهائي.</p>
-    <table>
-        <thead>
-            <tr>
-                <th style="text-align:left">نوع الصفحة (المحتوى)</th>
-                <th style="text-align:left">الملف الأكثر تحديداً (الأولوية)</th>
-                <th style="text-align:left">الملف الاحتياطي العام</th>
-                <th style="text-align:left">المرجع</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="text-align:left"><strong>صفحة ثابتة</strong> (مثل صفحة &quot;من نحن&quot;)</td>
-                <td style="text-align:left"><code>page-{slug}.php</code> أو <code>page-{ID}.php</code></td>
-                <td style="text-align:left"><code>page.php</code> &gt; <code>index.php</code></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:left"><strong>منشور فردي</strong> (بوست عادي)</td>
-                <td style="text-align:left"><code>single-post.php</code> (لنوع المنشور الافتراضي)</td>
-                <td style="text-align:left"><code>single.php</code> &gt; <code>index.php</code></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:left"><strong>منشور نوع مخصص</strong> (Custom Post Type)</td>
-                <td style="text-align:left"><code>single-{posttype}.php</code> (زي <code>single-movie.php</code>)</td>
-                <td style="text-align:left"><code>single.php</code> &gt; <code>index.php</code></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:left"><strong>أرشيف عام</strong> (تصنيفات، وسوم، مؤلف)</td>
-                <td style="text-align:left"><code>category.php</code>، <code>tag.php</code>، <code>date.php</code>، إلخ
-                </td>
-                <td style="text-align:left"><code>archive.php</code> &gt; <code>index.php</code></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:left"><strong>صفحة 404</strong> (غير موجودة)</td>
-                <td style="text-align:left"><code>404.php</code></td>
-                <td style="text-align:left"><code>index.php</code> (افتراضياً)</td>
-            </tr>
-        </tbody>
-    </table>
-    <p><strong>ملحوظة عن <code>single.php</code>:</strong> ملف <code>single.php</code> بيستخدم لعرض كل المنشورات
-        الفردية، بما في ذلك أنواع المنشورات المخصصة (Custom Post Types)، لو مفيش ملف محدد باسم
-        <code>single-posttype.php</code>.
-    </p>
-    <h3 id="4-enqueuing-assets-">4. تضمين الأصول (Enqueuing Assets)</h3>
-    <p>لتحميل ملفات CSS (الـ Styles) وملفات JavaScript (الـ Scripts)، <strong>مينفعش</strong> تحطها مباشرة في ملف الـ
-        <code>header.php</code> باستخدام وسوم <code>&lt;link&gt;</code> و <code>&lt;script&gt;</code>. الصح إنك تستخدم
-        وظائف ووردبريس اللي اسمها Enqueuing عشان تتأكد إن الملفات بتتحمل مرة واحدة، في المكان الصح، وبالترتيب الصح.
-    </p>
-    <h4 id="-styles-scripts-">أ. تحميل Styles و Scripts:</h4>
-    <p>وظائف التحميل دي بتتم في ملف <code>functions.php</code>.</p>
-    <ul>
-        <li><strong>لتحميل Style:</strong> استخدم <code>wp_enqueue_style()</code>.</li>
-        <li><strong>لتحميل Script:</strong> استخدم <code>wp_enqueue_script()</code>.</li>
-    </ul>
-    <p><strong>مثال (في ملف <code>functions.php</code>) لإزالة jQuery الخاص بووردبريس وتحميل نسخة من Google
-            API:</strong></p>
-    <p>الكاتب بينصح تعمل كده عشان تحسن الأداء (Caching)، بس بشرط <strong>ما تعملش كده في لوحة تحكم الأدمن</strong>:</p>
-    <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prowordpress_scripts</span><span class="hljs-params">()</span> </span>{
+                <h4 id="-footer-php-">ب. <code>footer.php</code></h4>
+                <p>الملف ده بيحتوي على نهاية الـ HTML (قفلة جسم الصفحة و الـ HTML).</p>
+                <p><strong>أهم الدوال اللي لازم تحطها في ملف <code>footer.php</code>:</strong></p>
+                <ol>
+                    <li><strong><code>wp_footer()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل
+                        قفلة وسم الـ
+                        <code>&lt;/body&gt;</code>. وظيفتها إنها بتضيف الأكواد اللازمة في نهاية الصفحة، زي أكواد
+                        الإحصائيات
+                        (Analytics) أو شريط الإدارة بتاع ووردبريس (Admin Bar) اللي بيظهر لما تكون مسجل دخول. لو نسيتها،
+                        ممكن بعض
+                        الإضافات ما تشتغلش صح.
+                    </li>
+                </ol>
+                <h4 id="-sidebar-php-comments-php-">ج. <code>sidebar.php</code> و <code>comments.php</code></h4>
+                <ul>
+                    <li><strong><code>sidebar.php</code>:</strong> يُستخدم لعرض المحتوى الجانبي المتكرر في صفحات كتير،
+                        زي الـ
+                        Widgets.</li>
+                    <li><strong><code>comments.php</code>:</strong> يُستخدم لتوليد كود الـ HTML الخاص بنظام التعليقات في
+                        منشور معين.
+                    </li>
+                </ul>
+                <h3 id="3-template-hierarchy-">3. التسلسل الهرمي للقوالب (Template Hierarchy)</h3>
+                <p>هنا بتيجي النقطة الأهم في الفصل ده. إزاي ووردبريس بيقرر يستخدم ملف <code>page.php</code> ولا ملف
+                    <code>single.php</code> ولا <code>index.php</code>؟ بيستخدم نظام <strong>الأولوية
+                        (Priority)</strong>.
+                </p>
+                <p><strong>القاعدة:</strong> ووردبريس بيبدأ يبحث عن الملف <strong>الأكثر تحديداً</strong> (Most
+                    Specific) لنوع
+                    المحتوى ده. لو مالقاهوش، بيرجع تدريجياً للملف الأعم، لحد ما يوصل لـ <code>index.php</code> اللي هو
+                    الـ Fallback
+                    النهائي.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">نوع الصفحة (المحتوى)</th>
+                            <th style="text-align:left">الملف الأكثر تحديداً (الأولوية)</th>
+                            <th style="text-align:left">الملف الاحتياطي العام</th>
+                            <th style="text-align:left">المرجع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>صفحة ثابتة</strong> (مثل صفحة &quot;من نحن&quot;)</td>
+                            <td style="text-align:left"><code>page-{slug}.php</code> أو <code>page-{ID}.php</code></td>
+                            <td style="text-align:left"><code>page.php</code> &gt; <code>index.php</code></td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>منشور فردي</strong> (بوست عادي)</td>
+                            <td style="text-align:left"><code>single-post.php</code> (لنوع المنشور الافتراضي)</td>
+                            <td style="text-align:left"><code>single.php</code> &gt; <code>index.php</code></td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>منشور نوع مخصص</strong> (Custom Post Type)</td>
+                            <td style="text-align:left"><code>single-{posttype}.php</code> (زي
+                                <code>single-movie.php</code>)
+                            </td>
+                            <td style="text-align:left"><code>single.php</code> &gt; <code>index.php</code></td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>أرشيف عام</strong> (تصنيفات، وسوم، مؤلف)</td>
+                            <td style="text-align:left"><code>category.php</code>، <code>tag.php</code>،
+                                <code>date.php</code>، إلخ
+                            </td>
+                            <td style="text-align:left"><code>archive.php</code> &gt; <code>index.php</code></td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>صفحة 404</strong> (غير موجودة)</td>
+                            <td style="text-align:left"><code>404.php</code></td>
+                            <td style="text-align:left"><code>index.php</code> (افتراضياً)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>ملحوظة عن <code>single.php</code>:</strong> ملف <code>single.php</code> بيستخدم لعرض كل
+                    المنشورات
+                    الفردية، بما في ذلك أنواع المنشورات المخصصة (Custom Post Types)، لو مفيش ملف محدد باسم
+                    <code>single-posttype.php</code>.
+                </p>
+                <h3 id="4-enqueuing-assets-">4. تضمين الأصول (Enqueuing Assets)</h3>
+                <p>لتحميل ملفات CSS (الـ Styles) وملفات JavaScript (الـ Scripts)، <strong>مينفعش</strong> تحطها مباشرة
+                    في ملف الـ
+                    <code>header.php</code> باستخدام وسوم <code>&lt;link&gt;</code> و <code>&lt;script&gt;</code>. الصح
+                    إنك تستخدم
+                    وظائف ووردبريس اللي اسمها Enqueuing عشان تتأكد إن الملفات بتتحمل مرة واحدة، في المكان الصح،
+                    وبالترتيب الصح.
+                </p>
+                <h4 id="-styles-scripts-">أ. تحميل Styles و Scripts:</h4>
+                <p>وظائف التحميل دي بتتم في ملف <code>functions.php</code>.</p>
+                <ul>
+                    <li><strong>لتحميل Style:</strong> استخدم <code>wp_enqueue_style()</code>.</li>
+                    <li><strong>لتحميل Script:</strong> استخدم <code>wp_enqueue_script()</code>.</li>
+                </ul>
+                <p><strong>مثال (في ملف <code>functions.php</code>) لإزالة jQuery الخاص بووردبريس وتحميل نسخة من Google
+                        API:</strong></p>
+                <p>الكاتب بينصح تعمل كده عشان تحسن الأداء (Caching)، بس بشرط <strong>ما تعملش كده في لوحة تحكم
+                        الأدمن</strong>:</p>
+                <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prowordpress_scripts</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-comment">// نتأكد إننا مش في لوحة التحكم عشان ما نبوظش اعتمادية ووردبريس</span>
     <span class="hljs-keyword">if</span> ( ! is_admin() ) {
         <span class="hljs-comment">// 1. نشيل تسجيل نسخة ووردبريس الأصلية من jQuery</span>
@@ -408,17 +501,18 @@
 <span class="hljs-comment">// نضيف الدالة دي على الـ hook بتاع تحميل الأكواد</span>
 add_action(<span class="hljs-string">'wp_enqueue_scripts'</span>, <span class="hljs-string">'prowordpress_scripts'</span>);
 </code></pre>
-    <h3 id="5-conditional-tags-">5. الدوال الشرطية (Conditional Tags)</h3>
-    <p>الدوال الشرطية بتسمحلك تعرف نوع الصفحة اللي بيتم عرضها عشان تقدر تعمل تخصيص (Customization). دي مهمة جداً خصوصاً
-        في ملفات الـ Fallback زي <code>index.php</code>.</p>
-    <p><strong>أمثلة بسيطة للدوال الشرطية:</strong></p>
-    <ul>
-        <li><code>is_home()</code>: هل دي الصفحة الرئيسية (اللي بتعرض آخر المنشورات)؟</li>
-        <li><code>is_page()</code>: هل دي صفحة ثابتة؟</li>
-        <li><code>is_single()</code>: هل ده منشور فردي؟</li>
-    </ul>
-    <p><strong>مثال لاستخدام الدوال الشرطية لتحديد نوع الأرشيف وعرض عنوان مخصص:</strong></p>
-    <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> ( is_category() ) : <span class="hljs-meta">?&gt;</span></span>
+                <h3 id="5-conditional-tags-">5. الدوال الشرطية (Conditional Tags)</h3>
+                <p>الدوال الشرطية بتسمحلك تعرف نوع الصفحة اللي بيتم عرضها عشان تقدر تعمل تخصيص (Customization). دي مهمة
+                    جداً خصوصاً
+                    في ملفات الـ Fallback زي <code>index.php</code>.</p>
+                <p><strong>أمثلة بسيطة للدوال الشرطية:</strong></p>
+                <ul>
+                    <li><code>is_home()</code>: هل دي الصفحة الرئيسية (اللي بتعرض آخر المنشورات)؟</li>
+                    <li><code>is_page()</code>: هل دي صفحة ثابتة؟</li>
+                    <li><code>is_single()</code>: هل ده منشور فردي؟</li>
+                </ul>
+                <p><strong>مثال لاستخدام الدوال الشرطية لتحديد نوع الأرشيف وعرض عنوان مخصص:</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> ( is_category() ) : <span class="hljs-meta">?&gt;</span></span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Archive for: <span class="php"><span class="hljs-meta">&lt;?php</span> single_cat_title(); <span class="hljs-meta">?&gt;</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">elseif</span> ( is_tag() ) : <span class="hljs-meta">?&gt;</span></span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Posts Tagged: <span class="php"><span class="hljs-meta">&lt;?php</span> single_tag_title(); <span class="hljs-meta">?&gt;</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
@@ -428,12 +522,13 @@ add_action(<span class="hljs-string">'wp_enqueue_scripts'</span>, <span class="h
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Archives<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">endif</span>; <span class="hljs-meta">?&gt;</span></span>
 </code></pre>
-    <h3 id="6-building-your-theme-part-1-">6. بناء الثيم، الجزء الأول (Building Your Theme, Part 1)</h3>
-    <p>في نهاية الفصل، بتبدأ تطبيق كل اللي اتعلمته في بناء الهيكل الأساسي للثيم. ده بيتم عبر إنشاء الملفات الأساسية
-        وتضمين الدوال المطلوبة في ملف <code>functions.php</code> (ملف الوظائف):</p>
-    <p><strong>أ. دالة الإعدادات الأساسية (<code>functions.php</code>)</strong></p>
-    <p>في الملف ده بتبدأ بتعريف دالة الإعدادات اللي بتخلي ووردبريس يضيف دعم لبعض الميزات:</p>
-    <pre><code class="lang-php"><span class="hljs-selector-tag">if</span> ( ! function_exists( <span class="hljs-string">'prowordpress_setup'</span> ) ) :
+                <h3 id="6-building-your-theme-part-1-">6. بناء الثيم، الجزء الأول (Building Your Theme, Part 1)</h3>
+                <p>في نهاية الفصل، بتبدأ تطبيق كل اللي اتعلمته في بناء الهيكل الأساسي للثيم. ده بيتم عبر إنشاء الملفات
+                    الأساسية
+                    وتضمين الدوال المطلوبة في ملف <code>functions.php</code> (ملف الوظائف):</p>
+                <p><strong>أ. دالة الإعدادات الأساسية (<code>functions.php</code>)</strong></p>
+                <p>في الملف ده بتبدأ بتعريف دالة الإعدادات اللي بتخلي ووردبريس يضيف دعم لبعض الميزات:</p>
+                <pre><code class="lang-php"><span class="hljs-selector-tag">if</span> ( ! function_exists( <span class="hljs-string">'prowordpress_setup'</span> ) ) :
 
 <span class="hljs-selector-tag">function</span> <span class="hljs-selector-tag">prowordpress_setup</span>() {
 
@@ -451,8 +546,174 @@ add_action(<span class="hljs-string">'wp_enqueue_scripts'</span>, <span class="h
 <span class="hljs-comment">// ربط الدالة بالـ Hook اللي بيشتغل بعد إعداد الثيم</span>
 <span class="hljs-selector-tag">add_action</span>( <span class="hljs-string">'after_setup_theme'</span>, <span class="hljs-string">'prowordpress_setup'</span> );
 </code></pre>
-    <p>الـ Hook اللي اسمه <code>after_setup_theme</code> هو المكان المظبوط عشان تبدأ تضيف فيه ميزات للثيم.</p>
+                <p>الـ Hook اللي اسمه <code>after_setup_theme</code> هو المكان المظبوط عشان تبدأ تضيف فيه ميزات للثيم.
+                </p>
 
+
+
+
+
+
+
+
+
+                <p>يا سيدي، طلبك على عيني وراسي. <strong>الفصل رقم 3</strong> في الكتاب ده بيتكلم بالتفصيل عن
+                    <strong>إزاي تجيب المحتوى وتعرضه</strong> في القوالب بتاعت ثيم ووردبريس بتاعك.
+                </p>
+                <p>الفصل ده بيركز أساسًا على أداتين رئيسيتين: الـ <code>WP_Query</code> أوبجكت (Object) والـ Template
+                    Tags.</p>
+                <hr>
+                <h3 id="1-wp-_query-object-">1. الـ WP_Query Object (الاستعلام)</h3>
+                <p>الـ <code>WP_Query</code> ده هو القلب اللي بيجيبلك البوستات (Posts) أو أي نوع محتوى تاني عشان تعرضه
+                    في صفحتك.</p>
+                <p><strong>ليه هو مهم؟</strong> عشان هو اللي بيحدد إيه المحتوى اللي هيطلع في القالب بتاعك.</p>
+                <p>الـ Query ده بيشتغل كـ أوبجكت (Object)، وممكن تتعلم أكتر عن الميثودز (Methods) بتاعته في الفصل ده.
+                    مثلًا، في ميثود بتستخدمها عشان تحط بيانات البوست الحالي في الـ Loop (الحلقة التكرارية) زي كده:</p>
+                <pre><code class="lang-php"><span class="hljs-variable">$new_query</span>-&gt;the_post(); <span class="hljs-regexp">//</span> مثال على استخدام ميثود من الـ WP_Query
+</code></pre>
+                <p><strong>أمثلة متقدمة على الاستعلام (Advanced Queries):</strong></p>
+                <ul>
+                    <li><strong>استعلامات الـ Taxonomy (الـ Tax Queries):</strong> ممكن تستخدم البراميتر (Parameter)
+                        اللي اسمه <code>tax_query</code> عشان تعمل استعلامات معقدة مبنية على التصنيفات والتاجات
+                        (Taxonomies). الـ <code>tax_query</code> ده ظهر في إصدار ووردبريس 3.1 وبيقبل مصفوفة (Array)
+                        جواها مصفوفات، عشان كده هو معقد شوية.</li>
+                    <li><strong>استعلامات الـ Meta (الـ Meta Queries):</strong> ممكن تعمل استعلامات بناءً على الـ Custom
+                        Fields (الحقول المخصصة) اللي ضايفها للبوستات. بتستخدم براميترات زي:<ul>
+                            <li><code>meta_key</code>: اسم الحقل المخصص.</li>
+                            <li><code>meta_value</code>: القيمة اللي بتدور عليها.</li>
+                            <li><code>meta_compare</code>: نوع المقارنة (زي <code>!=</code>, <code>&gt;</code>,
+                                <code>&gt;=</code>, <code>&lt;</code>, أو <code>&lt;=</code>).
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>مثال على استعلام الميتا:</strong>
+                    لو عايز تجيب الأفلام اللي نزلت بعد سنة 2000 (بافتراض إنك مخزن سنة الإصدار كـ <code>meta_key</code>
+                    اسمه <code>ptd_release_year</code>)، ممكن تعمل استعلام بالشكل ده:</p>
+                <pre><code class="lang-php">WP_Query( <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'meta_key'</span>    =&gt; <span class="hljs-string">'ptd_release_year'</span>,
+    <span class="hljs-string">'meta_value'</span>  =&gt; <span class="hljs-number">2000</span>,
+    <span class="hljs-string">'meta_compare'</span>=&gt; <span class="hljs-string">'&gt;='</span> <span class="hljs-comment">// هنا بيقارن إن القيمة تكون أكبر من أو تساوي 2000</span>
+) );
+</code></pre>
+                <hr>
+                <h3 id="2-template-tags-">2. الـ Template Tags (تاجات القوالب)</h3>
+                <p>الـ <strong>Template Tag</strong> هو ببساطة دالة (Function) في ووردبريس بتسمحلك تجيب أي نوع من
+                    المعلومات وتحطها في القالب بتاعك. دي وظيفتها الأساسية عشان المحتوى يطلع للناس.</p>
+                <p><strong>أنواع التاجات دي كتير، وأهمهم:</strong></p>
+                <h4 id="-general-tags-">أ. تاجات عامة (General Tags)</h4>
+                <p>دي بتجيب معلومات عن الموقع ككل:</p>
+                <ul>
+                    <li><strong><code>bloginfo()</code>:</strong> دي دالة مفيدة جدًا وبتستخدم كتير. بتجيبلك معلومات عن
+                        الموقع بناءً على البراميتر اللي بتديهولها.<ul>
+                            <li><strong>مثال:</strong> عشان تجيب اسم المدونة (اللي بتحدده في إعدادات الموقع)، بتستخدم:
+                                <code>bloginfo(&#39;name&#39;);</code>.
+                            </li>
+                            <li><strong>مثال تاني مهم:</strong> عشان تجيب مسار (Directory) القالب بتاعك عشان تحط صور أو
+                                ملفات JS:
+                                <pre><code class="lang-php">&lt;<span class="hljs-selector-tag">img</span> src=<span class="hljs-string">"&lt;?php bloginfo('template_directory'); ?&gt;/images/logo.png"</span> alt=<span class="hljs-string">"Site logo"</span> /&gt;
+<span class="hljs-comment">// هنا بيطبع مسار القالب مباشرة وبيكمل المسار عشان يوصل للوجو</span>
+</code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong><code>wp_title()</code>:</strong> دي دالة بتستخدمها عشان تعمل عنوان للصفحة يظهر في التاب
+                        بتاع المتصفح. بتاخد تلاتة براميترات: فاصل (separator)، وهل تطبع العنوان ولا ترجعه كـ String،
+                        ومكان الفاصل.</li>
+                    <li><strong>تاجات الإدراج:</strong> زي <code>get_header()</code>, <code>get_footer()</code>, و
+                        <code>get_sidebar()</code>.
+                    </li>
+                </ul>
+                <h4 id="-post-tags-">ب. تاجات البوستات (Post Tags)</h4>
+                <p>دي أكتر تاجات بتستخدم عشان تجيب محتوى البوست نفسه:</p>
+                <ul>
+                    <li><code>the_title()</code>: بتجيب عنوان البوست.</li>
+                    <li><code>the_content()</code>: بتجيب محتوى البوست.</li>
+                    <li><code>the_excerpt()</code>: بتجيب مقتطف من البوست.</li>
+                </ul>
+                <p><strong>مثال على استخدام تاجات البوست:</strong>
+                    عشان تحط رابط للبوست وعنوانه:</p>
+                <pre><code class="lang-php"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;?php the_permalink(); // رابط البوست ?&gt;"</span>
+       <span class="hljs-attr">title</span>=<span class="hljs-string">"&lt;?php the_title_attribute(); // عنوان البوست كـ attribute ?&gt;"</span>&gt;</span>
+           <span class="php"><span class="hljs-meta">&lt;?php</span> the_title(); <span class="hljs-comment">// عنوان البوست كـ نص <span class="hljs-meta">?&gt;</span></span></span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</code></pre>
+                <h4 id="-">ج. تاجات التعليقات والمؤلفين والروابط</h4>
+                <ul>
+                    <li><strong>تاجات التعليقات (Comment Tags):</strong> أهم دالة هي <code>wp_list_comments()</code>،
+                        اللي بتستخدم عشان تعرض كل التعليقات المربوطة بالبوست.</li>
+                    <li><strong>تاجات المؤلف (Author Tags):</strong> زي <code>the_author()</code> (بتجيب اسم الكاتب) و
+                        <code>the_author_posts_link()</code> (بتعمل رابط لصفحة كل بوستات الكاتب).
+                    </li>
+                    <li><strong>تاجات الروابط (Link Tags):</strong> أي دالة بتجيب رابط أو كود HTML لـ Link، زي
+                        <code>get_permalink()</code> و <code>the_permalink()</code>، وكمان <code>home_url()</code> عشان
+                        تجيب رابط الصفحة الرئيسية.
+                    </li>
+                </ul>
+                <hr>
+                <h3 id="3-display-return-the-get-">3. الفرق بين الـ Display والـ Return (الـ The والـ Get)</h3>
+                <p>نقطة مهمة جدًا في استخدام تاجات القوالب هي إنك تعرف إمتى الدالة بتطبع المحتوى مباشرة (Display) وإمتى
+                    بترجعه كـ PHP String عشان تستخدمه في مكان تاني (Return).</p>
+                <h4 id="-display-the_-">أ. تاجات الـ Display (<code>the_...</code>)</h4>
+                <ul>
+                    <li>أغلب التاجات اللي بتبدأ بـ <strong><code>the_</code></strong> بتطبع (Echo) المعلومة مباشرة في
+                        كود HTML.</li>
+                    <li><strong>أمثلة:</strong> <code>the_title()</code>, <code>the_content()</code>,
+                        <code>the_permalink()</code>.
+                    </li>
+                    <li><strong>مثال استخدام:</strong>
+                        <pre><code class="lang-php"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"&lt;?php the_permalink(); // تطبع الرابط مباشرة ?&gt;"</span>&gt;</span>
+        <span class="php"><span class="hljs-meta">&lt;?php</span> the_title(); <span class="hljs-comment">// تطبع العنوان مباشرة <span class="hljs-meta">?&gt;</span></span></span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="php"><span class="hljs-meta">&lt;?php</span> the_content(); <span class="hljs-comment">// تطبع المحتوى، وغالبًا بتضيف تاجات &lt;p&gt; والفورمات التلقائي <span class="hljs-meta">?&gt;</span></span></span>
+</code></pre>
+                    </li>
+                </ul>
+                <h4 id="-return-get_the_-">ب. تاجات الـ Return (<code>get_the_...</code>)</h4>
+                <ul>
+                    <li>التاجات اللي بتبدأ بـ <strong><code>get_the_</code></strong> بترجّع (Return) الداتا كـ PHP
+                        String.</li>
+                    <li>عشان تعرضها، لازم تستخدم أمر طباعة زي <code>echo</code> أو <code>print</code>.</li>
+                    <li><strong>أمثلة:</strong> <code>get_the_title()</code>, <code>get_the_content()</code>,
+                        <code>get_permalink()</code>.
+                    </li>
+                    <li><strong>ميزة:</strong> الدوال اللي بتبدأ بـ <code>get_the_</code> (زي
+                        <code>get_the_title()</code> و <code>get_permalink()</code>) ممكن تستخدمها <strong>جوه الـ Loop
+                            أو برة الـ Loop</strong>، وغالبًا بتاخد براميتر اختياري وهو رقم ID البوست.
+                    </li>
+                </ul>
+                <p><strong>مثال يوضح الفرق:</strong>
+                    لو عايز تستخدم عنوان البوست في دالة PHP، هتستخدم <code>get_the_title()</code>:</p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">'&lt;h1&gt;'</span> . get_the_title() . <span class="hljs-string">'&lt;/h1&gt;'</span>; <span class="hljs-comment">// بترجّع القيمة وبتطبعها بنفسك</span>
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <p>لكن لو كنت عايز تطبعه مباشرة، كنت هتستخدم <code>the_title()</code>.</p>
+                <hr>
+                <h3 id="4-passing-parameters-">4. تمرير البراميترات (Passing Parameters)</h3>
+                <p>الـ Template Tags، زي أي دوال في PHP، ممكن تاخد براميترات عشان تعدل الخرج بتاعها أو تضيف تفاصيل.</p>
+                <ul>
+                    <li>بعض الدوال ما بتحتاجش أي براميترات.</li>
+                    <li>كتير منها بيبقى ليها براميترات اختيارية (Optional) بتستخدم عشان تغير المحتوى اللي بيطلع.</li>
+                    <li>بعض الدوال بتحتاج براميترات إلزامية (Mandatory) عشان تقدر ترجع داتا معينة.</li>
+                </ul>
+                <p><strong>ملاحظة عن الأسلوب:</strong> الدوال اللي بتاخد عدد قليل من البراميترات غالبًا بتستخدم الأسلوب
+                    العادي لدوال PHP (زي <code>function(param1, param2)</code>). أما الدوال اللي بتاخد عدد كبير من
+                    الإعدادات، غالبًا بتستخدم مصفوفات (Arrays) أو Query Strings.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
 
 
 </body>
