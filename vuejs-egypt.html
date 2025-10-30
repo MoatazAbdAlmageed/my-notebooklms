@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html data-bs-theme="dark" lang="ar">
 
 <head>
     <meta charset="UTF-8">
@@ -211,9 +211,11 @@
     <hr>
     <h2 id="-vue-js">الفصل الأول: أول تطبيق ليك بـ Vue.js</h2>
     <p>الهدف هنا إنك تتعرف على أهم المفاهيم الأساسية في Vue.js عن طريق بناء تطبيق تفاعلي وبسيط اسمه
-        <strong>UpVote!</strong>. التطبيق ده مستوحى من مواقع زي Reddit أو Hacker News.</p>
+        <strong>UpVote!</strong>. التطبيق ده مستوحى من مواقع زي Reddit أو Hacker News.
+    </p>
     <p><strong>وظيفة التطبيق:</strong> بيعرض قائمة منشورات، والمستخدم ممكن يصوت (Up-vote) على أي منشور، والتطبيق بيعمل
-        <strong>فرز فوري (Sorting)</strong> للمنشورات دي عشان اللي أصواته أكتر يطلع فوق.</p>
+        <strong>فرز فوري (Sorting)</strong> للمنشورات دي عشان اللي أصواته أكتر يطلع فوق.
+    </p>
     <h3 id="1-">1. الإعداد السريع والتهيئة</h3>
     <p>في الفصل ده، عشان تبدأ بسرعة وميتبقاش فيه أي &quot;وجع دماغ&quot; في التكوين (Configuration)، إحنا مش بنستخدم
         أدوات بناء معقدة (زي Webpack)، بل بنستخدم طريقة سهلة وسريعة:</p>
@@ -336,7 +338,8 @@
     <p><strong>دي أهم ميزة في Vue:</strong> بمجرد ما بتغير قيمة <code>submission.votes</code> في دالة
         <code>upvote</code>، Vue بيكتشف التغيير ده. وبما أن <code>sortedSubmissions</code> (الـ Computed Property)
         بتعتمد على عدد الأصوات، فهي بتتحدث تلقائيًا، والـ DOM (الواجهة) بيعيد ترتيب المنشورات <strong>فورا وبدون أي
-            أوامر إضافية منك</strong>.</p>
+            أوامر إضافية منك</strong>.
+    </p>
     <h3 id="6-class-bindings-">6. ربط الفئات (Class Bindings)</h3>
     <p>لو عايز تغير شكل عنصر معين (CSS Class) بناءً على شرط.</p>
     <p><strong>مثال:</strong>
@@ -350,7 +353,8 @@
     <p>لتنظيم الكود وإعادة استخدامه، بيتم تقسيم التطبيق لمكونات صغيرة.</p>
     <ul>
         <li><strong>إنشاء المكون:</strong> بتعمل كائن جديد (زي <code>submissionComponent</code>) وبتعرف فيه الـ
-            <code>template</code> و الـ <code>methods</code>.</li>
+            <code>template</code> و الـ <code>methods</code>.
+        </li>
         <li><strong>قواعد القالب:</strong> القالب (Template) بتاع أي مكون لازم يكون ملفوف داخل <strong>عنصر جذر
                 واحد</strong> (Single root element).</li>
     </ul>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html data-bs-theme="dark" lang="ar">
 
 <head>
     <meta charset="UTF-8">
@@ -278,7 +278,8 @@
  */</span>
 </code></pre>
     <p><strong>ملاحظة إضافية:</strong> عشان الثيم يظهر بشكل حلو في قائمة الثيمات، لازم تحط صورة اسمها
-        <strong><code>screenshot.png</code></strong> (موصى بحجم 600x450px) في الجذر بتاع مجلد الثيم.</p>
+        <strong><code>screenshot.png</code></strong> (موصى بحجم 600x450px) في الجذر بتاع مجلد الثيم.
+    </p>
     <h3 id="2-core-template-files-">2. الملفات المشتركة الأساسية (Core Template Files)</h3>
     <p>عشان الثيم يبقى عملي، بتحتاج تقسمه لأجزاء مشتركة بتظهر في كل الصفحات، زي الهيدر والفوتر والسايدبار:</p>
     <h4 id="-header-php-">أ. <code>header.php</code></h4>
@@ -288,7 +289,8 @@
     <ol>
         <li><strong><code>wp_head()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل قفلة وسم الـ
             <code>&lt;head&gt;</code>. وظيفتها إنها بتسمح لووردبريس وللإضافات إنهم يضيفوا ملفات CSS أو أكواد Scripts أو
-            Meta Tags في المكان الصح في الصفحة.</li>
+            Meta Tags في المكان الصح في الصفحة.
+        </li>
         <li><strong><code>language_attributes()</code>:</strong> بتتحط في وسم الـ <code>&lt;html &gt;</code>.</li>
         <li><strong><code>bloginfo(&#39;charset&#39;)</code>:</strong> بتعرض الـ Encoding بتاع الموقع.</li>
         <li><strong><code>wp_title()</code>:</strong> بتعرض عنوان الصفحة.</li>
@@ -316,7 +318,8 @@
         <li><strong><code>wp_footer()</code>:</strong> الدالة دي <strong>إلزامية</strong> ولازم تتحط قبل قفلة وسم الـ
             <code>&lt;/body&gt;</code>. وظيفتها إنها بتضيف الأكواد اللازمة في نهاية الصفحة، زي أكواد الإحصائيات
             (Analytics) أو شريط الإدارة بتاع ووردبريس (Admin Bar) اللي بيظهر لما تكون مسجل دخول. لو نسيتها، ممكن بعض
-            الإضافات ما تشتغلش صح.</li>
+            الإضافات ما تشتغلش صح.
+        </li>
     </ol>
     <h4 id="-sidebar-php-comments-php-">ج. <code>sidebar.php</code> و <code>comments.php</code></h4>
     <ul>
@@ -327,7 +330,8 @@
     </ul>
     <h3 id="3-template-hierarchy-">3. التسلسل الهرمي للقوالب (Template Hierarchy)</h3>
     <p>هنا بتيجي النقطة الأهم في الفصل ده. إزاي ووردبريس بيقرر يستخدم ملف <code>page.php</code> ولا ملف
-        <code>single.php</code> ولا <code>index.php</code>؟ بيستخدم نظام <strong>الأولوية (Priority)</strong>.</p>
+        <code>single.php</code> ولا <code>index.php</code>؟ بيستخدم نظام <strong>الأولوية (Priority)</strong>.
+    </p>
     <p><strong>القاعدة:</strong> ووردبريس بيبدأ يبحث عن الملف <strong>الأكثر تحديداً</strong> (Most Specific) لنوع
         المحتوى ده. لو مالقاهوش، بيرجع تدريجياً للملف الأعم، لحد ما يوصل لـ <code>index.php</code> اللي هو الـ Fallback
         النهائي.</p>
@@ -375,11 +379,13 @@
     </table>
     <p><strong>ملحوظة عن <code>single.php</code>:</strong> ملف <code>single.php</code> بيستخدم لعرض كل المنشورات
         الفردية، بما في ذلك أنواع المنشورات المخصصة (Custom Post Types)، لو مفيش ملف محدد باسم
-        <code>single-posttype.php</code>.</p>
+        <code>single-posttype.php</code>.
+    </p>
     <h3 id="4-enqueuing-assets-">4. تضمين الأصول (Enqueuing Assets)</h3>
     <p>لتحميل ملفات CSS (الـ Styles) وملفات JavaScript (الـ Scripts)، <strong>مينفعش</strong> تحطها مباشرة في ملف الـ
         <code>header.php</code> باستخدام وسوم <code>&lt;link&gt;</code> و <code>&lt;script&gt;</code>. الصح إنك تستخدم
-        وظائف ووردبريس اللي اسمها Enqueuing عشان تتأكد إن الملفات بتتحمل مرة واحدة، في المكان الصح، وبالترتيب الصح.</p>
+        وظائف ووردبريس اللي اسمها Enqueuing عشان تتأكد إن الملفات بتتحمل مرة واحدة، في المكان الصح، وبالترتيب الصح.
+    </p>
     <h4 id="-styles-scripts-">أ. تحميل Styles و Scripts:</h4>
     <p>وظائف التحميل دي بتتم في ملف <code>functions.php</code>.</p>
     <ul>

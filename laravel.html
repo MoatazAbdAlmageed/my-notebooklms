@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="ar" dir="rtl">
 
 <head>
     <!-- Required meta tags -->
@@ -53,7 +53,8 @@
                         (<strong>Authentication
                             and Authorization</strong>)، وإزاي لارافيل بيدير الطلبات والردود والـ
                         <strong>Middleware</strong>،
-                        بالإضافة لمفهوم الـ <strong>Container</strong> المهم جداً.</li>
+                        بالإضافة لمفهوم الـ <strong>Container</strong> المهم جداً.
+                    </li>
                     <li><strong>بناء التطبيق بالكامل:</strong> بيشرح إزاي تعمل <strong>APIs</strong>، وإزاي تتعامل مع
                         الملفات
                         والتخزين، وإزاي تبعت <strong>ايميلات وإشعارات (Notifications)</strong>، وإزاي تشغل المهام في
@@ -173,7 +174,8 @@
                 <p>الفصل ده بيتكلم عن سبب استخدام إطار العمل (Framework) بشكل عام، وإيه اللي بيميز
                     <strong>Laravel</strong>
                     بالذات
-                    وبيخليه الاختيار الأحسن عشان تبني تطبيقات <strong>PHP</strong> حديثة.</p>
+                    وبيخليه الاختيار الأحسن عشان تبني تطبيقات <strong>PHP</strong> حديثة.
+                </p>
                 <h4 id="1-">1. فلسفة لارافيل وسعادة المطور</h4>
                 <p>الهدف الأساسي اللي لارافيل بيركز عليه هو <strong>&quot;سعاده المطور&quot; (Developer
                         Happiness)</strong>.
@@ -246,7 +248,8 @@ namespace <span class="hljs-type">App</span>\<span class="hljs-type">Http</span>
                 <p>العملية دي محتاجة كذا ملف، بس الكتاب بيوريك إزاي تعمل <strong>migrations</strong> و
                     <strong>models</strong>
                     وتطلع
-                    سجلات من قاعدة البيانات <strong>&quot;في كام سطر كود بس&quot;</strong>:</p>
+                    سجلات من قاعدة البيانات <strong>&quot;في كام سطر كود بس&quot;</strong>:
+                </p>
                 <ol>
                     <li><strong>تعريف الموديل (Model):</strong> بيتم إنشاء موديل اسمه <code>Greeting</code> (ده اللي
                         بيمثل
@@ -375,7 +378,8 @@ use <span class="hljs-type">Illuminate</span>\<span class="hljs-type">Database</
                 <h4 id="4-configuration-files-">4. ملفات الإعدادات (Configuration Files)</h4>
                 <p>لارافيل بيستخدم نظام إعدادات مرن بيعتمد على ملفات <strong><code>config/</code></strong> وأيضاً
                     <strong>ملفات
-                        البيئة</strong> الخاصة بيك.</p>
+                        البيئة</strong> الخاصة بيك.
+                </p>
                 <p><strong>ملفات الإعدادات (Config Files):</strong>
                     ملفات الإعدادات (زي <code>config/services.php</code>) بتكون عبارة عن مصفوفات (Arrays) فيها كل
                     الإعدادات.
@@ -435,7 +439,8 @@ use <span class="hljs-type">Illuminate</span>\<span class="hljs-type">Database</
                         <code>CACHE_DRIVER</code>)
                         بتيجي
                         بقيم افتراضية عشان التطبيق يشتغل بأقل اعتماد ممكن على خدمات خارجية، وده مثالي لما بتكون لسه
-                        بتبدأ.</li>
+                        بتبدأ.
+                    </li>
                     <li>في أغلب المشاريع، <strong>التعديل الوحيد اللي هتحتاجه في البداية هيكون على إعدادات قاعدة
                             البيانات</strong>.
                     </li>
@@ -605,7 +610,8 @@ Route::<span class="hljs-keyword">get</span>(<span class="hljs-string">'/'</span
                 <ul>
                     <li><strong>بارامترات اختيارية:</strong> ممكن تخلي البارامتر اختياري بإضافة علامة استفهام
                         <code>؟</code> بعد
-                        اسمه، ولازم تحطله قيمة افتراضية (Default Value) في تعريف الدالة.</li>
+                        اسمه، ولازم تحطله قيمة افتراضية (Default Value) في تعريف الدالة.
+                    </li>
                 </ul>
                 <p><strong>مثال (3-6): بارامتر اختياري</strong></p>
                 <pre><code class="lang-php">Route::get(<span class="hljs-string">'users/{id?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id = <span class="hljs-string">'fallbackId'</span>)</span> </span>{
@@ -669,7 +675,8 @@ Route::<span class="hljs-keyword">get</span>(<span class="hljs-string">'/'</span
                     <li><strong>بادئة المسار (Path Prefixes):</strong> لو عندك مسارات كلها بتبدأ بـ
                         <code>/dashboard</code>،
                         ممكن
-                        تعرف ده مرة واحدة بس للمجموعة.</li>
+                        تعرف ده مرة واحدة بس للمجموعة.
+                    </li>
                 </ul>
                 <p><strong>مثال (3-13): Path Prefixes</strong></p>
                 <pre><code class="lang-php">Route::prefix(<span class="hljs-string">'dashboard'</span>)-&gt;group(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
@@ -1461,7 +1468,8 @@ mix.sass(<span class="hljs-string">'resources/assets/sass/app.scss'</span>, <spa
                         للمستخدم.
                     </li>
                     <li>لارافيل بيضمن إن <strong>كل View</strong> عندها متغير اسمه
-                        <strong><code>$errors</code></strong>.</li>
+                        <strong><code>$errors</code></strong>.
+                    </li>
                     <li>لما الـ Validation بيفشل، لارافيل بيعمل Redirect وبيخزن الـ Message Bag دي في الـ Session بحيث
                         تكون
                         متاحة في
@@ -1526,7 +1534,8 @@ mix.sass(<span class="hljs-string">'resources/assets/sass/app.scss'</span>, <spa
                         ملفات JSON. لو النص مش مترجم، الـ Helper Function اللي اسمها <code>__()</code> هتعرض النص الأصلي
                         زي ما
                         هو كـ
-                        Fallback. (بس الميزة دي ظهرت في لارافيل 5.4 وأحدث).</li>
+                        Fallback. (بس الميزة دي ظهرت في لارافيل 5.4 وأحدث).
+                    </li>
                 </ul>
                 <hr>
                 <h3 id="-testing-">خامساً: Testing (الاختبار)</h3>
@@ -1699,7 +1708,8 @@ mix.sass(<span class="hljs-string">'resources/assets/sass/app.scss'</span>, <spa
                         تلقائياً</strong> وبيرجع المستخدم للصفحة اللي كان فيها مع الأخطاء محطوطة في الـ Session (عشان
                     يعرضها في
                     الـ
-                    View).</p>
+                    View).
+                </p>
                 <p><strong>مثال:</strong></p>
                 <pre><code class="lang-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">store</span><span class="hljs-params">(Request $request)</span> </span>{
     <span class="hljs-comment">// لو الـ Validation فشل، الكود هيوقف هنا</span>
@@ -1841,7 +1851,8 @@ mix.sass(<span class="hljs-string">'resources/assets/sass/app.scss'</span>, <spa
                                         مجهزها.</li>
                                     <li><code>migrate:reset</code>, <code>migrate:refresh</code>,
                                         <code>migrate:rollback</code>:
-                                        أوامر بتتحكم في إرجاع وإعادة تشغيل الـ Migrations.</li>
+                                        أوامر بتتحكم في إرجاع وإعادة تشغيل الـ Migrations.
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -2442,7 +2453,8 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                         الـ
                         Routes (زي مجموعة <code>web</code> اللي بتطبق <code>EncryptCookies</code> و
                         <code>StartSession</code>،
-                        ومجموعة <code>api</code>).</li>
+                        ومجموعة <code>api</code>).
+                    </li>
                 </ol>
                 <h5 id="3-">3. الميزات المتقدمة</h5>
                 <ul>
@@ -2602,7 +2614,8 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                         الـ Container بيترجم أي استدعاء ثابت (Static Call) على الـ Facade ده لاستدعاء غير ثابت على الـ
                         Class
                         اللي
-                        مربوط بالمفتاح ده في الـ Container [327، 330].</li>
+                        مربوط بالمفتاح ده في الـ Container [327، 330].
+                    </li>
                 </ul>
                 <p><strong>مثال:</strong>
                     لما تكتب <code>Cache::get(&#39;key&#39;)</code>، الـ Facade بيترجمها داخلياً لـ
@@ -2613,7 +2626,8 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                         عايز تعمل
                         Class كامل للـ Facade، ممكن تستخدم أي Class عندك وتضيف قبله الـ Prefix اللي اسمه
                         <code>Facades\</code>،
-                        وتستخدمه كـ Static Facade عادي جداً.</li>
+                        وتستخدمه كـ Static Facade عادي جداً.
+                    </li>
                 </ul>
                 <p><strong>مثال (11-16):</strong></p>
                 <pre><code class="lang-php"><span class="hljs-comment">// لو عندك Class اسمه App\Charts</span>
@@ -2699,7 +2713,8 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                     <li><strong><code>$this-&gt;post(&#39;/uri&#39;, $data)</code></strong>: عشان تعمل طلب
                         <strong>POST</strong>
                         (زي
-                        إرسال فورمة).</li>
+                        إرسال فورمة).
+                    </li>
                 </ul>
                 <h4 id="2-response-assertions-">2. التحقق من الردود (Response Assertions)</h4>
                 <p>بعد ما تعمل الطلب، بيطلعلك كائن رد اسمه <code>TestResponse</code>، وبتستخدم عليه دوال التحقق:</p>
@@ -2828,7 +2843,8 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                             <td style="text-align:left"><strong><code>Notification::fake()</code></strong></td>
                             <td style="text-align:left">بيوقف إرسال الإشعارات.</td>
                             <td style="text-align:left">
-                                <code>Notification::assertSentTo($user, Notification::class)</code></td>
+                                <code>Notification::assertSentTo($user, Notification::class)</code>
+                            </td>
                             <td style="text-align:left"></td>
                         </tr>
                         <tr>
