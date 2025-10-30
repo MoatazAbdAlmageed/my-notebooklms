@@ -1,0 +1,189 @@
+/* === Base Direction and Typography === */
+html,
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "Amiri", "Scheherazade New", "Noto Naskh Arabic", "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #222;
+  background: #fff;
+  margin: 0;
+  padding: 1em;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  direction: rtl;
+  text-align: right;
+  font-family: "Amiri", "Scheherazade New", serif;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+  line-height: 1.4;
+  color: #222;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.2em;
+}
+
+/* Paragraphs & Lists */
+p,
+li {
+  direction: rtl;
+  text-align: justify;
+  margin: 0.4em 0;
+}
+
+ul,
+ol {
+  margin-right: 2em;
+  padding-right: 1.2em;
+}
+
+/* === Inline Elements === */
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/* === Tables === */
+table {
+  border-collapse: collapse;
+  margin: 1em auto;
+  width: 95%;
+  font-size: 0.95em;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 0.5em 0.8em;
+}
+
+table th {
+  background: #f2f2f2;
+  font-weight: bold;
+}
+
+/* === Code and Preformatted Blocks === */
+code,
+pre {
+  direction: ltr;
+  text-align: left;
+  font-family: "Fira Code", "Courier New", monospace;
+  background: #f7f7f7;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Inline code */
+code {
+  padding: 0.15em 0.4em;
+  margin: 0 0.15em;
+  font-size: 0.95em;
+}
+
+/* === Blockquotes === */
+blockquote {
+  direction: rtl;
+  text-align: right;
+  border-right: 4px solid #ccc;
+  margin: 1em 1em 1em 0;
+  padding: 0.6em 1em;
+  background: #fafafa;
+  font-style: italic;
+  color: #444;
+}
+
+/* === Horizontal Rule === */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2em 0;
+}
+
+/* === Code Trees / Directory Structures === */
+pre code,
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* === Links === */
+a {
+  color: #007acc;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Metadata Blocks (like User / Created / Updated) === */
+.metadata {
+  direction: ltr;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 0.8em 1em;
+  margin-bottom: 1.5em;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* === Code Trees (for directory examples) === */
+.tree {
+  direction: ltr;
+  font-family: "Courier New", monospace;
+  background: #f9f9f9;
+  border-left: 3px solid #ddd;
+  padding: 1em;
+  margin: 1em 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* === Tables of Comparison === */
+table.comparison {
+  width: 100%;
+  direction: rtl;
+  text-align: center;
+}
+
+table.comparison th,
+table.comparison td {
+  text-align: center;
+}
+
+/* === Make English words readable inline === */
+:lang(en),
+[lang="en"] {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* === Ensure nice spacing for mixed text === */
+p,
+li,
+td,
+th {
+  word-spacing: 0.1em;
+  line-height: 1.8;
+}

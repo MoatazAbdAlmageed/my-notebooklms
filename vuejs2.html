@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vuejs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark.css">
+</head>
+
+<body>
+
+    <p>الكتاب الذي تستفسر عنه هو <strong>Fullstack Vue</strong>، وعنوانه الفرعي هو <em>The Complete Guide to Vue.js and
+            Friends</em>. تم تأليفه بواسطة حسن دجيرده (Hassan Djirdeh)، نيت موراي (Nate Murray)، وآري ليرنر (Ari
+        Lerner).</p>
+    <p>تتضمن محتويات الكتاب، وفقًا للمقتطفات المتوفرة، الأقسام والفصول الرئيسية التالية:</p>
+    <h3 id="-">الأقسام التمهيدية</h3>
+    <p>يتضمن الجزء الأول من المحتويات معلومات تنظيمية وإرشادية، مثل:</p>
+    <ul>
+        <li>مراجعة الكتاب (Book Revision).</li>
+        <li>تقارير الأخطاء (Bug Reports).</li>
+        <li>كيفية الحصول على أقصى استفادة من هذا الكتاب (<strong>How to Get the Most Out of This Book</strong>).</li>
+        <li>نظرة عامة (Overview) على أهداف الكتاب.</li>
+        <li>مقدمة (Foreword).</li>
+    </ul>
+    <h3 id="-">الفصول الرئيسية</h3>
+    <h4 id="-i-your-first-vue-js-web-application-vue-js-"><strong>I - Your first Vue.js Web Application</strong> (تطبيق
+        الويب الأول باستخدام Vue.js)</h4>
+    <p>يتناول هذا الفصل بناء تطبيق تصويت بسيط يسمى <strong>UpVote!</strong>. ويغطي أساسيات مثل:</p>
+    <ul>
+        <li>إعداد بيئة التطوير.</li>
+        <li>استخدام JavaScript ES6/ES7.</li>
+        <li>إعداد العرض (Setting up the view).</li>
+        <li>جعل العرض مدفوعًا بالبيانات (Making the view data-driven).</li>
+        <li>ربط البيانات (Data binding) باستخدام صيغة الـ ‘Mustache’ وتوجيه <code>v-bind</code>.</li>
+        <li>عرض القوائم (List rendering) باستخدام توجيه <code>v-for</code>.</li>
+        <li>الفرز (Sorting).</li>
+        <li>التعامل مع الأحداث (Event handling) باستخدام توجيه <code>v-on</code>.</li>
+        <li>المكونات (Components).</li>
+        <li>صيغة الاختصار (shorthand syntax) لـ <code>v-bind</code> و <code>v-on</code>.</li>
+    </ul>
+    <h4 id="-ii-single-file-components-"><strong>II - Single-file components</strong> (المكونات أحادية الملف)</h4>
+    <p>يتعمق هذا الفصل في بناء المكونات في Vue. ويقدم نمطًا لبناء تطبيقات Vue من الصفر، ويتم تطبيق ذلك على <strong>تطبيق
+            تقويم (Calendar App)</strong> لإدارة الأحداث الأسبوعية. تشمل المواضيع:</p>
+    <ul>
+        <li>إعداد بيئة التطوير (Node.js و npm).</li>
+        <li>مفهوم المكونات أحادية الملف (<code>.vue</code> file).</li>
+        <li>تقسيم التطبيق إلى مكونات.</li>
+        <li>إدارة الحالة البسيطة للبيانات بين المكونات.</li>
+    </ul>
+    <h4 id="-iii-custom-events-"><strong>III - Custom Events</strong> (الأحداث المخصصة)</h4>
+    <p>يستعرض هذا الفصل الأحداث المخصصة وكيفية استخدامها للتواصل بين المكونات، خاصة بين مكون فرعي والمثيل الجذر (Root
+        Instance). تشمل النقاط المغطاة:</p>
+    <ul>
+        <li>الأحداث المخصصة لـ JavaScript و Vue.</li>
+        <li>استخدام <strong>Event Bus</strong> لتمكين المكونات المعزولة من الاشتراك ونشر الأحداث المخصصة.</li>
+        <li>الأحداث المخصصة وإدارة البيانات.</li>
+    </ul>
+    <h4 id="-iv-introduction-to-vuex-vuex-"><strong>IV - Introduction to Vuex</strong> (مقدمة في Vuex)</h4>
+    <p>يقدم هذا الفصل مكتبة Vuex، وهي تطبيق لنمط Flux، لإدارة حالة التطبيق. ويتم تطبيقها على <strong>تطبيق لتدوين
+            الملاحظات</strong>. تشمل الأفكار الرئيسية في Vuex:</p>
+    <ul>
+        <li>الحالة (State): جميع بيانات التطبيق في بنية بيانات واحدة.</li>
+        <li>الطفرات (Mutations): وهي وظائف متزامنة تغير الحالة مباشرة.</li>
+        <li>الإجراءات (Actions): تقوم باستدعاء الطفرات ويمكنها التعامل مع المنطق غير المتزامن.</li>
+        <li>المُحضّرات (Getters): لقراءة الحالة من المخزن.</li>
+        <li>الدمج مع أدوات تطوير Vue (Vue devtools) لتصحيح الأخطاء باستخدام &quot;السفر عبر الزمن&quot;.</li>
+    </ul>
+    <h4 id="-v-vuex-and-servers-vuex-"><strong>V - Vuex and Servers</strong> (Vuex والخوادم)</h4>
+    <p>يركز هذا الفصل على دمج Vuex مع الخادم وواجهات برمجة التطبيقات (APIs) غير المتزامنة. ويتم تطبيق ذلك على بناء
+        <strong>تطبيق عربة تسوق</strong> (Shopping Cart). تشمل الموضوعات:
+    </p>
+    <ul>
+        <li>فهم واجهة برمجة تطبيقات الخادم (The Server API).</li>
+        <li>تشغيل العميل والخادم في وقت واحد باستخدام <code>concurrently</code>.</li>
+        <li>بناء وحدات Vuex (productModule و cartModule).</li>
+        <li>التفاعل (Interactivity).</li>
+    </ul>
+    <h4 id="-vi-form-handling-"><strong>VI - Form Handling</strong> (التعامل مع النماذج)</h4>
+    <p>يتناول هذا الفصل إنشاء النماذج والتعامل مع المدخلات والتحقق من صحة البيانات. تشمل المواضيع:</p>
+    <ul>
+        <li>الأزرار الأساسية (The Basic Button).</li>
+        <li>إدخال النص (Text Input).</li>
+        <li>التعامل مع حقول متعددة (Multiple Fields) (مثل القوائم المنسدلة ومربعات الاختيار).</li>
+        <li>التحقق من صحة البيانات (Validations) على مستوى الحقل ومستوى النموذج.</li>
+        <li>الحفظ غير المتزامن (Async Persistence) وعرض حالات الحفظ المختلفة (SAVING, SUCCESS, ERROR).</li>
+        <li>دمج النماذج مع Vuex.</li>
+    </ul>
+    <h4 id="-vii-routing-"><strong>VII - Routing</strong> (التوجيه)</h4>
+    <p>يغطي هذا الفصل مفهوم التوجيه في تطوير الويب وتطبيقات الصفحة الواحدة (SPAs). يركز على استخدام
+        <strong>vue-router</strong>، ويشمل:
+    </p>
+    <ul>
+        <li>بناء جهاز توجيه بسيط لفهم الآلية.</li>
+        <li>مطابقة المسارات الديناميكية (Dynamic Route Matching).</li>
+        <li>تكامل <code>vue-router</code> مع تطبيق عربة التسوق الذي يتطلب مصادقة (authenticated routes).</li>
+        <li>حراس التنقل (Navigation Guards) لحماية المسارات بناءً على حالة المستخدم.</li>
+    </ul>
+    <h4 id="-viii-unit-testing-"><strong>VIII - Unit Testing</strong> (اختبار الوحدة)</h4>
+    <p>يركز هذا الفصل على اختبار الوحدة في تطبيقات Vue. تشمل المواضيع:</p>
+    <ul>
+        <li>المقارنة بين اختبارات النهاية إلى النهاية (End-to-end) واختبارات الوحدة (Unit Testing).</li>
+        <li>أدوات الاختبار: Mocha و Chai و Sinon.</li>
+        <li>اختبار مكونات Vue الأساسية باستخدام <code>vue-test-utils</code>.</li>
+        <li>كتابة اختبارات لتطبيق يعتمد على واجهة برمجة تطبيقات (API) ودمج Vuex و Vue Router (مثل تطبيق الطقس).</li>
+        <li>اختبار طفرات وإجراءات (Mutations and Actions) مخزن Vuex.</li>
+    </ul>
+    <h4 id="-ix-fullstack-vue-screencast-vue-"><strong>IX - Fullstack Vue Screencast</strong> (البث المصور الكامل لـ
+        Vue)</h4>
+    <p>يصف هذا القسم محتويات بث مصور (Screencast) يشرح بناء ونشر تطبيق كامل.</p>
+    <ul>
+        <li>التطبيق هو <strong>SimpleCoinCap</strong>، الذي يعرض تصنيفات العملات المشفرة.</li>
+        <li>تتضمن الأجندة: الإعداد (Scaffolding Vue CLI و Node/Express server)، بناء التطبيق (Vuex، Vue Router،
+            المكونات)، والنشر باستخدام Heroku.</li>
+    </ul>
+
+
+    <p>هذا الفصل هو <strong>الفصل التمهيدي</strong> الذي يركز على إدخالك إلى أساسيات Vue.js عن طريق بناء تطبيق ويب
+        تفاعلي بسيط.</p>
+    <p>يُعد هذا الفصل جزءًا من &quot;الجزء الأول&quot; من الكتاب الذي يغطي جميع <strong>المفاهيم الأساسية</strong> لمنصة
+        Vue.js من خلال منهج تدريجي يعتمد على الأمثلة.</p>
+    <h3 id="-upvote-">المشروع الأساسي: UpVote!</h3>
+    <p>يدور الفصل الأول حول بناء تطبيق تصويت بسيط يسمى <strong>UpVote!</strong>. تم تصميم التطبيق ليعرض قائمة بالمنشورات
+        التي يمكن للمستخدمين التصويت عليها، وتتمثل وظيفته الرئيسية في <strong>فرز جميع المنشورات على الفور</strong>
+        بناءً على عدد الأصوات.</p>
+    <p>يتمثل الهدف في التعرف على كيفية تعامل Vue مع تطوير الواجهات الأمامية من خلال فهم أساسيات المكتبة وبناء واجهات
+        ديناميكية.</p>
+    <h3 id="-">إعداد بيئة التطوير والتهيئة</h3>
+    <p>على عكس الفصول اللاحقة التي تستخدم حزمة Webpack، يركز هذا الفصل على البدء بأسرع طريقة ممكنة.</p>
+    <ol>
+        <li><strong>استخدام CDN:</strong> يتم إدخال مكتبة Vue مباشرة في التطبيق عن طريق تضمين وسم
+            <code>&lt;script&gt;</code> الذي يحمل أحدث إصدار من شبكة توصيل المحتوى (<strong>CDN</strong>) في ملف
+            <code>index.html</code>. هذا الأسلوب هو الأبسط والأسرع لبدء استخدام Vue.
+        </li>
+        <li><strong>أدوات المطور (Devtools):</strong> يوصي الفصل بشدة باستخدام متصفح <strong>Google Chrome</strong>
+            وتثبيت إضافة <strong>Vue.js devtools</strong> لتسهيل عملية تصحيح أخطاء تطبيقات Vue.</li>
+        <li><strong>التهيئة الأساسية:</strong> يتم إعداد ملف <code>index.html</code> لتضمين إطار عمل
+            <strong>Bulma</strong> لتنسيق CSS و <strong>Font Awesome</strong> للأيقونات. يتم تحميل ملف
+            <code>main.js</code> لغرض كتابة جميع أكواد Vue.
+        </li>
+    </ol>
+    <h3 id="-">المفاهيم الأساسية التي تم تناولها</h3>
+    <p>يركز الفصل على تفعيل الواجهة الثابتة وتحويلها إلى واجهة موجهة بالبيانات (Data-Driven) باستخدام أساسيات Vue:</p>
+    <h4 id="1-vue-the-vue-instance-and-data-binding-">1. إنشاء مثيل Vue وربط البيانات (The Vue Instance and Data
+        Binding)</h4>
+    <ul>
+        <li><strong>مثيل Vue (The Vue Instance):</strong> هو نقطة البداية لجميع تطبيقات Vue. يتم إنشاؤه باستخدام الدالة
+            <code>new Vue({})</code> مع تمرير كائن الخيارات.
+        </li>
+        <li><strong>نقطة التثبيت (Mounting Point):</strong> يتم تحديد العنصر الذي سيتم تحميل التطبيق فيه (عادةً
+            <code>div</code> بعلامة <code>id=&quot;app&quot;</code>) باستخدام خيار <code>el: &#39;#app&#39;</code>.
+        </li>
+        <li><strong>ربط البيانات (Data Binding):</strong> يتم ربط البيانات من كائن <code>data</code> في مثيل Vue
+            بالواجهة.<ul>
+                <li>يُستخدم <strong>صيغة الـ &#39;Mustache&#39;</strong> (الأقواس المعقوفة المزدوجة <code>{{}}</code>)
+                    لربط المحتوى النصي.</li>
+                <li>يُستخدم التوجيه <strong><code>v-bind</code></strong> لربط قيم البيانات بخصائص HTML (مثل
+                    <code>src</code> أو <code>href</code>)، حيث لا يمكن استخدام صيغة الـ &#39;Mustache&#39; في الخصائص.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h4 id="2-list-rendering-">2. عرض القوائم (List Rendering)</h4>
+    <ul>
+        <li><strong>التوجيه <code>v-for</code>:</strong> يُستخدم لعرض قائمة من العناصر بناءً على مصدر بيانات معين (مثل
+            مصفوفة <code>submissions</code>). يأخذ الصيغة <code>item in items</code> (مثل
+            <code>submission in submissions</code>).
+        </li>
+        <li><strong>الخاصية <code>key</code>:</strong> يُشدد على أهمية تعيين خاصية <code>key</code> فريدة لكل عنصر يتم
+            تكراره (باستخدام <code>v-bind:key</code>) لمساعدة Vue في تتبع هوية كل عقدة وضمان إعادة ترتيب العناصر بشكل
+            صحيح عند حدوث تغييرات ديناميكية.</li>
+    </ul>
+    <h4 id="3-sorting-and-computed-properties-">3. الفرز والخصائص المحسوبة (Sorting and Computed Properties)</h4>
+    <ul>
+        <li><strong>الخصائص المحسوبة (Computed Properties):</strong> تُستخدم لمعالجة العمليات الحسابية المعقدة أو عمليات
+            التحويل على البيانات التي يجب عرضها في الواجهة. يتم تعريف خاصية <code>sortedSubmissions</code> في هذا الفصل
+            لضمان أن قائمة المنشورات تكون دائمًا مُرتبة تنازليًا حسب عدد الأصوات.</li>
+    </ul>
+    <h4 id="4-event-handling-">4. التعامل مع الأحداث (Event Handling)</h4>
+    <ul>
+        <li><strong>التوجيه <code>v-on</code>:</strong> يُستخدم لإنشاء مستمعي الأحداث في DOM (مثل
+            <code>v-on:click</code>).
+        </li>
+        <li>يتم ربط النقر على أيقونة التصويت الأعلى (Up-vote icon) بمنهج (Method) يسمى <code>upvote(submissionId)</code>
+            داخل مثيل Vue.</li>
+        <li>بفضل نظام تفاعلية Vue، عند تحديث عدد الأصوات في الدالة <code>upvote()</code>, يتم تحديث
+            <code>sortedSubmissions</code> تلقائيًا، مما يؤدي إلى إعادة ترتيب المنشورات في الواجهة فورًا.
+        </li>
+        <li>يتم أيضًا شرح <strong>ربط الفئات الشرطية</strong> باستخدام <code>v-bind:class</code> لتطبيق تنسيقات (مثل
+            حدود زرقاء) بناءً على شروط منطقية (مثل تجاوز عدد الأصوات 20).</li>
+    </ul>
+    <h4 id="5-components-">5. المكونات (Components)</h4>
+    <ul>
+        <li>يقدم الفصل مفهوم المكونات كطريقة لتنظيم التطبيق، حيث يتم تقسيم الواجهة إلى وحدات أصغر قابلة لإعادة
+            الاستخدام.</li>
+        <li>يتم إنشاء مكون <strong><code>submission-component</code></strong> ليمثل منشورًا واحدًا.</li>
+        <li><strong>Template:</strong> يجب أن يكون قالب المكون محاطًا بعنصر جذر واحد.</li>
+        <li><strong>الـ Props:</strong> تُستخدم لتمرير البيانات <strong>من المكون الأب</strong> (Root Instance)
+            <strong>إلى المكون الطفل</strong> (<code>submission-component</code>). يتم الإعلان عنها صراحة في المكون
+            الطفل ويتم تمريرها من الأب باستخدام <code>v-bind</code>.
+        </li>
+    </ul>
+    <h4 id="6-shorthand-syntax-">6. صيغة الاختصار (Shorthand Syntax)</h4>
+    <p>يختتم الفصل بتقديم اختصارات شائعة لتقليل كتابة الأكواد في القوالب:</p>
+    <ul>
+        <li><strong><code>:</code></strong> بدلاً من <code>v-bind</code> (مثال: <code>:src</code> بدلاً من
+            <code>v-bind:src</code>).
+        </li>
+        <li><strong><code>@</code></strong> بدلاً من <code>v-on</code> (مثال: <code>@click</code> بدلاً من
+            <code>v-on:click</code>).
+        </li>
+    </ul>
+    <p>بحلول نهاية هذا الفصل، يكون القارئ قد أكمل أول تطبيق Vue له وفهم المفاهيم الأساسية التي سيتم البناء عليها في بقية
+        الكتاب.</p>
+
+
+    <p>بالتأكيد. بناءً على محتويات الكتاب، إليك شرح مفصل لبقية الفصول (من الثاني إلى التاسع) بعد الفصل الأول الذي تم
+        شرحه سابقاً.</p>
+    <h3 id="ii-single-file-components-">II - Single-file components (المكونات أحادية الملف)</h3>
+    <p>يركز هذا الفصل على <strong>بناء المكونات بشكل أعمق</strong> والانتقال من طريقة تضمين Vue عبر شبكة توصيل المحتوى
+        (CDN) إلى بيئة تطوير أكثر احترافية باستخدام <strong>Webpack و Node.js و npm</strong>.</p>
+    <h4 id="-single-file-components-sfcs-">المفهوم الأساسي: المكونات أحادية الملف (Single-File Components - SFCs)</h4>
+    <p>يتم تقديم تنسيق <code>.vue</code> الذي يتيح دمج أجزاء المكون (HTML و CSS و JavaScript) في ملف واحد لزيادة التنظيم
+        وفصل الاهتمامات (Single-responsibility principle). يتكون ملف <code>.vue</code> من ثلاثة أقسام رئيسية:</p>
+    <ol>
+        <li><strong><code>&lt;template&gt;</code>:</strong> يحتوي على ترميز المكون بصيغة HTML عادية.</li>
+        <li><strong><code>&lt;script&gt;</code>:</strong> يقوم بتصدير كائن بناء المكون ويحتوي على منطق JavaScript الخاص
+            به.</li>
+        <li><strong><code>&lt;style&gt;</code>:</strong> يحتوي على أنماط المكون، ويمكن أن يستخدم معالجات مُسبقة مثل
+            SCSS. يمكن إضافة السمة <code>scoped</code> لضمان تطبيق هذه الأنماط على هذا المكون فقط.</li>
+    </ol>
+    <h4 id="-calendar-app-">التطبيق العملي: تطبيق التقويم (Calendar App)</h4>
+    <p>يتم تطبيق المفاهيم على بناء تطبيق تقويم لإدارة الأحداث الأسبوعية، حيث يمكن للمستخدم إضافة الأحداث وحذفها
+        وتعديلها. يتم في هذا السياق استعراض <strong>نمط تدريجي لبناء تطبيقات Vue من الصفر</strong>، والذي يشمل:</p>
+    <ul>
+        <li><strong>الخطوة الأولى:</strong> بناء نسخة ثابتة من التطبيق (A static version).</li>
+        <li><strong>الخطوة الثانية:</strong> تقسيم التطبيق إلى مكونات (مثل <code>CalendarWeek</code> و
+            <code>CalendarEntry</code> و <code>CalendarDay</code> و <code>CalendarEvent</code>).
+        </li>
+        <li><strong>الخطوة الثالثة:</strong> إدخال حالة أولية للبيانات (Hardcode Initial States) وتحديد مكان تخزينها في
+            <strong>متجر بيانات بسيط (Simple State Management)</strong> خاص بالتطبيق (قبل إدخال Vuex).
+        </li>
+        <li><strong>الخطوة الرابعة:</strong> إنشاء آليات تغيير الحالة (Mutations) والإجراءات المقابلة في المكونات
+            (Component Actions).</li>
+    </ul>
+    <p>يتم أيضًا شرح كيفية استخدام التوجيهات مثل <strong><code>v-model</code></strong> لإنشاء ربط بيانات ثنائي الاتجاه
+        مع عناصر الإدخال والنماذج.</p>
+    <hr>
+    <h3 id="iii-custom-events-">III - Custom Events (الأحداث المخصصة)</h3>
+    <p>يتناول هذا الفصل آليات التواصل بين المكونات، خاصةً بين المكونات الفرعية والمكونات الجذرية (Root Instance).</p>
+    <h4 id="-">التواصل بين المكونات</h4>
+    <ul>
+        <li><strong>البيانات تنزل (Props down):</strong> تنتقل البيانات من المكون الأب إلى المكون الابن عبر
+            <code>props</code>.
+        </li>
+        <li><strong>الأحداث تصعد (Events up):</strong> يتم استخدام <strong>الأحداث المخصصة (Custom Events)</strong>
+            لإرسال الإشعارات والبيانات من المكون الابن إلى الأب.</li>
+    </ul>
+    <h4 id="-emit-">استخدام <code>$emit</code> و <code>@</code></h4>
+    <p>يتم شرح كيفية استخدام دالة <code>this.$emit()</code> في المكون الابن لإطلاق حدث مخصص (مثل <code>add-note</code>)
+        وتمرير حمولة (payload) من البيانات معه. ويستمع المكون الأب لهذا الحدث باستخدام توجيه <code>@</code> (اختصار
+        <code>v-on</code>) على وسم المكون.
+    </p>
+    <h4 id="-event-bus-">ناقل الأحداث (Event Bus)</h4>
+    <p>يتم تقديم مفهوم <strong>Event Bus</strong> (وهو ببساطة مثيل Vue جديد وفارغ) لتمكين المكونات غير المرتبطة مباشرة
+        (Sisters/Cousins) من التواصل مع بعضها البعض عبر الاشتراك ونشر الأحداث. يُعد نمط Event Bus بمثابة مقدمة لفهم
+        <strong>هندسة Flux</strong>.
+    </p>
+    <hr>
+    <h3 id="iv-introduction-to-vuex-vuex-">IV - Introduction to Vuex (مقدمة في Vuex)</h3>
+    <p>يُقدم هذا الفصل مكتبة <strong>Vuex</strong>، وهي التطبيق الرسمي لنمط <strong>Flux</strong> في Vue، وتُستخدم
+        لإدارة حالة التطبيق بشكل مركزي في التطبيقات متوسطة وكبيرة الحجم.</p>
+    <h4 id="-vuex-">مفاهيم Vuex الرئيسية</h4>
+    <p>يتمحور Vuex حول تدفق البيانات أحادي الاتجاه ويتكون من العناصر التالية:</p>
+    <ol>
+        <li><strong>الحالة (State):</strong> تمثل شجرة بيانات واحدة تحتوي على جميع بيانات التطبيق.</li>
+        <li><strong>المحضّرات (Getters):</strong> تُستخدم لقراءة الحالة المحسوبة أو المشتقة من المخزن.</li>
+        <li><strong>الطفرات (Mutations):</strong> هي الوظائف الوحيدة المسؤولة عن تغيير الحالة بشكل مباشر. يجب أن تكون
+            <strong>متزامنة (Synchronous)</strong>، ويتم تعريفها بأحرف كبيرة لتمييزها (مثل <code>ADD_NOTE</code>).
+        </li>
+        <li><strong>الإجراءات (Actions):</strong> لا تغير الحالة مباشرة، ولكنها تقوم بتنفيذ منطق الأعمال، ويمكن أن
+            تتعامل مع <strong>العمليات غير المتزامنة (Asynchronous)</strong>، ثم تقوم بالالتزام (Commit) بالطفرات لتغيير
+            الحالة.</li>
+    </ol>
+    <h4 id="-">التطبيق والميزات</h4>
+    <p>يتم تطبيق هذه المفاهيم عبر <strong>إعادة بناء تطبيق تدوين الملاحظات</strong> من الفصل الثالث ليعمل بـ Vuex. كما
+        يسلط الفصل الضوء على تكامل Vuex مع <strong>أدوات تطوير Vue (Vue devtools)</strong>، مما يتيح ميزة <strong>تصحيح
+            الأخطاء بالسفر عبر الزمن (Time-travel debugging)</strong>، حيث يمكن تتبع وإعادة تشغيل التغييرات التي طرأت
+        على الحالة عبر كل طفرة (Mutation).</p>
+    <hr>
+    <h3 id="v-vuex-and-servers-vuex-">V - Vuex and Servers (Vuex والخوادم)</h3>
+    <p>يوسع هذا الفصل نطاق استخدام Vuex لدمج عمليات الخادم و<strong>واجهات برمجة التطبيقات (APIs)</strong> غير
+        المتزامنة.</p>
+    <h4 id="-shopping-cart-">التطبيق العملي: عربة التسوق (Shopping Cart)</h4>
+    <p>يتم بناء تطبيق عربة تسوق، مع التأكيد على كيفية التعامل مع جلب البيانات وتعديلها من خادم وهمي (Node.js/Express)
+        يتواصل عبر نقاط نهاية JSON.</p>
+    <h4 id="-">التزامن والمكونات</h4>
+    <ul>
+        <li>يتم استخدام أداة <strong><code>concurrently</code></strong> لتشغيل الخادم (على <code>localhost:3000</code>)
+            وخادم Webpack (على <code>localhost:8080</code>) في وقت واحد.</li>
+        <li>يتم تناول مشكلة <strong>CORS</strong> (Cross-Origin Resource Sharing) وكيفية حلها باستخدام إعدادات
+            <strong>Proxy</strong> في خادم Webpack لتوجيه طلبات API.
+        </li>
+    </ul>
+    <h4 id="-modular-vuex-">تقسيم المخزن (Modular Vuex)</h4>
+    <p>يتم تقديم فكرة تقسيم مخزن Vuex إلى <strong>وحدات (Modules)</strong> منفصلة بناءً على نطاق العمل (Domain)، مثل
+        <code>productModule</code> و <code>cartModule</code>، لزيادة قابلية الصيانة في التطبيقات الكبيرة.
+    </p>
+    <ul>
+        <li><strong>الإجراءات غير المتزامنة:</strong> يتم شرح كيف تقوم الإجراءات (Actions) في وحدات Vuex بتنفيذ
+            استدعاءات <code>axios</code> إلى الخادم، ثم تقوم الطفرة (Mutation) بتحديث الحالة بناءً على الاستجابة.</li>
+    </ul>
+    <hr>
+    <h3 id="vi-form-handling-">VI - Form Handling (التعامل مع النماذج)</h3>
+    <p>يركز هذا الفصل على بناء النماذج في Vue، بدءًا من الأساسيات وصولاً إلى التحقق من الصحة (Validation) والمعالجة غير
+        المتزامنة (Asynchronous Processing).</p>
+    <h4 id="-">المفاهيم الأساسية للنماذج</h4>
+    <ul>
+        <li><strong>الأزرار ومناولي الأحداث:</strong> يتم شرح كيفية استخدام مناولي الأحداث (Event Handlers) مثل
+            <code>@click</code> واستغلال كائن الحدث (<code>evt</code>) لتحديد الزر الذي تم النقر عليه دون الحاجة لدوال
+            منفصلة.
+        </li>
+        <li><strong>ربط البيانات الثنائي (<code>v-model</code>):</strong> يُعد <code>v-model</code> أساسيًا لربط مدخلات
+            المستخدم بخصائص البيانات في المكونات (سواء كانت حقول نصية، أو قوائم منسدلة <code>select</code>، أو مربعات
+            اختيار <code>checkbox</code>).</li>
+    </ul>
+    <h4 id="-validations-">التحقق من الصحة (Validations)</h4>
+    <p>يتم تقسيم التحقق من الصحة إلى مستويين:</p>
+    <ol>
+        <li><strong>تحقق مستوى النموذج (Form-level Validation):</strong> يتم تنفيذه عند الإرسال (<code>@submit</code>)
+            لضمان أن جميع الحقول المطلوبة ممتلئة وأن البيانات (مثل البريد الإلكتروني) مطابقة للتنسيق المطلوب.</li>
+        <li><strong>تحقق مستوى الحقل (Field-level Validation):</strong> يتم تنفيذه على الفور باستخدام <strong>الخصائص
+                المحسوبة (Computed Properties)</strong>، مثل التحقق من تجاوز حد الأحرف، أو تحديد خيار معين في قائمة
+            منسدلة. يتم استخدام التوجيهات الشرطية <strong><code>v-if</code></strong> و
+            <strong><code>:disabled</code></strong> للتحكم في ظهور رسائل الخطأ وحالة زر الإرسال بناءً على نتيجة التحقق.
+        </li>
+    </ol>
+    <h4 id="-">المعالجة غير المتزامنة وحالة الحفظ</h4>
+    <p>يتم تناول كيفية إدارة حالة النماذج أثناء عمليات الحفظ غير المتزامنة (Async Persistence). يتم استخدام خاصية
+        <code>saveStatus</code> التي تمر بأربع حالات: <code>READY</code>، <code>SAVING</code>، <code>SUCCESS</code>، و
+        <code>ERROR</code>. يتم استخدام <code>v-if</code> لعرض زر الإرسال المناسب (مثل &quot;Saving...&quot; أو
+        &quot;Saved!&quot;) ومنع الإرسال المزدوج (Double Save).
+    </p>
+    <h4 id="-vuex">النماذج مع Vuex</h4>
+    <p>يتم شرح التحدي الذي يواجه استخدام <code>v-model</code> مباشرة مع حالة Vuex (State)، حيث يهدف <code>v-model</code>
+        إلى تغيير الحالة مباشرة، وهو ما يتعارض مع قاعدة <strong>الوضع الصارم (Strict Mode)</strong> لـ Vuex. لحل ذلك،
+        يتم استخدام طريقة الربط الأحادي <strong><code>v-bind</code></strong> لقراءة القيمة، ومناولي أحداث
+        (<code>@input</code> أو <code>@change</code>) لـ <strong>الالتزام بالطفرات (<code>$store.commit</code>)</strong>
+        عند كل تغيير.</p>
+    <hr>
+    <h3 id="vii-routing-">VII - Routing (التوجيه)</h3>
+    <p>يتناول هذا الفصل مفهوم التوجيه (Routing) في تطبيقات الصفحة الواحدة (SPAs) باستخدام مكتبة
+        <strong><code>vue-router</code></strong> الرسمية.
+    </p>
+    <h4 id="-">أساسيات التوجيه</h4>
+    <ul>
+        <li>يبدأ الفصل ببناء <strong>جهاز توجيه بسيط من الصفر</strong> باستخدام مفاهيم Vue الأساسية (مثل الأحداث المخصصة
+            Event Bus و <code>history.pushState</code>) لتوضيح كيفية عمل التوجيه في الواجهة الأمامية.</li>
+        <li>يتم شرح كيفية إعداد التوجيه باستخدام <code>vue-router</code>، حيث يتم تعريف مصفوفة <code>routes</code> التي
+            تربط مسار URL بمكون Vue المقابل.</li>
+        <li>يُستخدم المكون <strong><code>&lt;router-link&gt;</code></strong> للتنقل بين الروابط والمكون
+            <strong><code>&lt;router-view&gt;</code></strong> لعرض المكون المطابق للمسار الحالي.
+        </li>
+    </ul>
+    <h4 id="-dynamic-route-matching-">مطابقة المسارات الديناميكية (Dynamic Route Matching)</h4>
+    <p>يتم توسيع تطبيق عربة التسوق لدعم التوجيه الديناميكي (مثل <code>/products/:id</code>)، مما يسمح بعرض تفاصيل منتج
+        معين بناءً على مُعرّفه في المسار.</p>
+    <h4 id="-navigation-guards-authentication-">حماية المسارات (Navigation Guards) والمصادقة (Authentication)</h4>
+    <p>يتم دمج التوجيه مع تدفق المصادقة (Login/Logout).</p>
+    <ul>
+        <li>يتم إنشاء وحدة <code>login</code> في مخزن Vuex لمعالجة عملية الحصول على رمز API (Token) وتخزينه محليًا.</li>
+        <li>يتم استخدام ميزة <strong>Navigation Guards (حراس التنقل)</strong> التي توفرها <code>vue-router</code> (مثل
+            <code>beforeEnter</code>) لمنع المستخدمين غير المصادق عليهم من الوصول إلى صفحات محمية (مثل
+            <code>/products</code> أو <code>/cart</code>)، وإعادة توجيههم إلى صفحة <code>/login</code> إذا لم يكن لديهم
+            الرمز (Token) المطلوب.
+        </li>
+    </ul>
+    <hr>
+    <h3 id="viii-unit-testing-">VIII - Unit Testing (اختبار الوحدة)</h3>
+    <p>يركز هذا الفصل على اختبار الوحدة (Unit Testing) في تطبيقات Vue، موضحًا الفرق بينه وبين اختبارات النهاية إلى
+        النهاية (End-to-End Testing).</p>
+    <h4 id="-">أدوات الاختبار</h4>
+    <ul>
+        <li><strong>Mocha:</strong> إطار عمل (Framework) لكتابة اختبارات JavaScript وتنظيمها في كتل
+            <code>describe</code> و <code>it</code>.
+        </li>
+        <li><strong>Chai:</strong> مكتبة تأكيدات (Assertion Library) تُستخدم لتحديد التوقعات في الاختبارات (مثل
+            <code>expect(result).to.equal(expected)</code>)، وغالبًا ما تُستخدم بأسلوب <strong>السلوك الموجه
+                (Behavior-Driven Style)</strong>.
+        </li>
+        <li><strong>vue-test-utils:</strong> مكتبة مساعدة رسمية من Vue تتيح تحميل المكونات وتغليفها (Wrapper) لسهولة
+            التفاعل معها واختبارها، بما في ذلك ميزة <strong>التقديم السطحي (Shallow Mounting)</strong> التي تختبر
+            المكونات في عزلة عن مكوناتها الفرعية.</li>
+        <li><strong>Sinon:</strong> مكتبة تُستخدم لـ <strong>الاستبدالات (Stubs)</strong> و <strong>التجسس
+                (Spies)</strong>، وهي مفيدة عند اختبار الإجراءات التي تتضمن استدعاءات خارجية (مثل API).</li>
+    </ul>
+    <h4 id="-">تطبيق الاختبار</h4>
+    <ul>
+        <li>يتم تطبيق هذه الأدوات على مثال بسيط يتضمن إضافة العناصر وإزالتها، حيث يتم اختبار تفاعل المكون مع المستخدم
+            (مثل ملء حقل الإدخال، وتمكين/تعطيل الأزرار).</li>
+        <li>يتم تناول كيفية اختبار المكونات التي تعتمد على <strong>Vuex</strong> (عبر إنشاء مخزن وهمي Mock Store) و
+            <strong>Vue Router</strong> (عبر استخدام ميزة <code>stubs</code> أو تكوين مثيل Vue محلي
+            <code>createLocalVue</code>).
+        </li>
+        <li>يتم شرح كيفية اختبار <strong>الطفرات (Mutations)</strong> و <strong>الإجراءات (Actions)</strong> الخاصة بـ
+            Vuex بشكل منفصل عن المكونات.</li>
+    </ul>
+    <hr>
+    <h3 id="ix-fullstack-vue-screencast-vue-">IX - Fullstack Vue Screencast (البث المصور الكامل لـ Vue)</h3>
+    <p>يصف هذا القسم محتوى بث مصور إضافي يركز على تطبيق عملي متكامل.</p>
+    <h4 id="-simplecoincap">المشروع: SimpleCoinCap</h4>
+    <p>المشروع هو تطبيق <strong>SimpleCoinCap</strong>، الذي يعرض تصنيفات العملات المشفرة (Cryptocurrency) وبياناتها.
+    </p>
+    <h4 id="-">أجندة البث المصور</h4>
+    <p>تنقسم الأجندة إلى خطوات بناء ونشر التطبيق:</p>
+    <ol>
+        <li><strong>الإعداد (Setting Up):</strong> إعداد بيئة التطوير باستخدام Vue CLI و Webpack، وتجهيز خادم
+            Node/Express، وإعداد Proxy لطلبات API.</li>
+        <li><strong>بناء التطبيق (Building the Application):</strong> بناء مخزن Vuex، وإعداد التوجيه باستخدام Vue
+            Router، وبناء جميع المكونات وواجهات التطبيق.</li>
+        <li><strong>النشر (Deployment):</strong> نشر التطبيق بالكامل باستخدام منصة <strong>Heroku</strong>.</li>
+    </ol>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vuejs-egypt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark.css">
+</head>
+
+<body>
+
+    <p>يا معلم، طلبك على راسي! الكتاب ده، اللي اسمه <strong>Fullstack Vue</strong>، معمول عشان يعلمك إزاي تبني تطبيقات
+        ويب متكاملة وقوية باستخدام <strong>Vue.js</strong> وأصحابه. الكتاب بيمشيك خطوة خطوة، وكل فصل بتعمل فيه تطبيق
+        كامل.</p>
+    <p>بص بقى يا سيدي، ملخص الكتاب بالكامل والأمثلة الرئيسية اللي فيه:</p>
+    <hr>
+    <h2 id="-">الجزء الأول: الأساسيات والتطبيقات البسيطة</h2>
+    <h3 id="-vue-js">الفصل الأول: أول تطبيق ليك بـ Vue.js</h3>
+    <p><strong>الموضوع:</strong> الأساسيات، ربط البيانات، وتكوين المكونات (Components) البسيطة.
+        <strong>المشروع:</strong> <strong>UpVote!</strong> (تطبيق تصويت زي بتاع Reddit كده).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        في الأول خالص، بتتعلم إزاي تشغل Vue بسرعة عن طريق <strong>CDN</strong> (شبكة توصيل المحتوى).</p>
+    <ul>
+        <li><strong>ربط البيانات (Data Binding):</strong> أهم حاجة هنا هي <strong>ربط البيانات</strong>. بتاخد البيانات
+            اللي عندك في كود الـ JavaScript وتحطها في الـ HTML باستخدام علامة الـ <code>{{ }}</code>.<ul>
+                <li><strong>مثال:</strong> عشان تعرض عدد الأصوات، بتكتب <code>{{ submission.votes }}</code> في الـ
+                    Template.</li>
+            </ul>
+        </li>
+        <li><strong>عرض القوائم (List Rendering):</strong> عشان تعرض قائمة المنشورات كلها، بتستخدم
+            <strong><code>v-for</code></strong>.
+        </li>
+        <li><strong>الفرز (Sorting):</strong> عشان تخلي المنشورات تترتب تلقائيًا حسب عدد الأصوات، بتستخدم حاجة اسمها
+            <strong>الخصائص المحسوبة (Computed Properties)</strong>.
+        </li>
+        <li><strong>التفاعلية (Reactivity):</strong> لما بتدوس على زرار التصويت، عدد الأصوات بيتغير، والمنشور بيتنقل في
+            القائمة لفوق أو لتحت <strong>لوحده فورًا</strong>. وده سر قوة Vue!</li>
+    </ul>
+    <h3 id="-single-file-components-">الفصل الثاني: المكونات أحادية الملف (Single-file components)</h3>
+    <p><strong>الموضوع:</strong> الانتقال لبيئة عمل احترافية (Node.js و Webpack) والتعمق في بناء المكونات.
+        <strong>المشروع:</strong> <strong>Calendar App</strong> (تطبيق تقويم لإدارة الأحداث الأسبوعية).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        في الفصل ده بتسيب طريقة الـ CDN وبتدخل في <strong>العيار التقيل</strong>. هنا بتتعرف على نمط <strong>المكونات
+            أحادية الملف (.vue)</strong>.</p>
+    <ul>
+        <li><strong>الـ SFCs:</strong> كل مكون بيبقى ملف واحد: <code>&lt;template&gt;</code> (الـ HTML بتاعك)،
+            و<code>&lt;script&gt;</code> (الـ JS والمنطق بتاعك)، و<code>&lt;style&gt;</code> (الـ CSS بتاع المكون بس).
+        </li>
+        <li><strong>نمط البناء:</strong> بتتعلم إزاي تبني التطبيق خطوة بخطوة: تبدأ بتصميم ثابت، بعدين تقسمه لمكونات،
+            وتحط <strong>إدارة بيانات بسيطة (Simple State Management)</strong> عشان المكونات تتكلم مع بعض.</li>
+        <li><strong>مثال:</strong> في تطبيق التقويم، بتشوف إزاي مكون <code>CalendarWeek</code> بيعرض سبعة مكونات
+            <code>CalendarDay</code>، وكل واحد فيهم بيعرض لسته من <code>CalendarEvent</code>.
+        </li>
+    </ul>
+    <h3 id="-custom-events-">الفصل الثالث: الأحداث المخصصة (Custom Events)</h3>
+    <p><strong>الموضوع:</strong> إزاي المكونات بتتواصل مع بعض بشكل صح.
+        <strong>المشروع:</strong> تطبيق تدوين ملاحظات بسيط.
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        فيه قاعدة مهمة هنا: <strong>البيانات بتنزل (Props down)، والأحداث بتطلع (Events up)</strong>.</p>
+    <ul>
+        <li><strong>الأحداث المخصصة:</strong> لما مكون ابن (Child) بيعمل حاجة، لازم يبعت إشارة للأب (Parent) باستخدام
+            <strong><code>this.$emit()</code></strong>. والأب هو اللي بيسمع الإشارة دي (مثلاً <code>@add-note</code>)
+            وينفذ التغيير.<ul>
+                <li><strong>مثال:</strong> في تطبيق الملاحظات، الـ <code>input-component</code> (الابن) لما بتدوس Enter،
+                    بيبعت حدث <code>add-note</code> للـ <strong>Root Instance</strong> (الأب) عشان الأب يسجل النوتة
+                    الجديدة.</li>
+            </ul>
+        </li>
+        <li><strong>Event Bus:</strong> لو عندك مكونين بعاد عن بعض ومش أب وابن (زي عم وعمة!) وعايزين يتكلموا مع بعض،
+            بتستخدم حاجة اسمها <strong>Event Bus</strong>. وده بيساعد في توصيل الإشارات بينهم.</li>
+    </ul>
+    <hr>
+    <h2 id="-state-management-">الجزء الثاني: إدارة الحالة (State Management) والتفاعل مع السيرفر</h2>
+    <h3 id="-vuex">الفصل الرابع: مدخل لـ Vuex</h3>
+    <p><strong>الموضوع:</strong> استخدام <strong>Vuex</strong> لإدارة الحالة المركزية (State Management).
+        <strong>المشروع:</strong> إعادة بناء تطبيق الملاحظات باستخدام Vuex.
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        لما الأبلكيشن يكبر، لازم البيانات كلها تكون في مكان واحد مركزي، وده هو <strong>Vuex</strong> اللي مبني على نمط
+        <strong>Flux</strong>.
+    </p>
+    <ul>
+        <li><strong>الحالة (State):</strong> ده المخزن المركزي لكل البيانات.</li>
+        <li><strong>الطفرات (Mutations):</strong> دي الدوال الوحيدة اللي مسموح ليها إنها تغير الـ State مباشرة. لازم
+            تكون <strong>متزامنة (Synchronous)</strong>.</li>
+        <li><strong>الإجراءات (Actions):</strong> دي اللي بتنادي على الـ Mutations. ميزة الـ Actions إنها ممكن تعمل شغل
+            <strong>غير متزامن (Asynchronous)</strong>.
+        </li>
+        <li><strong>مثال (تدفق البيانات):</strong> المكون (View) بيعمل <strong>Dispatch</strong> لـ
+            <strong>Action</strong> (زي <code>addNote</code>)، الـ Action بينفذ أي منطق غير متزامن (مفيش هنا)، وبعدين
+            بيعمل <strong>Commit</strong> لـ <strong>Mutation</strong> (زي <code>ADD_NOTE</code>)، والـ Mutation بتغير
+            الـ State، والـ Vuex بيحدث الواجهة تلقائيًا.
+        </li>
+        <li><strong>Vue Devtools:</strong> ميزة جامدة هنا هي <strong>تصحيح الأخطاء عبر الزمن (Time-travel
+                debugging)</strong> اللي بتشوف بيها كل تغيير حصل في الـ State وبتعرف ترجع لورا.</li>
+    </ul>
+    <h3 id="-vuex-">الفصل الخامس: Vuex والسيرفرات</h3>
+    <p><strong>الموضوع:</strong> دمج Vuex مع استدعاءات الـ API غير المتزامنة (Async).
+        <strong>المشروع:</strong> <strong>Shopping Cart</strong> (تطبيق عربة تسوق).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        في الفصل ده بتدخل في الـ Fullstack بجد. بتشغل سيرفر (Node.js) والـ Client (Vue app) مع بعض.</p>
+    <ul>
+        <li><strong>استدعاءات الـ API:</strong> كل عملية زي إضافة منتج أو حذفه بتتم عن طريق نداءات
+            <strong><code>axios.post</code></strong> أو <strong><code>axios.get</code></strong>. الـ
+            <strong>Actions</strong> هي المسؤولة عن النداءات دي لأنها <strong>غير متزامنة</strong>.<ul>
+                <li><strong>مثال:</strong> لما بتدوس &quot;Add to Cart&quot;، الـ <strong>Action</strong> هو اللي بيعمل
+                    نداء للسيرفر عشان يسجل المنتج، ولما الـ API بيرجع الرد، الـ Action بيعمل <strong>Commit</strong> لـ
+                    <strong>Mutation</strong> واحدة بس اسمها <code>UPDATE_CART_ITEMS</code> عشان يخلي بيانات العميل زي
+                    بيانات السيرفر بالظبط.
+                </li>
+            </ul>
+        </li>
+        <li><strong>تقسيم الـ Store:</strong> بيتم تقسيم الـ Vuex Store لوحدات (Modules) زي <code>productModule</code> و
+            <code>cartModule</code> عشان الدنيا متتوهش منك.
+        </li>
+    </ul>
+    <h3 id="-form-handling-">الفصل السادس: التعامل مع النماذج (Form Handling)</h3>
+    <p><strong>الموضوع:</strong> بناء النماذج، والتحقق من صحة البيانات (Validation)، والـ Persistence.
+        <strong>المشروع:</strong> نموذج استفسارات ملابس (Fullstack Clothing Inquiry Sheet).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        هنا بتتعلم إزاي تستقبل مدخلات المستخدم صح.</p>
+    <ul>
+        <li><strong>ربط البيانات الثنائي (Two-way Data Binding):</strong> باستخدام التوجيه
+            <strong><code>v-model</code></strong>، أي تغيير في حقل الإدخال بيغير البيانات في الـ JavaScript، والعكس
+            صحيح.<ul>
+                <li><strong>ملحوظة Vuex:</strong> لو بتستخدم Vuex، لازم تبطل استخدام <code>v-model</code> بشكل مباشر على
+                    الـ State، وتستخدم بداله <strong>ربط أحادي الاتجاه</strong> (<code>:value</code> +
+                    <code>@input</code>) عشان متخالفش قواعد الـ Mutations.
+                </li>
+            </ul>
+        </li>
+        <li><strong>التحقق من الصحة (Validations):</strong> بتضيف قواعد لمدخلات المستخدم.<ul>
+                <li><strong>تحقق على مستوى الحقل (Field-level):</strong> بيحصل وأنت بتكتب. ممكن تستخدم <strong>الـ
+                        Computed Properties</strong> عشان تعمل تحقق سريع (مثلاً، إن الاسم أقل من 20 حرف)، وده بيخلي زرار
+                    الإرسال (Submit) يقفل تلقائيًا.</li>
+                <li><strong>تحقق على مستوى النموذج (Form-level):</strong> بيحصل لما تدوس Submit، عشان تتأكد إن كل الحقول
+                    موجودة (زي الإيميل أو شروط الاستخدام).</li>
+            </ul>
+        </li>
+        <li><strong>الحفظ غير المتزامن (Async Persistence):</strong> بتشوف إزاي تدير حالة زر الـ Submit أثناء عملية
+            الحفظ، اللي بتكون في أربع حالات: <strong>READY</strong> (جاهز)، <strong>SAVING</strong> (جاري الحفظ)،
+            <strong>SUCCESS</strong> (تم بنجاح)، و <strong>ERROR</strong> (فشل).
+        </li>
+    </ul>
+    <hr>
+    <h2 id="-">الجزء الثالث: الاحتراف والاختبار</h2>
+    <h3 id="-routing-">الفصل السابع: التوجيه (Routing)</h3>
+    <p><strong>الموضوع:</strong> إزاي تخلي الأبلكيشن بتاعك <strong>تطبيق صفحة واحدة (SPA)</strong> باستخدام
+        <strong><code>vue-router</code></strong>.
+        <strong>المشروع:</strong> إضافة التوجيه لتطبيق عربة التسوق.
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        التوجيه بيخلي الأبلكيشن بتاعك منظم.</p>
+    <ul>
+        <li><strong>الـ SPAs:</strong> بدل ما السيرفر يحمل صفحة جديدة بالكامل كل ما تدوس على لينك، الـ Vue هو اللي بيغير
+            المكونات على نفس الصفحة.</li>
+        <li><strong><code>vue-router</code>:</strong> هو المكتبة الرسمية للتوجيه. بتستخدم المكون
+            <strong><code>&lt;router-view&gt;</code></strong> عشان يعرض المكون المناسب للمسار الحالي.
+        </li>
+        <li><strong>المسارات الديناميكية:</strong> بتخلي المسار يعرض بيانات معينة حسب الـ ID (زي
+            <code>/products/:id</code>).
+        </li>
+        <li><strong>المصادقة (Authentication):</strong> بتعمل نظام تسجيل دخول (Login/Logout) بسيط، وبتستخدم <strong>حراس
+                التنقل (Navigation Guards)</strong> عشان تمنع المستخدم يوصل لصفحة معينة (زي <code>/cart</code>) قبل ما
+            يعمل Login.</li>
+    </ul>
+    <h3 id="-unit-testing-">الفصل الثامن: اختبار الوحدة (Unit Testing)</h3>
+    <p><strong>الموضوع:</strong> إزاي تعمل اختبارات لوحدة الكود بتاعتك عشان متخافش من التغيير.
+        <strong>المشروع:</strong> تطبيقات مختلفة (قائمة بسيطة، تطبيق طقس).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        الاختبارات بتتقسم لـ <strong>End-to-End</strong> (اختبار الأبلكيشن كله من أوله لآخره) و <strong>Unit
+            Testing</strong> (اختبار كل جزء لوحده). الكتاب بيركز على الـ Unit Testing.</p>
+    <ul>
+        <li><strong>الأدوات:</strong> بتستخدم <strong>Mocha</strong> (لتنظيم الاختبارات في كتل <code>describe</code> و
+            <code>it</code>)، و <strong>Chai</strong> (للتأكيدات زي <code>expect(x).to.equal(y)</code>).
+        </li>
+        <li><strong><code>vue-test-utils</code>:</strong> دي الأداة الرسمية من Vue اللي بتخليك تعمل <strong>&quot;تقديم
+                سطحي&quot; (Shallow Mounting)</strong> للمكون، يعني بتختبر المكون في عزلة تامة عن المكونات الأبناء.</li>
+        <li><strong>Sinon:</strong> تستخدمها عشان تعمل <strong>Mock</strong> للنداءات الخارجية (زي نداءات الـ API). يعني
+            بتقول للكود: &quot;اعتبر إن نداء الـ API ده نجح ورجع البيانات دي&quot;، وبكده تكون اختبرت المكون لوحده.</li>
+        <li><strong>اختبار Vuex:</strong> بيتم اختبار الـ <strong>Mutations</strong> بشكل مباشر (لأنها متزامنة) واختبار
+            الـ <strong>Actions</strong> عن طريق التأكد من أنها نادت على الـ Mutations الصحيحة بالحمولة (Payload)
+            المطلوبة.</li>
+    </ul>
+    <h3 id="-screencast-">الفصل التاسع: البث المصور الكامل (Screencast)</h3>
+    <p><strong>الموضوع:</strong> بناء ونشر تطبيق كامل من البداية للنهاية.
+        <strong>المشروع:</strong> <strong>SimpleCoinCap</strong> (تطبيق يعرض ترتيب العملات المشفرة).
+    </p>
+    <p><strong>إيه الحكاية؟</strong>
+        ده ملخص لكورس عملي بتبني فيه تطبيق متكامل بيجيب بيانات العملات المشفرة (Cryptocurrency) من API خارجي.</p>
+    <ul>
+        <li><strong>الخطوات:</strong> بتبدأ بـ <strong>الإعداد (Setting Up)</strong> (تجهيز Vue CLI وخادم Node/Express)،
+            بعدين <strong>بناء التطبيق (Building the Application)</strong> (بناء Vuex Store، وتحديد الـ Routes باستخدام
+            Vue Router، وبناء الـ Components)، وأخيراً <strong>النشر (Deployment)</strong> باستخدام
+            <strong>Heroku</strong>.
+        </li>
+    </ul>
+
+
+    <p>يا سيدي الفاضل، الفصل ده هو <strong>الخطوة الأولى بتاعتك في Vue.js</strong>. ده الأساس اللي هتبني عليه كل حاجة
+        بعد كده، والكتاب بيمشي معاك بطريقة عملية ومفصلة.</p>
+    <p>الشرح ده هيغطي كل النقاط اللي في الفصل بالتفصيل، وبلهجة مصرية، مع الأمثلة:</p>
+    <hr>
+    <h2 id="-vue-js">الفصل الأول: أول تطبيق ليك بـ Vue.js</h2>
+    <p>الهدف هنا إنك تتعرف على أهم المفاهيم الأساسية في Vue.js عن طريق بناء تطبيق تفاعلي وبسيط اسمه
+        <strong>UpVote!</strong>. التطبيق ده مستوحى من مواقع زي Reddit أو Hacker News.</p>
+    <p><strong>وظيفة التطبيق:</strong> بيعرض قائمة منشورات، والمستخدم ممكن يصوت (Up-vote) على أي منشور، والتطبيق بيعمل
+        <strong>فرز فوري (Sorting)</strong> للمنشورات دي عشان اللي أصواته أكتر يطلع فوق.</p>
+    <h3 id="1-">1. الإعداد السريع والتهيئة</h3>
+    <p>في الفصل ده، عشان تبدأ بسرعة وميتبقاش فيه أي &quot;وجع دماغ&quot; في التكوين (Configuration)، إحنا مش بنستخدم
+        أدوات بناء معقدة (زي Webpack)، بل بنستخدم طريقة سهلة وسريعة:</p>
+    <ul>
+        <li><strong>الـ CDN:</strong> بتجيب مكتبة Vue مباشرة عن طريق إضافة وسم <code>&lt;script&gt;</code> في ملف الـ
+            HTML بتاعك. دي أسرع طريقة عشان تشغل التطبيق.</li>
+        <li><strong>ملفات الكود:</strong> كل شغلك بيكون محصور في ملفين: <code>index.html</code> (اللي فيه الـ Markup
+            والـ CDN) و <code>main.js</code> (اللي فيه كل أكواد Vue).</li>
+    </ul>
+    <h3 id="2-vue-instance-mounting-point-">2. Vue Instance ونقطة التثبيت (Mounting Point)</h3>
+    <p>كل تطبيق Vue بيبدأ من مكان واحد، وهو <strong>Vue Instance</strong>. ده الكائن اللي بيتحكم في كل حاجة في التطبيق.
+    </p>
+    <ul>
+        <li><strong>إنشاء المثيل:</strong> بتعمل <code>new Vue({})</code>.</li>
+        <li><strong>نقطة التثبيت:</strong> عشان تربط الكائن ده بالواجهة، بتحدد له عنصر HTML معين يشتغل جواه. العنصر ده
+            بنحدده بخيار <code>el</code>.</li>
+    </ul>
+    <p><strong>مثال:</strong>
+        لو عندك في الـ HTML كود زي ده:</p>
+    <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- هنا الكود بتاعك كله --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>UpVote!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+    <p>في ملف <code>main.js</code> بتعمل التالي:</p>
+    <pre><code class="lang-javascript"><span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Vue</span>({
+    <span class="hljs-attribute">el</span>: <span class="hljs-string">'#app'</span> // بقوله يمسك الـ div اللي الـ id بتاعه <span class="hljs-string">"app"</span>
+});
+</code></pre>
+    <h3 id="3-data-binding-">3. ربط البيانات (Data Binding)</h3>
+    <p>هنا بتتعلم إزاي تخلي البيانات اللي في الـ JavaScript تظهر وتتحدث في الـ HTML.</p>
+    <h4 id="-mustache-">أ. صيغة الـ Mustache (الأقواس المزدوجة <code>{{}}</code>)</h4>
+    <p>دي أبسط طريقة لربط المحتوى النصي.</p>
+    <p><strong>مثال:</strong>
+        عشان تعرض عنوان المنشور وعدد الأصوات:</p>
+    <pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>
+        </span><span class="hljs-template-variable">{{ submissions.title }}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-text-info"</span>&gt;</span></span><span class="hljs-template-variable">{{ submissions.votes }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span></span>
+</code></pre>
+    <h4 id="-v-bind-">ب. توجيه <code>v-bind</code></h4>
+    <p>الـ Mustache مينفعش تستخدمه جوه خصائص (Attributes) الـ HTML زي <code>src</code> أو <code>href</code>. هنا بتستخدم
+        توجيه <strong><code>v-bind</code></strong>.</p>
+    <p><strong>مثال:</strong>
+        عشان تربط مصدر الصورة (Source) أو لينك العنوان (URL):</p>
+    <pre><code class="lang-html">&lt;img <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"image is-64x64"</span>
+     v-bind:src=<span class="hljs-string">"submissions.submissionImage"</span>&gt;
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"submissions.url"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"has-text-info"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>
+</code></pre>
+    <h3 id="4-list-rendering-and-sorting-">4. عرض القوائم والفرز (List Rendering and Sorting)</h3>
+    <p>عشان نعرض كل المنشورات (مش واحد بس)، لازم نستخدم حلقة تكرارية:</p>
+    <h4 id="-v-for-">أ. توجيه <code>v-for</code></h4>
+    <p>ده التوجيه اللي بيستخدم لعرض قائمة من العناصر بناءً على مصدر بيانات (Array).</p>
+    <ul>
+        <li><strong>الصيغة:</strong> بيكون على شكل <code>item in items</code>.</li>
+        <li><strong>المفتاح (Key):</strong> مهم جدًا تحدد خاصية <code>key</code> فريدة لكل عنصر. ده بيخلي Vue يتتبع كل
+            عنصر بشكل صحيح، وضروري عشان عملية إعادة ترتيب العناصر تشتغل بكفاءة.</li>
+    </ul>
+    <p><strong>مثال:</strong>
+        عشان تلف على كل منشور في مصفوفة <code>submissions</code>:</p>
+    <pre><code class="lang-html">&lt;article v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"submission in submissions"</span>
+         v-bind:key=<span class="hljs-string">"submission.id"</span>
+         <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+    <span class="xml"><span class="hljs-comment">&lt;!-- كود المنشور هنا، مع استخدام {{ submission.title }} بدلاً من {{ submissions.title }} --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+    <h4 id="-computed-properties-">ب. الخصائص المحسوبة (Computed Properties)</h4>
+    <p>لو عايز البيانات تترتب أو يتم عليها عملية حسابية معقدة قبل عرضها، بتستخدم الـ Computed Properties.</p>
+    <ul>
+        <li><strong>الميزة:</strong> هي بتشتغل فقط لما البيانات اللي بتعتمد عليها تتغير، وده بيخليها سريعة وموفرة
+            للموارد.</li>
+    </ul>
+    <p><strong>مثال:</strong>
+        عشان تخلي المنشورات دايماً مترتبة تنازليًا حسب الأصوات:</p>
+    <pre><code class="lang-javascript">new Vue({
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-keyword">data</span>: { submissions: Seed.submissions },
+    computed: {
+        sortedSubmissions () {
+            <span class="hljs-comment">// هنا بنستخدم دالة sort العادية في JavaScript لترتيب المنشورات</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.submissions.sort((a, b) =&gt; {
+                <span class="hljs-keyword">return</span> b.votes - a.votes <span class="hljs-comment">// ترتيب تنازلي</span>
+            });
+        }
+    }
+});
+</code></pre>
+    <p>بعد كده، بتغير الـ <code>v-for</code> في الـ HTML عشان يستخدم <code>sortedSubmissions</code>.</p>
+    <h3 id="5-event-handling-reactivity-">5. التعامل مع الأحداث والتفاعلية (Event Handling &amp; Reactivity)</h3>
+    <p>ده أهم جزء، وهو اللي بيخلي التطبيق يتفاعل مع المستخدم.</p>
+    <h4 id="-v-on-">أ. توجيه <code>v-on</code></h4>
+    <p>يُستخدم لتسجيل مستمعي الأحداث على عناصر DOM (زي النقرات أو الإدخال).</p>
+    <p><strong>مثال:</strong>
+        عشان تخلي أيقونة التصويت تنفذ دالة معينة عند النقر عليها:</p>
+    <pre><code class="lang-html">&lt;span <span class="hljs-keyword">class</span>=<span class="hljs-string">"icon is-small"</span> v-<span class="hljs-keyword">on</span>:click=<span class="hljs-string">"upvote(submission.id)"</span>&gt;
+    &lt;i <span class="hljs-keyword">class</span>=<span class="hljs-string">"fa fa-chevron-up"</span>&gt;&lt;/i&gt;
+&lt;/span&gt;
+</code></pre>
+    <h4 id="-methods-">ب. تعريف الدوال (Methods)</h4>
+    <p>المنطق اللي بيحصل لما تدوس على الزرار بيتكتب في خاصية <code>methods</code> في الـ Vue Instance.</p>
+    <p><strong>مثال:</strong>
+        دالة <code>upvote</code> اللي بتزود عدد الأصوات:</p>
+    <pre><code class="lang-javascript">// ... في الـ Vue Instance
+<span class="hljs-symbol">methods</span>: {
+    upvote(<span class="hljs-keyword">submissionId) </span>{
+        // بنستخدم دالة find عشان نلاقي المنشور اللي الـ id بتاعه هو <span class="hljs-keyword">submissionId
+</span>        const <span class="hljs-keyword">submission </span>= this.<span class="hljs-keyword">submissions.find(
+</span>            <span class="hljs-keyword">submission </span>=&gt; <span class="hljs-keyword">submission.id </span>=== <span class="hljs-keyword">submissionId
+</span>        )<span class="hljs-comment">;</span>
+        <span class="hljs-keyword">submission.votes++; </span>// بنزود عدد الأصوات
+    }
+}
+</code></pre>
+    <h4 id="-reactive-state-">ج. الحالة التفاعلية (Reactive State)</h4>
+    <p><strong>دي أهم ميزة في Vue:</strong> بمجرد ما بتغير قيمة <code>submission.votes</code> في دالة
+        <code>upvote</code>، Vue بيكتشف التغيير ده. وبما أن <code>sortedSubmissions</code> (الـ Computed Property)
+        بتعتمد على عدد الأصوات، فهي بتتحدث تلقائيًا، والـ DOM (الواجهة) بيعيد ترتيب المنشورات <strong>فورا وبدون أي
+            أوامر إضافية منك</strong>.</p>
+    <h3 id="6-class-bindings-">6. ربط الفئات (Class Bindings)</h3>
+    <p>لو عايز تغير شكل عنصر معين (CSS Class) بناءً على شرط.</p>
+    <p><strong>مثال:</strong>
+        عشان تحط كلاس <code>blue-border</code> لو المنشور وصل 20 صوت أو أكثر:</p>
+    <pre><code class="lang-html">&lt;article v-bind:<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"{ 'blue-border': submission.votes &gt;= 20 }"</span>
+         <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+    <span class="xml"><span class="hljs-comment">&lt;!-- ... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+    <h3 id="7-components-">7. المكونات (Components)</h3>
+    <p>لتنظيم الكود وإعادة استخدامه، بيتم تقسيم التطبيق لمكونات صغيرة.</p>
+    <ul>
+        <li><strong>إنشاء المكون:</strong> بتعمل كائن جديد (زي <code>submissionComponent</code>) وبتعرف فيه الـ
+            <code>template</code> و الـ <code>methods</code>.</li>
+        <li><strong>قواعد القالب:</strong> القالب (Template) بتاع أي مكون لازم يكون ملفوف داخل <strong>عنصر جذر
+                واحد</strong> (Single root element).</li>
+    </ul>
+    <h4 id="-props-">تدفق البيانات (Props)</h4>
+    <p>للتواصل بين الأب (Root Instance) والابن (<code>submission-component</code>)، بنستخدم <strong>Props</strong>
+        (خصائص).</p>
+    <ul>
+        <li><strong>من الأب للابن:</strong> البيانات بتتنقل دايماً في اتجاه واحد (من الأب إلى الابن).</li>
+        <li><strong>في الأب (HTML):</strong> بتمرر البيانات باستخدام <code>v-bind</code> (أو اختصارها <code>:</code> ).
+            <ul>
+                <li><strong>مثال:</strong> <code>v-bind:submission=&quot;submission&quot;</code>.</li>
+            </ul>
+        </li>
+        <li><strong>في الابن (Component JS):</strong> لازم تعلن صراحة عن الـ Props اللي هتستقبلها.<ul>
+                <li><strong>مثال:</strong> <code>props: [&#39;submission&#39;, &#39;submissions&#39;]</code>.</li>
+            </ul>
+        </li>
+    </ul>
+    <h3 id="8-vue-shorthand-syntax-">8. اختصارات Vue (Shorthand Syntax)</h3>
+    <p>الفصل بينتهي بتقديم اختصارات عشان الكود يكون أسهل في القراءة والكتابة:</p>
+    <ul>
+        <li><strong>اختصار <code>v-bind</code>:</strong> بيتحول إلى <strong><code>:</code></strong> (نقطتين).<ul>
+                <li><strong>مثال:</strong> <code>:src</code> بدلاً من <code>v-bind:src</code>.</li>
+            </ul>
+        </li>
+        <li><strong>اختصار <code>v-on</code>:</strong> بيتحول إلى <strong><code>@</code></strong> (علامة @).<ul>
+                <li><strong>مثال:</strong> <code>@click</code> بدلاً من <code>v-on:click</code>.</li>
+            </ul>
+        </li>
+    </ul>
+    <p><strong>خلاصة الفصل ده، يا معلم، إنك بقيت فاهم أساسيات Vue: إزاي تربط البيانات، وتكرر القوائم، وتخلي التطبيق
+            يتفاعل مع المستخدم ويرتب نفسه لوحده (Reactivity)، وتُنظم الكود في مكونات (Components)</strong>.</p>
+
+
+
+</body>
+
+</html>
