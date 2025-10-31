@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>04</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>يا فندم، الفصل الرابع ده مهم جداً واسمه <strong>&quot;التعليقات (Comments)&quot;</strong>.</p>
+                <p>لو المؤلف روبرت مارتن قالك كلمة واحدة تلخص رأيه في الكومنتات دي هي: <strong>فشل!</strong></p>
+                <p>إليك شرح مفصل لأهم القواعد والأمثلة في الفصل ده:</p>
+                <hr>
+                <h2 id="1-comments-are-failure-">1. القاعدة الذهبية: التعليقات هي شر لا بد منه (Comments Are Failure)
+                </h2>
+                <p>المؤلف بيبدأ الفصل ده بقاعدة صارمة من بريان كرنيجان: <strong>&quot;ماتعملش تعليق على كود وحش — لأ،
+                        عيد كتابته&quot;</strong>.</p>
+                <ul>
+                    <li><strong>الكومنتات فشل:</strong> بيعتبر إن الكومنتات في أحسن الأحوال هي <strong>&quot;شر
+                            ضروري&quot;</strong>. ولو لغة البرمجة بتاعتنا كانت معبرة كفاية، أو كنا إحنا شاطرين بما فيه
+                        الكفاية إننا نوصف قصدنا بالكود نفسه، مكنش هيبقى فيه داعي للتعليقات.</li>
+                    <li><strong>الإحساس بالفشل:</strong> كل مرة بتكتب فيها تعليق، المفروض تتكشر وتحس إن دي
+                        <strong>فشل</strong> في قدرتك على التعبير.
+                    </li>
+                </ul>
+                <blockquote>
+                    <p><strong>المثال:</strong> بدل ما تكتب كومنت يشرح عبارة شرطية صعبة:
+                        <code>// Check to see if the employee is eligible for full benefits</code>
+                        <code>if ((employee.flags &amp; HOURLY_FLAG) &amp;&amp; (employee.age &gt; 65))</code>
+                    </p>
+                    <p>الأفضل إنك <strong>تستخرج دالة</strong> يكون اسمها هو الشرح:
+                        <code>if (employee.isEligibleForFullBenefits())</code>
+                        <strong>ده بياخد ثواني قليلة من التفكير وبيخلي القصد واضح في الكود نفسه</strong>.
+                    </p>
+                </blockquote>
+                <h2 id="2-good-comments-">2. متى تكون التعليقات &quot;جيدة&quot;؟ (Good Comments)</h2>
+                <p>رغم إن الأغلبية وحشة، لكن فيه كام نوع من التعليقات بيعتبرهم المؤلف ضروريين أو مفيدين:</p>
+                <ol>
+                    <li><strong>التعليقات القانونية (Legal Comments):</strong> زي إشعارات حقوق النشر (Copyright)
+                        واتفاقيات الترخيص (License). دي غالباً بتبقى مطلوبة ومش ممكن إزالتها.</li>
+                    <li><strong>التعليقات التوضيحية (Clarification/Informative):</strong>
+                        <ul>
+                            <li>زي توضيح قيمة مُرجعة من دالة مجردة (Abstract Method).</li>
+                            <li>أو ترجمة معنى متغير أو قيمة ثابتة صعبة لو كانت جزء من مكتبة خارجية أو كود مش بتعرف تعدل
+                                فيه بسهولة.</li>
+                            <li>أو شرح نية المبرمج في جزء غير واضح (زي مثال محاولة عمل &quot;Race Condition&quot; في
+                                الاختبارات).</li>
+                        </ul>
+                    </li>
+                    <li><strong>تعليقات التحذير/الـ (TODO):</strong> دي بتكون ملاحظات للمبرمج نفسه أو لغيره بخصوص شغل
+                        لسة محتاج يتعمل (زي تذكير بحذف ميزة قديمة أو طلب اسم أفضل لمتغير). لكن الـ TODO <strong>مش عذر
+                            لترك كود سيئ</strong>.</li>
+                    <li><strong>تضخيم الأهمية (Amplification):</strong> لما تكون فيه نقطة صغيرة في الكود لكن ليها تأثير
+                        كبير وممكن تضيع على القارئ، فبتعمل عليها تعليق عشان تضخم أهميتها (زي استخدام
+                        <code>.trim()</code> لإزالة المسافات الزائدة اللي ممكن تعمل مشكلة).
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="3-bad-comments-smells-">3. التعليقات السيئة: الروائح اللي لازم تتخلص منها (Bad Comments /
+                    Smells)</h2>
+                <p>دي قائمة بأكثر التعليقات اللي بتسبب مشاكل ولازم تتخلص منها (أو تتجنبها من الأساس):</p>
+                <h3 id="-redundant-or-misleading-comments-">أ. تعليقات تضلل أو تكرر (Redundant or Misleading Comments)
+                </h3>
+                <ul>
+                    <li><strong>التعليقات الزائدة (Redundant Comments):</strong> التعليق اللي بيقول بالظبط اللي الكود
+                        بيقوله. ده بيعمل <strong>دوشة (Noise)</strong>، وبيخلي القارئ مايركزش في الكود نفسه.<ul>
+                            <li><strong>مثال:</strong> <code>/** The name. */ private String name;</code> هذا التعليق لا
+                                يضيف شيئًا على اسم المتغير نفسه.</li>
+                        </ul>
+                    </li>
+                    <li><strong>التعليقات المضللة (Misleading Comments):</strong> التعليق اللي بيكون غير دقيق أو كاذب.
+                        ممكن يكون التعليق صح وقت ما اتكتب، لكن الكود اتغير ومحدش عدل التعليق. التعليق الكاذب أسوأ من عدم
+                        وجود تعليق أصلاً.</li>
+                </ul>
+                <h3 id="-historical-and-journal-comments-">ب. تعليقات التاريخ والتفاصيل (Historical and Journal
+                    Comments)</h3>
+                <ul>
+                    <li><strong>تعليقات سجل التغييرات (Journal Comments / Bylines):</strong> التعليقات اللي بتوثق مين
+                        عمل إيه وإمتى.<ul>
+                            <li><strong>القاعدة:</strong> أنظمة التحكم في الكود (Source Code Control Systems) زي Git و
+                                SVN هي اللي المفروض تحتفظ بالتاريخ ده. مينفعش <strong>تلوث الكود</strong>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="-code-that-should-not-exist-">ج. الكود الذي لا يجب أن يكون موجوداً (Code That Should Not Exist)
+                </h3>
+                <ul>
+                    <li><strong>كود مُعطَّل (Commented-Out Code):</strong> مينفعش تسيب أكواد عامل عليها تعليق. دي مجرد
+                        خردة.<ul>
+                            <li><strong>القاعدة:</strong> امسح الكود ده! نظام التحكم في الإصدار هيفتكره.</li>
+                        </ul>
+                    </li>
+                    <li><strong>تعليقات الأقواس المغلقة (Closing Brace Comments):</strong> التعليقات اللي بتتحط عند
+                        القوس الختامي لدالة أو شرط (<code>// end of while</code>).<ul>
+                            <li><strong>المشكلة:</strong> لو حسيت إنك محتاجها، ده معناه إن دالتك <strong>طويلة
+                                    جداً</strong> وفيها مستويات تعشيش عميقة. الحل هو إنك تصغر الدالة.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="-information-overload-">د. تعليقات المعلومات الزائدة (Information Overload)</h3>
+                <ul>
+                    <li><strong>معلومات غير محلية (Nonlocal Information):</strong> إنك تحط معلومات عن نظام كله في تعليق
+                        محلي يخص دالة معينة. ده بيخلي التعليق ده عرضة إنه يكون كاذب لو الجزء البعيد ده اتغير.</li>
+                    <li><strong>معلومات أكثر من اللازم (Too Much Information):</strong> متدخلش في نقاشات تاريخية أو وصف
+                        تفصيلي غير ضروري في التعليقات. التعليق المفروض يكون بيشرح الكود اللي مش عارف يشرح نفسه، لكن مش
+                        محتاج هو نفسه شرح.</li>
+                    <li><strong>Javadoc في كود غير عام (Nonpublic Code):</strong> استخدام Javadoc مفيد للواجهات البرمجية
+                        العامة (Public APIs)، لكن استخدامه داخل الكود الداخلي (اللي مش معمول للاستخدام الخارجي) بيعتبر
+                        <strong>حشو ملوش لازمة ومشتت</strong>.
+                    </li>
+                </ul>
+                <h2 id="-final-word-">الملخص (Final Word)</h2>
+                <p><strong>التعليقات هي تعويض عن فشلنا في التعبير</strong>. الهدف من البرمجة النظيفة هو إن الكود بتاعك
+                    يكون <strong>معبر وواضح لدرجة إنك متخافش تمسح التعليقات</strong>.</p>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>

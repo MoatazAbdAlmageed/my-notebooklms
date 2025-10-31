@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>03</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <p>أهلاً بك يا فندم. الفصل التالت ده من أهم الفصول في الكتاب، لأنه بيدخل في صميم الشغل بتاعنا:
+                    <strong>الدوال (Functions)</strong>. المؤلف بيعتبر إن الدوال دي هي <strong>الأفعال</strong> في اللغة
+                    اللي بتوصف بيها النظام بتاعك، وعشان كده لازم تكون مكتوبة صح عشان &quot;القصة&quot; اللي بيحكيها
+                    الكود تكون واضحة.
+                </p>
+                <p>إليك شرح مفصل لأهم القواعد والأمثلة في الفصل ده:</p>
+                <hr>
+                <h2 id="1-small-">1. القاعدة الأولى والأهم: الدالة لازم تكون صغيرة! (Small!)</h2>
+                <p>المؤلف بيحط قاعدة صريحة ومفيهاش هزار: <strong>أول قاعدة للدوال هي إنها لازم تكون صغيرة، وتاني قاعدة
+                        هي إنها تكون أصغر من كده كمان!</strong>.</p>
+                <ul>
+                    <li><strong>مفيش مقاس ثابت:</strong> زمان كنا بنقول متزدش عن شاشة واحدة (24 سطر)، لكن حتى مع الشاشات
+                        الحديثة الكبيرة، المؤلف بيقول إن الدوال <strong>نادراً جداً ما ينفع توصل لـ 20 سطر</strong>.
+                    </li>
+                    <li><strong>مثال كنت بتبص عليه تبتسم:</strong> المؤلف بيتكلم عن برامج بسيطة زي &quot;Sparkle&quot;
+                        اللي شافه مع كينت بيك، اللي كانت كل دالة فيه يا دوب <strong>سطرين أو تلاتة أو أربعة
+                            بالكتير</strong>. وكل دالة كانت &quot;بتحكي قصة&quot; وبتوصلك للي بعدها بمنطق سليم.</li>
+                </ul>
+                <h2 id="2-do-one-thing-">2. الدالة لازم تعمل &quot;حاجة واحدة&quot; (Do One Thing)</h2>
+                <p>الدالة النظيفة هي اللي بتعمل <strong>شيئاً واحداً. وتعمله جيداً. وتعمله هو بس</strong>.</p>
+                <ul>
+                    <li><strong>اختبار مستوى التجريد (Level of Abstraction):</strong> إزاي تعرف إن الدالة بتعمل حاجة
+                        واحدة؟ المؤلف بيقول لو قدرت توصف الدالة كلها في <strong>فقرة قصيرة تبدأ بـ &quot;لكي
+                            (TO)&quot;</strong>، وكانت الخطوات المكتوبة داخل الدالة هي بالضبط <strong>المستوى التالي من
+                            التجريد</strong> (Next Level of Abstraction) لاسم الدالة، يبقى هي كده بتعمل شيئاً واحداً.
+                    </li>
+                    <li><strong>ممنوع الخلط في المستويات:</strong> مينفعش دالة تكون بتناقش مفاهيم عالية المستوى زي
+                        <code>getHtml()</code> (جلب كود HTML) وتلاقي جواها تفاصيل دقيقة جداً (Low Level Details) زي
+                        <code>.append(&quot;\n&quot;)</code> (إضافة سطر جديد). لازم كل الأجزاء داخل الدالة تكون على نفس
+                        مستوى التجريد.
+                    </li>
+                    <li><strong>الكتل البرمجية (Blocks):</strong> ده معناه إن الكتل البرمجية داخل عبارات <code>if</code>
+                        أو <code>else</code> أو <code>while</code> <strong>مينفعش تكون أكتر من سطر واحد</strong>. والسطر
+                        ده يفضل إنه يكون <strong>استدعاء لدالة أخرى</strong> ذات اسم وصفي بيشرح إيه اللي هيحصل.</li>
+                </ul>
+                <h2 id="3-use-descriptive-names-">3. أسماء الدوال لازم تكون معبرة (Use Descriptive Names)</h2>
+                <p>الدوال هي الأفعال في اللغة الخاصة بالبرنامج، واسم الدالة هو اللي بيحدد وظيفته.</p>
+                <ul>
+                    <li><strong>طول الاسم:</strong> متخافش إن الاسم يكون طويل. <strong>الاسم الوصفي الطويل أفضل من الاسم
+                            القصير الغامض</strong>. كمان، الاسم الوصفي الطويل أحسن من إنك تكتب تعليق طويل يشرح دالة
+                        اسمها قصير.</li>
+                    <li><strong>الوضوح (Clarity):</strong> يجب استخدام اتفاقيات تسمية تسمح بقراءة كلمات متعددة بسهولة في
+                        أسماء الدوال، لتعطي الدالة اسماً يوضح ما تفعله.</li>
+                </ul>
+                <h2 id="4-function-arguments-">4. تقليل عدد مُدخلات الدالة (Function Arguments)</h2>
+                <p>كل ما قللت عدد الـ Arguments (الوسائط أو المُدخلات) اللي بتمررها للدالة، كل ما كان الكود أحسن وأسهل
+                    في الفهم والاختبار.</p>
+                <ul>
+                    <li><strong>العدد المثالي:</strong> العدد المثالي هو <strong>صفر (niladic)</strong>. يليه
+                        <strong>واحد (monadic)</strong>، ثم <strong>اثنين (dyadic)</strong>.
+                    </li>
+                    <li><strong>تجنب 3 أو أكثر:</strong> تجنب استخدام ثلاث وسائط <strong>(triadic)</strong> قدر الإمكان،
+                        وأكثر من ثلاثة <strong>(polyadic)</strong> يتطلب مبرر خاص جداً وينبغي تجنبه تمامًا.</li>
+                    <li><strong>ليه الوسائط صعبة؟</strong> لأنها بتستهلك قوة ذهنية كبيرة من القارئ. لما بنقرأ كود، دالة
+                        زي <code>includeSetupPage()</code> أسهل في الفهم من
+                        <code>includeSetupPageInto(new-PageContent)</code> لأن الوسيط في الحالة الثانية بيكون على مستوى
+                        تجريد مختلف عن اسم الدالة وبيجبرك تعرف تفاصيل غير مهمة في الوقت الحالي.
+                    </li>
+                </ul>
+                <h3 id="-flag-arguments-">مشكلة مُدخلات الأعلام (Flag Arguments)</h3>
+                <ul>
+                    <li><strong>الأعلام (Booleans):</strong> استخدام وسيط من نوع <code>boolean</code> (صح/خطأ) في دالة
+                        هو ممارسة سيئة. ده بيعلن بصوت عالي إن <strong>الدالة دي بتعمل أكتر من حاجة</strong>؛ حاجة لو
+                        العلم كان <code>true</code>، وحاجة تانية لو كان <code>false</code>.</li>
+                    <li><strong>الحل:</strong> يجب تقسيم الدالة إلى دالتين بدلاً من استخدام علم. مثلاً، بدلاً من
+                        <code>render(boolean isSuite)</code>، الأفضل أن تكون <code>renderForSuite()</code> و
+                        <code>renderForSingleTest()</code>.
+                    </li>
+                </ul>
+                <h3 id="-output-arguments-">مشكلة مُخرجات الدوال (Output Arguments)</h3>
+                <ul>
+                    <li><strong>الخلط:</strong> القارئ بيتوقع إن الوسائط هي <strong>مدخلات</strong> للدالة. لو مررت وسيط
+                        لدالة وكان المفروض إن الدالة تغير قيمته وتستخدمه كمخرج (Output Argument)، ده بيسبب إرباكاً.</li>
+                    <li><strong>الحل:</strong> إذا كان يجب تغيير حالة شيء ما، فليكن تغيير حالة الكائن الذي تم استدعاء
+                        الدالة عليه، أو استخدام قيمة مُرجعة.</li>
+                </ul>
+                <h2 id="5-exceptions-vs-error-codes-">5. استخدام الاستثناءات بدلاً من أكواد الإرجاع (Exceptions vs.
+                    Error Codes)</h2>
+                <p>الكتاب بيحث بشدة على استخدام الاستثناءات (Exceptions) للتعامل مع الأخطاء بدلاً من إرجاع أكواد خطأ
+                    (Error Codes).</p>
+                <ul>
+                    <li><strong>مشكلة أكواد الإرجاع:</strong> لما الدالة ترجع كود خطأ، بتجبر اللي بيستدعيها إنه يفحص
+                        الكود ده فوراً. ده بيؤدي إلى <strong>هياكل متداخلة معقدة</strong> من عبارات <code>if</code>، وده
+                        بيشوه المنطق الأساسي للبرنامج (Happy Path Code).</li>
+                    <li><strong>جمال الاستثناءات:</strong> استخدام الاستثناءات يسمح بفصل كود معالجة الأخطاء عن كود
+                        المسار الطبيعي (Normal Flow).</li>
+                </ul>
+                <h3 id="-try-catch-extract-try-catch-blocks-">قاعدة استخراج كتل Try/Catch (Extract Try/Catch Blocks)
+                </h3>
+                <ul>
+                    <li><strong>الفصل:</strong> كتل <code>try/catch</code> في حد ذاتها &quot;شكلها وحش&quot;. لأنها
+                        بتخلط معالجة الأخطاء بالمنطق العادي.</li>
+                    <li><strong>الحل:</strong> يجب استخراج المحتوى داخل كتلتي <code>try</code> و <code>catch</code> إلى
+                        دوال خاصة بها. هذا يوفر فصلاً جيداً، حيث تصبح الدالة الأصلية مخصصة للتعامل مع الأخطاء، والدالة
+                        المستخرجة مخصصة للمنطق الأساسي للعملية (مثل <code>deletePageAndAllReferences</code>).</li>
+                </ul>
+                <h2 id="6-don-t-repeat-yourself-">6. لا تكرر نفسك (Don’t Repeat Yourself)</h2>
+                <p>التكرار في الكود (Duplication) يعتبر <strong>جذر كل الشرور في البرمجيات</strong>. كثير من مبادئ
+                    البرمجة، بما في ذلك البرمجة الشيئية والبرمجة المهيكلة، وجدت للمساعدة في القضاء على التكرار.</p>
+                <h2 id="7-successive-refinement-">7. الكتابة عملية &quot;تحسين متتالي&quot; (Successive Refinement)</h2>
+                <p>أخيراً، الفصل بيختتم بنقطة عملية جداً: <strong>إنت مش متوقع تكتب كود نظيف وأنيق من أول مرة</strong>.
+                </p>
+                <ul>
+                    <li><strong>المسودة الأولية:</strong> البرمجة حرفة وليست علماً، ولكي تكتب كود نظيف، يجب أن
+                        <strong>تكتب أولاً كوداً &quot;وسخاً&quot; ثم تقوم بتنظيفه</strong>. زي ما كنا بنكتب &quot;مسودة
+                        أولية&quot; في المدرسة، وبعدين نبدأ في التعديل والتحسين.
+                    </li>
+                    <li><strong>استخدام الاختبارات (Tests):</strong> المبرمج المحترف بيبدأ يكتب الكود &quot;الوسخ&quot;
+                        (Rough Draft)، وبعدين يبدأ يعمل له <strong>إعادة هيكلة (Refactoring)</strong>، ويقسم الدوال،
+                        ويغير الأسماء، ويلغي التكرار، كل ده وهو <strong>بيتأكد إن الاختبارات (Tests) بتعدي في كل
+                            خطوة</strong>.</li>
+                </ul>
+
+
+
+
+
+
+
+
+                {# end #}
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>

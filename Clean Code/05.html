@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>05</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، الفصل الخامس ده بيتكلم عن حاجة ممكن تبدو بسيطة لكنها مهمة جداً في البرمجة الاحترافية، وهي
+                    <strong>التنسيق (Formatting)</strong>.
+                </p>
+                <p>إليك شرح مفصل لأهم قواعد التنسيق في الفصل ده، مع الأمثلة:</p>
+                <hr>
+                <h2 id="-formatting-">الفصل الخامس: التنسيق (Formatting)</h2>
+                <p>الهدف من التنسيق مش بس إن الكود يبقى شكله حلو، لكن إننا ندي انطباع بأن <strong>محترفين هم اللي
+                        اشتغلوا هنا</strong>. لما حد يفتح الكود بتاعك، لازم ينبهر بالنظام والاتساق والاهتمام بالتفاصيل.
+                    لو الكود مبهدل أو شكله عشوائي، ده بيدل إن الإهمال ده منتشر في كل جوانب المشروع.</p>
+                <h3 id="-vertical-formatting-">أولاً: التنسيق الرأسي (Vertical Formatting)</h3>
+                <p>التنسيق الرأسي ده معناه إزاي بنرتب الكود من فوق لتحت.</p>
+                <h4 id="1-the-newspaper-metaphor-">1. تشبيه الجرنال (The Newspaper Metaphor)</h4>
+                <p>المؤلف بيشبه ملف الكود <strong>بمقال في جرنال</strong>:</p>
+                <ul>
+                    <li><strong>العنوان (الاسم):</strong> لازم يكون اسم الملف بسيط لكن شارح وموضح عشان تعرف على طول إنك
+                        في الموديول الصح.</li>
+                    <li><strong>المستوى العالي أولاً:</strong> الأجزاء اللي فوق في ملف الكود هي اللي لازم تحتوي على
+                        المفاهيم عالية المستوى والألجوريثمات الرئيسية.</li>
+                    <li><strong>التفاصيل تنزل تدريجياً:</strong> مستوى التفاصيل لازم يزيد كل ما تنزل لتحت في الملف، لحد
+                        ما توصل لأقل مستوى من الدوال والتفاصيل في نهاية الملف.</li>
+                </ul>
+                <h4 id="2-vertical-openness-between-concepts-">2. الفصل بين الأفكار (Vertical Openness Between Concepts)
+                </h4>
+                <p>زي ما الفقرات في المقال بتتفصل عن بعض، الأفكار الكاملة في الكود لازم تتفصل عن بعض <strong>بسطور
+                        فاضية</strong>. ده بيخلي القارئ يشوف تجمعات الأسطر المختلفة والأفكار المرتبطة بوضوح.</p>
+                <h4 id="3-vertical-distance-and-ordering-">3. القرب الرأسي والترتيب (Vertical Distance and Ordering)
+                </h4>
+                <p>الأسطر اللي ليها علاقة ببعضها جداً (كثافة رأسية) لازم تكون قريبة من بعض.</p>
+                <ul>
+                    <li><strong>إعلان المتغيرات (Variable Declarations):</strong> لازم تعرف المتغير (Declare) في
+                        <strong>أقرب مكان ممكن لاستخدامه</strong>. وبما إن الدوال النظيفة بتكون قصيرة جداً، فالمتغيرات
+                        المحلية بتكون عادةً في أول الدالة.
+                    </li>
+                    <li><strong>الدوال المعتمدة (Dependent Functions):</strong> إذا كانت دالة بتنادي دالة تانية، لازم
+                        يكونوا قريبين من بعض رأسياً. والأفضل إن <strong>الدالة اللي بتنادي تكون فوق الدالة اللي
+                            بتتنده</strong> (Caller above Callee). ده بيخلق تدفق طبيعي للبرنامج بيسهل قراءة الموديول
+                        كله.</li>
+                </ul>
+                <h3 id="-horizontal-formatting-">ثانياً: التنسيق الأفقي (Horizontal Formatting)</h3>
+                <p>ده بيحدد إزاي بنستخدم المسافات في السطر الواحد.</p>
+                <h4 id="1-horizontal-openness-and-density-">1. استخدام المسافات البيضاء (Horizontal Openness and
+                    Density)</h4>
+                <ul>
+                    <li>بنستخدم المسافات عشان <strong>نربط الحاجات المرتبطة ببعض بقوة ونفصل الحاجات اللي ارتباطها
+                            ضعيف</strong>.</li>
+                    <li><strong>حول المعاملات:</strong> لازم تحط مسافات حوالين معامل الإسناد (<code>=</code>) عشان تظهر
+                        الفصل الواضح بين الطرفين (الطرف الشمال والطرف اليمين).</li>
+                    <li><strong>تجنب المسافات:</strong> مينفعش تحط مسافات بين اسم الدالة والقوس اللي بيفتح
+                        <code>(</code>. لأن الدالة والـ arguments بتاعتها مرتبطين ببعض بقوة، وفصلهم بيخليهم يبدوا وكأنهم
+                        منفصلين.
+                    </li>
+                    <li><strong>الأولوية:</strong> ممكن تستخدم المسافات البيضاء عشان توضح <strong>أولوية العمليات
+                            (precedence of operators)</strong>.</li>
+                </ul>
+                <h4 id="2-indentation-and-alignment-">2. المسافات البادئة والاصطفاف (Indentation and Alignment)</h4>
+                <ul>
+                    <li><strong>المسافة البادئة (Indentation):</strong> التباعد ده <strong>مهم جداً</strong> عشان العين
+                        تقدر تميز هيكل الملف بسرعة. القارئ لازم يقدر يميز فوراً المتغيرات، الدوال البانية
+                        (constructors)، دوال الوصول (accessors)، والطرق (methods).</li>
+                    <li><strong>تجنب الاصطفاف الأفقي (Horizontal Alignment):</strong> المؤلف بيقول إن محاولة رصّ
+                        المتغيرات (مثل <code>private long requestProgress;</code> و
+                        <code>private boolean hasError;</code>) عشان تكون على خط واحد أصبحت موضة قديمة. ده مجرد
+                        <strong>إزعاج بصري</strong> ومش ضروري في البيئات الحديثة.
+                    </li>
+                    <li><strong>قواعد النطاق (Scopes):</strong> اوعى تكسر قاعدة المسافة البادئة عشان دالة قصيرة أو عبارة
+                        شرطية قصيرة. حتى لو كانت عبارة <code>if</code> أو <code>while</code> سطر واحد، لازم تعمل توسيع
+                        للنطاق (expand and indent) وتخليها في سطر لوحدها عشان النطاقات تكون واضحة.</li>
+                </ul>
+                <h3 id="-team-rules-">ثالثاً: قواعد الفريق (Team Rules)</h3>
+                <p><strong>لو شغال في فريق، فقواعد الفريق هي اللي بتمشي</strong>.</p>
+                <ul>
+                    <li>يجب أن يتفق فريق المطورين على <strong>نمط تنسيق واحد</strong>.</li>
+                    <li>يجب على كل عضو في الفريق استخدام هذا النمط.</li>
+                    <li>ده مهم جداً عشان يكون للبرنامج ستايل متسق وسلس. لازم القارئ يثق إن التنسيق اللي شافه في ملف معين
+                        هيكون بنفس المعنى في كل الملفات التانية.</li>
+                </ul>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>
