@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>"Grokking Algorithms" – Aditya Bhargava</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <p>يا صاحبي، تحت أمرك! الكتاب ده اسمه <strong>&quot;Grokking Algorithms: An illustrated guide for
+                        programmers and other curious people&quot;</strong> للمؤلف أديتيا واي. بهارجافا.</p>
+                <p>ده تعريف مبسط بمحتوى الكتاب بلهجة مصرية:</p>
+                <p>الكتاب ده، ببساطة كده، <strong>دليل مصور معمول عشان يخلي موضوع الخوارزميات (Algorithms) سهل
+                        وواضح</strong> للمبرمجين وأي حد عنده فضول يعرف الدنيا دي ماشية إزاي.</p>
+                <p>المؤلف بيقول إن الهدف الأساسي هو إنه يشرح المواضيع التقنية الصعبة دي بطريقة سهلة ومصورة عشان الناس
+                    اللي بتفهم بالصور (Visual Learners). الكتاب مابيجيبش كل خوارزمية في الدنيا، لكنه <strong>بيركز على
+                        الخوارزميات العملية اللي ليها تطبيقات واسعة</strong> واللي بتنفع في شغل هندسة البرمجيات.</p>
+                <p>من أهم الحاجات اللي هتطلع بيها من الكتاب:</p>
+                <ul>
+                    <li><strong>فهم سرعة الخوارزميات:</strong> هتتعلم إزاي تحلل سرعة أي خوارزمية باستخدام مصطلح اسمه
+                        <strong>&quot;ترميز بيج أو&quot; (Big O notation)</strong>، وده اللي بيخليك تعرف لو الخوارزمية
+                        سريعة (زي البحث الثنائي) ولا بطيئة (زي البحث البسيط).
+                    </li>
+                    <li><strong>هياكل البيانات الأساسية:</strong> هتفهم الفرق بين الـ<strong>مصفوفات (Arrays)</strong>
+                        والـ<strong>قوائم المرتبطة (Linked Lists)</strong> وإزاي كل واحدة بتشتغل وإمتى تستخدمها. كمان
+                        هتتعمق في <strong>جداول الهاش (Hash tables)</strong> اللي تعتبر من أهم هياكل البيانات وأسرعها في
+                        عمليات البحث والإضافة.</li>
+                    <li><strong>تقنيات حل المشكلات:</strong> هتكتشف طرق لحل المشاكل المعقدة زي إستراتيجية
+                        <strong>&quot;قسّم تسد&quot; (Divide &amp; Conquer)</strong> اللي بتستخدم في خوارزميات زي
+                        <strong>الفرز السريع (Quicksort)</strong>. وكمان <strong>البرمجة الديناميكية (Dynamic
+                            Programming)</strong> عشان تحل مشاكل بتتطلب إيجاد حل مثالي بناءً على قيود معينة (زي مشكلة
+                        حقيبة الظهر).
+                    </li>
+                    <li><strong>خوارزميات الرسوم البيانية (Graphs):</strong> هتتعلم إزاي تمثل الشبكات (زي شبكات التواصل
+                        أو الطرق) باستخدام الرسوم البيانية، وهتستخدم خوارزميات مهمة زي <strong>البحث أولاً بالعمق
+                            (Breadth-first search)</strong> لإيجاد أقصر مسار في الرسوم البيانية غير الموزونة،
+                        و<strong>خوارزمية دايجسترا (Dijkstra’s algorithm)</strong> لإيجاد أقصر مسار في الرسوم البيانية
+                        الموزونة.</li>
+                    <li><strong>مدخل للتعلم الآلي (Machine Learning):</strong> هتتعرف على خوارزمية <strong>&quot;الجيران
+                            الأقرب&quot; (K-nearest neighbors - KNN)</strong> اللي بتستخدم في أنظمة التوصيات والتصنيف
+                        (زي تصنيف الفاكهة أو بناء نظام اقتراحات للأفلام).</li>
+                    <li><strong>التعامل مع المشاكل الصعبة:</strong> هتتعلم إزاي تتعرف على المشاكل المستحيلة تقريبًا اللي
+                        مفيش ليها حل سريع معروف (زي <strong>مشاكل NP-complete</strong>)، وإزاي تستخدم مكانها
+                        <strong>الخوارزميات الجشعة (Greedy algorithms)</strong> اللي بتديك حل قريب من الأمثل بسرعة.
+                    </li>
+                </ul>
+                <hr>
+                <h2 id="-">محتويات الكتاب (أبواب وفصول)</h2>
+                <p>الكتاب مترتب عشان الفصول تبني على بعضها، وبيغطي الـ11 فصل دول:</p>
+                <h3 id="-1-introduction-to-algorithms-">الفصل 1: مقدمة للخوارزميات (Introduction to algorithms)</h3>
+                <ul>
+                    <li>البحث الثنائي (Binary search).</li>
+                    <li>وقت التشغيل (Running time).</li>
+                    <li>ترميز بيج أو (Big O notation).</li>
+                    <li>تزايد وقت تشغيل الخوارزميات بمعدلات مختلفة (Algorithm running times grow at different rates).
+                    </li>
+                    <li>تصورات لأوقات تشغيل بيج أو المختلفة (Visualizing different Big O run times).</li>
+                    <li>مشكلة البائع المتجول (The traveling salesperson).</li>
+                </ul>
+                <h3 id="-2-selection-sort-">الفصل 2: فرز التحديد (Selection sort)</h3>
+                <ul>
+                    <li>كيف تعمل الذاكرة (How memory works).</li>
+                    <li>المصفوفات والقوائم المرتبطة (Arrays and linked lists).</li>
+                    <li>إدخال العناصر في منتصف القائمة (Inserting into the middle of a list).</li>
+                    <li>الحذف (Deletions).</li>
+                    <li>فرز التحديد (Selection sort).</li>
+                </ul>
+                <h3 id="-3-recursion-">الفصل 3: العودية (Recursion)</h3>
+                <ul>
+                    <li>العودية (Recursion).</li>
+                    <li>حالة الأساس والحالة العودية (Base case and recursive case).</li>
+                    <li>المكدس (The stack).</li>
+                    <li>مكدس الاستدعاء (The call stack).</li>
+                    <li>مكدس الاستدعاء مع العودية (The call stack with recursion).</li>
+                </ul>
+                <h3 id="-4-quicksort-">الفصل 4: الفرز السريع (Quicksort)</h3>
+                <ul>
+                    <li>قسّم تسد (Divide &amp; conquer).</li>
+                    <li>الفرز السريع (Quicksort).</li>
+                    <li>مراجعة لترميز بيج أو (Big O notation revisited).</li>
+                    <li>الفرز بالدمج مقابل الفرز السريع (Merge sort vs. quicksort).</li>
+                    <li>الحالة المتوسطة مقابل أسوأ حالة (Average case vs. worst case).</li>
+                </ul>
+                <h3 id="-5-hash-tables-">الفصل 5: جداول الهاش (Hash tables)</h3>
+                <ul>
+                    <li>دوال الهاش (Hash functions).</li>
+                    <li>حالات الاستخدام (Use cases) (للبحث، منع الإدخالات المكررة، استخدامها كذاكرة تخزين مؤقت/Cache).
+                    </li>
+                    <li>الاصطدامات (Collisions).</li>
+                    <li>الأداء (Performance).</li>
+                    <li>عامل التحميل (Load factor).</li>
+                    <li>دالة هاش جيدة (A good hash function).</li>
+                </ul>
+                <h3 id="-6-breadth-first-search-">الفصل 6: البحث أولاً بالعمق (Breadth-first search)</h3>
+                <ul>
+                    <li>مقدمة للرسوم البيانية (Introduction to graphs).</li>
+                    <li>ما هو الرسم البياني؟ (What is a graph?).</li>
+                    <li>البحث أولاً بالعمق (Breadth-first search).</li>
+                    <li>إيجاد أقصر مسار (Finding the shortest path).</li>
+                    <li>قوائم الانتظار (Queues).</li>
+                    <li>تنفيذ الرسم البياني (Implementing the graph).</li>
+                    <li>تنفيذ الخوارزمية (Implementing the algorithm).</li>
+                    <li>وقت التشغيل (Running time).</li>
+                </ul>
+                <h3 id="-7-dijkstra-s-algorithm-">الفصل 7: خوارزمية دايجسترا (Dijkstra’s algorithm)</h3>
+                <ul>
+                    <li>العمل بخوارزمية دايجسترا (Working with Dijkstra’s algorithm).</li>
+                    <li>المصطلحات (Terminology).</li>
+                    <li>التداول للحصول على بيانو (Trading for a piano).</li>
+                    <li>الأضلاع ذات الوزن السالب (Negative-weight edges).</li>
+                    <li>التنفيذ (Implementation).</li>
+                </ul>
+                <h3 id="-8-greedy-algorithms-">الفصل 8: الخوارزميات الجشعة (Greedy algorithms)</h3>
+                <ul>
+                    <li>مشكلة جدولة الفصول الدراسية (The classroom scheduling problem).</li>
+                    <li>مشكلة حقيبة الظهر (The knapsack problem).</li>
+                    <li>مشكلة تغطية المجموعات (The set-covering problem).</li>
+                    <li>خوارزميات التقريب (Approximation algorithms).</li>
+                    <li>مشاكل NP-complete.</li>
+                    <li>البائع المتجول خطوة بخطوة (Traveling salesperson, step by step).</li>
+                </ul>
+                <h3 id="-9-dynamic-programming-">الفصل 9: البرمجة الديناميكية (Dynamic programming)</h3>
+                <ul>
+                    <li>مشكلة حقيبة الظهر (The knapsack problem).</li>
+                    <li>الحل البسيط (The simple solution).</li>
+                    <li>البرمجة الديناميكية (Dynamic programming).</li>
+                    <li>أسئلة متكررة حول مشكلة حقيبة الظهر (Knapsack problem FAQ).</li>
+                    <li>أطول سلسلة فرعية مشتركة (Longest common substring).</li>
+                    <li>أطول تتابع فرعي مشترك (Longest common subsequence).</li>
+                </ul>
+                <h3 id="-10-k-nearest-neighbors-">الفصل 10: الجيران الأقرب (K-nearest neighbors)</h3>
+                <ul>
+                    <li>تصنيف البرتقال مقابل الجريب فروت (Classifying oranges vs. grapefruit).</li>
+                    <li>بناء نظام توصيات (Building a recommendations system).</li>
+                    <li>الاستخراج الميزات (Feature extraction).</li>
+                    <li>الانحدار (Regression).</li>
+                    <li>اختيار ميزات جيدة (Picking good features).</li>
+                    <li>مقدمة للتعلم الآلي (Introduction to machine learning).</li>
+                </ul>
+                <h3 id="-11-where-to-go-next-">الفصل 11: إلى أين تذهب بعد ذلك (Where to go next)</h3>
+                <ul>
+                    <li>الأشجار (Trees) (مثل أشجار البحث الثنائي - Binary search trees).</li>
+                    <li>الفهارس المقلوبة (Inverted indexes).</li>
+                    <li>تحويل فورييه (The Fourier transform).</li>
+                    <li>الخوارزميات المتوازية (Parallel algorithms).</li>
+                    <li>ماب ريديوس (MapReduce).</li>
+                    <li>مرشحات بلوم وهايبر لوج لوج (Bloom filters and HyperLogLog).</li>
+                    <li>خوارزميات SHA.</li>
+                    <li>التجزئة الحساسة للموقع (Locality-sensitive hashing).</li>
+                    <li>تبادل مفاتيح ديفي هيلمان (Diffie-Hellman key exchange).</li>
+                    <li>البرمجة الخطية (Linear programming).</li>
+                </ul>
+
+
+
+
+
+
+
+                <p>يا معلم، الفصل الأول ده هو الأساس! بيبدأ بالتعريف بأهم خوارزمية عملية هتستخدمها، وهي البحث الثنائي
+                    (Binary Search)، وكمان بيعلمك إزاي تتكلم عن سرعة أي خوارزمية باستخدام مصطلح <strong>ترميز بيج أو
+                        (Big O notation)</strong>.</p>
+                <hr>
+                <h2 id="-introduction-to-algorithms-">شرح مفصل للفصل الأول: مقدمة للخوارزميات (Introduction to
+                    algorithms)</h2>
+                <h3 id="1-introduction-">1. مفهوم الخوارزميات (Introduction)</h3>
+                <p>الخوارزمية (Algorithm) ببساطة كده هي <strong>مجموعة تعليمات متتالية عشان تنجز مهمة معينة</strong>.
+                    الكتاب ده بيركز على الخوارزميات اللي بتخلي الكود بتاعك <strong>أسرع</strong> أو اللي بتحل
+                    <strong>مشاكل مهمة وليها تطبيقات واسعة</strong>.</p>
+                <p>الكتاب بيوعدك إنك هتتعلم إزاي تختار بين الخوارزميات وهياكل البيانات المختلفة (زي المصفوفات أو
+                    القوائم)، وده مهم جدًا عشان تفهم التضحيات (Trade-offs) بين السرعة وسهولة التنفيذ.</p>
+                <h3 id="2-binary-search-">2. البحث الثنائي (Binary Search)</h3>
+                <p>البحث الثنائي هو أول خوارزمية عملية هتشوفها في الكتاب، وبيوريك إزاي الخوارزمية الصح ممكن تخلي الكود
+                    أسرع بشكل خرافي.</p>
+                <h4 id="-">إيه مشكلة البحث العادي؟</h4>
+                <p>تخيل إنك بتدور على اسم &quot;كريم&quot; في دليل تليفونات ضخم.</p>
+                <ul>
+                    <li><strong>البحث البسيط (Simple Search):</strong> ده إنك تبدأ من أول اسم وتقلب صفحة صفحة لحد ما
+                        توصل. لو الدليل فيه 100 اسم، ممكن تحتاج لحد 100 محاولة (في أسوأ الحالات). لو فيه 4 مليار رقم،
+                        هتحتاج 4 مليار محاولة!. دي طريقة <strong>بطيئة جداً</strong>.</li>
+                    <li><strong>مثال Guessing Game:</strong> لو أنا بفكر في رقم بين 1 و 100، وبتحاول تخمنه محاولة محاولة
+                        (1، 2، 3...)، لو الرقم طلع 99 ممكن تحتاج 99 محاولة.</li>
+                </ul>
+                <h4 id="-a-better-way-to-search-">البحث الثنائي هو الحل (A better way to search)</h4>
+                <p>البحث الثنائي فكرته عبقرية: بدل ما تبدأ من الأول، بتبدأ من <strong>نص القائمة على طول</strong>.</p>
+                <p><strong>إزاي بيشتغل؟</strong></p>
+                <ol>
+                    <li><strong>الشرط الأساسي:</strong> لازم القائمة تكون <strong>مترتبة (Sorted)</strong> عشان البحث
+                        الثنائي يشتغل.</li>
+                    <li><strong>المثال:</strong> لو بتدور على رقم بين 1 و 100، ابدأ بـ 50.</li>
+                    <li>لو الـ 50 طلعت <strong>صغيرة</strong>، يبقى أنت كده <strong>لغيت نص الأرقام اللي تحت الـ 50
+                            كلها</strong>.</li>
+                    <li>لو طلعت <strong>كبيرة</strong>، يبقى أنت لغيت نص الأرقام اللي فوق الـ 50 كلها.</li>
+                    <li>في كل خطوة، <strong>بتقلل عدد العناصر اللي بتدور فيها للنص</strong>.</li>
+                </ol>
+                <p><strong>الفرق في الأداء:</strong></p>
+                <p>لو القاموس بتاعك فيه 240,000 كلمة، البحث الثنائي هياخد <strong>بالكتير 18 خطوة بس</strong> (لأن
+                    $2^{18}$ تقريباً تساوي 262,144). البحث الثنائي بيخلص في <strong>7 محاولات بالكتير</strong> لأي رقم
+                    لحد 100.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">عدد العناصر ($n$)</th>
+                            <th style="text-align:center">البحث البسيط ($n$ خطوة)</th>
+                            <th style="text-align:center">البحث الثنائي ($\log_2 n$ خطوة)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center">100</td>
+                            <td style="text-align:center">100</td>
+                            <td style="text-align:center">7 (تقريباً)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">4 مليار</td>
+                            <td style="text-align:center">4 مليار</td>
+                            <td style="text-align:center">32</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>البحث الثنائي بيستخدم <strong>اللوغاريتمات (Logarithms)</strong>. لوغاريتم (log) بيسألك: كام مرة
+                    هنضرب رقم معين (في حالتنا 2) في نفسه عشان نوصل للناتج؟. يعني $\log_2 8 = 3$ لأن $2 \times 2 \times 2
+                    = 8$.</p>
+                <h4 id="-python-implementation-">طريقة تطبيق البحث الثنائي في الكود (Python Implementation)</h4>
+                <p>الـ <code>binary_search</code> بتاخد مصفوفة مترتبة وعنصر، وبترجع مكانه (Position).</p>
+                <p>الخوارزمية بتستخدم مؤشرين: <strong><code>low</code> (بداية القائمة) و <code>high</code> (نهاية
+                        القائمة)</strong>. وفي كل مرة بتخمن العنصر اللي في <strong>النص (<code>mid</code>)</strong>.</p>
+                <pre><code class="lang-python">def binary_search(list, <span class="hljs-keyword">item</span>):
+  low = <span class="hljs-number">0</span>
+  high = <span class="hljs-built_in">len</span>(list)—<span class="hljs-number">1</span>
+  <span class="hljs-keyword">while</span> low &lt;= high: <span class="hljs-comment"># طول ما أنت محددش البحث لعنصر واحد بس</span>
+    <span class="hljs-keyword">mid</span> = (low + high) / <span class="hljs-number">2</span>
+    guess = list[<span class="hljs-keyword">mid</span>]
+    <span class="hljs-keyword">if</span> guess == <span class="hljs-keyword">item</span>:
+      <span class="hljs-literal">return</span> <span class="hljs-keyword">mid</span> <span class="hljs-comment"># لقيت العنصر</span>
+    <span class="hljs-keyword">if</span> guess &gt; <span class="hljs-keyword">item</span>:
+      high = <span class="hljs-keyword">mid</span> - <span class="hljs-number">1</span> <span class="hljs-comment"># التخمين كان عالي، قلل الـ high</span>
+    <span class="hljs-keyword">else</span>:
+      low = <span class="hljs-keyword">mid</span> + <span class="hljs-number">1</span> <span class="hljs-comment"># التخمين كان قليل، زود الـ low</span>
+  <span class="hljs-literal">return</span> None <span class="hljs-comment"># العنصر مش موجود</span>
+</code></pre>
+                <h3 id="3-running-time-and-big-o-notation-">3. وقت التشغيل ورمز بيج أو (Running Time and Big O Notation)
+                </h3>
+                <p>الخوارزميات مش بتتقاس بالثواني. بدلاً من كده، إحنا بنقيس <strong>معدل نمو وقت التشغيل</strong> كل ما
+                    حجم المدخلات بيزيد. ده اللي بيعمله <strong>ترميز بيج أو (Big O notation)</strong>.</p>
+                <p><strong>بيج أو بتوصف عدد العمليات</strong> اللي الخوارزمية هتعملها.</p>
+                <h4 id="-o-n-o-log-n-">$O(n)$ مقابل $O(\log n)$ (مقارنة معدلات النمو)</h4>
+                <p>المثال الشهير لخوارزميات البحث يوضح الفرق في معدل النمو:</p>
+                <ul>
+                    <li><strong>البحث البسيط:</strong> بياخد <strong>وقت خطي ($O(n)$)</strong>. يعني لو زودت العناصر
+                        للضعف، الوقت بيزيد للضعف.</li>
+                    <li><strong>البحث الثنائي:</strong> بياخد <strong>وقت لوغاريتمي ($O(\log n)$)</strong>. يعني كل ما
+                        العناصر بتزيد، بيج أو بتزيد ببطء شديد.</li>
+                </ul>
+                <p>لو افترضنا إن فيه خوارزمية بوب (Bob) كانت أسرع بـ 15 مرة من خوارزمية تانية على 100 عنصر، ده مش معناه
+                    إنها هتفضل أسرع بـ 15 مرة لو العناصر بقت مليار. لو البحث البسيط كان هياخد 100 مللي ثانية على 100
+                    عنصر، فإنه هياخد <strong>مليار مللي ثانية (11 يوم!)</strong> على مليار عنصر. في حين البحث الثنائي
+                    هياخد حوالي <strong>30 مللي ثانية</strong>.</p>
+                <p>الخلاصة: <strong>$O(\log n)$ أسرع بكثير من $O(n)$، والفرق بيزيد جدًا كل ما حجم القائمة
+                        بيكبر</strong>.</p>
+                <h4 id="-worst-case-run-time-">أسوأ حالة في التشغيل (Worst-Case Run Time)</h4>
+                <p>ترميز بيج أو دايماً بيحدد <strong>أسوأ حالة لوقت التشغيل</strong>.</p>
+                <p><strong>مثال:</strong> لو بتستخدم البحث البسيط ($O(n)$) عشان تدور على &quot;أحمد&quot; في دليل
+                    التليفونات، وطلع أحمد هو أول اسم. هتلاقيه في محاولة واحدة ($O(1)$). لكن برضه بنقول إن البحث البسيط
+                    بياخد $O(n)$ وقت، لأن بيج أو بتدينا ضمان: <strong>الخوارزمية دي عمرها ما هتكون أبطأ من
+                        $O(n)$</strong>.</p>
+                <h4 id="-visualizing-different-big-o-run-times-">تمثيل أوقات تشغيل بيج أو (Visualizing different Big O
+                    run times)</h4>
+                <p>تخيل إنك بترسم شبكة (Grid) فيها 16 مربع:</p>
+                <ol>
+                    <li><strong>خوارزمية $O(n)$:</strong> هترسم 16 مربع، كل مربع عملية. هتاخد 16 عملية.</li>
+                    <li><strong>خوارزمية $O(\log n)$:</strong> هتطوي الورقة. كل طية بتضاعف عدد المربعات. هتاخد 4 طيات بس
+                        عشان تعمل 16 مربع!.</li>
+                </ol>
+                <h4 id="-common-big-o-run-times-">أشهر أوقات تشغيل بيج أو (Common Big O run times)</h4>
+                <p>دي الخمس أوقات تشغيل اللي هتواجهها كتير، ومرتبة من الأسرع للأبطأ:</p>
+                <ul>
+                    <li><strong>$O(\log n)$ (Log Time):</strong> زي البحث الثنائي.</li>
+                    <li><strong>$O(n)$ (Linear Time):</strong> زي البحث البسيط.</li>
+                    <li><strong>$O(n \log n)$:</strong> زي خوارزمية الفرز السريع (Quicksort).</li>
+                    <li><strong>$O(n^2)$:</strong> زي خوارزمية فرز التحديد (Selection Sort).</li>
+                    <li><strong>$O(n!)$ (Factorial Time):</strong> دي بطيئة جدًا جدًا.</li>
+                </ul>
+                <h3 id="4-the-traveling-salesperson-">4. مشكلة البائع المتجول (The Traveling Salesperson)</h3>
+                <p>المشكلة دي مثال لخوارزمية <strong>بطيئة جداً جداً</strong> بتاخد وقت <strong>$O(n!)$</strong>.</p>
+                <ul>
+                    <li><strong>المشكلة:</strong> بائع عايز يروح 5 مدن، وعايز يختار أقصر طريق عشان يوصلهم كلهم.</li>
+                    <li><strong>الطريقة:</strong> عشان تعرف أقصر طريق، لازم تحسب <strong>كل الترتيبات (Permutations)
+                            الممكنة</strong> للطرق.</li>
+                    <li><strong>النمو:</strong> لـ 5 مدن فيه 120 طريقة. لـ 7 مدن فيه 5,040 طريقة.</li>
+                    <li><strong>المأساة:</strong> مع زيادة عدد المدن، عدد العمليات بينمو بشكل مخيف ($n$ عاملي). لو عندك
+                        100 مدينة، مستحيل تحسب الحل الصحيح (الكرة الأرضية هتكون انهارت قبل ما تلاقي الحل!).</li>
+                    <li><strong>الحل:</strong> المشكلة دي من المشاكل الصعبة (NP-complete) اللي مالهاش حل سريع معروف،
+                        وأحسن حاجة ممكن نعملها هي إننا نطلع <strong>حل تقريبي (Approximate solution)</strong> بدلاً من
+                        الحل الأمثل.</li>
+                </ul>
+                <hr>
+                <p>في الختام، الفصل الأول ده وضع الأساس: عرفنا إن السرعة بتتقاس بالـ $O(\log n)$ و $O(n)$، وإن $O(\log
+                    n)$ أسرع بكتير، وإن ترميز بيج أو بيوصف نمو وقت التشغيل.</p>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>

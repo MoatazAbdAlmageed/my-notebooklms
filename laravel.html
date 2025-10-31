@@ -2308,25 +2308,25 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                 <table>
                     <thead>
                         <tr>
-                            <th style="text-align:left">دالة</th>
-                            <th style="text-align:left">الوصف (مثال)</th>
-                            <th style="text-align:left">المرجع</th>
+                            <th>دالة</th>
+                            <th>الوصف (مثال)</th>
+                            <th>المرجع</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="text-align:left"><code>cookie(&#39;key&#39;)</code></td>
-                            <td style="text-align:left">بيجيب قيمة كوكيز معينة.</td>
-                            <td style="text-align:left"></td>
+                            <td><code>cookie(&#39;key&#39;)</code></td>
+                            <td>بيجيب قيمة كوكيز معينة.</td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><code>hasCookie(&#39;key&#39;)</code></td>
-                            <td style="text-align:left">بيرجع <code>true</code> لو فيه كوكيز بالاسم ده.</td>
-                            <td style="text-align:left"></td>
+                            <td><code>hasCookie(&#39;key&#39;)</code></td>
+                            <td>بيرجع <code>true</code> لو فيه كوكيز بالاسم ده.</td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><code>flash()</code> / <code>old()</code></td>
-                            <td style="text-align:left">دوال بتخليك تخزّن بيانات مؤقتاً في الـ Session (Flash Data)، ودي
+                            <td><code>flash()</code> / <code>old()</code></td>
+                            <td>دوال بتخليك تخزّن بيانات مؤقتاً في الـ Session (Flash Data)، ودي
                                 بتنفع
                                 بعد
                                 ما المستخدم يبعت فورمة ويرجع لصفحة تانية.</td>
@@ -2724,34 +2724,34 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                 <table>
                     <thead>
                         <tr>
-                            <th style="text-align:left">التحقق (Assertion)</th>
-                            <th style="text-align:left">الوصف (بالأمثلة)</th>
+                            <th>التحقق (Assertion)</th>
+                            <th>الوصف (بالأمثلة)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="text-align:left"><strong><code>assertStatus($status)</code></strong></td>
-                            <td style="text-align:left">بتتأكد إن كود الـ HTTP Status اللي رجع مطابق للكود اللي حطيته
+                            <td><strong><code>assertStatus($status)</code></strong></td>
+                            <td>بتتأكد إن كود الـ HTTP Status اللي رجع مطابق للكود اللي حطيته
                                 (زي
                                 <code>401</code> للمستخدم غير المصرح له).
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>assertOk()</code></strong></td>
-                            <td style="text-align:left">اختصار لـ <code>assertStatus(200)</code> (يعني الطلب نجح).</td>
+                            <td><strong><code>assertOk()</code></strong></td>
+                            <td>اختصار لـ <code>assertStatus(200)</code> (يعني الطلب نجح).</td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>assertSee($text)</code></strong></td>
-                            <td style="text-align:left">بتشوف إذا كان نص معين موجود في الـ HTML بتاع الصفحة اللي رجعتلك.
+                            <td><strong><code>assertSee($text)</code></strong></td>
+                            <td>بتشوف إذا كان نص معين موجود في الـ HTML بتاع الصفحة اللي رجعتلك.
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>assertDontSee($text)</code></strong></td>
-                            <td style="text-align:left">بتشوف إذا كان نص معين مش موجود.</td>
+                            <td><strong><code>assertDontSee($text)</code></strong></td>
+                            <td>بتشوف إذا كان نص معين مش موجود.</td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>assertRedirect()</code></strong></td>
-                            <td style="text-align:left">بتتأكد إن الرد كان Redirect (إعادة توجيه).</td>
+                            <td><strong><code>assertRedirect()</code></strong></td>
+                            <td>بتتأكد إن الرد كان Redirect (إعادة توجيه).</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2816,47 +2816,47 @@ Gate::define(<span class="hljs-string">'update-contact'</span>, <span class="hlj
                 <table>
                     <thead>
                         <tr>
-                            <th style="text-align:left">الأداة</th>
-                            <th style="text-align:left">الغرض</th>
-                            <th style="text-align:left">مثال على التحقق</th>
-                            <th style="text-align:left">المرجع</th>
+                            <th>الأداة</th>
+                            <th>الغرض</th>
+                            <th>مثال على التحقق</th>
+                            <th>المرجع</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="text-align:left"><strong><code>Event::fake()</code></strong></td>
-                            <td style="text-align:left">بيوقف تشغيل الأحداث (Events) عشان ما تبوظش الاختبار.</td>
-                            <td style="text-align:left"><code>Event::assertDispatched(UserJoined::class)</code></td>
-                            <td style="text-align:left"></td>
+                            <td><strong><code>Event::fake()</code></strong></td>
+                            <td>بيوقف تشغيل الأحداث (Events) عشان ما تبوظش الاختبار.</td>
+                            <td><code>Event::assertDispatched(UserJoined::class)</code></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>Bus::fake()</code></strong></td>
-                            <td style="text-align:left">بيوقف تشغيل الـ Jobs اللي المفروض تروح للـ Queue (الطابور).</td>
-                            <td style="text-align:left"><code>Bus::assertDispatched(CalculatePopularity::class)</code>
+                            <td><strong><code>Bus::fake()</code></strong></td>
+                            <td>بيوقف تشغيل الـ Jobs اللي المفروض تروح للـ Queue (الطابور).</td>
+                            <td><code>Bus::assertDispatched(CalculatePopularity::class)</code>
                             </td>
-                            <td style="text-align:left"></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>Mail::fake()</code></strong></td>
-                            <td style="text-align:left">بيوقف إرسال الإيميلات الحقيقية.</td>
-                            <td style="text-align:left"><code>Mail::assertSent(PackageLaunched::class)</code></td>
-                            <td style="text-align:left"></td>
+                            <td><strong><code>Mail::fake()</code></strong></td>
+                            <td>بيوقف إرسال الإيميلات الحقيقية.</td>
+                            <td><code>Mail::assertSent(PackageLaunched::class)</code></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>Notification::fake()</code></strong></td>
-                            <td style="text-align:left">بيوقف إرسال الإشعارات.</td>
-                            <td style="text-align:left">
+                            <td><strong><code>Notification::fake()</code></strong></td>
+                            <td>بيوقف إرسال الإشعارات.</td>
+                            <td>
                                 <code>Notification::assertSentTo($user, Notification::class)</code>
                             </td>
-                            <td style="text-align:left"></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td style="text-align:left"><strong><code>Storage::fake()</code></strong></td>
-                            <td style="text-align:left">بيعمل قرص تخزين افتراضي (Mock disk) عشان ماتحتاجش تعمل تخزين
+                            <td><strong><code>Storage::fake()</code></strong></td>
+                            <td>بيعمل قرص تخزين افتراضي (Mock disk) عشان ماتحتاجش تعمل تخزين
                                 لملفات
                                 حقيقية
                                 في الاختبار.</td>
-                            <td style="text-align:left"><code>Storage::assertExists(&#39;filename.jpg&#39;)</code></td>
+                            <td><code>Storage::assertExists(&#39;filename.jpg&#39;)</code></td>
                         </tr>
                     </tbody>
                 </table>

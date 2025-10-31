@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clean Code</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+
+
+
+                <p>أهلاً بك. الكتاب ده اسمه &quot;Clean Code: A Handbook of Agile Software Craftsmanship&quot; (كود
+                    نظيف: دليل عملي لحرفية تطوير البرمجيات السريعة). مؤلفه الأساسي هو روبرت سي. مارتن.</p>
+                <p><strong>أولاً: عرفني محتوى هذا الكتاب بشكل مبسط (بلهجة مصرية)</strong></p>
+                <p>الكتاب ده يا فندم هو دليل إرشادي لكل المبرمجين اللي عايزين يكونوا محترفين وأحسن. الفكرة الأساسية إنه
+                    <strong>بيوريك إزاي تكتب كود يكون &quot;نضيف&quot;</strong>.
+                </p>
+                <p><strong>ليه الكود النضيف مهم؟</strong> عشان الكود الوحش بيكلف فلوس ووقت كتير، وممكن يخلي الشركة اللي
+                    عاملة البرنامج تقفل خالص. المبرمج المحترف لازم يكون حريص إنه يسيب الكود أحسن مما لقاه، زي قاعدة
+                    &quot;كشاف الكشافة&quot; (The Boy Scout Rule).</p>
+                <p><strong>إيه مواصفات الكود النضيف دي؟</strong></p>
+                <ul>
+                    <li>الكود لازم يكون <strong>شيك وفعال (elegant and efficient)</strong>، ومفيهوش تعقيدات عشان الأخطاء
+                        متستخباش فيه.</li>
+                    <li>لازم يتقري كأنه <strong>كلام مكتوب كويس (well-written prose)</strong>، ويكون مفهوم ومباشر
+                        ومفيهوش تفاصيل ملهاش لازمة.</li>
+                    <li>لازم يكون <strong>سهل على أي مبرمج تاني إنه يعدل عليه ويكمله</strong>.</li>
+                    <li>الكود النضيف لازم يكون معاه <strong>اختبارات وحدة (Unit Tests)</strong> عشان تثبت إنه شغال صح.
+                    </li>
+                </ul>
+                <p>الكتاب كله مليان أمثلة وشروحات عملية، بيوريك كود وحش وإزاي يتحول لكود نضيف، وبيشرح مجموعة كبيرة من
+                    القواعد والمبادئ عشان تعرف تطبق الكلام ده.</p>
+                <hr>
+                <p><strong>ثانياً: محتوياته من أبواب وفصول</strong></p>
+                <p>الكتاب متقسم لفصول، وكل فصل فيه مواضيع رئيسية بتوضح إزاي توصل للكود النظيف ده. دي قائمة بالأبواب
+                    والفصول الرئيسية المتاحة في المصادر:</p>
+                <p><strong>محتويات الكتاب (Contents):</strong></p>
+                <ul>
+                    <li>Foreword (مقدمة)</li>
+                    <li>Introduction (تمهيد)</li>
+                    <li>On the Cover (عن الغلاف)</li>
+                </ul>
+                <p><strong>الفصل الأول: Clean Code (كود نضيف)</strong></p>
+                <ul>
+                    <li>There Will Be Code</li>
+                    <li>Bad Code</li>
+                    <li>The Total Cost of Owning a Mess</li>
+                    <li>The Grand Redesign in the Sky</li>
+                    <li>Attitude</li>
+                    <li>The Primal Conundrum</li>
+                    <li>The Art of Clean Code?</li>
+                    <li>What Is Clean Code?</li>
+                    <li>Schools of Thought</li>
+                    <li>We Are Authors</li>
+                    <li>The Boy Scout Rule</li>
+                    <li>Prequel and Principles</li>
+                    <li>Conclusion</li>
+                    <li>Bibliography</li>
+                </ul>
+                <p><strong>الفصل الثاني: Meaningful Names (أسماء ذات معنى)</strong>
+                    <em>(ملحوظة: عنوان الفصل الثاني مأخوذ من بداية فصل 2 في مصدر آخر، لكن أقسام المحتويات الخاصة به
+                        موجودة ضمن فهارس أخرى):</em>
+                </p>
+                <ul>
+                    <li>Avoid Encodings (تجنب التشفيرات)</li>
+                    <li>Hungarian Notation (ترميز هنجاري)</li>
+                    <li>Member Prefixes (بادئات الأعضاء)</li>
+                    <li>Interfaces and Implementations (الواجهات والتطبيقات)</li>
+                    <li>Avoid Mental Mapping (تجنب رسم الخرائط الذهنية)</li>
+                    <li>Class Names (أسماء الفئات)</li>
+                    <li>Method Names (أسماء الطرق)</li>
+                    <li>Don’t Be Cute (لا تكن ظريفاً)</li>
+                    <li>Pick One Word per Concept (اختر كلمة واحدة لكل مفهوم)</li>
+                    <li>Don’t Pun (لا تستخدم التورية)</li>
+                    <li>Use Solution Domain Names (استخدم أسماء مجال الحل)</li>
+                    <li>Use Problem Domain Names (استخدم أسماء مجال المشكلة)</li>
+                    <li>Add Meaningful Context (أضف سياقاً ذا مغزى)</li>
+                    <li>Don’t Add Gratuitous Context (لا تُضف سياقاً لا داعي له)</li>
+                    <li>Final Words (كلمات ختامية)</li>
+                </ul>
+                <p><strong>الفصل الثالث: Functions (الدوال)</strong>
+                    <em>(ملحوظة: عنوان الفصل مأخوذ من سياق المقتطفات، وأقسامه موجودة في فهارس أخرى):</em>
+                </p>
+                <ul>
+                    <li>Have No Side Effects (لا تقم بعمل تأثيرات جانبية)</li>
+                    <li>Output Arguments (وسائط الإخراج)</li>
+                    <li>Command Query Separation (فصل الأوامر عن الاستعلامات)</li>
+                    <li>Prefer Exceptions to Returning Error Codes (فضل الاستثناءات على إرجاع رموز الأخطاء)</li>
+                    <li>Extract Try/Catch Blocks (استخرج كتل Try/Catch)</li>
+                    <li>Error Handling Is One Thing (التعامل مع الأخطاء شيء واحد)</li>
+                    <li>The Error.java Dependency Magnet (مغناطيس التبعية Error.java)</li>
+                    <li>Don’t Repeat Yourself (لا تكرر نفسك)</li>
+                    <li>Structured Programming (البرمجة المهيكلة)</li>
+                    <li>How Do You Write Functions Like This? (كيف تكتب دوال كهذه؟)</li>
+                    <li>Conclusion (خاتمة)</li>
+                    <li>SetupTeardownIncluder</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل الرابع: Comments (التعليقات)</strong>
+                    <em>(ملحوظة: عنوان الفصل مأخوذ من سياق المقتطفات، وأقسامه موجودة في فهارس أخرى):</em>
+                </p>
+                <ul>
+                    <li>Bad Comments (تعليقات سيئة)<ul>
+                            <li>Mumbling</li>
+                            <li>Redundant Comments</li>
+                            <li>Misleading Comments</li>
+                            <li>Mandated Comments</li>
+                            <li>Journal Comments</li>
+                            <li>Noise Comments</li>
+                            <li>Scary Noise</li>
+                            <li>Don’t Use a Comment When You Can Use a Function or a Variable</li>
+                            <li>Position Markers</li>
+                            <li>Closing Brace Comments</li>
+                            <li>Attributions and Bylines</li>
+                        </ul>
+                    </li>
+                    <li>Commented-Out Code (كود مُعلَّق)</li>
+                    <li>HTML Comments (تعليقات HTML)</li>
+                    <li>Nonlocal Information (معلومات غير محلية)</li>
+                    <li>Too Much Information (معلومات أكثر من اللازم)</li>
+                    <li>Inobvious Connection (اتصال غير واضح)</li>
+                    <li>Function Headers (رؤوس الدوال)</li>
+                    <li>Javadocs in Nonpublic Code (تعليقات Javadoc في الكود غير العام)</li>
+                    <li>Example (مثال)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل الخامس: Formatting (التنسيق)</strong></p>
+                <ul>
+                    <li>The Purpose of Formatting (غرض التنسيق)</li>
+                    <li>Vertical Formatting (التنسيق الرأسي)</li>
+                    <li>Horizontal Formatting (التنسيق الأفقي)</li>
+                    <li>Team Rules (قواعد الفريق)</li>
+                    <li>Uncle Bob’s Formatting Rules (قواعد تنسيق العم بوب)</li>
+                </ul>
+                <p><strong>الفصل السادس: Objects and Data Structures (الكائنات وهياكل البيانات)</strong></p>
+                <ul>
+                    <li>Data Abstraction (تجريد البيانات)</li>
+                    <li>Data/Object Anti-Symmetry (التناظر المضاد للبيانات/الكائنات)</li>
+                    <li>The Law of Demeter (قانون ديميتر)</li>
+                    <li>Data Transfer Objects (كائنات نقل البيانات)</li>
+                    <li>Active Record (السجل النشط)</li>
+                    <li>Conclusion (خاتمة)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل السابع: Error Handling (التعامل مع الأخطاء)</strong></p>
+                <ul>
+                    <li>Use Exceptions Rather Than Return Codes (استخدم الاستثناءات بدلاً من أكواد الإرجاع)</li>
+                    <li>Write Your Try-Catch-Finally Statement First (اكتب جملة Try-Catch-Finally أولاً)</li>
+                    <li>Use Unchecked Exceptions (استخدم الاستثناءات غير المفحوصة)</li>
+                    <li>Provide Context with Exceptions (وفر سياقاً مع الاستثناءات)</li>
+                    <li>Define Exception Classes in Terms of a Caller’s Needs (عرف فئات الاستثناءات بناءً على احتياجات
+                        المتصل)</li>
+                    <li>Define the Normal Flow (عرف التدفق الطبيعي)</li>
+                    <li>Don’t Return Null (لا ترجع قيمة خالية - Null)</li>
+                    <li>Don’t Pass Null (لا تمرر قيمة خالية - Null)</li>
+                    <li>Conclusion (خاتمة)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل الثامن: Boundaries (الحدود)</strong></p>
+                <ul>
+                    <li>Using Third-Party Code (استخدام كود طرف ثالث)</li>
+                    <li>Exploring and Learning Boundaries (استكشاف وتعلم الحدود)</li>
+                    <li>Learning log4j (تعلم log4j)</li>
+                    <li>Learning Tests Are Better Than Free (اختبارات التعلم أفضل من مجانية)</li>
+                    <li>Using Code That Does Not Yet Exist (استخدام كود غير موجود بعد)</li>
+                    <li>Clean Boundaries (حدود نظيفة)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل التاسع: Unit Tests (اختبارات الوحدات)</strong></p>
+                <ul>
+                    <li>The Three Laws of TDD (القوانين الثلاثة لـ TDD)</li>
+                    <li>Keeping Tests Clean (الحفاظ على نظافة الاختبارات)</li>
+                    <li>Tests Enable the -ilities (الاختبارات تمكن الـ -ilities)</li>
+                    <li>Clean Tests (اختبارات نظيفة)</li>
+                    <li>Domain-Specific Testing Language (لغة اختبار خاصة بالمجال)</li>
+                    <li>A Dual Standard (معيار مزدوج)</li>
+                </ul>
+                <p><strong>الفصل الثاني عشر: Emergence (الظهور)</strong></p>
+                <ul>
+                    <li>Getting Clean via Emergent Design (الحصول على النظافة عبر التصميم الناشئ)</li>
+                    <li>Simple Design Rule 1: Runs All the Tests (قاعدة التصميم البسيط 1: تشغيل جميع الاختبارات)</li>
+                    <li>Simple Design Rules 2–4: Refactoring (قواعد التصميم البسيط 2–4: إعادة الهيكلة)</li>
+                    <li>No Duplication (لا تكرار)</li>
+                    <li>Expressive (معبر)</li>
+                    <li>Minimal Classes and Methods (أقل عدد من الفئات والطرق)</li>
+                    <li>Conclusion (خاتمة)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل الرابع عشر: Successive Refinement (التحسين المتتالي)</strong></p>
+                <ul>
+                    <li>Args Implementation (تنفيذ Args)</li>
+                    <li>How Did I Do This? (كيف فعلت هذا؟)</li>
+                    <li>Args: The Rough Draft (Args: المسودة الأولية)</li>
+                    <li>String Arguments (وسائط النص)</li>
+                    <li>Conclusion (خاتمة)</li>
+                </ul>
+                <p><strong>الفصل الخامس عشر: JUnit Internals (الأجزاء الداخلية لـ JUnit)</strong></p>
+                <ul>
+                    <li>The JUnit Framework (إطار عمل JUnit)</li>
+                    <li>Conclusion (خاتمة)</li>
+                </ul>
+                <p><strong>الفصل السادس عشر: Refactoring SerialDate (إعادة هيكلة SerialDate)</strong></p>
+                <ul>
+                    <li>First, Make It Work (أولاً، اجعله يعمل)</li>
+                    <li>Then Make It Right (ثم اجعله صحيحاً)</li>
+                    <li>Conclusion (خاتمة)</li>
+                    <li>Bibliography (قائمة المراجع)</li>
+                </ul>
+                <p><strong>الفصل السابع عشر: Smells and Heuristics (الروائح والقواعد الإرشادية)</strong></p>
+                <ul>
+                    <li>Comments (التعليقات)</li>
+                    <li>Environment (البيئة)</li>
+                    <li>Functions (الدوال)</li>
+                    <li>General (عام)</li>
+                    <li>Java (لغة جافا)</li>
+                    <li>Names (الأسماء)</li>
+                    <li>Tests (الاختبارات)</li>
+                </ul>
+                <p><em>(بالإضافة إلى الملاحق التي تتضمن مراجع إضافية ودروس حول التزامن وبعض أمثلة الأكواد
+                        Refactored)</em>.</p>
+
+                <p>يا فندم، تحت أمرك. الفصل ده (الفصل الأول: Clean Code) هو أساس الكتاب كله، وهو اللي بيشرح ليه الكود
+                    النضيف ده مهم وليه لازم تهتم بيه أصلاً.</p>
+                <p><strong>شرح مفصل للفصل الأول: الكود النضيف (Clean Code)</strong></p>
+                <p>الفصل ده بيبدأ بكلام صريح جداً: إنت بتقرا الكتاب ده لسببين؛ الأول إنك مبرمج، والتاني إنك عايز تبقى
+                    مبرمج أحسن. وده كويس عشان إحنا فعلاً محتاجين مبرمجين أحسن.</p>
+                <p><strong>1. الكود هيفضل موجود (There Will Be Code)</strong></p>
+                <p>الكتاب بيأكد إن الكود هو أساس الموضوع. وظيفة الكتاب ده إنه يعلمك إزاي تفرق بين الكود الكويس والكود
+                    الوحش، وإزاي تكتب كود كويس، ولو لقيت كود وحش إزاي تحوله لكود كويس.</p>
+                <p><strong>2. الكود الوحش (Bad Code) وتكلفته الكبيرة</strong></p>
+                <p>السبب الرئيسي إننا بنركز على الكود النظيف هو إن <strong>الكود الوحش ده بيبقى كارثة</strong>.</p>
+                <ul>
+                    <li><strong>التكلفة الإجمالية للفوضى (The Total Cost of Owning a Mess):</strong> لما يكون الكود
+                        فوضوي ومتبهدل، ده بيكلف الشركة فلوس كتير جداً ووقت مهول. المشكلة إن كل ما الفوضى دي بتزيد،
+                        الصعوبة في إنك تنظفها بتزيد، والإنتاجية بتقل.</li>
+                    <li>المديرين ممكن يقلقوا على مواعيد التسليم (schedule)، ودي شغلتهم، لكن <strong>شغلتك إنت كمبرمج إنك
+                            تدافع عن جودة الكود</strong> بكل حماس. لو فضلت تسلم كود سيئ عشان تلتزم بمواعيد قصيرة، هتفضل
+                        طول الوقت محبوس في الكود السيئ ده ومش هتعرف تخرج منه.</li>
+                </ul>
+                <p><strong>3. إيه هو الكود النضيف؟ (What Is Clean Code)</strong></p>
+                <p>لأن تعريف &quot;الكود النضيف&quot; ممكن يختلف من مبرمج للتاني، المؤلف سأل مبرمجين مشهورين جداً عشان
+                    نعرف إيه رأيهم:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الخبير (المبرمج)</th>
+                            <th>رأيه في الكود النظيف (مع الشرح والأمثلة)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>بيارن ستروستروب</strong> (Bjarne Stroustrup)</td>
+                            <td><strong>&quot;شيك وفعال&quot; (Elegant and Efficient)</strong>.
+                                الكود لازم يكون <strong>حاجة واحدة بس وبيعملها كويس</strong>. ولازم يكون منطق الكود
+                                &quot;صريح ومباشر&quot; عشان الأخطاء متستخباش فيه. الشياكة هنا معناها إن الكود ده يكون
+                                <strong>مبهج ومريح للقراءة</strong>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>جرادي بوش</strong> (Grady Booch)</td>
+                            <td>الكود النظيف لازم يكون زي <strong>&quot;النثر المكتوب كويس&quot;
+                                    (well-written prose)</strong>. يعني تقراه كإنه قصة منظمة وواضحة. بيوصفه بأنه
+                                <strong>&quot;تجـريد واضح ومحدد&quot; (crisp abstraction)</strong>، يعني يكون حاسم
+                                وموضوعي ومفيهوش تفاصيل ملهاش لازمة. لما تقراه توصل لـ &quot;آها! أكيد!&quot; كحل منطقي.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>&quot;بيج&quot; ديف توماس</strong> (Dave Thomas)</td>
+                            <td>الكود النظيف ده لازم <strong>أي حد غير اللي كتبه يقدر يقرأه
+                                    ويعدل عليه</strong>. لازم يكون معاه <strong>اختبارات وحدة (Unit Tests)</strong>
+                                واختبارات قبول. كمان لازم تكون أسماء المتغيرات والدوال <strong>معبرة وذات معنى</strong>.
+                                ويركز على إنه يكون <strong>صغير</strong> (Minimal).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مايكل فيذرز</strong> (Michael Feathers)</td>
+                            <td>الكود النظيف هو اللي <strong>بيجعل حياة المطورين الآخرين
+                                    أسهل</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>رون جيفريز</strong> (Ron Jeffries)</td>
+                            <td>الكود النظيف مفيهوش <strong>تكرار</strong> (No duplication)،
+                                معبر جداً (High expressiveness)، وبيستخدم <strong>تجريدات بسيطة وصغيرة</strong> (tiny
+                                abstractions).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>وورد كانينجهام</strong> (Ward Cunningham)</td>
+                            <td>الكود النظيف هو اللي لما تقرا أي &quot;روتين&quot; (Routine) فيه
+                                <strong>بتلاقيه زي ما كنت متوقع بالظبط</strong>. كأن لغة البرمجة اتعملت مخصوص عشان تحل
+                                المشكلة دي.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>مبدأ مهم: قاعدة الكشاف (The Boy Scout Rule)</strong></p>
+                <p>بالرغم من إن القاعدة دي مذكورة بتفصيل أكبر في مقدمة الكتاب وفي سياق قيم &quot;أجايل&quot; (Agile
+                    Values)، إلا إنها أساس الفكر اللي بيتكلم عنه الفصل ده. القاعدة بتقول: <strong>&quot;سيب مكان التخييم
+                        أنضف مما كان لما لقيته&quot;</strong>.</p>
+                <p><strong>المثال التطبيقي (شرح القاعدة):</strong></p>
+                <ul>
+                    <li>لما تيجي تعمل تغيير صغير في أي ملف كود، متسيبش الكود زي ما كان لو كان شكله مش نضيف.</li>
+                    <li>حتى لو التعديل بتاعك صغير، لازم تعمل خطوة بسيطة زي <strong>إعادة هيكلة بسيطة (Refactor)</strong>
+                        قبل ما تعمل &quot;تسجيل&quot; للتغييرات (check-in).</li>
+                    <li>ده معناه إنك لازم تكون <strong>صادق (honest)</strong> مع نفسك ومع زمايلك بخصوص حالة الكود. مش
+                        لازم يكون الكود مثالي، لكن لازم تعمل أقصى ما عندك عشان تسيبه أحسن.</li>
+                </ul>
+                <p>الفصل الأول ده كله بيرسي الأساس لفهم إن <strong>النظافة مش رفاهية، دي مسألة بقاء للمشروع
+                        والشركة</strong>.</p>
+
+
+
+                {# end #}
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>
