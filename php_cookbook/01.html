@@ -17,232 +17,263 @@
         <div class="row">
             <div class="col-12">
 
-                <p>يا معلم، تحت أمرك! الكتاب ده اسمه <strong>PHP Programming Cookbook</strong>، وهو عبارة عن
-                    <strong>كتاب
-                        طبخ</strong> بيشرح لغة البرمجة PHP.
-                </p>
-                <h3 id="-">محتوى الكتاب بشكل مبسط (بلهجة مصرية)</h3>
-                <p>بشكل مبسط كده، الكتاب ده معمول عشان يساعد أي حد عايز يشتغل في تطوير الويب أو يعمل مشاريع جديدة بلغة
-                    <strong>PHP</strong>. PHP دي لغة برمجة بتشتغل على السيرفر، ومفيدة جداً عشان تعمل محتوى ديناميكي
-                    بيتفاعل مع قواعد
-                    البيانات.
-                </p>
-                <p>الكتاب عبارة عن مجموعة &quot;وصفات&quot; أو أمثلة جاهزة، بتوريك إزاي تعمل حاجات أساسية ومهمة في
-                    الويب. بتبدأ معاك
-                    من الصفر بتعريف اللغة والإعدادات (زي برنامج XAMPP)، بعد كده بتدخل في أساسيات البرمجة زي المتغيرات،
-                    والجمل
-                    الشرطية، والحلقات (Loops).</p>
-                <p><strong>أهم الحاجات اللي هتلاقيها فيه:</strong></p>
-                <ul>
-                    <li><strong>الأساسيات:</strong> إزاي تتعامل مع الأساسيات في PHP، زي المصفوفات (Arrays) والدوال
-                        (Functions).</li>
-                    <li><strong>قواعد البيانات:</strong> بيشرح إزاي توصل الموقع بتاعك بقواعد البيانات المختلفة (زي MySQL
-                        و PDO).
-                    </li>
-                    <li><strong>أمثلة عملية:</strong> بيقدم أمثلة كاملة لمشاريع أساسية زي:<ul>
-                            <li>إزاي تعمل <strong>صفحة لرفع الملفات</strong> بشكل آمن (Upload Script).</li>
-                            <li>إزاي تبعت <strong>رسائل إيميل</strong> باستخدام دالة <code>mail()</code> في PHP.</li>
-                            <li>إزاي تتعامل مع <strong>تنسيقات التواريخ</strong> وتخزنها بشكل صح.</li>
-                            <li>إزاي تعمل <strong>نموذج تسجيل دخول (Login Form)</strong> آمن جداً، وده بيشمل أفضل الطرق
-                                لتخزين
-                                الباسوردات (زي Key Derivation Functions).</li>
-                            <li>إزاي تستخدم مكتبة <strong>cURL</strong> عشان تبعت طلبات GET/POST لخدمات تانية على
-                                الإنترنت.</li>
-                            <li>إزاي تتعامل مع خدمات الويب باستخدام بروتوكول <strong>SOAP</strong>.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>باختصار، هو دليل عملي مليان أمثلة عشان تبدأ مشاريع الويب بتاعتك بأقل وقت وجهد.</p>
+                <p>يا أهلاً وسهلاً ومرحباً بكم في شرح <strong>الفصل الأول: PHP Tutorial for Beginners</strong>، بعنوان
+                    (شرح PHP للمبتدئين)! أنا هنا عشان آخدكم في جولة سريعة ومفيدة نفهم فيها أساسيات لغة البرمجة PHP من
+                    خلال المصادر المتاحة لينا.</p>
+                <p>يا ريت نركز سوا، لأن ده البداية اللي هتخلينا ننطلق في عالم تطوير الويب الديناميكي!</p>
                 <hr>
-                <h3 id="-">محتويات الكتاب من أبواب وفصول</h3>
-                <p>الكتاب مقسم لثمانية فصول رئيسية:</p>
-                <h4 id="-1-php-tutorial-for-beginners-php-">الباب 1: PHP Tutorial for Beginners (شرح PHP للمبتدئين)</h4>
+                <h2 id="-php">الفصل الأول: مقدمة وشرح أساسيات PHP</h2>
+                <h3 id="1-1-introduction-">1.1 المقدمة (Introduction)</h3>
+                <p><strong>PHP</strong> هي اختصار متكرر لكلمة <strong>PHP: Hypertext Preprocessor</strong>. في الأصل،
+                    كانت تعني <strong>Personal Home Page</strong> (صفحة شخصية) لما أنشأها <strong>راسموس
+                        ليردورف</strong> (Rasmus Lerdorf) سنة 1994.</p>
+                <p><strong>إيه هي الـ PHP؟</strong>
+                    هي لغة سكريبت مفتوحة المصدر ومُصممة خصيصًا لتطوير الويب، بس ممكن تستخدم كلغة برمجة عامة. هي لغة
+                    معالجة في جانب الخادم (server-side scripting language) وميزتها إنها بتسمح للمطورين إنهم يعملوا محتوى
+                    ديناميكي بيتفاعل مع قواعد البيانات. الكود بتاعها ممكن يتحط جوه كود HTML عادي.</p>
+                <h4 id="1-1-1-php-where-is-php-used-">1.1.1 أين تستخدم PHP؟ (Where is PHP used?)</h4>
+                <p>فيه تلات مجالات أساسية بنشوف فيها سكريبتات PHP شغالة:</p>
+                <ol>
+                    <li><strong>برمجة جانب الخادم (Server-side scripting):</strong> وده الهدف الرئيسي والأكثر استخدامًا
+                        لـ PHP. عشان ده يشتغل، لازم يكون عندك تلات حاجات:<ul>
+                            <li>مُحلل PHP (PHP parser).</li>
+                            <li>خادم ويب (Web server).</li>
+                            <li>متصفح ويب (Web browser).</li>
+                            <li>الخادم بيقوم بتفسير وتنفيذ كود PHP، والناتج (سواء كان بيانات أو صور أو صفحات ويب) بيتبعت
+                                للمتصفح.</li>
+                        </ul>
+                    </li>
+                    <li><strong>برمجة سطر الأوامر (Command line scripting):</strong> هنا ممكن تشغل سكريبت PHP من غير ما
+                        تحتاج خادم أو متصفح، كل اللي محتاجه هو مُحلل PHP بس. وده مثالي للسكريبتات اللي بتشتغل بشكل منتظم
+                        (زي باستخدام <code>cron</code> على لينكس) أو لمهام معالجة النصوص البسيطة.</li>
+                    <li><strong>كتابة تطبيقات سطح المكتب (Writing desktop applications):</strong> بالرغم من إنها مش أحسن
+                        لغة لإنشاء تطبيقات بواجهة رسومية، لكن لو كنت متمكن جدًا من PHP وحابب تستخدم ميزاتها المتقدمة في
+                        تطبيقات الكلاينت، ممكن تستخدم PHP-GTK لكتابة تطبيقات بتشتغل على أنظمة تشغيل مختلفة
+                        (Cross-platform).</li>
+                </ol>
+                <p>احنا في الفصل ده هنركز بشكل مفصل على <strong>البرمجة على جانب الخادم</strong>.</p>
+                <h4 id="1-1-2-php-why-php-">1.1.2 ليه نستخدم PHP؟ (Why PHP?)</h4>
+                <p>الـ PHP ليها شعبية كبيرة لعدة أسباب قوية:</p>
                 <ul>
-                    <li><strong>1.1 Introduction (مقدمة)</strong>
-                        <ul>
-                            <li>1.1.1 Where is PHP used? (أين تستخدم PHP؟)</li>
-                            <li>1.1.2 Why PHP? (لماذا PHP؟)</li>
-                        </ul>
-                    </li>
-                    <li><strong>1.2 XAMPP Setup (إعداد XAMPP)</strong></li>
-                    <li><strong>1.3 PHP Language Basics (أساسيات لغة PHP)</strong>
-                        <ul>
-                            <li>1.3.1 Escaping to PHP</li>
-                            <li>1.3.2 Commenting PHP (التعليق في PHP)</li>
-                            <li>1.3.3 Hello World</li>
-                            <li>1.3.4 Variables in PHP (المتغيرات في PHP)</li>
-                            <li>1.3.5 Conditional Statements in PHP (الجمل الشرطية)</li>
-                            <li>1.3.6 Loops in PHP (الحلقات التكرارية)</li>
-                        </ul>
-                    </li>
-                    <li><strong>1.4 PHP Arrays (المصفوفات)</strong></li>
-                    <li><strong>1.5 PHP Functions (الدوال)</strong></li>
-                    <li><strong>1.6 Connecting to a Database (الاتصال بقاعدة البيانات)</strong>
-                        <ul>
-                            <li>1.6.1 Connecting to MySQL Databases (الاتصال بقواعد بيانات MySQL)</li>
-                            <li>1.6.2 Connecting to MySQLi Databases (Procedurial) (الاتصال بـ MySQLi – الإجرائي)</li>
-                            <li>1.6.3 Connecting to MySQLi databases (Object-Oriented) (الاتصال بـ MySQLi – كائنية
-                                التوجه)</li>
-                            <li>1.6.4 Connecting to PDO Databases (الاتصال بـ PDO)</li>
-                        </ul>
-                    </li>
-                    <li><strong>1.7 PHP Form Handling (التعامل مع نماذج PHP)</strong></li>
-                    <li><strong>1.8 PHP Include &amp; Require Statements (أوامر Include و Require)</strong></li>
-                    <li><strong>1.9 Object Oriented Concepts (مفاهيم البرمجة الشيئية)</strong>
-                        <ul>
-                            <li>1.9.1 PHP Classes (كلاسات PHP)</li>
-                            <li>1.9.2 PHP Constructor Function (دالة البناء)</li>
-                        </ul>
-                    </li>
-                    <li><strong>1.10 Conclusion (خاتمة)</strong></li>
-                    <li><strong>1.11 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong>متوافقة مع كل الخوادم تقريبًا:</strong> بتشتغل مع معظم خوادم الويب المعروفة زي Apache
+                        HTTP Server، وIIS، وlighttpd، وغيرها.</li>
+                    <li><strong>بتشتغل على معظم أنظمة التشغيل (Platforms):</strong> مصممة عشان تشتغل على منصات مختلفة زي
+                        Windows، وMac OSX، وLinux، وUnix.</li>
+                    <li><strong>بتدعم مجموعة كبيرة من قواعد البيانات:</strong> ودي نقطة مهمة جدًا، لأنها متوافقة مع
+                        قواعد بيانات كتير زي MySQL، وPostgreSQL، وSQLite، وMongoDB وغيرها.</li>
+                    <li><strong>مجانية ومفتوحة المصدر:</strong> تقدر تحملها من php.net وتبدأ تستخدمها فورًا. كونها
+                        مفتوحة المصدر ده معناه إن الكود الأصلي متاح للجميع عشان يعدلوا فيه ويستخدموه.</li>
+                    <li><strong>سهلة التعلم ولها مجتمع ضخم:</strong> هي لغة بسيطة خطوة بخطوة، وده بيشجع الناس إنها
+                        تستكشفها. كمان عندها مجتمع ضخم على الإنترنت مستعد إنه يساعدك لما تقف في أي حاجة.</li>
                 </ul>
-                <h4 id="-2-upload-script-example-">الباب 2: Upload Script Example (مثال على سكربت الرفع)</h4>
+                <h3 id="1-2-xampp-xampp-setup-">1.2 إعداد بيئة XAMPP (XAMPP Setup)</h3>
+                <p>عشان كود PHP يشتغل عندك على الجهاز المحلي، لازم تثبت بيئة عمل خادم. الـ <strong>XAMPP</strong> هو حل
+                    مجاني ومفتوح المصدر، وهو عبارة عن توزيعة Apache Friends، وبيتكون أساسًا من خادم Apache HTTP، وقاعدة
+                    بيانات MariaDB، ومفسرات للغات PHP وPerl.</p>
+                <p><strong>خطوات الإعداد بسيطة:</strong></p>
+                <ol>
+                    <li>حمل XAMPP.</li>
+                    <li>ثبت البرنامج واختار التقنيات اللي محتاجها.</li>
+                    <li>افتح XAMPP واعمل &quot;Start&quot; لـ <strong>Apache</strong> و <strong>MySQL</strong> (لو
+                        بتشتغل على قواعد بيانات).</li>
+                    <li>تحط المشروع بتاعك جوه مجلد <strong><code>htdocs</code></strong>. المسار الشائع للمجلد ده بيكون:
+                        <code>C:\xampp\htdocs</code>.</li>
+                    <li>عشان تتأكد إن الخدمات اشتغلت، افتح المتصفح واكتب <code>localhost</code>.</li>
+                </ol>
+                <h3 id="1-3-php-php-language-basics-">1.3 أساسيات لغة PHP (PHP Language Basics)</h3>
+                <p>هنا بقى هندخل في صميم اللغة والشكل العام للكتابة.</p>
+                <h4 id="1-3-1-php-escaping-to-php-">1.3.1 الهروب إلى PHP (Escaping to PHP)</h4>
+                <p>الـ PHP عندها أربع طرق عشان المُحلل بتاعها يفرق بين كود PHP وكود HTML العادي:</p>
+                <ol>
+                    <li><strong>علامات PHP التقليدية (Canonical PHP Tags):</strong> ودي الأشهر والأكثر فعالية:
+                        <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>...<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                    </li>
+                    <li><strong>علامات الفتح القصيرة (Short-open Tags):</strong> ودي أقصر طريقة، بس ممكن تحتاج شوية
+                        إعدادات في ملف <code>php.ini</code> (زي تفعيل <code>short_open_tag</code>):
+                        <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?</span>...<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                    </li>
+                    <li><strong>علامات شبيهة بـ ASP (ASP-like Tags):</strong> ودي برضه بتحتاج تفعيل في ملف
+                        <code>php.ini</code>:
+                        <pre><code class="lang-php"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><span class="ruby">...</span><span class="xml"><span class="hljs-tag">%&gt;</span></span>
+</code></pre>
+                    </li>
+                    <li><strong>علامات سكريبت HTML (HTML script Tags):</strong>
+                        <pre><code class="lang-php"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"PHP"</span>&gt;</span><span class="undefined">...</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+                    </li>
+                </ol>
+                <h4 id="1-3-2-php-commenting-php-">1.3.2 التعليقات في PHP (Commenting PHP)</h4>
+                <p>زي أي لغة برمجة، فيه طرق مختلفة لكتابة التعليقات:</p>
                 <ul>
-                    <li><strong>2.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>2.1.1 Installation (التثبيت)</li>
-                            <li>2.1.2 PHP configuration (إعداد PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>2.2 Upload form (نموذج الرفع)</strong>
-                        <ul>
-                            <li>2.2.1 Accepting only certain type of files (قبول أنواع محددة من الملفات)</li>
-                        </ul>
-                    </li>
-                    <li><strong>2.3 PHP upload script (سكربت الرفع)</strong>
-                        <ul>
-                            <li>2.3.1 A secure file upload script (سكربت رفع ملفات آمن)</li>
-                            <li>2.3.2 Considerations (اعتبارات)</li>
-                        </ul>
-                    </li>
-                    <li><strong>2.4 Summary (ملخص)</strong></li>
-                    <li><strong>2.5 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li>استخدام <strong><code>#</code></strong> لتعليق سطر واحد.</li>
+                    <li>استخدام <strong><code>//</code></strong> برضه لتعليق سطر واحد.</li>
+                    <li>استخدام <strong><code>/* ...*/</code></strong> لتعليقات متعددة الأسطر.</li>
                 </ul>
-                <h4 id="-3-mail-function-example-">الباب 3: Mail Function Example (مثال دالة الإرسال بالبريد)</h4>
+                <h4 id="1-3-3-hello-world-hello-world-">1.3.3 مثال &quot;Hello World&quot; (Hello World)</h4>
+                <p>دي أبسط طريقة لإخراج نص في PHP، وممكن تتم بتلات طرق:</p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?</span> <span class="hljs-keyword">print</span>(<span class="hljs-string">"Hello World"</span>); <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello World"</span>; printf(<span class="hljs-string">"Hello World"</span>); <span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <p>النتيجة في التلات حالات هتكون هي هي: &quot;Hello World&quot;. بس ليه فيه تلات طرق؟</p>
                 <ul>
-                    <li><strong>3.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>3.1.1 Installation (التثبيت)</li>
-                            <li>3.1.2 sSMTP configuration (إعداد sSMTP)</li>
-                            <li>3.1.3 PHP configuration (إعداد PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>3.2 PHP mail sending script (سكربت إرسال البريد)</strong>
-                        <ul>
-                            <li>3.2.1 Setting additional headers (تعيين رؤوس إضافية)</li>
-                            <li>3.2.2 Setting additional parameters (تعيين بارامترات إضافية)</li>
-                        </ul>
-                    </li>
-                    <li><strong>3.3 Troubleshooting (استكشاف الأخطاء)</strong>
-                        <ul>
-                            <li>3.3.1 Set verbose mode (تعيين الوضع المطول)</li>
-                            <li>3.3.2 Login is rejected by SMTP server (رفض تسجيل الدخول من خادم SMTP)</li>
-                            <li>3.3.3 Firewall is filtering outgoing traffic (جدار الحماية يفلتر حركة المرور الصادرة)
-                            </li>
-                            <li>3.3.4 Check PHP error log (التحقق من سجل أخطاء PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>3.4 Alternatives to sSMTP (بدائل لـ sSMTP)</strong></li>
-                    <li><strong>3.5 Summary (ملخص)</strong></li>
-                    <li><strong>3.6 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong><code>print</code></strong>: بترجع قيمة (دايمًا بترجع 1).</li>
+                    <li><strong><code>echo</code></strong>: ممكن تاخد قائمة من المتغيرات مفصولة بفاصلة لإخراجها.</li>
+                    <li><strong><code>printf</code></strong>: هي نظير مباشر لدالة <code>printf()</code> في لغة C.</li>
                 </ul>
-                <h4 id="-4-date-format-example-">الباب 4: Date Format Example (مثال على تنسيق التاريخ)</h4>
+                <h4 id="1-3-4-php-variables-in-php-">1.3.4 المتغيرات في PHP (Variables in PHP)</h4>
+                <p>أي متغير في PHP بيبدأ بعلامة الدولار <strong><code>$</code></strong>. المتغير بيتم تعيين نوعه
+                    باستخدام علامة التساوي <strong><code>=</code></strong>. مش محتاج تعرف المتغير قبل ما تسندله قيمة.
+                </p>
+                <p><strong>أنواع البيانات الأساسية اللي بتستخدم في المتغيرات:</strong></p>
                 <ul>
-                    <li><strong>4.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>4.1.1 Installation (التثبيت)</li>
-                        </ul>
-                    </li>
-                    <li><strong>4.2 How should dates be stored? (كيف يجب تخزين التواريخ؟)</strong></li>
-                    <li><strong>4.3 PHP examples (أمثلة PHP)</strong>
-                        <ul>
-                            <li>4.3.1 From time stamp to human-readable (من وسم الوقت إلى صيغة مقروءة)</li>
-                            <li>4.3.2 From human-readable to time stamp (من صيغة مقروءة إلى وسم الوقت)</li>
-                            <li>4.3.3 DateTime class (كلاس DateTime)</li>
-                            <li>4.3.4 Increasing precision (زيادة الدقة)</li>
-                            <li>4.3.5 Validating user introduced date (التحقق من صحة التاريخ الذي أدخله المستخدم)</li>
-                        </ul>
-                    </li>
-                    <li><strong>4.4 Summary (ملخص)</strong></li>
-                    <li><strong>4.5 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong>Integers:</strong> الأعداد الصحيحة (زي 23، 1254).</li>
+                    <li><strong>Doubles:</strong> أرقام الفاصلة العائمة (زي 46.2).</li>
+                    <li><strong>Booleans:</strong> ليها قيمتين بس، <code>true</code> أو <code>false</code>.</li>
+                    <li><strong>Strings:</strong> مجموعة من الحروف (زي &#39;Web Code Geeks&#39;).</li>
+                    <li><strong>Arrays:</strong> مجموعات مُفهرسة أو مُسماة من قيم أخرى.</li>
+                    <li><strong>Objects:</strong> نسخ من كلاسات (Classes) محددة مسبقًا.</li>
                 </ul>
-                <h4 id="-5-soapclient-example-soap-">الباب 5: SoapClient Example (مثال على عميل SOAP)</h4>
+                <h4 id="1-3-5-conditional-statements-in-php-">1.3.5 الجمل الشرطية (Conditional Statements in PHP)</h4>
+                <p>الجمل الشرطية دي بتخلينا ننفذ كود مختلف بناءً على شروط مختلفة.</p>
                 <ul>
-                    <li><strong>5.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>5.1.1 Installation (التثبيت)</li>
-                            <li>5.1.2 PHP configuration (إعداد PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>5.2 What is SOAP? (ما هو SOAP؟)</strong></li>
-                    <li><strong>5.3 PHP example of SOAP clients (مثال PHP لعملاء SOAP)</strong>
-                        <ul>
-                            <li>5.3.1 Working directory structure (هيكل دليل العمل)</li>
-                            <li>5.3.2 The server (الخادم)</li>
-                            <li>5.3.3 The client (العميل)</li>
-                            <li>5.3.4 Using the client (استخدام العميل)</li>
-                        </ul>
-                    </li>
-                    <li><strong>5.4 Considerations (اعتبارات)</strong></li>
-                    <li><strong>5.5 Summary (ملخص)</strong></li>
-                    <li><strong>5.6 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong>جملة <code>If</code>:</strong> بتنفذ جزء من الكود لو كان الشرط صحيح (True).</li>
+                    <li><strong>جملة <code>If...Else</code>:</strong> بتنفذ كود لو الشرط صحيح، وبتنفذ كود تاني لو الشرط
+                        غلط (False).</li>
+                    <li><strong>جملة <code>If...Elseif...Else</code>:</strong> بتستخدم لما يكون فيه شرطين أو أكتر.</li>
                 </ul>
-                <h4 id="-6-login-form-example-">الباب 6: Login Form Example (مثال على نموذج تسجيل الدخول)</h4>
+                <h4 id="1-3-6-loops-in-php-">1.3.6 الحلقات التكرارية (Loops in PHP)</h4>
+                <p>الحلقات بتستخدم عشان تنفذ نفس مجموعة الأكواد لعدد محدد من المرات. PHP بتدعم الحلقات الشائعة (for,
+                    while, do...while) وبتدعم كمان حلقة <strong><code>foreach</code></strong>.</p>
+                <ol>
+                    <li><strong>حلقة <code>for</code>:</strong> بنستخدمها لما نكون عارفين سلفًا عدد المرات اللي الكود
+                        هيتنفذ فيها.
+                        <pre><code><span class="hljs-keyword">for</span> (التهيئة; الشرط; الخطوة){ <span class="hljs-comment">// الكود اللي هيتنفذ }</span>
+</code></pre>
+                    </li>
+                    <li><strong>حلقة <code>while</code>:</strong> بنستخدمها طول ما التعبير الشرطي بيفضل صحيح.
+                        <pre><code><span class="hljs-keyword">while</span> <span class="hljs-comment">(الشرط)</span>{ <span class="hljs-comment">// الكود اللي هيتنفذ }</span>
+</code></pre>
+                    </li>
+                    <li><strong>حلقة <code>do...while</code>:</strong> بتضمن إن الكود هيتنفذ <strong>مرة واحدة على
+                            الأقل</strong>، وبعد كده بتشوف لو الشرط صحيح عشان تكمل تكرار.
+                        <pre><code><span class="hljs-keyword">do</span> { <span class="hljs-regexp">//</span> الكود اللي هيتنفذ } <span class="hljs-keyword">while</span> (الشرط);
+</code></pre>
+                    </li>
+                    <li><strong>حلقة <code>foreach</code>:</strong> دي بتستخدم عشان نمر على عناصر المصفوفات (Arrays).
+                        <pre><code><span class="hljs-keyword">foreach</span> (المصفوفة <span class="hljs-keyword">as</span> القيمة) { <span class="hljs-comment">// الكود اللي هيتنفذ }</span>
+</code></pre>
+                    </li>
+                </ol>
+                <h3 id="1-4-php-arrays-">1.4 المصفوفات (PHP Arrays)</h3>
+                <p>المصفوفات بتستخدم عشان تخزن قيم متعددة في متغير واحد.</p>
+                <p><strong>أنواع المصفوفات في PHP:</strong></p>
+                <ol>
+                    <li><strong>المصفوفات المُفهرسة (Indexed Arrays):</strong> ودي اللي بنستخدم فيها أرقام عشان نوصل
+                        للعناصر. لازم نفتكر إن أول عنصر دايماً بيكون موقعه رقم <strong>0</strong>.</li>
+                    <li><strong>المصفوفات الترابطية (Associative Arrays):</strong> ودي بتستخدم مفاتيح (keys) مُسماة (بدل
+                        الأرقام) اللي أنت بتسندها.</li>
+                    <li><strong>المصفوفات متعددة الأبعاد (Multidimensional Arrays):</strong> ودي حاجة متقدمة شوية، وهي
+                        ببساطة مصفوفة عناصرها بتكون مصفوفات تانية (زي مصفوفة تلاتية الأبعاد بتكون مصفوفة من مصفوفات من
+                        مصفوفات).</li>
+                </ol>
+                <h3 id="1-5-php-functions-">1.5 الدوال (PHP Functions)</h3>
+                <p>الدوال هي إجراءات أو روتينات بتشتغل لما كود تاني يستدعيها. PHP فيها أكتر من 1000 دالة جاهزة (built-in
+                    functions) بتساعد المطورين. غير كده، ممكن تعمل دوال خاصة بيك.</p>
+                <p><strong>الشكل الأساسي للدالة اللي بنعملها إحنا:</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">functionName</span><span class="hljs-params">($argument1, $argument2...)</span> </span>{
+<span class="hljs-comment">// الكود اللي هيتنفذ</span>
+}
+functionName($argument1, $argument2...); <span class="hljs-comment">// استدعاء الدالة <span class="hljs-meta">?&gt;</span></span></span>
+</code></pre>
+                <p>الدوال ممكن تاخد متغيرات (arguments) وممكن <strong>ترجع قيمة</strong> باستخدام كلمة
+                    <code>return</code>.</p>
+                <h3 id="1-6-connecting-to-a-database-">1.6 الاتصال بقاعدة بيانات (Connecting to a Database)</h3>
+                <p>فيه أربع طرق رئيسية ممكن تفكر فيها لما تحب تتصل بقاعدة بيانات:</p>
+                <ol>
+                    <li><strong>الاتصال بـ MySQL:</strong> باستخدام دالة <code>mysql_connect()</code>. لكن لازم تاخد
+                        بالك إن الـ <strong><code>mysql</code> extension دي خلاص اتلغت</strong> (deprecated) وهتتشال في
+                        المستقبل.</li>
+                    <li><strong>الاتصال بـ MySQLi (Procedural):</strong> الـ MySQLi اختصار لـ (MySQL improved). الطريقة
+                        الإجرائية دي سهلة الفهم وبتخلص الشغل.</li>
+                    <li><strong>الاتصال بـ MySQLi (Object-Oriented):</strong> ودي بتدي نفس الوظيفة لكن بمنطق مختلف في
+                        كتابة الكود (كتابة منظمة أكتر).</li>
+                    <li><strong>الاتصال بـ PDO (PHP Data Objects):</strong> دي الطريقة الأكثر استخدامًا دلوقتي. PDO هي
+                        طبقة وصول للبيانات (data access layer) بتستخدم واجهة برمجية موحدة (unified API).<ul>
+                            <li><strong>مزايا PDO:</strong> بتوفر اتساق في الوصول لقواعد البيانات، بتسمح باستخدام
+                                العبارات المُجهزة (prepared statements) اللي بتزود الأمان، وبتعمل معالجة أفضل للأخطاء عن
+                                طريق استثناءات يمكن التقاطها (<code>catchable exceptions</code>).</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3 id="1-7-php-form-handling-">1.7 معالجة النماذج (PHP Form Handling)</h3>
+                <p>نماذج HTML (Forms) بتستخدم عشان نجمع معلومات من المستخدم. الـ PHP بتشتغل هنا عشان تعالج وتخزن أو تعرض
+                    البيانات اللي المستخدم دخلها.</p>
+                <p>عشان نستلم البيانات اللي المستخدم بعتها، بنستخدم متغير <code>$_POST</code> (في حالة استخدام
+                    <code>method=&quot;POST&quot;</code> في الفورم).</p>
+                <p><strong>مهم جداً:</strong> عشان تتأكد إن المستخدم كتب حاجة، بنستخدم دالتين مهمتين:</p>
                 <ul>
-                    <li><strong>6.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>6.1.1 Installation (التثبيت)</li>
-                            <li>6.1.2 PHP configuration (إعداد PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>6.2 How should passwords be stored? (كيف يجب تخزين كلمات المرور؟)</strong>
-                        <ul>
-                            <li>6.2.1 Worse: plain text (الأسوأ: نص عادي)</li>
-                            <li>6.2.2 Not bad: password hashing (لا بأس: تجزئة كلمة المرور)</li>
-                            <li>6.2.3 Better: password hashing + salting (أفضل: التجزئة مع التمليح)</li>
-                            <li>6.2.4 Even better: Key Derivation Functions (الأفضل: دوال اشتقاق المفتاح)</li>
-                        </ul>
-                    </li>
-                    <li><strong>6.3 Creating users (إنشاء المستخدمين)</strong></li>
-                    <li><strong>6.4 Login (تسجيل الدخول)</strong>
-                        <ul>
-                            <li>6.4.1 Form (النموذج)</li>
-                            <li>6.4.2 Form handling (التعامل مع النموذج)</li>
-                            <li>6.4.3 Login against database (تسجيل الدخول مقابل قاعدة البيانات)</li>
-                        </ul>
-                    </li>
-                    <li><strong>6.5 Summary (ملخص)</strong></li>
-                    <li><strong>6.6 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong><code>isset()</code>:</strong> عشان نتحقق إذا كان المتغير تم تعيينه (set).</li>
+                    <li><strong><code>empty()</code>:</strong> عشان نتحقق إن المتغير مش فاضي.</li>
                 </ul>
-                <h4 id="-7-curl-get-post-example-curl-get-post-">الباب 7: Curl Get/Post Example (مثال على cURL لطلبات
-                    GET/POST)</h4>
+                <p>التحقق من صحة البيانات (Validation) ضروري في أي مشروع ويب حقيقي، وده بيشمل التأكد إن المدخلات مطابقة
+                    للتوقعات (زي عدم إدخال أرقام في خانة الاسم).</p>
+                <h3 id="1-8-include-require-php-include-require-statements-">1.8 جملتي Include و Require (PHP Include
+                    &amp; Require Statements)</h3>
+                <p>الأكواد لما بتكتر ممكن تبقى معقدة، وهنا بيجي دور <code>include</code> و <code>require</code> عشان
+                    ينظموا الكود ويخلوه أسهل في القراءة والمرونة. الجملتين دول ببساطة بينسخوا كل النص أو الكود من ملف
+                    موجود لملف تاني بيستخدم الجملة دي.</p>
+                <p><strong>إيه الفرق بينهم؟</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الجملة</th>
+                            <th style="text-align:left">عند الفشل في التنفيذ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong><code>require</code></strong></td>
+                            <td style="text-align:left">بتنتج <strong>خطأ فادح</strong> (Fatal error) وبتوقف تنفيذ
+                                السكريبت.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong><code>include</code></strong></td>
+                            <td style="text-align:left">بتنتج <strong>تحذير بس</strong> (Warning) وبتخلي السكريبت يكمل
+                                تنفيذه.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>بنستخدم الجملتين دول عشان ندرج ملفات زي الهيدر والفوتر في الملف الرئيسي بتاعنا.</p>
+                <h3 id="1-9-object-oriented-concepts-">1.9 مفاهيم البرمجة الشيئية (Object Oriented Concepts)</h3>
+                <p>البرمجة الشيئية (OOP) بتعتمد على مفهوم <strong>الكائنات</strong> (Objects).</p>
+                <p><strong>المفاهيم الأساسية:</strong></p>
                 <ul>
-                    <li><strong>7.1 Preparing the environment (تجهيز البيئة)</strong>
-                        <ul>
-                            <li>7.1.1 Installation (التثبيت)</li>
-                            <li>7.1.2 PHP configuration (إعداد PHP)</li>
-                        </ul>
-                    </li>
-                    <li><strong>7.2 GET requests (طلبات GET)</strong></li>
-                    <li><strong>7.3 POST requests (طلبات POST)</strong></li>
-                    <li><strong>7.4 Encapsulating operations in a cURL class (تغليف العمليات في كلاس cURL)</strong></li>
-                    <li><strong>7.5 Summary (ملخص)</strong></li>
-                    <li><strong>7.6 Download the source code (تحميل الكود المصدري)</strong></li>
+                    <li><strong>الكلاس (Class):</strong> هو نوع بيانات مُعرف مسبقًا، بيحتوي على بيانات محلية زي
+                        المتغيرات والدوال.</li>
+                    <li><strong>الكائن (Object):</strong> هو نسخة (instance) من كلاس. لازم الكلاس يتحدد الأول عشان نقدر
+                        ننشئ منه كائنات.</li>
                 </ul>
-                <h4 id="-8-html-table-example-html-">الباب 8: HTML Table Example (مثال على جدول HTML)</h4>
-                <ul>
-                    <li><strong>8.1 Getting Started (البدء)</strong>
-                        <ul>
-                            <li>8.1.1 Forms (النماذج)</li>
-                            <li>8.1.2 Session in php (الجلسات في PHP)</li>
-                            <li>8.1.3 Html Tables (جداول HTML)</li>
-                            <li>8.1.4 Other table tags worthy of mention (وسوم جدول أخرى جديرة بالذكر)</li>
-                        </ul>
-                    </li>
-                    <li><strong>8.2 Summary (ملخص)</strong></li>
-                    <li><strong>8.3 Download the source code (تحميل الكود المصدري)</strong></li>
-                </ul>
+                <h4 id="1-9-1-php-php-classes-">1.9.1 كلاسات PHP (PHP Classes)</h4>
+                <p>بنستخدم كلمة <code>class</code> عشان نعرف كلاس جديد. الكلاس ممكن يحتوي على متغيرات (زي
+                    <code>var $var1;</code>) ودوال (Functions).</p>
+                <p>عشان نعمل كائن جديد من كلاس (مثل كلاس <code>Vehicle</code>)، بنستخدم الأمر ده:</p>
+                <pre><code class="lang-php">$myCar = <span class="hljs-keyword">new</span> <span class="hljs-type">Vehicle</span>; <span class="hljs-comment">// كائن جديد من كلاس Vehicle</span>
+</code></pre>
+                <h4 id="1-9-2-php-constructor-function-">1.9.2 دالة البناء (PHP Constructor Function)</h4>
+                <p>PHP بتوفر دالة خاصة اسمها <strong><code>__construct()</code></strong> عشان تعرف دالة البناء
+                    (Constructor). دالة البناء دي بتستدعى تلقائيًا أول ما يتم إنشاء الكائن. وده بيساعد في تهيئة
+                    (Initialize) متغيرات الكائن أول ما يتنشئ.</p>
+                <h3 id="1-10-conclusion-">1.10 الختام (Conclusion)</h3>
+                <p>الـ PHP هي تقنية أساسية في تطوير الـ Back-end من ناحية الاستخدام وسهولة التعلم. من المهم إنك تفهم إن
+                    فيه طرق كتير لعمل الصفحات الديناميكية في PHP، والمطورين ممكن يستخدموا أكواد مختلفة تمامًا لنفس
+                    المهمة.</p>
+                <p>في البداية، ممكن الكل يستخدم أسلوب البرمجة الإجرائية (procedural style)، لكن كل ما تتعلم أكتر، هتحب
+                    تشتغل بأسلوب البرمجة الشيئية (object-oriented PHP) اللي هيخلي الشغل أسهل ومستدام في المشاريع
+                    الكبيرة.</p>
+                <hr>
+                <p>وبكده نكون وصلنا لنهاية جولتنا في الفصل الأول من كتاب <strong>PHP Programming Cookbook</strong> [i]!
+                    نتمنى لكم رحلة ممتعة في تعلم PHP، وإلى اللقاء في الفصل القادم!.</p>
 
             </div>
         </div>
