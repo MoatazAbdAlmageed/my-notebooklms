@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory Listing</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Repository Files</h1>
+    <ul id="file-list">Loading...</ul>
+
+    <script>
+        const repoOwner = "moatazabdalmageed";
+        const repoName = "my-notebooklms";
+        const branch = "main"; // or 'master'
+
+        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/git/trees/${branch}?recursive=1`;
+
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById('file-list');
+                list.innerHTML = '';
+                data.tree.forEach(item => {
+                    if (item.type === "blob") {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = item.path;
+                        a.textContent = item.path;
+                        li.appendChild(a);
+                        list.appendChild(li);
+                    }
+                });
+            })
+            .catch(err => {
+                document.getElementById('file-list').textContent = "Error loading files.";
+                console.error(err);
+            });
+    </script>
+</body>
+
+</html>
