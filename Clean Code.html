@@ -319,6 +319,116 @@
                         والشركة</strong>.</p>
 
 
+                <p>أهلاً بك يا فندم. الفصل التاني من الكتاب ده بيتكلم عن أساسيات أي كود نظيف، وهي <strong>الأسماء ذات
+                        المغزى (Meaningful Names)</strong>.</p>
+                <p>الكتاب بيقول إننا كمبرمجين بنقضي وقت كبير جداً في التسمية (أسماء المتغيرات، الدوال، الكلاسات،
+                    الملفات)، ولو معملناش الشغل ده صح، الكود بتاعنا بيبقى كابوس.</p>
+                <p>إليك شرح مفصل لأهم قواعد تسمية الكود في الفصل ده، مع أمثلة من المصادر:</p>
+                <hr>
+                <h2 id="1-use-intention-revealing-names-">1. القاعدة الأساسية: الاسم يوضح القصد (Use Intention-Revealing
+                    Names)</h2>
+                <p>الاسم الصح هو اللي بيجاوب على الأسئلة الكبيرة: <strong>ليه المتغير ده موجود؟ بيعمل إيه؟ وإزاي
+                        بنستخدمه؟</strong>. لو محتاج تكتب تعليق (Comment) عشان تشرح اسم المتغير أو الدالة، يبقى الاسم
+                    نفسه مش مظبوط وموش واضح.</p>
+                <p><strong>مثال للتوضيح:</strong></p>
+                <p>الكتاب بيورينا مثال إن أسماء المتغيرات الواضحة بتخلي الكود سهل الفهم جداً.</p>
+                <ul>
+                    <li>تخيل إن عندك كود بيجيب خلايا معينة في لعبة ما: لو استخدمت أسماء واضحة زي
+                        <code>flaggedCells</code> (الخلايا المعلمة) والدالة اسمها <code>getFlaggedCells()</code> (جلب
+                        الخلايا المعلمة)، بيبقى مفهوم على طول إيه اللي بيحصل. قوة الكود النظيف بتيجي من اختيار أسماء
+                        جيدة.</li>
+                </ul>
+                <h2 id="2-avoid-disinformation-and-noise-">2. تجنب التضليل و&quot;كلمات الدوشة&quot; (Avoid
+                    Disinformation and Noise)</h2>
+                <p><strong>تجنب التضليل (Disinformation):</strong></p>
+                <ul>
+                    <li><strong>متستخدمش أسماء ليها معنى محدد ومعروف</strong> وتيجي إنت تستخدمها بمعنى تاني. مثال: لو
+                        بتكتب عن وتر المثلث (Hypotenuse) واختصرته لـ <code>hp</code>، ده ممكن يضلل القارئ لأنه بيتهيأله
+                        إنه اسم منصة يونكس زي HP-UX.</li>
+                    <li><strong>متستخدمش هجاء غير متناسق (Inconsistent Spellings):</strong> لو بتكتب أسماء متشابهة، لازم
+                        يكون هجاؤها متناسق. لو الهجاء مش متناسق، ده بيعمل تضليل.</li>
+                </ul>
+                <p><strong>كلمات الدوشة (Noise Words):</strong></p>
+                <ul>
+                    <li>الأسماء مينفعش يكون فيها كلمات ملهاش معنى (Noise Words) بتخلي الأسماء مختلفة لكن بدون أي فرق في
+                        المفهوم.</li>
+                    <li>زي إنك تسمي كلاس <code>Product</code> وكلاس تاني اسمه <code>ProductInfo</code> أو
+                        <code>ProductData</code>. الكلمات دي (<code>Info</code> و <code>Data</code>) ملهاش معنى مميز
+                        ومابتضيفش أي فرق.</li>
+                    <li><strong>متحطش كلمة &quot;Variable&quot; أو &quot;Table&quot; في اسم المتغير أو الجدول</strong>
+                        لأن ده تكرار ملوش لازمة.</li>
+                </ul>
+                <h2 id="3-pronounceable-and-searchable-names-">3. خلي الاسم يتنطق ويتدور عليه (Pronounceable and
+                    Searchable Names)</h2>
+                <p><strong>الأسماء القابلة للنطق (Pronounceable Names):</strong></p>
+                <ul>
+                    <li>المبرمجين لازم يستغلوا قوة اللغة بتاعتنا، والأسماء لازم تكون قابلة للنطق عشان <strong>البرمجة
+                            نشاط اجتماعي</strong>.</li>
+                    <li>مينفعش تتكلم عن كود وأنت مش عارف تنطق أسماء المتغيرات، زي إنك تحول أسماء مختصرة ورموز (مثل
+                        <code>DtaRcrd102</code> و <code>genymdhms</code>) إلى أسماء كاملة وواضحة (مثل
+                        <code>Customer</code> و <code>generationTimestamp</code>)، وده بيخلي <strong>المحادثات الذكية
+                            ممكنة</strong>.</li>
+                </ul>
+                <p><strong>الأسماء القابلة للبحث (Searchable Names):</strong></p>
+                <ul>
+                    <li><strong>الأسماء المكونة من حرف واحد (Single-letter names)</strong> أو الثوابت الرقمية زي 4 أو 5،
+                        بيبقى صعب جداً تلاقيها في الكود لما تحاول تعمل بحث.</li>
+                    <li>ممكن تستخدم حرف واحد (زي <code>i</code> أو <code>j</code>) <strong>فقط</strong> كعداد داخل حلقات
+                        قصيرة (loop counters) وده للتقاليد، لكن في أغلب السياقات، ده اختيار سيئ.</li>
+                    <li><strong>طول الاسم لازم يتناسب مع نطاقه (Scope) في الكود.</strong> لو المتغير ده هيستخدم في أماكن
+                        كتير، لازم يكون اسمه مفصل عشان يبقى سهل البحث عنه.</li>
+                </ul>
+                <h2 id="4-avoid-encodings-">4. بلاش ترميز وتشفير (Avoid Encodings)</h2>
+                <p>قديماً كنا بنستخدم الترميز (Encoding) زي الـ &quot;Hungarian Notation&quot; عشان نوضح نوع المتغير،
+                    لكن في بيئات البرمجة الحديثة، مابقاش ليه أي لزوم.</p>
+                <ul>
+                    <li><strong>بادئات الأعضاء (Member Prefixes):</strong> متستخدمش بادئات زي <code>m_</code> (مثلاً
+                        <code>m_dsc</code>) عشان تميز متغيرات الأعضاء. الكلاسات والدوال بتاعتك لازم تكون صغيرة لدرجة إنك
+                        مش محتاج ترميز زي ده، والبيئات الحديثة بتلون الأعضاء دي أصلاً.</li>
+                    <li><strong>الـ I في الواجهات (Interfaces):</strong> الكاتب بيفضل إن الواجهات (Interfaces) ميبقاش
+                        ليها بادئة زي <code>I</code>. المفروض إن اليوزر ميعرفش إني مديله واجهة، هو المفروض يعرف إنها
+                        <code>ShapeFactory</code>. ولو لازم ترميز، الأفضل إنك ترمّز التطبيق (Implementation) نفسه، زي
+                        <code>ShapeFactoryImp</code>.</li>
+                </ul>
+                <h2 id="5-class-and-method-naming-rules-">5. قواعد تسمية الكلاسات والدوال (Class and Method Naming
+                    Rules)</h2>
+                <p><strong>أسماء الكلاسات (Class Names):</strong></p>
+                <ul>
+                    <li>الأسماء لازم تكون <strong>أسماء أو عبارات اسمية</strong> (Nouns or noun phrases)، زي
+                        <code>Customer</code> أو <code>Account</code>.</li>
+                    <li><strong>تجنب الكلمات الفعلية (Verbs)</strong> في أسماء الكلاسات، وتجنب أسماء زي
+                        <code>Manager</code> أو <code>Processor</code> أو <code>Data</code> أو <code>Info</code>.</li>
+                </ul>
+                <p><strong>أسماء الدوال (Method Names):</strong></p>
+                <ul>
+                    <li>الأسماء لازم تكون <strong>أفعال أو عبارات فعلية</strong> (Verbs or verb phrases)، زي
+                        <code>postPayment</code> أو <code>deletePage</code> أو <code>save</code>.</li>
+                    <li>بالنسبة لدوال الوصول والتعيين والشرط (Accessors, mutators, and predicates)، لازم تستخدم البادئات
+                        القياسية زي <code>get</code> و <code>set</code> و <code>is</code>.</li>
+                </ul>
+                <h2 id="6-clarity-is-king-">6. الوضوح فوق كل شيء (Clarity is King)</h2>
+                <ul>
+                    <li><strong>تجنب الخرائط الذهنية (Mental Mapping):</strong> المبرمجين الأذكياء (Smart programmers)
+                        ممكن يحبوا يستعرضوا ذكائهم بالاختصارات، لكن المبرمج المحترف (Professional programmer) فاهم إن
+                        <strong>الوضوح هو الملك</strong>. متخليش القارئ يضطر يترجم الأسماء ذهنياً.</li>
+                    <li><strong>متبقاش ظريف (Don’t Be Cute):</strong> الوضوح أهم من القيمة الترفيهية.
+                        <code>DeleteItems</code> أحسن من <code>HolyHandGrenade</code>.</li>
+                    <li><strong>استخدم كلمة واحدة لكل مفهوم (Pick One Word per Concept):</strong> لو اخترت كلمة (زي
+                        <code>fetch</code>) عشان تعمل مفهوم معين، خليك عليها ومتتنقلش لـ <code>retrieve</code> أو
+                        <code>get</code> عشوائياً.</li>
+                    <li><strong>استخدم أسماء مجال الحل ومجال المشكلة (Solution Domain and Problem Domain
+                            Names):</strong> لو بتستخدم مفاهيم تقنية للمبرمجين (زي نمط VISITOR)، استخدم الأسماء التقنية
+                        (مثلاً <code>AccountVisitor</code>). أما لو مفيش مصطلح برمجي واضح، استخدم الاسم من مجال المشكلة
+                        (Problem Domain) بحيث لو المبرمج احتاج شرح، يقدر يسأل خبير المجال.</li>
+                    <li><strong>أضف سياقاً ذا معنى (Add Meaningful Context):</strong> السياق مهم. لو عندك متغيرات زي
+                        <code>number</code> و <code>verb</code> و <code>pluralModifier</code>، لازم تكون داخل كلاس
+                        يعطيها سياق (زي <code>GuessStatisticsMessage</code> في).</li>
+                    <li><strong>لا تضف سياقاً لا داعي له (Don’t Add Gratuitous Context):</strong> الأسماء القصيرة أفضل
+                        إذا كانت واضحة. متضيفش سياق زيادة ملوش لزوم.</li>
+                </ul>
+
+
+
 
                 {# end #}
 
