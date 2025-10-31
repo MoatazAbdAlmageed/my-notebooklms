@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>01-05</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا صديقي، تحت أمرك.</p>
+                <p>الكتاب ده اسمه <strong>&quot;Laravel: Up &amp; Running&quot;</strong> (لارافيل: شغال وتمام)، وهو من
+                    تأليف مات
+                    ستاوفر. الإصدار اللي معانا ده هو الطبعة التانية اللي نزلت في أبريل 2019.</p>
+                <h3 id="-">محتوى الكتاب بشكل مبسط (بلهجة مصرية)</h3>
+                <p>الكتاب ده يعتبر <strong>دليل عشان تبني تطبيقات PHP حديثة باستخدام إطار العمل Laravel</strong>.
+                    لارافيل نفسه
+                    مش
+                    مجرد فريم وورك عادي؛ هو مركز أوي على <strong>&quot;سعاده المطور&quot; (Developer Happiness)</strong>
+                    وإن
+                    الشغل
+                    يكون سهل وسريع.</p>
+                <p>الكتاب بيغطيلك كل حاجة محتاجها عشان تبقى مرتاح وانت بتستخدم لارافيل:</p>
+                <ol>
+                    <li><strong>الأساسيات:</strong> بيبدأ ليه تستخدم لارافيل أصلاً، وإزاي تجهز بيئة التطوير بتاعتك (زي
+                        Valet و
+                        Homestead).</li>
+                    <li><strong>تنظيم التطبيق:</strong> بيشرح إزاي الشغل بيتم عن طريق الـ <strong>Routes</strong> و
+                        <strong>Controllers</strong> والـ <strong>MVC</strong> (نمط Model–View–Controller).
+                    </li>
+                    <li><strong>التعامل مع البيانات:</strong> بيعلمك إزاي تستخدم <strong>Blade</strong> (محرك القوالب
+                        الخاص
+                        بلارافيل)، وإزاي تتعامل مع قواعد البيانات باستخدام <strong>Eloquent</strong> اللي هو (Active
+                        Record
+                        ORM).
+                    </li>
+                    <li><strong>الأدوات المساعدة:</strong> بيشرحلك أدوات مهمة زي <strong>Artisan</strong> (سطر الأوامر)
+                        و
+                        <strong>Tinker</strong> (بيئة الـ REPL).
+                    </li>
+                    <li><strong>الميزات المتقدمة:</strong> بيغوص في تفاصيل تسجيل دخول المستخدمين وتصاريحهم
+                        (<strong>Authentication
+                            and Authorization</strong>)، وإزاي لارافيل بيدير الطلبات والردود والـ
+                        <strong>Middleware</strong>،
+                        بالإضافة لمفهوم الـ <strong>Container</strong> المهم جداً.
+                    </li>
+                    <li><strong>بناء التطبيق بالكامل:</strong> بيشرح إزاي تعمل <strong>APIs</strong>، وإزاي تتعامل مع
+                        الملفات
+                        والتخزين، وإزاي تبعت <strong>ايميلات وإشعارات (Notifications)</strong>، وإزاي تشغل المهام في
+                        الخلفية
+                        باستخدام <strong>Queues</strong> و <strong>Events</strong> والـ <strong>Scheduler</strong>.</li>
+                </ol>
+                <p>الكتاب بيفترض إن عندك خلفية بسيطة في الـ PHP والـ OOP، لكنه موجه ليك عشان تبقى مرتاح في بناء تطبيق
+                    كامل من
+                    الصفر
+                    باستخدام لارافيل.</p>
+                <hr>
+                <h3 id="-">محتويات الكتاب من أبواب وفصول</h3>
+                <p>الكتاب مقسم إلى 18 فصل (Chapter) بالإضافة إلى المقدمة والملحقات:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="">الفصل (Chapter)</th>
+                            <th style="">العنوان (Title)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style=""><strong>Preface</strong></td>
+                            <td style="">المقدمة</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>1.</strong></td>
+                            <td style="">Why Laravel? (لماذا لارافيل؟)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>2.</strong></td>
+                            <td style="">Setting Up a Laravel Development Environment (إعداد بيئة تطوير لارافيل)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>3.</strong></td>
+                            <td style="">Routing and Controllers (التوجيه والمتحكمات)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>4.</strong></td>
+                            <td style="">Blade Templating (قوالب بليد)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>5.</strong></td>
+                            <td style="">Databases and Eloquent (قواعد البيانات وإلوكوينت)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>6.</strong></td>
+                            <td style="">Frontend Components (مكونات الواجهة الأمامية)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>7.</strong></td>
+                            <td style="">Collecting and Handling User Data (جمع ومعالجة بيانات المستخدم)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>8.</strong></td>
+                            <td style="">Artisan and Tinker (أرتيسان وتينكر)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>9.</strong></td>
+                            <td style="">User Authentication and Authorization (مصادقة المستخدم وتخويله)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>10.</strong></td>
+                            <td style="">Requests, Responses, and Middleware (الطلبات، الردود، والميدل وير)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>11.</strong></td>
+                            <td style="">The Container (الحاوية)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>12.</strong></td>
+                            <td style="">Testing (الاختبار)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>13.</strong></td>
+                            <td style="">Writing APIs (كتابة واجهات برمجة التطبيقات)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>14.</strong></td>
+                            <td style="">Storage and Retrieval (التخزين والاسترجاع)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>15.</strong></td>
+                            <td style="">Mail and Notifications (البريد والإشعارات)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>16.</strong></td>
+                            <td style="">Queues, Jobs, Events, Broadcasting, and the Scheduler (الطوابير، المهام،
+                                الأحداث، البث، والمجدول)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>17.</strong></td>
+                            <td style="">Helpers and Collections (الدوال المساعدة والمجموعات)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>18.</strong></td>
+                            <td style="">The Laravel Ecosystem (النظام البيئي للارافيل)</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>Glossary</strong></td>
+                            <td style="">مسرد المصطلحات</td>
+                        </tr>
+                        <tr>
+                            <td style=""><strong>Index</strong></td>
+                            <td style="">الفهرس</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <p>يا صديقي، طلبك على راسي. الفصل الأول ده هو المدخل الرئيسي للكتاب، واسمه &quot;<strong>Why
+                        Laravel?</strong>&quot;
+                    (ليه لارافيل؟).</p>
+                <p>ده شرح مفصل لمحتوى الفصل باللغة المصرية، مع الأمثلة من المصادر:</p>
+                <hr>
+                <h3 id="-">الفصل الأول: ليه لارافيل؟</h3>
+                <p>الفصل ده بيتكلم عن سبب استخدام إطار العمل (Framework) بشكل عام، وإيه اللي بيميز
+                    <strong>Laravel</strong>
+                    بالذات
+                    وبيخليه الاختيار الأحسن عشان تبني تطبيقات <strong>PHP</strong> حديثة.
+                </p>
+                <h4 id="1-">1. فلسفة لارافيل وسعادة المطور</h4>
+                <p>الهدف الأساسي اللي لارافيل بيركز عليه هو <strong>&quot;سعاده المطور&quot; (Developer
+                        Happiness)</strong>.
+                    بمعنى
+                    إن إطار العمل ده مصمم عشان يخلي عملية البرمجة ممتعة وسهلة وسريعة للمطور.</p>
+                <p>الكاتب مات ستاوفر بيشرح إن تجربته مع لارافيل كانت شبيهة بتجربة ناس كتير: إنه كان بيكتب PHP سنين
+                    طويلة، بس كان
+                    بيبص على فريم ووركات تانية حديثة زي <strong>Rails</strong>. اللي كان بيشد الناس لإطارات العمل دي هو
+                    إنها
+                    بتقدم
+                    مزيج ممتاز بين <strong>&quot;الالتزام بأسلوب معين&quot;</strong> (opinionated defaults) وبين
+                    <strong>المرونة</strong>، بالإضافة لمجتمع حيوي وأدوات جاهزة. ولارافيل بيقدم كل ده.
+                </p>
+                <p>إزاي لارافيل بيحقق سعادة المطور؟</p>
+                <ul>
+                    <li><strong>الكود النظيف والمفهوم:</strong> لارافيل بيخليك تكتب كود سهل القراءة والفهم.</li>
+                    <li><strong>مجتمع قوي:</strong> من البداية، فكرة لارافيل كانت إن الناس تحس إنها جزء من حاجة كبيرة،
+                        وده إحساس
+                        فطري عند الإنسان. وده اللي خلى الفريم وورك ده ليه &quot;شخصية&quot; ومجتمع نشط جداً.</li>
+                </ul>
+                <h4 id="2-">2. إزاي لارافيل بيشتغل (بالأمثلة)</h4>
+                <p>لارافيل مصمم عشان يعمل حاجات كتير بكمية كود قليلة، وده اللي بيوريه الفصل من خلال الأمثلة الأساسية:
+                </p>
+                <h5 id="-1-route-">المثال (1): أبسط مسار (Route) ممكن</h5>
+                <p>أبسط حاجة ممكن تعملها في تطبيق لارافيل هي إنك تعرف <strong>مسار (Route)</strong> وتقوله يرجع ناتج
+                    معين لما حد
+                    يزوره.</p>
+                <p><strong>مثال (1-1): المسار مع دالة مُغلقة (Closure)</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>
+Route::get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{    <span class="hljs-keyword">return</span> <span class="hljs-string">'Hello, World!'</span>; });</span>
+</code></pre>
+                <p>في المثال ده، لو حد زار الصفحة الرئيسية (<code>/</code>)، لارافيل بيشغل الدالة دي وبيرجع كلمة
+                    &quot;Hello,
+                    World!&quot;.</p>
+                <h5 id="-2-controller-">المثال (2): المسار مع المتحكم (Controller)</h5>
+                <p>عشان تنظم الكود بتاعك، غالباً هتستخدم <strong>Controllers</strong> (المتحكمات) اللي بتشتغل زي
+                    &quot;شرطي
+                    المرور&quot; (traffic cop) اللي بيستقبل طلب الـ HTTP وبيوجهه عشان يحصل على البيانات ويرجع الرد
+                    للمستخدم.</p>
+                <p><strong>مثال (1-2): المسار مع المتحكم</strong></p>
+                <ol>
+                    <li><strong>تعريف المسار:</strong> بتعرف الـ Route وتقول للارافيل يبعت الطلب لـ
+                        <code>WelcomeController</code>
+                        في دالة اسمها <code>index</code>.
+                        <pre><code class="lang-php"><span class="hljs-comment">// File: routes/web.php </span>
+<span class="hljs-meta">&lt;?php</span>
+Route::get(<span class="hljs-string">'/'</span>, <span class="hljs-string">'WelcomeController@index'</span>);
+</code></pre>
+                    </li>
+                    <li><strong>تنفيذ المتحكم:</strong> بتكتب الكنترولر اللي جواه دالة <code>index()</code> اللي بترجع
+                        الناتج.
+                        <pre><code class="lang-php"><span class="hljs-comment">// File: app/Http/Controllers/WelcomeController.php </span>
+&lt;?php
+namespace <span class="hljs-type">App</span>\<span class="hljs-type">Http</span>\<span class="hljs-type">Controllers</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WelcomeController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span> </span>{
+    public function index()
+    {
+        <span class="hljs-keyword">return</span> <span class="hljs-symbol">'Hello</span>, <span class="hljs-type">World</span>!';
+    }
+}
+</code></pre>
+                    </li>
+                </ol>
+                <h5 id="-3-eloquent-">المثال (3): التعامل مع قواعد البيانات (Eloquent)</h5>
+                <p>التعامل مع قواعد البيانات بيبقى بسيط جداً في لارافيل عن طريق <strong>Eloquent</strong>، وهو (Active
+                    Record
+                    ORM).
+                </p>
+                <p><strong>مثال (1-3): التعامل مع البيانات (إنشاء واسترجاع)</strong></p>
+                <p>العملية دي محتاجة كذا ملف، بس الكتاب بيوريك إزاي تعمل <strong>migrations</strong> و
+                    <strong>models</strong>
+                    وتطلع
+                    سجلات من قاعدة البيانات <strong>&quot;في كام سطر كود بس&quot;</strong>:
+                </p>
+                <ol>
+                    <li><strong>تعريف الموديل (Model):</strong> بيتم إنشاء موديل اسمه <code>Greeting</code> (ده اللي
+                        بيمثل
+                        الجدول
+                        بتاعك في الـ PHP).
+                        <pre><code class="lang-php"><span class="hljs-comment">// File: app/Greeting.php </span>
+&lt;?php
+namespace <span class="hljs-type">App</span>;
+use <span class="hljs-type">Illuminate</span>\<span class="hljs-type">Database</span>\<span class="hljs-type">Eloquent</span>\<span class="hljs-type">Model</span>;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Greeting</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Model</span> </span>{
+    <span class="hljs-comment">// ... لا تحتاج لكود إضافي</span>
+}
+</code></pre>
+                    </li>
+                    <li><strong>تعريف الإجراءات (Routes):</strong>
+                        <ul>
+                            <li><strong>لإنشاء سجل جديد:</strong> بيستخدم الموديل لإنشاء وحفظ سجل جديد في قاعدة
+                                البيانات.
+                                <pre><code class="lang-php">Route::get(<span class="hljs-string">'create-greeting'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    $greeting = <span class="hljs-keyword">new</span> Greeting;
+    $greeting-&gt;body = <span class="hljs-string">'Hello, World!'</span>;
+    $greeting-&gt;save();
+});
+</code></pre>
+                            </li>
+                            <li><strong>لاسترجاع أول سجل:</strong> بيستخدم الـ <code>Model</code> عشان يجيب أول سجل
+                                ويرجع
+                                محتواه.
+                                <pre><code class="lang-php">Route::get(<span class="hljs-string">'first-greeting'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> Greeting::first()-&gt;body;
+});
+</code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>الكتاب بيعترف إن المثال ده ممكن يكون <strong>&quot;مخيف شوية&quot; (a bit overwhelming)</strong>، بس
+                    بيطمنك
+                    إنك
+                    هتتعلم كل التفاصيل دي في الفصول اللي جاية، وإن الغرض منه هو بس إنه يوريك إنك بـ <strong>&quot;كام
+                        سطر
+                        كود&quot;</strong> بس تقدر تعمل <strong>migrations</strong> و <strong>models</strong> وتسحب
+                    سجلات من
+                    قواعد
+                    البيانات.</p>
+
+
+                <p>يا صديقي، ده شرح الفصل التاني زي ما طلبت بالظبط، وهو عن <strong>&quot;Setting Up a Laravel
+                        Development
+                        Environment&quot;</strong> (إزاي تجهز بيئة الشغل بتاعتك للارافيل).</p>
+                <p>الفصل ده مهم جداً لأنه بيوريك إزاي تخلّي تطبيق لارافيل يشتغل عندك على الجهاز، وإيه الأدوات اللي
+                    بتسهّل عليك
+                    الموضوع ده.</p>
+                <hr>
+                <h3 id="-setting-up-a-laravel-development-environment-">الفصل التاني: إعداد بيئة تطوير لارافيل (Setting
+                    Up a
+                    Laravel
+                    Development Environment)</h3>
+                <p>الفصل ده بيبدأ من النقطة اللي عندك فيها تطبيق لارافيل جاهز، وبيوريك إزاي تخليه <strong>&quot;شغال
+                        وتمام&quot;
+                        (Up
+                        and Running)</strong>، ويركز على الأدوات الأساسية اللي بتحتاجها عشان تبدأ تطور.</p>
+                <h4 id="1-prerequisites-">1. المتطلبات الأساسية (Prerequisites)</h4>
+                <p>لارافيل كونه إطار عمل PHP، فتشغيله على الجهاز محتاج شوية حاجات بسيطة.</p>
+                <p><strong>الـ Composer:</strong>
+                    عشان تنزّل لارافيل أو أي حزمة (Package) بتستخدمها معاه، لازم يكون عندك <strong>Composer</strong>. هو
+                    ده
+                    المدير
+                    بتاع الحزم اللي بيخليك تنزّل كل اللي محتاجه عشان تطبيقك يشتغل، وده بيشتغل عن طريق سطر الأوامر
+                    (Command
+                    Line).
+                </p>
+                <p><strong>إنشاء تطبيق جديد:</strong>
+                    لما بتحتاج تبدأ مشروع جديد، بتستخدم الأمر بتاع Composer اللي بينزلك كل الملفات اللي محتاجها لارافيل،
+                    زي كده:
+                </p>
+                <pre><code class="lang-bash"><span class="hljs-string">composer </span><span class="hljs-built_in">create-project</span> <span class="hljs-built_in">--prefer-dist</span> <span class="hljs-string">laravel/</span><span class="hljs-string">laravel </span><span class="hljs-string">my-app</span>
+</code></pre>
+                <h4 id="2-local-development-environments-">2. بيئات التطوير المحلية (Local Development Environments)
+                </h4>
+                <p>في طريقتين أساسيتين لارافيل بيقدمهم عشان تشغّل مشاريعك على جهازك بشكل مريح: <strong>Valet</strong> و
+                    <strong>Homestead</strong>.
+                </p>
+                <ul>
+                    <li>
+                        <p><strong>Laravel Valet:</strong></p>
+                        <ul>
+                            <li>دي أداة <strong>أبسط</strong> شوية.</li>
+                            <li>بتستخدم الجهاز المحلي بتاعك عشان توفّر كل المتطلبات والـ dependencies.</li>
+                            <li>لو بتستخدم سيرفر الويب المدمج في PHP (PHP’s built-in web server)، ممكن تشغّل أي موقع على
+                                <code>localhost</code>. أبسط طريقة هي إنك تعمل الأمر ده من مجلد المشروع الرئيسي:
+                                <code>php -S localhost:8000 -t public</code>.
+                            </li>
+                            <li>أو ممكن تستخدم الأمر <code>php artisan serve</code> اللي بيعمل نفس السيرفر ده بسهولة.
+                            </li>
+                            <li>لو عايز تربط كل موقع بـ <strong>Domain</strong> خاص بيه في بيئة التطوير بتاعتك (زي
+                                <code>http://myapp.test/</code>)، بتحتاج تعمل شغل كتير في ملفات الـ <code>hosts</code>
+                                بتاعت
+                                نظام
+                                التشغيل، لكن Valet بيسهّل ده كله.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Laravel Homestead:</strong></p>
+                        <ul>
+                            <li>دي إعدادات <strong>Vagrant</strong> مجهزة مسبقاً.</li>
+                            <li>Homestead بيعملك بيئة افتراضية كاملة (Virtual Machine).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>ملحوظة:</strong> الكتاب بيقولك إن فيه أدوات تانية زي <strong>Laravel Installer</strong>
+                    بيستخدمها
+                    عشان
+                    ينزل لارافيل.</p>
+                <h4 id="3-project-structure-">3. هيكل المشروع (Project Structure)</h4>
+                <p>لارافيل أول ما بينزل، بيعملك شوية مجلدات وملفات بتعكس <strong>الاتفاقيات (Conventions)</strong>
+                    بتاعته:</p>
+                <ul>
+                    <li><strong>config:</strong> المجلد ده فيه كل ملفات الإعدادات الأساسية بتاعت التطبيق.</li>
+                    <li><strong>public:</strong> المجلد ده بيحتوي على ملف <code>index.php</code> اللي هو المدخل الرئيسي
+                        لكل طلب
+                        بيجي
+                        للتطبيق (Front Controller). عشان تشغل الموقع بتاعك، لازم السيرفر بتاعك يشاور على المجلد ده.</li>
+                </ul>
+                <h4 id="4-configuration-files-">4. ملفات الإعدادات (Configuration Files)</h4>
+                <p>لارافيل بيستخدم نظام إعدادات مرن بيعتمد على ملفات <strong><code>config/</code></strong> وأيضاً
+                    <strong>ملفات
+                        البيئة</strong> الخاصة بيك.
+                </p>
+                <p><strong>ملفات الإعدادات (Config Files):</strong>
+                    ملفات الإعدادات (زي <code>config/services.php</code>) بتكون عبارة عن مصفوفات (Arrays) فيها كل
+                    الإعدادات.
+                    عشان
+                    تستخدم قيمة إعداد معينة في أي مكان في التطبيق، بتستخدم الـ <strong><code>config()</code>
+                        helper</strong>،
+                    على
+                    سبيل المثال:</p>
+                <pre><code class="lang-php"><span class="hljs-comment">// عشان توصل لقيمة Sparkpost secret</span>
+<span class="hljs-function"><span class="hljs-title">config</span><span class="hljs-params">(<span class="hljs-string">'services.sparkpost.secret'</span>)</span></span>
+</code></pre>
+                <p><strong>ملف <code>.env</code> (ملف البيئة):</strong></p>
+                <ul>
+                    <li>أي إعدادات المفروض تكون <strong>مختلفة في كل بيئة</strong> (زي مفاتيح API السرية أو بيانات
+                        الاتصال
+                        بقاعدة
+                        البيانات) ومينفعش تتحط في الـ Version Control (زي Git).</li>
+                    <li>الإعدادات دي بتتحط في ملف <strong><code>.env</code></strong>.</li>
+                </ul>
+                <p><strong>مثال على استخدام <code>env()</code>:</strong></p>
+                <p>لو عايز مفتاح <strong><code>BUGSNAG_API_KEY</code></strong> يكون مختلف لكل بيئة، بتعمل الآتي:</p>
+                <ol>
+                    <li><strong>في ملف الإعدادات (<code>config/services.php</code>):</strong> بتخلي الإعداد يسحب القيمة
+                        من ملف
+                        <code>.env</code> باستخدام دالة <strong><code>env()</code></strong>:
+                        <pre><code class="lang-php"><span class="hljs-comment">// config/services.php </span>
+<span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">return</span> [
+    <span class="hljs-string">'bugsnag'</span> =&gt; [
+        <span class="hljs-string">'api_key'</span> =&gt; env(<span class="hljs-string">'BUGSNAG_API_KEY'</span>), <span class="hljs-comment">// بتسحب القيمة من .env</span>
+    ],
+];
+</code></pre>
+                    </li>
+                    <li><strong>في ملف <code>.env</code> نفسه:</strong> بتحط القيمة الخاصة بالبيئة دي:
+                        <pre><code><span class="hljs-comment"># In .env </span>
+<span class="hljs-attr">BUGSNAG_API_KEY</span>=oinfp9813410942
+</code></pre>
+                    </li>
+                </ol>
+                <p><strong>نصيحة مهمة بخصوص <code>env()</code>:</strong>
+                    الكتاب بيوضح إن فيه مشاكل لو استخدمت دالة <code>env()</code> دي <strong>بره ملفات
+                        الإعدادات</strong>، لأن
+                    بعض
+                    ميزات لارافيل زي الـ Caching والـ Optimization مش بتشتغل لو عملت كده. عشان كده، الأحسن إنك تعرف
+                    العناصر اللي
+                    عايزها في ملفات الـ <code>config</code> وتخليها هي اللي تقرا من <code>env</code>، وبعدين تستخدم الـ
+                    <code>config()</code> helper في بقية التطبيق.
+                </p>
+                <p><strong>الإعدادات الافتراضية:</strong>
+                    ملف <code>.env</code> بيحتوي بالفعل على إعدادات كتيرة بيحتاجها إطار العمل زي نوع الـ Mail Driver
+                    وإعدادات
+                    قاعدة
+                    البيانات الأساسية.</p>
+                <ul>
+                    <li>الإعدادات اللي مش ليها علاقة بالمصادقة (زي <code>BROADCAST_DRIVER</code> و
+                        <code>CACHE_DRIVER</code>)
+                        بتيجي
+                        بقيم افتراضية عشان التطبيق يشتغل بأقل اعتماد ممكن على خدمات خارجية، وده مثالي لما بتكون لسه
+                        بتبدأ.
+                    </li>
+                    <li>في أغلب المشاريع، <strong>التعديل الوحيد اللي هتحتاجه في البداية هيكون على إعدادات قاعدة
+                            البيانات</strong>.
+                    </li>
+                </ul>
+                <p><strong>مثال على إعدادات قاعدة البيانات في <code>.env</code>:</strong></p>
+                <p>لو بتستخدم Valet، ممكن تغير الإعدادات دي عشان تتوافق معاه:</p>
+                <pre><code><span class="hljs-attr">DB_CONNECTION</span>=mysql
+<span class="hljs-attr">DB_HOST</span>=<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>
+<span class="hljs-attr">DB_PORT</span>=<span class="hljs-number">3306</span>
+<span class="hljs-attr">DB_DATABASE</span>=اسم_المشروع_بتاعك // (بيغيرها لاسم المشروع)
+<span class="hljs-attr">DB_USERNAME</span>=root // (لو بتستخدم Valet)
+<span class="hljs-attr">DB_PASSWORD</span>= // (لو بتستخدم Valet)
+</code></pre>
+                <h4 id="5-testing-">5. الاختبار (Testing)</h4>
+                <p>الفصل ده بيلمح بسرعة لأهمية الاختبارات.</p>
+                <ul>
+                    <li>لارافيل بيستخدم <strong>PHPUnit</strong> كإطار عمل للاختبارات.</li>
+                    <li>أسهل طريقة عشان تشغل الاختبارات هي إنك تعمل أمر <code>./vendor/bin/phpunit</code> من سطر الأوامر
+                        في مجلد
+                        المشروع الرئيسي.</li>
+                    <li>عشان تكتب اختبارات بسيطة، لازم يكون اسم الملف اللي هتحطه في مجلد <code>tests</code> بينتهي بـ
+                        <strong><code>Test.php</code></strong>.
+                    </li>
+                    <li>لو أي اختبار محتاج يوصل لقاعدة البيانات، لازم تشغل الاختبارات دي من الجهاز اللي مستضيف قاعدة
+                        البيانات
+                        (مثلاً
+                        لو بتستخدم Vagrant، لازم تعمل <code>ssh</code> وتدخل جواه عشان تشغل الاختبارات من هناك).</li>
+                </ul>
+                <p>الكتاب بيأكد إن فيه فصل كامل (الفصل 12) مخصص للاختبارات [59، 60]، فلو شفت أي كود اختبارات مش فاهمه،
+                    عادي
+                    تعديه
+                    وترجعله بعدين.</p>
+                <p><strong>خلاصة الفصل (TL;DR):</strong></p>
+                <p>بما إن لارافيل هو إطار عمل PHP، فمن السهل تشغيله محلياً. لارافيل بيوفر أداتين رئيسيتين لإدارة بيئة
+                    التطوير:
+                    <strong>Valet</strong> (الأبسط) و <strong>Homestead</strong> (إعداد Vagrant جاهز). لارافيل بيعتمد
+                    على
+                    <strong>Composer</strong> في التثبيت، وبيجي بهيكل ملفات ومجلدات محددة بتعكس الاتفاقيات بتاعته.
+                </p>
+                <p>يا صديقي، تحت أمرك. الفصل التالت ده هو من أهم الفصول لأنه بيبني الأساس بتاع الـ <strong>&quot;ازاي
+                        لارافيل
+                        بيستقبل طلب من المتصفح وبيعرف يوديه فين&quot;</strong>. الفصل ده اسمه &quot;<strong>Routing and
+                        Controllers</strong>&quot; (التوجيه والمتحكمات).</p>
+                <p>الشرح ده متفصل ومتركز على الأمثلة اللي في المصادر:</p>
+                <hr>
+                <h3 id="-routing-and-controllers-">الفصل التالت: التوجيه والمتحكمات (Routing and Controllers)</h3>
+                <p>الفصل ده بيبدأ بشرح معماري بسيط (MVC) عشان تفهم دور الـ <strong>Routes</strong> والـ
+                    <strong>Controllers</strong>
+                    في استقبال الطلبات وإرجاع الردود.
+                </p>
+                <h4 id="1-mvc-http-rest">1. مقدمة سريعة: MVC، وأفعال الـ HTTP، والـ REST</h4>
+                <p>عشان تفهم التوجيه في لارافيل، لازم تفهم كام مفهوم أساسي:</p>
+                <ul>
+                    <li>
+                        <p><strong>إيه هو الـ MVC؟ (Model–View–Controller):</strong> ده نمط معماري بينظم التطبيق بتاعك.
+                        </p>
+                        <ul>
+                            <li><strong>الـ Controller (المتحكم):</strong> ده عامل زي &quot;<strong>شرطي
+                                    المرور</strong>&quot;
+                                (traffic cop). هو اللي بيستقبل طلب الـ HTTP من المتصفح، وبيجيب البيانات الصح من الـ
+                                <strong>Model</strong> (قاعدة البيانات)، وبيتحقق من مدخلات المستخدم، وفي الآخر بيبعت
+                                الرد
+                                (غالباً عن
+                                طريق <strong>View</strong>) للمستخدم.
+                            </li>
+                            <li><strong>الـ Model (النموذج):</strong> ده اللي بيتعامل مع قاعدة البيانات وبيجيب منها
+                                البيانات.
+                            </li>
+                            <li><strong>الـ View (العرض):</strong> دي الواجهة اللي بيشوفها المستخدم، واللي بيتم إرجاعها
+                                للمتصفح.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>أفعال الـ HTTP (HTTP Verbs):</strong> أهم الأفعال اللي بتحدد نوع الطلب اللي جاي
+                            للتطبيق هي
+                            <strong>GET</strong> و <strong>POST</strong>، وبعدهم بيجي <strong>PUT</strong> و
+                            <strong>DELETE</strong>. وفيه كمان <strong>HEAD</strong> و <strong>OPTIONS</strong> و
+                            <strong>PATCH</strong>.
+                        </p>
+                    </li>
+                    <li><strong>إيه هو الـ REST؟ (Representational State Transfer):</strong> ده النمط الشائع دلوقتي
+                        لواجهات
+                        برمجة
+                        التطبيقات (APIs)، وبيعتمد على استخدام أفعال الـ HTTP دي لتحديد نوع العملية (زي إنشاء، قراءة،
+                        تحديث، حذف
+                        -
+                        CRUD).</li>
+                </ul>
+                <hr>
+                <h4 id="2-route-definitions-">2. تعريف المسارات (Route Definitions)</h4>
+                <p>الـ <strong>Routes</strong> هي اللي بتحدد إيه اللي هيحصل لما المستخدم يزور مسار معين في تطبيقك.</p>
+                <h5 id="-closures-">أ. أبسط أنواع المسارات (Closures)</h5>
+                <p>أبسط طريقة لتعريف مسار هي إنك تستخدم دالة مُغلقة (Closure).</p>
+                <p><strong>مثال (3-1): مسار بسيط</strong></p>
+                <pre><code class="lang-php"><span class="hljs-comment">// routes/web.php </span>
+Route::<span class="hljs-keyword">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Hello, World!'</span>;
+});
+</code></pre>
+                <p>الـ <code>Route::get()</code> بتقول للارافيل إن الطلب ده لو جه بـ (فعل <strong>GET</strong>) على
+                    المسار
+                    (<code>/</code>)، يشغل الدالة دي ويرجع النتيجة (لازم <strong>return</strong> مش <code>echo</code> أو
+                    <code>print</code>). الـ <code>Route::get()</code> مش معناها إنها دالة ثابتة (static method)، لكن ده
+                    استخدام
+                    للـ
+                    <strong>Facades</strong> في لارافيل (هتتشرح بالتفصيل في الفصل 11).
+                </p>
+                <h5 id="-http-">ب. المسارات بأفعال HTTP مختلفة</h5>
+                <p>ممكن تحدد المسار عشان يشتغل مع فعل معين زي <strong>POST</strong> أو <strong>PUT</strong> أو
+                    <strong>DELETE</strong>.
+                </p>
+                <p><strong>مثال (3-3): أفعال المسارات</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الفعل</th>
+                            <th>الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Route::get(&#39;/&#39;)</code></td>
+                            <td>للطلبات اللي بتستخدم <strong>GET</strong> (زي زيارة صفحة).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Route::post(&#39;/&#39;)</code></td>
+                            <td>للطلبات اللي بتستخدم <strong>POST</strong> (زي إرسال نموذج).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Route::put(&#39;/&#39;)</code></td>
+                            <td>للطلبات اللي بتستخدم <strong>PUT</strong> (لتحديث مورد كامل).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Route::delete(&#39;/&#39;)</code></td>
+                            <td>للطلبات اللي بتستخدم <strong>DELETE</strong> (لحذف مورد).</td>
+                        </tr>
+                        <tr>
+                            <td><code>Route::any(&#39;/&#39;)</code></td>
+                            <td>بيشتغل مع <strong>أي فعل</strong> من أفعال الـ HTTP.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Route::match([&#39;get&#39;, &#39;post&#39;], &#39;/&#39;)</code></td>
+                            <td>بيشتغل مع <strong>GET أو POST</strong> بس.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 id="-calling-controllers-">ج. المسارات اللي بتنادي المتحكمات (Calling Controllers)</h5>
+                <p>في العادة، بدل ما تكتب كود الـ Closure جوه ملف الـ Routes، بتخلي الـ Route يكلم دالة معينة جوه
+                    <strong>Controller</strong> عشان تنظم الكود.
+                </p>
+                <p><strong>مثال (3-4): مسار ينادي Controller</strong></p>
+                <pre><code class="lang-php">Route::<span class="hljs-keyword">get</span>(<span class="hljs-string">'/'</span>, <span class="hljs-string">'WelcomeController@index'</span>);
+</code></pre>
+                <p>ده بيقول للارافيل إن أي طلب على المسار (<code>/</code>) يروح للـ <strong>دالة
+                        <code>index()</code></strong>
+                    جوه
+                    الـ <strong><code>WelcomeController</code></strong>.</p>
+                <h5 id="-route-parameters-">د. بارامترات المسار (Route Parameters)</h5>
+                <p>لو المسار بتاعك فيه جزء متغير (زي ID بتاع مستخدم)، ممكن تعرفه باستخدام أقواس متعرجة <code>{}</code>.
+                </p>
+                <p><strong>مثال (3-5): بارامترات مطلوبة</strong></p>
+                <pre><code class="lang-php">Route::get(<span class="hljs-string">'users/{id}/friends'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span> </span>{
+    <span class="hljs-comment">// هنا ممكن تستخدم الـ $id </span>
+});
+</code></pre>
+                <ul>
+                    <li><strong>بارامترات اختيارية:</strong> ممكن تخلي البارامتر اختياري بإضافة علامة استفهام
+                        <code>؟</code> بعد
+                        اسمه، ولازم تحطله قيمة افتراضية (Default Value) في تعريف الدالة.
+                    </li>
+                </ul>
+                <p><strong>مثال (3-6): بارامتر اختياري</strong></p>
+                <pre><code class="lang-php">Route::get(<span class="hljs-string">'users/{id?}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id = <span class="hljs-string">'fallbackId'</span>)</span> </span>{
+    <span class="hljs-comment">// لو مفيش id هتبقى قيمته 'fallbackId'</span>
+});
+</code></pre>
+                <ul>
+                    <li><strong>قيود على البارامترات (Regular Expressions):</strong> ممكن تحدد إن المسار يشتغل بس لو
+                        البارامتر
+                        مطابق
+                        لقاعدة معينة (زي إنه يكون أرقام بس).</li>
+                </ul>
+                <p><strong>مثال (3-7): قيود باستخدام الـ Regex</strong></p>
+                <pre><code class="lang-php">Route::get(<span class="hljs-string">'users/{id}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span> </span>{
+    <span class="hljs-comment">// </span>
+})-&gt;where(<span class="hljs-string">'id'</span>, <span class="hljs-string">'+'</span>); <span class="hljs-comment">// هنا id لازم يكون أرقام</span>
+</code></pre>
+                <hr>
+                <h4 id="3-route-names-">3. أسماء المسارات (Route Names)</h4>
+                <p>عشان تشير للمسار ده في أي حتة في تطبيقك (زي الـ Views)، الأفضل إنك تدي للمسار <strong>اسم</strong>
+                    (Name) بدل
+                    ما
+                    تعتمد على الـ URL بتاعه.</p>
+                <p><strong>مثال (3-9): تعريف اسم المسار</strong></p>
+                <pre><code class="lang-php">Route::get<span class="hljs-function"><span class="hljs-params">(<span class="hljs-string">'members/{id}'</span>, <span class="hljs-string">'MembersController@show'</span>)</span>-&gt;</span>name(<span class="hljs-string">'members.show'</span>);
+</code></pre>
+                <ul>
+                    <li>الاسم ده بيسهل عليك إنك تستخدم <strong>Helper Function</strong> اسمها <code>route()</code> عشان
+                        تولد
+                        لينك
+                        للمسار ده.</li>
+                </ul>
+                <p><strong>مثال: استخدام اسم المسار في View</strong></p>
+                <pre><code class="lang-php">&lt;<span class="hljs-selector-tag">a</span> href=<span class="hljs-string">"&lt;?php echo route('members.show', ['id' =&gt; 14]); ?&gt;"</span>&gt;
+</code></pre>
+                <p>الـ <code>route()</code> helper بيولد الـ URL الكامل (زي <code>http://myapp.com/members/14</code>).
+                    لو غيرت
+                    الـ
+                    URL بتاع المسار في المستقبل، مش هتحتاج تغير اللينكات في الـ Views طالما الاسم ثابت.</p>
+                <hr>
+                <h4 id="4-route-groups-">4. مجموعات المسارات (Route Groups)</h4>
+                <p>لو عندك مجموعة من المسارات بتشترك في حاجة معينة (زي الـ Middleware، أو بادئة المسار، أو اسم متحكم
+                    معين)، ممكن
+                    تحطهم كلهم في مجموعة (Group).</p>
+                <ul>
+                    <li><strong>الـ Middleware (البرامج الوسيطة):</strong> ودي أدوات بتشتغل قبل أو بعد ما الـ Route
+                        يشتغل، وممكن
+                        تستخدمها لحماية مجموعة من المسارات بإنك تتأكد إن المستخدم مسجل دخوله (<code>auth</code>).</li>
+                </ul>
+                <p><strong>مثال (3-11): تقييد مجموعة مسارات للمستخدمين المسجلين دخولهم</strong></p>
+                <pre><code class="lang-php">Route::middleware(<span class="hljs-string">'auth'</span>)-&gt;group(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    Route::get(<span class="hljs-string">'dashboard'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> view(<span class="hljs-string">'dashboard'</span>);
+    });
+    Route::get(<span class="hljs-string">'account'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> view(<span class="hljs-string">'account'</span>);
+    });
+});
+</code></pre>
+                <ul>
+                    <li><strong>بادئة المسار (Path Prefixes):</strong> لو عندك مسارات كلها بتبدأ بـ
+                        <code>/dashboard</code>،
+                        ممكن
+                        تعرف ده مرة واحدة بس للمجموعة.
+                    </li>
+                </ul>
+                <p><strong>مثال (3-13): Path Prefixes</strong></p>
+                <pre><code class="lang-php">Route::prefix(<span class="hljs-string">'dashboard'</span>)-&gt;group(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    Route::get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// بيشتغل على المسار /dashboard </span>
+    });
+    Route::get(<span class="hljs-string">'users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// بيشتغل على المسار /dashboard/users </span>
+    });
+});
+</code></pre>
+                <ul>
+                    <li><strong>بادئة الاسم (Name Prefixes):</strong> ممكن تدي بادئة لكل أسماء المسارات اللي جوه
+                        المجموعة.</li>
+                    <li><strong>بادئة فضاء الاسم (Namespace Prefixes):</strong> لو كل المتحكمات اللي في المجموعة موجودة
+                        تحت
+                        Namespace معين، ممكن تعرفه مرة واحدة.</li>
+                </ul>
+                <hr>
+                <h4 id="5-signed-routes-">5. المسارات الموقّعة (Signed Routes)</h4>
+                <p>لارافيل بيوفر ميزة اسمها <strong>Signed URLs</strong> عشان تعمل لينكات بتثبت إن المستخدم استلم اللينك
+                    ده من
+                    الإيميل بتاعك ومغيرش فيه حاجة (وده بيستخدم كتير في حالات إعادة تعيين كلمة المرور أو تأكيد الاشتراك).
+                </p>
+                <ul>
+                    <li>عشان تعمل لينك موقّع، لازم يكون الـ Route ده ليه <strong>اسم</strong>.</li>
+                    <li>بتستخدم <code>URL::signedRoute()</code> عشان تولد اللينك اللي معاه التوقيع.</li>
+                    <li>عشان تحمي المسار ده، بتضيف عليه <strong>middleware</strong> اسمه <code>signed</code>.</li>
+                </ul>
+                <hr>
+                <h4 id="6-controllers-">6. المتحكمات (Controllers)</h4>
+                <p>الـ Controllers زي ما اتفقنا هي اللي بتنظم الكود، بحيث إن الـ Route بيوجه الطلب ليها.</p>
+                <ul>
+                    <li><strong>هيكل المتحكم:</strong> الـ Controller في لارافيل بيكون عبارة عن Class بيورث من
+                        <code>Controller</code> الأساسي.
+                    </li>
+                </ul>
+                <p><strong>مثال (3-22 و 3-23): متحكم بسيط</strong></p>
+                <pre><code class="lang-php"><span class="hljs-comment">// في Controller: TasksController.php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TasksController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Controller</span> </span>{
+    public function index()
+    {
+        <span class="hljs-keyword">return</span> <span class="hljs-symbol">'Hello</span>, <span class="hljs-type">World</span>!';
+    }
+}
+<span class="hljs-comment">// في ملف routes/web.php</span>
+<span class="hljs-type">Route</span>::get('/', <span class="hljs-symbol">'TasksController</span><span class="hljs-meta">@index</span>');
+</code></pre>
+                <ul>
+                    <li><strong>الحصول على بيانات المستخدم:</strong> ممكن توصل لبيانات المستخدم اللي جاية مع الطلب
+                        باستخدام الـ
+                        <strong>Request Object</strong>، وممكن <strong>تطلب (Typehint)</strong> الكائن ده مباشرة في دالة
+                        الـ
+                        Controller.
+                    </li>
+                </ul>
+                <p><strong>مثال (3-27): Request Injection</strong></p>
+                <pre><code class="lang-php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">store</span><span class="hljs-params">(\Illuminate\Http\Request $request)</span> </span>{
+    <span class="hljs-comment">// هنا الـ $request جاهز للاستخدام</span>
+    Task::create($request-&gt;only([<span class="hljs-string">'title'</span>, <span class="hljs-string">'description'</span>]));
+    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">'tasks'</span>);
+}
+</code></pre>
+                <ul>
+                    <li><strong>المتحكمات ذات الإجراء الواحد (Single Action Controllers):</strong> لو الـ Controller مش
+                        بيعمل
+                        غير
+                        وظيفة واحدة بس، ممكن تستخدم دالة PHP السحرية <strong><code>__invoke()</code></strong> وتوجه الـ
+                        Route
+                        للـ
+                        Controller مباشرة بدل اسم دالة.</li>
+                </ul>
+                <hr>
+                <h4 id="7-route-model-binding-">7. ربط الموديل بالمسار (Route Model Binding)</h4>
+                <p>دي ميزة قوية بتبسط الكود اللي بيتكرر كتير، وهو إنك تدور على مورد معين (Resource) باستخدام ID بتاعه في
+                    قاعدة
+                    البيانات.</p>
+                <ul>
+                    <li><strong>الربط الضمني (Implicit Binding):</strong> بدل ما تستقبل الـ <code>ID</code> في دالة الـ
+                        Controller،
+                        بتستقبل الموديل نفسه.</li>
+                </ul>
+                <p><strong>مثال (3-32): ربط موديل ضمني</strong></p>
+                <p>بدل ما تكتب:</p>
+                <pre><code class="lang-php">Route::get(<span class="hljs-string">'conferences/{id}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($id)</span> </span>{
+    $conference = Conference::findOrFail($id); <span class="hljs-comment">// سطر زيادة</span>
+});
+</code></pre>
+                <p>بتكتب (لو اسم البارامتر في المسار مطابق لاسم الموديل):</p>
+                <pre><code class="lang-php">Route::get(<span class="hljs-string">'conferences/{conference}'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Conference $conference)</span> </span>{
+    <span class="hljs-keyword">return</span> view(<span class="hljs-string">'conferences.show'</span>)-&gt;with(<span class="hljs-string">'conference'</span>, $conference);
+});
+</code></pre>
+                <p>لارافيل هنا بيشوف إنك طالب كائن <code>Conference</code> في الدالة، فبيروح يدور عليه في قاعدة البيانات
+                    باستخدام
+                    القيمة اللي في الـ URL، ولو ملقاهوش بيرجع 404 لوحده، وبيوفر عليك سطر البحث ده.</p>
+                <hr>
+                <h4 id="8-aborting-and-custom-responses-">8. إيقاف الطلب والردود المخصصة (Aborting and Custom Responses)
+                </h4>
+                <ul>
+                    <li><strong>إيقاف الطلب (Aborting):</strong> لو عايز تنهي تشغيل الـ Route بسرعة (زي لو المستخدم مش
+                        مخول)،
+                        بتستخدم دوال <code>abort()</code> اللي بتاخد كود الـ HTTP (زي 403 Forbidden).</li>
+                    <li><strong>الردود المخصصة:</strong> ممكن ترجع ردود مخصصة غير الـ Views والـ Redirects، زي الردود
+                        الـ
+                        <strong>JSON</strong> (باستخدام <code>response()-&gt;json()</code>) أو إنك ترجع ملف عشان
+                        المستخدم يعمله
+                        <strong>Download</strong>.
+                    </li>
+                </ul>
+
+                <p>يا صديقي، تحت أمرك. الفصل الرابع ده هو حجر الزاوية في بناء الواجهات في لارافيل، واسمه
+                    &quot;<strong>Blade
+                        Templating</strong>&quot; (قوالب بليد).</p>
+                <p>الـ <strong>Blade</strong> ده هو <strong>&quot;محرك القوالب&quot; (Templating Engine)</strong> بتاع
+                    لارافيل
+                    الأساسي. الهدف الأساسي منه إنه يوفرلك <strong>&quot;صيغة واضحة ومختصرة ومعبرة&quot; (clear, concise,
+                        and
+                        expressive syntax)</strong> عشان تكتب كود HTML و PHP بطريقة منظمة وسهلة.</p>
+                <p>إليك شرح مفصل لأهم محتويات الفصل ده بالأمثلة:</p>
+                <hr>
+                <h3 id="-blade-templating-">الفصل الرابع: قوالب بليد (Blade Templating)</h3>
+                <p>الـ Blade عبارة عن ملفات عادية بتنتهي بـ <strong><code>.blade.php</code></strong> (زي مثلاً
+                    <code>resources/views/tasks/index.blade.php</code>). بليد بيستخدم رموز مخصصة اسمها
+                    <strong>&quot;توجيهات&quot;
+                        (Directives)</strong> اللي بتبدأ بعلامة <strong><code>@</code></strong> (زي <code>@if</code> و
+                    <code>@unless</code>)، وبيستخدم الأقواس المتعرجة عشان يعرض البيانات.
+                </p>
+                <h4 id="1-echoing-data-">1. عرض البيانات (Echoing Data)</h4>
+                <p>دي أهم وأبسط ميزة في Blade: إنك بتعرض البيانات (بتطبعها) في الـ View.</p>
+                <h5 id="-escaped-echoing-">أ. العرض الآمن (Escaped Echoing) - <code>{{ }}</code></h5>
+                <p>لارافيل بيستخدم <strong>الأقواس المتعرجة المزدوجة <code>{{</code> و <code>}}</code></strong> عشان
+                    يعرض أي
+                    متغير.
+                </p>
+                <ul>
+                    <li><strong>الميزة الكبيرة هنا:</strong> إن Blade بيعمل <strong>تشفير (escape)</strong> لكل اللي
+                        بيعرضه ده
+                        بشكل
+                        افتراضي، باستخدام دالة <code>htmlentities()</code> في PHP. ده بيحميك من أي محتوى خبيث (زي
+                        سكريبتات ضارة)
+                        ممكن يكون المستخدم مدخله (Script Injection).</li>
+                    <li><strong>مثال:</strong>
+                        <pre><code class="lang-html">{{ $variable }}
+</code></pre>
+                        ده تقريباً زي ما تكون كاتب في PHP العادية: <code>&lt;?= htmlentities($variable) ?&gt;</code>.
+                    </li>
+                </ul>
+                <h5 id="-unprotected-echoing-">ب. العرض بدون تشفير (Unprotected Echoing) - <code>{! !}</code></h5>
+                <p>لو أنت متأكد إن البيانات دي آمنة ومش محتاجة تشفير (زي كود HTML كامل أنت بتعرضه)، ممكن تستخدم الرمز
+                    ده:</p>
+                <ul>
+                    <li><strong>الرمز:</strong> <strong><code>{!!</code> و <code>!!}</code></strong>.</li>
+                    <li><strong>مثال:</strong>
+                        <pre><code class="lang-html">{!! $safeHtmlContent !!}
+</code></pre>
+                        العملية دي في PHP العادية هي: <code>&lt;?= $safeHtmlContent ?&gt;</code>.
+                    </li>
+                    <li><strong>ملحوظة مهمة:</strong> الفصل ده بيأكد على إنك لازم تكون <strong>حريص جداً</strong> في
+                        استخدام
+                        الطريقة
+                        دي، وتضمن إن أي محتوى بيعرضها المستخدم هو محتوى نظيف.</li>
+                </ul>
+                <h5 id="-blade-frontend-frameworks">ج. تجنب Blade مع الـ Frontend Frameworks</h5>
+                <p>لو بتستخدم Blade مع فريم وورك بتاع فرونت إند زي <strong>Handlebars</strong> أو <strong>Vue</strong>
+                    (اللي
+                    ممكن
+                    يكون بيستخدم نفس رموز <code>{{ }}</code>)، ممكن تستخدم علامة <code>@</code> قبل الرمز عشان Blade
+                    يتجاهله:
+                </p>
+                <ul>
+                    <li><strong>مثال:</strong>
+                        <pre><code class="lang-html">@{{ handlebarsVariable }}
+</code></pre>
+                        بليد هيشيل علامة <code>@</code> وهيطلع الرمز ده زي ما هو: <code>{{ handlebarsVariable }}</code>.
+                    </li>
+                    <li>ولو عندك كود كبير عايز تتجاهل فيه Blade، ممكن تستخدم التوجيه <code>@verbatim</code> و
+                        <code>@endverbatim</code>.
+                    </li>
+                </ul>
+                <h4 id="2-control-structures-">2. هياكل التحكم (Control Structures)</h4>
+                <p>Blade بيوفر توجيهات بتبدأ بعلامة <code>@</code> عشان تعمل هياكل تحكم (Loops و Conditionals) بشكل أنظف
+                    من إنك
+                    تستخدم PHP tags (<code>&lt;?php if... ?&gt;</code>).</p>
+                <h5 id="-conditionals-">أ. الشروط (Conditionals)</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التوجيه</th>
+                            <th>الوصف</th>
+                            <th>مثال</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><code>@if</code></strong> ، <strong><code>@elseif</code></strong> ،
+                                <strong><code>@else</code></strong> ، <strong><code>@endif</code></strong>
+                            </td>
+                            <td>زيها زي جمل <code>if</code> في PHP بالظبط.</td>
+                            <td><code>if (count($talks) === 1)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong><code>@unless</code></strong> ، <strong><code>@endunless</code></strong></td>
+                            <td>دي عكس <code>@if</code> تماماً، يعني <strong>&quot;إلا إذا كان الشرط ده
+                                    صح&quot;</strong> (نفس
+                                عمل
+                                <code>&lt;?php if (! $condition)</code>).
+                            </td>
+                            <td><code>@unless ($user-&gt;hasPaid()) You can complete your payment... @endunless</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 id="-loops-">ب. التكرار (Loops)</h5>
+                <p>Blade بيدعم الـ Loops المعروفة في PHP:</p>
+                <ul>
+                    <li><strong><code>@for</code></strong> و <strong><code>@endfor</code></strong>.</li>
+                    <li><strong><code>@foreach</code></strong> و <strong><code>@endforeach</code></strong>.</li>
+                    <li><strong><code>@while</code></strong> و <strong><code>@endwhile</code></strong>.</li>
+                    <li><strong><code>@forelse</code></strong> و <strong><code>@endforelse</code></strong>: ودي ميزة
+                        زيادة في
+                        Blade،
+                        إنها بتشتغل زي <code>@foreach</code> بس بتسمحلك تحدد محتوى بديل (Fallback) لو الـ Collection
+                        اللي بتعمل
+                        عليها Loop طلعت فاضية، باستخدام توجيه <strong><code>@empty</code></strong>.</li>
+                </ul>
+                <p><strong>متغير <code>$</code> loop (مهم في الـ Loops)</strong>
+                    داخل أي <code>@foreach</code> أو <code>@forelse</code>، بيكون فيه متغير اسمه
+                    <strong><code>$loop</code></strong>
+                    متاح. ده بيديك معلومات مفيدة عن حالة التكرار الحالية، زي:
+                </p>
+                <ul>
+                    <li><code>index</code>: فهرس العنصر الحالي (بيبدأ من 0).</li>
+                    <li><code>iteration</code>: رقم التكرار (بيبدأ من 1).</li>
+                    <li><code>count</code>: العدد الكلي للعناصر.</li>
+                    <li><code>first</code>: قيمة منطقية (Boolean) بتوضح إذا كان ده <strong>أول عنصر</strong> في التكرار.
+                    </li>
+                    <li><code>last</code>: قيمة منطقية بتوضح إذا كان ده <strong>آخر عنصر</strong> في التكرار.</li>
+                    <li><code>parent</code>: بيشاور على الـ <code>$loop</code> بتاع الـ Loop الأب لو كانت دي Loop
+                        متداخلة
+                        (Nested).
+                    </li>
+                </ul>
+                <h4 id="3-template-inheritance-">3. وراثة القوالب (Template Inheritance)</h4>
+                <p>دي الميزة الأقوى في Blade. بتخليك تعمل <strong>&quot;تخطيط أب&quot; (Parent Layout)</strong> وتحط فيه
+                    الـ
+                    HTML
+                    المشترك (زي الـ Header والـ Footer)، وبعدين الـ Views التانية <strong>&quot;بتورث&quot;
+                        (extends)</strong>
+                    التخطيط ده وتملأ الأجزاء اللي عايزة تتغير.</p>
+                <h5 id="-parent-layout-">أ. تعريف التخطيط الأب (Parent Layout)</h5>
+                <p>في ملف التخطيط الرئيسي (مثلاً <code>layouts/master.blade.php</code>) بتستخدم التوجيهات دي عشان تحدد
+                    الأماكن
+                    اللي
+                    الأبناء هيملوها:</p>
+                <ol>
+                    <li><strong><code>@yield(&#39;name&#39;, &#39;Default Value&#39;)</code></strong>: بيحدد مكان لـ
+                        &quot;قسم&quot;
+                        (Section) معين. لو الأبناء ما عرفوش محتوى للقسم ده، بيظهر الـ <code>Default Value</code> اللي
+                        بتحطه (زي
+                        <code>Home Page</code>).
+                    </li>
+                    <li><strong><code>@section(&#39;name&#39;) ... @show</code></strong>: زي <code>yield</code> بالظبط،
+                        بس هنا
+                        بتحط
+                        محتوى افتراضي كبير (Block Fallback). الميزة هنا إن الـ Content الافتراضي ده بيبقى متاح للابن
+                        عشان
+                        يستخدمه أو
+                        يضيف عليه باستخدام <strong><code>@parent</code></strong>.</li>
+                </ol>
+                <h5 id="-child-template-">ب. وراثة التخطيط (Child Template)</h5>
+                <p>في ملف الـ View الخاص (مثلاً <code>dashboard.blade.php</code>)، بتستخدم التوجيهات دي:</p>
+                <ol>
+                    <li><strong><code>@extends(&#39;layouts.master&#39;)</code></strong>: ده لازم يكون أول سطر في الملف،
+                        وبيعرف
+                        إن
+                        الـ View ده بيورث من الـ Layout ده.</li>
+                    <li><strong><code>@section(&#39;name&#39;) ... @endsection</code></strong>: ده بيملأ المحتوى الخاص
+                        بالـ
+                        Section
+                        اللي اتعرفت في الأب.<ul>
+                            <li>لو المحتوى قصير، ممكن تستخدم اختصار:
+                                <code>@section(&#39;title&#39;, &#39;Dashboard&#39;)</code>.
+                            </li>
+                            <li>لو عايز تحافظ على محتوى الأب الافتراضي وتضيف عليه، بتستخدم توجيه
+                                <strong><code>@parent</code></strong>:
+                                <pre><code class="lang-html"><span class="hljs-variable">@section</span>(<span class="hljs-string">'footerScripts'</span>)
+    <span class="hljs-variable">@parent</span>
+    &lt;script src=<span class="hljs-string">"dashboard.js"</span>&gt;&lt;/script&gt;
+<span class="hljs-variable">@endsection</span>
+</code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <h4 id="4-including-partials-components-">4. تضمين الأجزاء (Including Partials) و المكونات (Components)
+                </h4>
+                <h5 id="-view-include-">أ. تضمين View آخر (<code>@include</code>)</h5>
+                <p>لو عايز تستدعي جزء صغير من كود HTML (زي زرار أو كارت)، بتستخدم <code>@include</code>. ممكن تمرر
+                    متغيرات للجزء
+                    ده
+                    كـ Array:</p>
+                <ul>
+                    <li>
+                        <p><strong>مثال:</strong></p>
+                        <pre><code class="lang-html">@<span class="hljs-keyword">include</span>(<span class="hljs-symbol">'sign</span>-up-button', [<span class="hljs-symbol">'text'</span> =&gt; <span class="hljs-symbol">'See</span> just how great it is'])
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>خيارات أخرى (Conditional Includes):</strong> ممكن تضمن View معين لو كان موجود
+                            (<code>@includeIf</code>)، أو لو كان شرط معين متحقق
+                            (<code>@includeWhen($user-&gt;isAdmin(), ...)</code>)، أو تضمن أول View موجود في قائمة
+                            (<code>@includeFirst</code>).</p>
+                    </li>
+                </ul>
+                <h5 id="-each-">ب. تكرار وتضمين (<code>@each</code>)</h5>
+                <p>لو عايز تعمل Loop على مجموعة وتضمن جزء صغير لكل عنصر (Partial)، فيه توجيه بيعمل الاتنين مع بعض:</p>
+                <ul>
+                    <li><strong>مثال:</strong>
+                        <pre><code class="lang-html">@<span class="hljs-keyword">each</span>('<span class="hljs-keyword">partials</span>.<span class="hljs-keyword">user</span>-<span class="hljs-keyword">card</span>', $users, <span class="hljs-string">'user'</span>, <span class="hljs-string">'partials.empty-list'</span>)
+</code></pre>
+                        (بيمرر كل مستخدم للـ <code>user-card</code>، وبيستخدم <code>user</code> كاسم متغير، ولو مفيش
+                        مستخدمين
+                        بيستخدم <code>empty-list</code>)
+                    </li>
+                </ul>
+                <h5 id="-stacks-">ج. الـ Stacks (تكديس المحتوى)</h5>
+                <p>الـ Stacks (الأكوام) مفيدة لما تحب تجمع محتوى من أماكن مختلفة في الـ Views الفرعية، وتحطه كله في مكان
+                    واحد في
+                    الـ
+                    Layout الأب (زي تجميع أكواد الـ CSS أو JavaScript اللي بتتحط في الـ <code>head</code> أو قبل قفلة
+                    الـ
+                    <code>body</code> في الـ Layout الأب).
+                </p>
+                <ul>
+                    <li>في الـ Layout الأب، بتحدد مكان الـ Stack بـ
+                        <strong><code>@stack(&#39;scripts&#39;)</code></strong>.
+                    </li>
+                    <li>في الـ Views الفرعية، بتضيف محتوى للـ Stack ده:<ul>
+                            <li>عشان تحط المحتوى في <strong>آخر</strong> الـ Stack:
+                                <strong><code>@push(&#39;scripts&#39;) ... @endpush</code></strong>.
+                            </li>
+                            <li>عشان تحط المحتوى في <strong>أول</strong> الـ Stack:
+                                <strong><code>@prepend(&#39;scripts&#39;) ... @endprepend</code></strong>.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h5 id="-components-slots">د. المكونات (Components) والـ Slots</h5>
+                <p>دي طريقة أحدث (منذ لارافيل 5.4) عشان تعمل View Partials بس بشكل منظم أكتر. المكونات بتستخدم لما تحتاج
+                    تمرر
+                    &quot;كتل كبيرة&quot; من المحتوى (مش مجرد متغيرات صغيرة).</p>
+                <ul>
+                    <li><strong>تعريف المكون:</strong> في الـ View الأب (Component View)، بتستقبل المحتوى باسم المتغير
+                        <strong><code>$slot</code></strong>.
+                    </li>
+                    <li>
+                        <p><strong>استخدام المكون:</strong> بتستخدم التوجيه <strong><code>@component</code></strong> و
+                            <strong><code>@endcomponent</code></strong>، والمحتوى اللي بينهم بيتحط في الـ
+                            <code>$slot</code>:
+                        </p>
+                        <pre><code class="lang-html"><span class="hljs-variable">@component</span>(<span class="hljs-string">'partials.modal'</span>)
+    &lt;p&gt;This is the big chunk of content for the slot.&lt;/p&gt;
+<span class="hljs-variable">@endcomponent</span>
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong> Slots المتعددة (Multiple Slots):</strong> لو عايز تمرر أكتر من محتوى (زي Title و
+                            Body)،
+                            بتستخدم
+                            الـ <code>@slot</code> داخل الـ <code>@component</code>:</p>
+                        <pre><code class="lang-html"><span class="hljs-variable">@component</span>(<span class="hljs-string">'partials.modal'</span>)
+    <span class="hljs-variable">@slot</span>(<span class="hljs-string">'title'</span>)
+        Password validation failure
+    <span class="hljs-variable">@endslot</span>
+    &lt;p&gt;This is the body content.&lt;/p&gt;
+<span class="hljs-variable">@endcomponent</span>
+</code></pre>
+                    </li>
+                </ul>
+                <h4 id="5-blade-custom-blade-directives-">5. توجيهات Blade المخصصة (Custom Blade Directives)</h4>
+                <p>كل التوجيهات المدمجة اللي شرحناها (@if, @unless, إلخ) اسمها <strong>&quot;توجيهات&quot;
+                        (Directives)</strong>.
+                    لارافيل بيسمحلك تعمل التوجيهات الخاصة بيك.</p>
+                <ul>
+                    <li>دي مفيدة جداً لـ <strong>&quot;تبسيط منطق متكرر&quot; (simplify some form of repeated
+                            logic)</strong>.
+                    </li>
+                    <li>بيتم تعريفها في الـ <code>boot()</code> method بتاع أي Service Provider، وبتستخدم الـ
+                        <strong><code>Blade::directive()</code></strong>:
+                    </li>
+                </ul>
+                <p><strong>مثال: توجيه بدون بارامترات</strong>
+                    لنفترض عايز تعمل توجيه اسمه <code>@ifGuest</code> عشان تشوف المستخدم مش عامل تسجيل دخول:</p>
+                <pre><code class="lang-php"><span class="hljs-comment">// في Service Provider</span>
+<span class="hljs-attribute">Blade</span>::directive(<span class="hljs-string">'ifGuest'</span>, function () {
+    return <span class="hljs-string">"&lt;?php if (auth()-&gt;guest()): ?&gt;"</span>;
+});
+
+<span class="hljs-comment">// استخدامها في View:</span>
+<span class="hljs-variable">@ifGuest</span>
+    Please log in.
+<span class="hljs-variable">@endif</span>
+</code></pre>
+                <p>بما إن التوجيه ده بيرجع جملة <code>if</code> بسيطة، فممكن تستخدم معاه <code>@else</code> و
+                    <code>@endif</code>
+                    العادية.
+                </p>
+                <p><strong>مثال: توجيه مع بارامترات</strong>
+                    لو عايز تعمل توجيه يحول الأسطر الجديدة لـ <code>&lt;br&gt;</code>:</p>
+                <pre><code class="lang-php"><span class="hljs-comment">// Binding</span>
+Blade::directive(<span class="hljs-string">'newlinesToBr'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($expression)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;?php echo nl2br({$expression}); ?&gt;"</span>; <span class="hljs-comment">// هنا $expression هي اللي بين القوسين</span>
+});
+
+<span class="hljs-comment">// In use </span>
+&lt;p&gt;@newlinesToBr($message-&gt;body)&lt;/p&gt;
+</code></pre>
+                <p><strong>توجيهات الـ <code>if</code> المخصصة المبسطة</strong>
+                    بما أن استخدام الـ <code>if</code> هو الأكثر شيوعاً، لارافيل عنده طريقة أسهل لتعريف التوجيهات
+                    الشرطية، وهي
+                    <strong><code>Blade::if()</code></strong>. هنا بتكتب فقط الـ Closure اللي بترجع
+                    <code>Boolean</code>:
+                </p>
+                <pre><code class="lang-php"><span class="hljs-comment">// Binding</span>
+Blade::if(<span class="hljs-string">'ifPublic'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> (app(<span class="hljs-string">'context'</span>))-&gt;isPublic();
+});
+
+<span class="hljs-comment">// الاستخدام (زي المثال اللي فوق):</span>
+@ifPublic
+    &amp;copy; Copyright MyApp LLC
+@<span class="hljs-keyword">else</span>
+    ...
+@<span class="hljs-keyword">endif</span>
+</code></pre>
+
+
+                <p>يا صديقي، طلبك وصل. الفصل الخامس ده هو من الأجزاء الجوهرية في أي تطبيق ويب، لأنه بيتكلم عن
+                    <strong>&quot;Databases and Eloquent&quot;</strong> (قواعد البيانات و إلوكوينت). ده المكان اللي
+                    بتفهم فيه
+                    إزاي
+                    لارافيل بيخلي التعامل مع الداتا سهل ومريح.
+                </p>
+                <p>إليك شرح مفصل لأهم محتويات الفصل ده باللغة المصرية، مع الأمثلة اللي في المصادر:</p>
+                <hr>
+                <h3 id="-databases-and-eloquent-">الفصل الخامس: قواعد البيانات وإلوكوينت (Databases and Eloquent)</h3>
+                <p>الفصل ده بيغطي الأدوات اللي لارافيل بيوفرها عشان تتعامل مع قواعد البيانات، وأهمها هو
+                    <strong>Eloquent</strong>
+                    (إلوكوينت) اللي هو الـ <strong>ORM</strong> (مُخطِّط العلاقات بين الكائنات) الخاص بيهم.
+                </p>
+                <h4 id="1-configuration-">1. إعدادات قواعد البيانات (Configuration)</h4>
+                <p>لارافيل بييجي بإعدادات جاهزة لأكتر من نوع قاعدة بيانات (زي MySQL و PostgreSQL)، وكل ده متخزن في ملف
+                    <strong><code>config/database.php</code></strong>.
+                </p>
+                <ul>
+                    <li><strong>توصيلات متعددة:</strong> ممكن تعرف أكتر من توصيلة (Connection)، وكل توصيلة ممكن تستخدم
+                        نفس الـ
+                        Driver (زي MySQL)، لو احتجت.</li>
+                    <li><strong>ملف <code>.env</code>:</strong> الإعدادات الحساسة زي اسم قاعدة البيانات، والباسورد، والـ
+                        Host،
+                        بتتسحب من ملف <strong><code>.env</code></strong> عشان تفضل سرية ومختلفة في كل بيئة تشغيل.</li>
+                </ul>
+                <h4 id="2-migrations-">2. الهجرات (Migrations)</h4>
+                <p>الـ Migrations هي اللي بتخليك تدير هيكل قاعدة البيانات بتاعك (إنشاء الجداول والأعمدة وتعديلها) عن
+                    طريق كود
+                    PHP،
+                    بدل ما تعمل ده يدوياً. ده بيخلي فريق العمل كله شغال على نفس هيكل البيانات طول الوقت.</p>
+                <ul>
+                    <li><strong>إنشاء Migration:</strong> بتستخدم أمر Artisan عشان تعمل ملف Migration جديد:
+                        <pre><code class="lang-bash">php artisan <span class="hljs-built_in">make</span>:migration create_users_table --<span class="hljs-keyword">create</span>=users
+</code></pre>
+                    </li>
+                    <li><strong>دوال <code>up()</code> و <code>down()</code>:</strong> كل ملف Migration بيكون فيه
+                        دالتين:<ul>
+                            <li><strong><code>up()</code>:</strong> دي اللي بتعمل التغيير (زي إنشاء جدول).</li>
+                            <li><strong><code>down()</code>:</strong> دي اللي بتلغي التغيير (زي حذف الجدول).</li>
+                        </ul>
+                    </li>
+                    <li><strong>طريقة الشغل:</strong> بتستخدم الـ Facade اللي اسمه <code>Schema</code> عشان تعمل
+                        العمليات دي.
+                        فيه
+                        دوال جاهزة زي <code>string()</code>, <code>integer()</code>, <code>timestamps()</code>, و
+                        <code>softDeletes()</code> عشان تعرف الأعمدة (Columns).
+                    </li>
+                    <li><strong>أمثلة على الأعمدة:</strong>
+                        <pre><code class="lang-php">Schema::create(<span class="hljs-string">'greetings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Blueprint $table)</span> </span>{
+    $table-&gt;bigIncrements(<span class="hljs-string">'id'</span>); <span class="hljs-comment">// معرف أساسي يزيد تلقائيًا</span>
+    $table-&gt;string(<span class="hljs-string">'body'</span>); <span class="hljs-comment">// عمود نصي</span>
+    $table-&gt;timestamps(); <span class="hljs-comment">// أعمدة created_at و updated_at</span>
+});
+</code></pre>
+                    </li>
+                    <li><strong>تعديل الأعمدة:</strong> لو عايز تعدل عمود موجود (زي تغيير طوله أو تخليه يقبل NULL)،
+                        بتستخدم دالة
+                        <code>change()</code> في الآخر. بس لازم تنزّل حزمة <code>doctrine/dbal</code> الأول.
+                    </li>
+                </ul>
+                <h4 id="3-seeding-model-factories-">3. التلقيم (Seeding) ومصانع الموديل (Model Factories)</h4>
+                <p>لما بتحتاج تحط بيانات وهمية أو افتراضية في قاعدة البيانات (للاختبار أو التطوير)، بتستخدم الـ Seeders.
+                </p>
+                <ul>
+                    <li><strong>الـ Seeders:</strong> دي كلاسات (Classes) بتنفذ دالة <strong><code>run()</code></strong>
+                        عشان
+                        تحط
+                        البيانات.</li>
+                    <li><strong>الـ Model Factories (مصانع الموديل):</strong> دي وظيفتها الأساسية هي إنها تعرفلك
+                        <strong>&quot;نماذج&quot;</strong> لإنشاء بيانات وهمية بشكل عشوائي ومنظم.<ul>
+                            <li><strong>Faker:</strong> الـ Factories بتستخدم مكتبة <strong>Faker</strong> اللي بتخليك
+                                تولّد
+                                أسماء،
+                                ايميلات، وعناوين عشوائية بشكل منظم.</li>
+                        </ul>
+                    </li>
+                    <li><strong>مثال على Model Factory بسيط:</strong>
+                        <pre><code class="lang-php">$factory-&gt;define(Contact::class, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Faker\Generator $faker)</span> </span>{
+    <span class="hljs-keyword">return</span> [
+        <span class="hljs-string">'name'</span> =&gt; $faker-&gt;name, <span class="hljs-comment">// اسم عشوائي</span>
+        <span class="hljs-string">'email'</span> =&gt; $faker-&gt;email, <span class="hljs-comment">// ايميل عشوائي</span>
+    ];
+});
+</code></pre>
+                    </li>
+                    <li><strong>استخدام الـ Factory:</strong> بتستخدم الـ helper اللي اسمه <code>factory()</code> عشان
+                        تعمل
+                        كائنات
+                        (Objects):<ul>
+                            <li><strong><code>create()</code>:</strong> بتنشئ الكائن وبتسجله فوراً في قاعدة البيانات.
+                            </li>
+                            <li><strong><code>make()</code>:</strong> بتنشئ الكائن في الذاكرة بس، من غير ما تسجله في
+                                قاعدة
+                                البيانات.
+                            </li>
+                            <li>ممكن تعدل أي خاصية وأنت بتنشئ الكائن عن طريق مصفوفة (Array) بتمررها.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 id="4-query-builder-">4. منشئ الاستعلامات (Query Builder)</h4>
+                <p>منشئ الاستعلامات هو طبقة بتخليك تكتب استعلامات SQL معقدة (Queries) بطريقة PHP سلسة (Fluent
+                    Interface).</p>
+                <ul>
+                    <li><strong>هيكل الاستعلام:</strong> بتبدأ بـ <code>DB::table(&#39;اسم_الجدول&#39;)</code> وبعدين
+                        بتسلسل
+                        الدوال
+                        (Chaining Methods) زي <code>where()</code>, <code>join()</code>, و <code>orderBy()</code>،
+                        وبتنهي
+                        الاستعلام
+                        بدالة تنفيذ زي <code>get()</code> أو <code>first()</code>.</li>
+                    <li><strong>حماية من SQL Injection:</strong> منشئ الاستعلامات بيستخدم <strong>PDO parameter
+                            binding</strong>
+                        عشان يحمي الاستعلامات بتاعتك من أي هجوم حقن SQL.</li>
+                    <li>
+                        <p><strong>أمثلة على Query Builder:</strong></p>
+                        <pre><code class="lang-php"><span class="hljs-comment">// جلب كل البيانات</span>
+$users = DB::table(<span class="hljs-string">'users'</span>)-&gt;get();
+
+<span class="hljs-comment">// جلب بيانات مع شرط</span>
+$vipContacts = DB::table(<span class="hljs-string">'contacts'</span>)-&gt;where(<span class="hljs-string">'vip'</span>, <span class="hljs-keyword">true</span>)-&gt;get();
+
+<span class="hljs-comment">// استخدام OR</span>
+$priorityContacts = DB::table(<span class="hljs-string">'contacts'</span>)
+    -&gt;where(<span class="hljs-string">'vip'</span>, <span class="hljs-keyword">true</span>)
+    -&gt;orWhere(<span class="hljs-string">'created_at'</span>, <span class="hljs-string">'&gt;'</span>, now()-&gt;subDay())
+    -&gt;get();
+
+<span class="hljs-comment">// تحديد الأعمدة</span>
+$emails = DB::table(<span class="hljs-string">'contacts'</span>)-&gt;select(<span class="hljs-string">'email'</span>)-&gt;get();
+</code></pre>
+                    </li>
+                </ul>
+                <h4 id="5-eloquent-orm-">5. إلوكوينت (Eloquent ORM)</h4>
+                <p>Eloquent هو قلب التعامل مع البيانات في لارافيل، وهو بيتبع نمط <strong>Active Record</strong>. هدفه هو
+                    البساطة
+                    والاعتماد على <strong>&quot;الاتفاقيات على الإعدادات&quot; (Convention over Configuration)</strong>.
+                </p>
+                <ul>
+                    <li><strong>الموديل (Model):</strong> كل جدول في قاعدة البيانات بيكون ليه كلاس (Class) في PHP اسمه
+                        &quot;موديل&quot; بيورث من <code>Eloquent\Model</code>.<ul>
+                            <li><strong>الاتفاقيات:</strong> لو عندك موديل اسمه <code>User</code>، إلوكوينت بيفترض إن
+                                الجدول
+                                بتاعه
+                                اسمه <code>users</code> (جمع الاسم).</li>
+                        </ul>
+                    </li>
+                    <li><strong>جلب البيانات:</strong> غالباً بتستخدم استدعاءات ثابتة (Static Calls) على الموديل:
+                        <pre><code class="lang-php"><span class="hljs-variable">$allContacts</span> = <span class="hljs-symbol">Contact:</span><span class="hljs-symbol">:all</span>(); <span class="hljs-regexp">//</span> جلب كل السجلات
+<span class="hljs-variable">$contactFive</span> = <span class="hljs-symbol">Contact:</span><span class="hljs-symbol">:find</span>(<span class="hljs-number">5</span>); <span class="hljs-regexp">//</span> جلب سجل بالـ ID
+<span class="hljs-variable">$vipContacts</span> = <span class="hljs-symbol">Contact:</span><span class="hljs-symbol">:where</span>(<span class="hljs-string">'vip'</span>, <span class="hljs-keyword">true</span>)-&gt;get(); <span class="hljs-regexp">//</span> استخدام Query Builder
+<span class="hljs-variable">$newestContact</span> = <span class="hljs-symbol">Contact:</span><span class="hljs-symbol">:orderBy</span>(<span class="hljs-string">'created_at'</span>, <span class="hljs-string">'desc'</span>)-&gt;first();
+</code></pre>
+                    </li>
+                    <li><strong><code>findOrFail()</code>:</strong> دي مهمة جداً عشان لو حاولت تجيب سجل ومش موجود، بيرجع
+                        خطأ 404
+                        تلقائي (بدل ما التطبيق يقف).</li>
+                    <li>
+                        <p><strong>إدخال البيانات (Inserts):</strong></p>
+                        <pre><code class="lang-php"><span class="hljs-comment">// الطريقة المباشرة (الآمنة من Mass Assignment)</span>
+$contact = <span class="hljs-keyword">new</span> Contact;
+$contact-&gt;name = <span class="hljs-string">'Keahi Hale'</span>;
+$contact-&gt;save();
+
+<span class="hljs-comment">// استخدام دالة create() (تحتاج تفعيل Mass Assignment)</span>
+$contact = Contact::create([
+    <span class="hljs-string">'name'</span> =&gt; <span class="hljs-string">'Keahi Hale'</span>,
+    <span class="hljs-string">'email'</span> =&gt; <span class="hljs-string">'halek481@yahoo.com'</span>,
+]);
+</code></pre>
+                    </li>
+                    <li><strong>الـ Mass Assignment:</strong> لو بتدخل البيانات باستخدام مصفوفة (Array) زي
+                        <code>create()</code>
+                        أو
+                        <code>update()</code>، لازم تكون محدد الأعمدة اللي مسموح إنها تتملي في خاصية
+                        <strong><code>$fillable</code></strong> أو تحمي بقية الأعمدة في
+                        <strong><code>$guarded</code></strong>
+                        داخل
+                        الموديل. ده عشان أي مستخدم ما يقدرش يعدل أعمدة حساسة زي <code>is_admin</code> من خلال الإدخال
+                        العادي.
+                    </li>
+                </ul>
+                <h4 id="6-">6. مميزات إلوكوينت المتقدمة</h4>
+                <ul>
+                    <li><strong>الحذف المرن (Soft Deletes):</strong> بدل ما تمسح الصف (Row) نهائياً من قاعدة البيانات،
+                        دي بتضيف
+                        عمود
+                        <code>deleted_at</code> (باستخدام <code>softDeletes()</code> في الـ Migration) وبتملأه بتاريخ
+                        الحذف.
+                        إلوكوينت بيخفي الصفوف دي تلقائياً من أي استعلامات مستقبلية.
+                    </li>
+                    <li><strong>الـ Scopes (مرشحات/فلاتر):</strong> دي دوال بتحط فيها استعلامات (Query Logic) بتتكرر
+                        كتير، عشان
+                        تستدعيها بشكل أنظف.<ul>
+                            <li><strong>Local Scopes:</strong> بتضيف دالة بتبدأ بـ <code>scope</code> للموديل (زي
+                                <code>scopeActiveVips()</code>)، وبتستدعيها كده:
+                                <code>Contact::activeVips()-&gt;get()</code>.
+                            </li>
+                            <li><strong>Global Scopes:</strong> بتطبق على <strong>كل</strong> الاستعلامات اللي بتيجي
+                                للموديل ده
+                                (وده
+                                اللي بتعمله الـ Soft Deletes).</li>
+                        </ul>
+                    </li>
+                    <li><strong>الـ Accessors والـ Mutators:</strong>
+                        <ul>
+                            <li><strong>Accessors:</strong> بتعدل قيمة الخاصية لما بتيجي <strong>تقراها</strong> (زي إنك
+                                تجمع
+                                الاسم
+                                الأول والأخير في <code>full_name</code>).</li>
+                            <li><strong>Mutators:</strong> بتعدل قيمة الخاصية لما بتيجي <strong>تكتبها</strong> (زي إنك
+                                تعمل
+                                Hash
+                                للباسورد قبل ما تحفظها).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 id="7-relationships-">7. العلاقات (Relationships)</h4>
+                <p>إلوكوينت بيخليك تعرف العلاقات بين الموديلز (الجداول) في كلاسات PHP بسهولة.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>العلاقة</th>
+                            <th>الدالة المستخدمة</th>
+                            <th>الوصف</th>
+                            <th>مثال</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>One-to-One</strong> (واحد لواحد)</td>
+                            <td><code>hasOne()</code> / <code>belongsTo()</code></td>
+                            <td>سجل واحد مرتبط بسجل واحد تاني.</td>
+                            <td>$user-&gt;profile</td>
+                        </tr>
+                        <tr>
+                            <td><strong>One-to-Many</strong> (واحد لمتعدد)</td>
+                            <td><code>hasMany()</code> / <code>belongsTo()</code></td>
+                            <td>سجل واحد مرتبط بأكتر من سجل.</td>
+                            <td>$user-&gt;posts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Many-to-Many</strong> (متعدد لمتعدد)</td>
+                            <td><code>belongsToMany()</code></td>
+                            <td>بتحتاج جدول وسيط (Pivot Table) عشان تربطهم.</td>
+                            <td>$user-&gt;roles</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>يا صديقي، تحت أمرك. الفصل السادس ده فصل خفيف ومهم، وبيركز على الأدوات اللي بتساعدك تجهز واجهة التطبيق
+                    (Frontend)
+                    وتستخدم بعض الـ <strong>Helpers</strong> اللي بتسهل عليك الشغل. اسم الفصل ده هو
+                    &quot;<strong>Frontend
+                        Components</strong>&quot; (مكونات الواجهة الأمامية).</p>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
