@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>06</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>أهلاً بك يا فندم. الفصل السادس ده فصل نظري وعملي في نفس الوقت، بيتكلم عن <strong>الفرق الجوهري بين
+                        الكائنات (Objects) وهياكل البيانات (Data Structures)</strong>. لو فهمت الفصل ده كويس، هتعرف إمتى
+                    تستخدم أسلوب برمجة موجه للكائنات (OO) وإمتى تستخدم أسلوب إجرائي (Procedural).</p>
+                <p>إليك شرح مفصل للفصل السادس: <strong>الكائنات وهياكل البيانات (Objects and Data Structures)</strong>.
+                </p>
+                <hr>
+                <h2 id="1-data-abstraction-">1. تجريد البيانات (Data Abstraction)</h2>
+                <p>المبدأ الأساسي في الكلاسات هو إننا بنحافظ على المتغيرات بتاعتنا <strong>خاصة (Private)</strong>. ليه؟
+                    عشان يكون عندنا الحرية إننا نغير النوع أو طريقة التنفيذ في أي وقت من غير ما نكسر الكود اللي بيستخدم
+                    الكلاس ده.</p>
+                <p>لكن هنا بتحصل الكارثة: كتير من المبرمجين بيروحوا ضايفين <code>getters</code> و <code>setters</code>
+                    بشكل آلي، وكأنهم بيعرضوا المتغيرات الخاصة دي للكل عادي، وده <strong>بيفضح طريقة التنفيذ
+                        الداخلية</strong>.</p>
+                <p><strong>المثال (النقطة الإحداثية):</strong></p>
+                <p>بيوضح الكتاب الفرق بين طريقة فضح البيانات وتجريدها:</p>
+                <ul>
+                    <li><strong>الطريقة الفاشلة (Listing 6-1):</strong> كلاس <code>Point</code> فيه المتغيرات
+                        <code>x</code> و <code>y</code> (إحداثيات مستطيلة) <strong>كـ <code>public</code></strong>. حتى
+                        لو خليتها <code>private</code> وضفت لها <code>getters</code> و <code>setters</code> عادية، إنت
+                        كده برضه بتقول للناس إنك بتستخدم إحداثيات مستطيلة.
+                    </li>
+                    <li><strong>الطريقة النظيفة (Listing 6-2):</strong> إنت هنا بتعمل واجهة (Interface) اسمها
+                        <code>Point</code>. الطريقة دي مش بتبين هل الكلاس بيستخدم إحداثيات مستطيلة ولا قطبية
+                        (Rectangular or Polar coordinates). المهم إن الواجهة دي بتسمحلك تقرا الإحداثيات بشكل منفصل
+                        (<code>getX</code>, <code>getY</code>)، لكن عشان تحط قيمة جديدة لازم تستخدم دالة زي
+                        <code>setCartesian</code>، وبكده <strong>العملية بتبقى ذرية (Atomic)</strong> وبتمنع فضح
+                        التفاصيل.
+                    </li>
+                </ul>
+                <blockquote>
+                    <p><strong>الخلاصة:</strong> <strong>أسوأ خيار</strong> هو إنك تضيف <code>getters</code> و
+                        <code>setters</code> ببساطة وبدون تفكير. لازم تفكر بجدية في أفضل طريقة لتمثيل البيانات اللي
+                        بيحتويها الكائن في صورة تجريدية.
+                    </p>
+                </blockquote>
+                <h2 id="2-data-object-anti-symmetry-">2. التناظر المضاد للكائنات/البيانات (Data/Object Anti-Symmetry)
+                </h2>
+                <p>هنا بيتحدد التضاد الجوهري بين النمط الإجرائي (Procedural) والنمط الموجه للكائنات (Object-Oriented).
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الخاصية</th>
+                            <th style="text-align:left">الكائنات (Objects - OO)</th>
+                            <th style="text-align:left">هياكل البيانات (Data Structures - Procedural)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>البيانات والوظائف</strong></td>
+                            <td style="text-align:left"><strong>تخفي البيانات</strong> وتكشف عن سلوكها (Functions).</td>
+                            <td style="text-align:left"><strong>تكشف البيانات</strong> وليس لديها سلوك كبير.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>سهولة الإضافة</strong></td>
+                            <td style="text-align:left"><strong>سهل</strong> إضافة كلاسات (أشكال) جديدة.</td>
+                            <td style="text-align:left"><strong>سهل</strong> إضافة وظائف (دوال) جديدة.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>صعوبة التغيير</strong></td>
+                            <td style="text-align:left"><strong>صعب</strong> إضافة وظائف جديدة؛ لأن كل الكلاسات الحالية
+                                لازم تتعدل.</td>
+                            <td style="text-align:left"><strong>صعب</strong> إضافة هياكل بيانات جديدة؛ لأن كل الدوال
+                                الحالية لازم تتعدل.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>مثال (حساب المساحة):</strong></p>
+                <ul>
+                    <li><strong>النمط الإجرائي (Listing 6-5):</strong> لديك كلاس <code>Geometry</code> يحتوي على دالة
+                        <code>area(Object shape)</code>. هذه الدالة تفحص نوع الشكل (مربع، مستطيل، دائرة) وتستخدم صيغة
+                        حساب المساحة المناسبة.<ul>
+                            <li><strong>الميزة:</strong> إذا أردت إضافة دالة جديدة (مثل <code>perimeter()</code> - حساب
+                                المحيط)، يمكن إضافتها بسهولة دون تغيير أي من كلاسات الأشكال (<code>Square</code>,
+                                <code>Rectangle</code>, <code>Circle</code>).
+                            </li>
+                            <li><strong>العيب:</strong> إذا أردت إضافة شكل جديد (مثل <code>Triangle</code>)، يجب تغيير
+                                كل دوال <code>Geometry</code> (مثل <code>area()</code>) لإضافة حالة جديدة.</li>
+                        </ul>
+                    </li>
+                    <li><strong>نمط الكائنات (Listing 6-6):</strong> كل شكل (<code>Circle</code>,
+                        <code>Rectangle</code>, إلخ) يمتلك دالة <code>area()</code> الخاصة به (Polymorphism).<ul>
+                            <li><strong>الميزة:</strong> إذا أضفت شكل جديد، فإن الدوال الموجودة (مثل
+                                <code>area()</code>) لا تتأثر.
+                            </li>
+                            <li><strong>العيب:</strong> إذا أضفت دالة جديدة (<code>perimeter()</code>)، يجب عليك تعديل
+                                كل كلاسات الأشكال الموجودة.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="3-the-law-of-demeter-lod-">3. قانون ديميتر (The Law of Demeter - LoD)</h2>
+                <p>القانون ده باختصار بيقول: <strong>&quot;تكلم مع أصدقائك، وليس مع الغرباء&quot;</strong>.</p>
+                <p>القاعدة تنص على أن أي دالة <code>f</code> في كلاس <code>C</code>، يجب أن تستدعي دوال الكائنات التالية
+                    فقط:</p>
+                <ul>
+                    <li>الكائن <code>C</code> نفسه.</li>
+                    <li>الكائنات التي أنشأتها الدالة <code>f</code>.</li>
+                    <li>الكائنات التي مُررت كـ <code>argument</code> إلى الدالة <code>f</code>.</li>
+                    <li>الكائنات المحفوظة كمتغيرات كائن (Instance Variables) في الكلاس <code>C</code>.</li>
+                </ul>
+                <blockquote>
+                    <p><strong>المخالفة الكبيرة (Train Wrecks):</strong>
+                        المخالفة الأكثر شيوعاً لهذا القانون هي سلاسل الاستدعاء الطويلة (Long Chains of Calls) زي دي:
+                        <code>ctxt.getOptions().getScratchDir().getAbsolutePath()</code>.
+                        السلسلة دي (اللي بيسموها &quot;حوادث القطار&quot;) بتفضح الهيكل الداخلي للكائنات، وبتخلي
+                        الموديول اللي بيستخدمها يعرف تفاصيل عن بنية أجزاء بعيدة المفروض ما يعرفش عنها حاجة.
+                    </p>
+                </blockquote>
+                <p><strong>الحل: إخفاء الهيكل (Hiding Structure)</strong></p>
+                <p>عشان متخالفش قانون ديميتر، المفروض تقول للكائن <strong>إيه اللي يعمله</strong>، مش <strong>تطلب منه
+                        أجزائه الداخلية عشان إنت تعمل بيها حاجة</strong>.</p>
+                <ul>
+                    <li><strong>الأسلوب السيئ:</strong>
+                        <code>String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();</code> (إنت بتسأل
+                        الـ <code>ctxt</code> عن داخله).
+                    </li>
+                    <li><strong>الأسلوب النظيف:</strong>
+                        <code>BufferedOutputStream bos = ctxt.createScratchFileStream(classFileName);</code> (إنت بتقول
+                        للـ <code>ctxt</code> يعمل حاجة، وهو يخفي تفاصيل ملفاته الداخلية).
+                    </li>
+                </ul>
+                <h2 id="4-dtos-and-active-record-">4. كائنات نقل البيانات والسجلات النشطة (DTOs and Active Record)</h2>
+                <p><strong>كائنات نقل البيانات (Data Transfer Objects - DTOs):</strong></p>
+                <p>ده هو الشكل الأساسي لهياكل البيانات. هو كلاس بيحتوي على <strong>متغيرات عامة (Public Variables) بدون
+                        أي دوال</strong>. بيستخدم بشكل كبير لما تكون بتتواصل مع قواعد البيانات أو بتحلل رسائل بتجيلك من
+                    شبكة.</p>
+                <p><strong>Beans (البنية الشائعة):</strong></p>
+                <p>شكل شائع لـ DTOs هو &quot;Beans&quot; (زي اللي في Listing 6-7)، ودي كلاسات فيها متغيرات
+                    <code>private</code> لكن بتتم معالجتها عن طريق <code>getters</code> و <code>setters</code>. الكتاب
+                    بيعتبر التغليف الشكلي ده (Quasi-encapsulation) بيخلي بعض المتشددين في البرمجة الكائنية يحسوا إنهم
+                    أحسن، لكنه عادة <strong>مبيضيفش أي فايدة تانية</strong>.
+                </p>
+                <p><strong>السجل النشط (Active Record):</strong></p>
+                <p>دي نوع خاص من DTOs، هي هياكل بيانات فيها متغيرات عامة (أو الوصول إليها عبر Beans)، لكنها بتحتوي على
+                    دوال للملاحة (Navigational Methods) زي <code>save</code> و <code>find</code>. غالباً بتكون ترجمة
+                    مباشرة لجداول قواعد البيانات. <strong>الخطأ هنا</strong> هو إن المبرمجين بيحاولوا يعاملوا هياكل
+                    البيانات دي كأنها كائنات OO عن طريق إضافة دوال قواعد الأعمال (Business Rule Methods) إليها، وده
+                    بيخليها <strong>هجين (Hybrid)</strong> بين هيكل البيانات والكائن.</p>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

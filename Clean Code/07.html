@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>07</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>يا فندم، الفصل السابع في الكتاب ده بيتكلم عن <strong>&quot;التعامل مع الأخطاء&quot; (Error
+                        Handling)</strong>. المؤلف بيأكد إن الكود النضيف لازم يكون <strong>قوي ومُحصّن
+                        (robust)</strong>، وده مينفعش يحصل إلا لو كنا بنشوف معالجة الأخطاء كمسألة منفصلة عن منطق الشغل
+                    الأساسي بتاعنا.</p>
+                <p>إليك أهم القواعد اللي لازم نتبعها في التعامل مع الأخطاء، مع شرح مفصل:</p>
+                <hr>
+                <h2 id="1-use-exceptions-rather-than-return-codes-">1. استبدل أكواد الإرجاع بالاستثناءات (Use Exceptions
+                    Rather Than Return Codes)</h2>
+                <p>الكتاب بيحذر من إن الدوال ترجع <strong>أكواد خطأ (Error Codes)</strong>، زي إن الدالة ترجع صفر لو
+                    نجحت، ورقم سالب لو فشلت.</p>
+                <ul>
+                    <li><strong>المشكلة:</strong> لما الدالة ترجع كود خطأ، بتجبر اللي بيستخدمها إنه يعمل فحص فوري بالكود
+                        ده، وده بيخلي المنطق الأساسي للبرنامج يتوه في وسط <strong>هياكل متداخلة معقدة</strong> من عبارات
+                        <code>if</code>. ده بيشوه <strong>مسار العمل الطبيعي (Happy Path)</strong>.</li>
+                    <li><strong>الحل:</strong> لازم نستخدم <strong>الاستثناءات (Exceptions)</strong>. الاستثناءات بتسمح
+                        بفصل كود معالجة الأخطاء عن المنطق العادي للبرنامج.</li>
+                </ul>
+                <h2 id="2-try-catch-finally-write-your-try-catch-finally-statement-first-">2. ابدأ بكتابة جملة
+                    Try-Catch-Finally أولاً (Write Your Try-Catch-Finally Statement First)</h2>
+                <p>الـ <code>try</code> block بيحدد نطاق في برنامجك بيوضح إن التنفيذ ممكن يتوقف في أي وقت.</p>
+                <ul>
+                    <li><strong>المبدأ:</strong> لازم الـ <code>catch</code> يحافظ على البرنامج في <strong>حالة متسقة
+                            (consistent state)</strong>، بغض النظر عن اللي حصل في الـ <code>try</code>.</li>
+                    <li><strong>الطريقة:</strong> لما تبدأ تكتب كود ممكن يرمي استثناء، لازم تبدأ بـ
+                        <code>try-catch-finally</code>. وده بيساعدك تحدد إيه اللي المفروض المستخدم يتوقعه من الكود ده،
+                        حتى لو حصل فيه خطأ. كمان، ممكن تستخدم اختبارات الوحدات (Unit Tests) عشان تجبر الدالة ترمي
+                        استثناء، وتشوف الكود بتاعك هيعالجه إزاي.</li>
+                </ul>
+                <h2 id="3-try-catch-extract-try-catch-blocks-">3. استخرج كتل Try/Catch في دوال منفصلة (Extract Try/Catch
+                    Blocks)</h2>
+                <p>كتل <code>try/catch</code> بتكون &quot;شكلها وحش&quot; لأنها بتخلط المنطق العادي بمعالجة الأخطاء.</p>
+                <ul>
+                    <li><strong>التنظيف:</strong> الأفضل إنك <strong>تستخرج جسم الـ <code>try</code> و الـ
+                            <code>catch</code></strong> في دوال لوحدها.</li>
+                    <li><strong>القاعدة:</strong> الدالة اللي بتتعامل مع الأخطاء (Error Handling) لازم <strong>ماتعملش
+                            أي حاجة تانية غير إنها تعالج الأخطاء</strong>. لو الدالة فيها كلمة <code>try</code>، المفروض
+                        تكون دي أول كلمة فيها، ومفيش أي حاجة تيجي بعد الـ <code>catch/finally</code> بلوك. هذا الفصل
+                        بيخلق نظافة وبيخلي الكود سهل الفهم والتعديل.</li>
+                </ul>
+                <h2 id="4-apis-use-unchecked-exceptions-">4. استخدم الاستثناءات غير المفحوصة وغلّف APIs الخارجية (Use
+                    Unchecked Exceptions)</h2>
+                <p>الجدال انتهى: المؤلف بيفضل <strong>الاستثناءات غير المفحوصة (Unchecked Exceptions)</strong>.</p>
+                <ul>
+                    <li><strong>مشكلة Checked Exceptions:</strong> بتخليك تضيف الـ Exceptions دي لتوقيع كل دالة، وده
+                        بيؤدي لتكرار كتير (duplication).</li>
+                    <li><strong>تغليف APIs الطرف الثالث:</strong> أفضل طريقة للتعامل مع مكتبات (APIs) خارجية إنت مش
+                        متحكم في تصميمها هي إنك <strong>تغلفها (Wrap)</strong>. التغليف ده بيخليك:<ul>
+                            <li><strong>تقلل الاعتمادية (Dependencies):</strong> لو قررت تغير المكتبة دي في المستقبل، مش
+                                هتدفع تمن كبير.</li>
+                            <li><strong>توحيد الأخطاء:</strong> تخلي الـ Wrapper بتاعك يمسك كل أنواع الأخطاء اللي
+                                بترميها المكتبة الخارجية (زي <code>DeviceResponseException</code> و
+                                <code>ATM1212UnlockedException</code>) ويرمي مكانها <strong>نوع واحد بس من
+                                    الاستثناءات</strong> خاص بيك (مثل <code>PortDeviceFailure</code>). ده بيخلي الكود
+                                اللي بيستخدم الواجهة بتاعتك أنظف بكتير.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="5-define-the-normal-flow-special-case-pattern-">5. عرّف التدفق الطبيعي باستخدام نمط الحالة
+                    الخاصة (Define the Normal Flow / Special Case Pattern)</h2>
+                <p>في بعض الأحيان، مش لازم توقف البرنامج أو ترمي استثناء؛ ممكن يكون فيه سلوك &quot;طبيعي&quot; للحالة
+                    الاستثنائية دي.</p>
+                <ul>
+                    <li><strong>النمط:</strong> استخدم <strong>نمط الحالة الخاصة (SPECIAL CASE PATTERN)</strong>.</li>
+                    <li><strong>مثال:</strong> لو بتجمع مصروفات وجزء منها مش موجود (مثل مصروفات الوجبات)، فبدل ما ترمي
+                        استثناء، ممكن الدالة ترجع <strong>كائن وجبات خاص (Special Case Object)</strong> بيحسب القيمة
+                        الافتراضية (Per Diem) بدلاً من قيمة الوجبة المفقودة. ده بيخلي الكود اللي بيستخدم الدالة دي
+                        <strong>ميعرفش أصلاً إن فيه حالة استثنائية حصلت</strong>، وده بيحافظ على نظافة المنطق.</li>
+                </ul>
+                <h2 id="6-return-null-pass-argument">6. لا تُرجع (Return) قيمة Null ولا تُمشّيها (Pass) كـ Argument</h2>
+                <p>الـ <code>Null</code> هو أكبر مدعو للأخطاء في الكود.</p>
+                <ul>
+                    <li><strong>لا تُرجع Null:</strong> لو رجعت <code>null</code> من دالة، فإنت كده بتجبر اللي بيستدعيها
+                        إنه يضيف فحص للـ <code>null</code> في كل سطر تقريباً. ولو نسيت فحص واحد بس، هيحصل
+                        <strong>NullPointerException</strong> في وقت التشغيل (Runtime). الحل: ارمي استثناء، أو رجّع كائن
+                        حالة خاصة (مثل قائمة فارغة بدلاً من قائمة <code>null</code>).</li>
+                    <li><strong>لا تُمشّي Null:</strong> مينفعش تمرر <code>null</code> كـ <code>argument</code> لدالة.
+                        لو حد عمل كده بالغلط، هتحصل <code>NullPointerException</code>. بما إن أغلب لغات البرمجة مفيهاش
+                        طريقة كويسة للتعامل مع <code>null</code> غير مقصود كـ <code>argument</code>، فالأفضل إنك
+                        <strong>تمنع تمرير الـ <code>null</code> كقاعدة أساسية</strong>.</li>
+                </ul>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D"
+        crossorigin="anonymous"></script>
+
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
