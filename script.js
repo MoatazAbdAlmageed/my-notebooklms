@@ -1,33 +1,24 @@
-console.log("reading...")
-// ==============================
-// Save and Restore Scroll Position
-// ==============================
-const STORAGE_KEY = "readingProgress_" + location.pathname; // unique per page
+$(function () {
+    // Initialize Showdown converter with useful options
+    const converter = new showdown.Converter({
+        tables: true,
+        strikethrough: true,
+        tasklists: true,
+        emoji: true,
+        simpleLineBreaks: true,
+        ghCompatibleHeaderId: true
+    });
 
-// Restore scroll position
-window.addEventListener("load", () => {
-    const savedScroll = localStorage.getItem(STORAGE_KEY);
-    if (savedScroll) {
-        window.scrollTo(0, parseFloat(savedScroll));
-    }
-});
+    // Get Markdown text from div#md-source
+    const markdown = $('#md-source').text().trim();
 
-// Save scroll position while reading
-window.addEventListener("scroll", () => {
-    localStorage.setItem(STORAGE_KEY, window.scrollY);
-    updateProgressBar();
-});
+    // Convert Markdown to HTML
+    const html = converter.makeHtml(markdown);
 
-// Optional: progress bar
-const progressBar = document.getElementById("progressBar");
-function updateProgressBar() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (scrollTop / docHeight) * 100;
-    progressBar.style.width = scrolled + "%";
-}
+    // Inject HTML into target div and apply RTL direction + Arabic styling
+    $('#md-render')
+        .html(html);
 
-// Save before leaving the page
-window.addEventListener("beforeunload", () => {
-    localStorage.setItem(STORAGE_KEY, window.scrollY);
+
+
 });
