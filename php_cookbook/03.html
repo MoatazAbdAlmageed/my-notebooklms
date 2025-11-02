@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>03</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>يا معلم، طلبك على راسي! الفصل رقم 3 في الكتيب ده بيتكلم عن <strong>&quot;مثال دالة إرسال
+                        الإيميلات&quot; (Mail Function Example)</strong>. وده فصل مهم جداً عشان بيشرح إزاي تبعت إيميلات
+                    من خلال كود الـPHP بتاعك بطريقة برمجية.</p>
+                <p>الشرح اللي جاي هيكون مفصل وباللهجة المصرية، مع الأمثلة زي ما طلبت بالظبط، وكل كلمة مدعومة من المصادر
+                    اللي حضرتك قدمتها.</p>
+                <hr>
+                <h3 id="-3-php-mail-function-example-">الفصل رقم 3: إزاي تبعت إيميلات بـPHP (Mail Function Example)</h3>
+                <p>الفصل ده بيشرح إزاي تستخدم دالة الـ<strong><code>mail()</code></strong> اللي بتبقى مدمجة في PHP عشان
+                    تبعت رسائل إلكترونية. الإرسال البرمجي ده بيكون مفيد جداً في سيناريوهات كتير زي:</p>
+                <ol>
+                    <li>تأكيد تسجيل المستخدمين الجُدد (Registration confirmation).</li>
+                    <li>عملية استرجاع كلمة السر (Password recovery).</li>
+                    <li>إرسال الإشعارات للمستخدمين (Notification delivery).</li>
+                </ol>
+                <p>عشان الوظيفة دي تشتغل، الموضوع مش بس كود PHP، لأ، لازم نعمل شوية تجهيزات في البيئة اللي شغالين عليها.
+                </p>
+                <h4 id="1-preparing-the-environment-">1. تجهيز البيئة (Preparing the environment)</h4>
+                <p>في المثال ده، المصدر بيستخدم نظام تشغيل <strong>Ubuntu</strong>، و<strong>Apache</strong>
+                    و<strong>PHP</strong> (إصدار 5.5.9). والأهم هو استخدام برنامج وسيط خفيف اسمه <strong>sSMTP</strong>.
+                </p>
+                <p><strong>إيه هو sSMTP ده؟</strong>
+                    ده برنامج خفيف اسمه <strong>Mail Transfer Agent (MTA)</strong>. وظيفته إنه ياخد الإيميلات اللي
+                    بتتبعت من جهازك (السيرفر المحلي مثلاً) ويسلمها لسيرفر SMTP خارجي (زي بتاع Gmail أو Outlook) عشان
+                    يوصل الرسالة. ده أسهل وأسرع حل لإرسال الإيميلات، وهو خفيف جداً ومابياخدش كتير من موارد الجهاز (CPU و
+                    Memory).</p>
+                <p><strong>الخطوات الرئيسية للتجهيز:</strong></p>
+                <h5 id="-ssmtp">أ. إعداد sSMTP</h5>
+                <p>إعداد الـsSMTP بيتكون من حاجتين:</p>
+                <ol>
+                    <li>تحديد خدمة SMTP اللي هنستخدمها (زي Gmail).</li>
+                    <li>توفير بيانات الدخول (اليوزر والباسورد) للخدمة دي.</li>
+                </ol>
+                <p>المثال هنا بيفترض إنك بتستخدم Gmail. ملف إعداد الـsSMTP (<code>/etc/ssmtp/ssmtp.conf</code>) بيكون
+                    شكله كده:</p>
+                <pre>
+ssmtp.conf
+UseSTARTTLS=YES
+mailhub=smtp.gmail.com:587
+AuthUser=mygmailaccount@gmail.com
+AuthPass=mygmailpassword
+</pre>
+
+                <p><strong>ملاحظات مهمة:</strong></p>
+                <ul>
+                    <li><code>UseSTARTTLS=YES</code>: دي ضرورية عشان نستخدم سيرفرات SSL/TLS بتاعة Gmail.</li>
+                    <li><code>mailhub</code>: ده عنوان سيرفر الـSMTP والبورت بتاعه (587 لـSSL/TLS).</li>
+                    <li><strong>خد بالك:</strong> أي حد يقدر يوصل للملف ده، يقدر يوصل لحساب الإيميل ده، فلازم تأمنه
+                        كويس.</li>
+                </ul>
+                <h5 id="-php">ب. إعداد PHP</h5>
+                <p>آخر خطوة في التجهيز هي إننا نعرف PHP إزاي يستخدم sSMTP. ده بيحصل عن طريق تعديل ملف إعداد PHP
+                    (<code>/etc/php5/apache2/php.ini</code>) ونضيف فيه مسار الـ<code>sendmail_path</code>:</p>
+                <pre>
+php.ini
+sendmail_path = /usr/sbin/sendmail
+</pre>
+
+                <p><strong>مهم جداً:</strong> بعد ما تخلص أي تعديل في إعدادات PHP، لازم تعمل restart (إعادة تشغيل)
+                    لـApache.</p>
+                <h4 id="2-php">2. سكريبت إرسال الإيميل في PHP</h4>
+                <p>العملية كلها بتتم عن طريق استدعاء الدالة <strong><code>mail</code></strong>. الدالة دي بتاخد ثلاث
+                    بارامترات أساسية:</p>
+                <ol>
+                    <li><strong>المستلم (<code>$to</code>)</strong>: ممكن تحط أكتر من إيميل عن طريق إنك تفصلهم
+                        بـ&quot;فاصلة&quot; (comma).</li>
+                    <li><strong>الموضوع (<code>$subject</code>)</strong>: عنوان الرسالة.</li>
+                    <li><strong>الرسالة نفسها (<code>$message</code>)</strong>: محتوى الرسالة. لازم تستخدم تنسيق فواصل
+                        السطور بتاع ويندوز (<code>\r\n</code>).</li>
+                </ol>
+                <p><strong>مثال أساسي على دالة <code>mail()</code>:</strong></p>
+                <pre>
+send_mail_example.php
+<?php
+$to = ’someone1@mail.com, someone2@mail.com’;
+$subject = ’Mail from PHP’;
+$message = "Hi,\r\nThis mail has been sent using PHP!";
+
+$success = mail($to, $subject, $message); //
+
+if ($success) {
+    $response = ’Message has been sent successfully.’;
+} else {
+    $response = ’The message could not be sent.’;
+}
+echo $response;
+</pre>
+                **ملاحظة على الدالة:** للأسف، دالة `mail()` بترجع بس قيمة **Boolean** (صحيح أو خطأ). فلو حصل أي مشكلة في
+                الإرسال، مش هتعرف تفاصيل الخطأ في لحظة التنفيذ.
+
+                ##### أ. تعيين Headers إضافية (Setting additional headers)
+
+                دالة `mail()` ليها بارامتر اختياري خامس عشان تحط فيه Headers إضافية. دي مهمة جداً خصوصاً لو بتواجه مشاكل
+                في **تشفير المحتوى (encoding)**. دالة `mail()` لوحدها مش بتعمل أي تشفير، وده ممكن يعمل مشاكل في اللغات
+                اللي محتاجة تشفير زي UTF-8 (زي الحروف الصينية).
+
+                عشان تحل المشكلة دي، بتضيف Header يحدد التشفير:
+
+                <pre>
+send_mail_example.php
+$headers = ’Content-Type: text/plain; charset=UTF-8’; //
+$success = mail($to, $subject, $message, $headers); //
+</pre>
+
+                <p>كمان ممكن تستخدم الـHeaders دي عشان تضيف نسخ كربونية (cc) ونسخ كربونية مخفية (bcc). ولو عندك أكتر من
+                    Header، لازم تفصل بينهم برضه بـCRLF.</p>
+                <h5 id="-parameters-setting-additional-parameters-">ب. تعيين Parameters إضافية (Setting additional
+                    parameters)</h5>
+                <p>البارامتر الاختياري الأخير هو عشان تبعت تعليمات وأوامر لبرنامج الـMTA (sSMTP). مثلاً، ممكن تستخدم وضع
+                    <strong>Verbose mode</strong> عشان تشوف عملية الإرسال كلها خطوة بخطوة، وده مفيد في حالة لو بتحاول
+                    تصلح مشكلة:
+                </p>
+                <pre>
+send_mail_example.php
+$parameters = ’-v’; //
+$success = mail($to, $subject, $message, $headers, $parameters); //
+</pre>
+
+                <p>إذا كنت محتاج تحط كذا بارامتر، بتفصل بينهم بمسافة (Blank space).</p>
+                <h4 id="3-troubleshooting-">3. استكشاف الأخطاء وإصلاحها (Troubleshooting)</h4>
+                <p>لو جربت الكود والإيميل ماوصلش، فيه كام خطوة مهمة تعملها:</p>
+                <ol>
+                    <li><strong>شغل وضع Verbose:</strong> زي ما شفنا فوق، بتستخدم البارامتر <code>—v</code> عشان تشوف
+                        تفاصيل الاتصال الكاملة مع السيرفر.</li>
+                    <li><strong>رفض تسجيل الدخول من سيرفر SMTP:</strong> ممكن يكون Gmail شايف محاولة تسجيل الدخول من
+                        sSMTP كـ&quot;محاولة تسجيل دخول مشبوهة أو غير آمنة&quot;. عشان تحل ده، لازم تدخل على حساب Gmail
+                        وتفعل خيار &quot;السماح للتطبيقات الأقل أماناً&quot; (Allow less secure apps).</li>
+                    <li><strong>جدار الحماية (Firewall):</strong> ممكن يكون عندك فايروول عامل تصفية (Filtering) للاتصال
+                        الخارجي. لازم تتأكد إن الاتصال مسموح على البورت اللي استخدمناه (587).</li>
+                    <li><strong>راجع سجل أخطاء PHP:</strong> لو كل ده مانفعش، بص على سجل الأخطاء بتاع PHP (عادة بيكون في
+                        <code>/var/log/apache2/error.log</code>) عشان تشوف إيه نوع الخطأ اللي PHP طلعه.
+                    </li>
+                </ol>
+                <h4 id="4-ssmtp">4. بدائل لـsSMTP</h4>
+                <p>رغم إن sSMTP هو أسهل وأسرع طريقة لإرسال الإيميلات لأنه لا يعتمد على &quot;daemons&quot; (برامج تعمل
+                    في الخلفية باستمرار)، إلا إنه لو كنت محتاج MTA بميزات متقدمة وكاملة أكتر، ممكن تشوف بدائل زي
+                    <strong>Postfix</strong> و <strong>Exim</strong>.
+                </p>
+                <hr>
+                <p>ده ملخص شامل للفصل الثالث. زي ما شفنا، إرسال الإيميلات في PHP (دالة <code>mail()</code>) بسيط جداً،
+                    لكن لازم تعمل الإعدادات الصحيحة للبيئة وتستخدم برنامج MTA وسيط زي sSMTP عشان يتم الاتصال بسيرفرات
+                    الإيميل الخارجية.</p>
+                <p><strong>عشان نوصل الفكرة أكتر:</strong></p>
+                <p>تخيل إن دالة الـ<code>mail()</code> في PHP دي زي <strong>شخص بيجهز ظرف الرسالة</strong> (يكتب عنوان،
+                    وموضوع، ورسالة). لكن الشخص ده مالهوش القدرة إنه يروح يوصلها لحد تاني. هنا بيجي دور
+                    <strong>sSMTP</strong>، اللي هو زي <strong>&quot;ساعي البريد&quot; الخفيف والسريع</strong>. ساعي
+                    البريد ده بياخد الظرف ويوديه <strong>لمكتب البريد المركزي (سيرفر Gmail SMTP)</strong> عشان هما اللي
+                    يقوموا بمهمة التوصيل النهائية للمستلم. ولو فيه مشكلة في التوصيل، بتحتاج تشوف سجلات &quot;ساعي
+                    البريد&quot; أو &quot;مكتب البريد المركزي&quot; عشان تعرف العطل فين.
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

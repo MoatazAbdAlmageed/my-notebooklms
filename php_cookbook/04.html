@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>04</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، الفصل رقم 4 في الكتيب ده بيتكلم عن <strong>&quot;مثال تنسيق التاريخ&quot; (Date Format
+                        Example)</strong>. وده موضوع حيوي ومهم جداً في أي برمجة، لأنه بيوريك إزاي تتعامل مع التواريخ
+                    والأوقات صح في PHP عشان تتجنب مشاكل محدش يتوقعها.</p>
+                <p>الشرح اللي جاي هيكون مفصل بالتمام والكمال وباللهجة المصرية، مع الأمثلة زي ما طلبت، وكل معلومة مدعومة
+                    من المصادر.</p>
+                <hr>
+                <h3 id="-4-php">الفصل رقم 4: إزاي نتعامل مع التواريخ في PHP</h3>
+                <p>المثال ده، زي الأمثلة اللي قبله، بيفترض إنك شغال على بيئة معينة عشان تعرف تطبق:</p>
+                <ul>
+                    <li>نظام تشغيل <strong>Ubuntu (14.04)</strong>.</li>
+                    <li>سيرفر <strong>Apache HTTP (2.4.7)</strong>.</li>
+                    <li>لغة <strong>PHP (5.5.9)</strong>.</li>
+                </ul>
+                <p>(ولو كنت بتستخدم Windows، الكتيب بينصح إن <strong>XAMPP</strong> هو أسرع وأسهل طريقة عشان تظبط البيئة
+                    دي).</p>
+                <h4 id="1-how-should-dates-be-stored-">1. ليه أصلاً لازم نخزن التواريخ بطريقة معينة؟ (How should dates
+                    be stored?)</h4>
+                <p>المشكلة الرئيسية في التواريخ هي إن <strong>طريقة تمثيل التاريخ بتختلف من منطقة لمنطقة</strong>.</p>
+                <p><strong>مثال يوضح المشكلة:</strong>
+                    لو النهارده 13 مايو 2016، فـ:</p>
+                <ul>
+                    <li>في <strong>بريطانيا</strong> ممكن تتكتب: <strong>13/05/2016</strong>.</li>
+                    <li>في <strong>أمريكا</strong> ممكن تتكتب: <strong>05/13/2016</strong>.</li>
+                </ul>
+                <p>لو النظام بتاعك بيعمل أي عمليات حسابية مبنية على التاريخ، واستقبل تنسيق غير اللي متوقعه، النتيجة
+                    هتكون &quot;هبل&quot; أو غير منطقية (nonsense results).</p>
+                <h4 id="2-unix-time-epoch-time-">2. الحل السحري: وقت يونكس (Unix Time / Epoch Time)</h4>
+                <p>عشان نحل المشكلة دي، تم اقتراح نظام اسمه <strong>&quot;وقت يونكس&quot; (Unix time)</strong>، أو معروف
+                    كمان باسم <strong>&quot;وقت الحقبة&quot; (Epoch time)</strong>.</p>
+                <p><strong>إيه هو وقت يونكس؟</strong>
+                    ده عبارة عن <strong>عدد الثواني</strong> اللي عدت من لحظة معينة: <strong>1 يناير 1970</strong>،
+                    الساعة 00:00:00 (بتوقيت UTC).</p>
+                <p><strong>ميزته:</strong>
+                    وقت يونكس هو <strong>&quot;تمثيل زمني قياسي&quot; (standard time representation)</strong>. ده تنسيق
+                    <strong>عالمي وموحد</strong> (cross-region/language time representation) ما بيعتمدش على أي إعدادات
+                    خاصة بمنطقة أو لغة معينة.</p>
+                <p><strong>الخلاصة:</strong>
+                    أحسن طريقة لتخزين التواريخ في قواعد البيانات هي بصيغة Unix time. ولما اليوزر يحتاج يشوف التاريخ، كل
+                    اللي عليك إنك تحول الـtimestamp ده إلى &quot;صيغة يقدر يقرأها الإنسان&quot; (human-readable format).
+                </p>
+                <h4 id="3-php-">3. أمثلة PHP على التواريخ</h4>
+                <p>لغة PHP بتقدم دوال وكلاسات كتير للتعامل مع التواريخ.</p>
+                <h5 id="-timestamp-4-3-1-">أ. التحويل من Timestamp إلى صيغة يقدر يقرأها الإنسان (4.3.1)</h5>
+                <p>عشان تعمل التحويل ده، بتستخدم دالة <strong><code>date()</code></strong>. أول حاجة بنجيب الـTimestamp
+                    الحالي باستخدام دالة <code>time()</code>.</p>
+                <p><strong>المثال:</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>
+$timestamp = time(); <span class="hljs-comment">// بيجيب timestamp الحالي</span>
+$date = date(’d-m-Y’, $timestamp); <span class="hljs-comment">// تنسيق يوم-شهر-سنة</span>
+$datetime = date(’d-m-Y h:i:s’, $timestamp); <span class="hljs-comment">// تنسيق كامل (يوم-شهر-سنة ساعة:دقيقة:ثانية)</span>
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Unix timestamp: $timestamp &lt;br&gt;"</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Human-readable date: $date &lt;br&gt;"</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Human-readable datetime: $datetime"</span>;
+<span class="hljs-comment">// النتيجة بتكون مثلاً: Unix timestamp: 1463097600 (لو افترضنا ده تاريخ اليوم)</span>
+<span class="hljs-comment">// Human-readable date: 13-05-2016</span>
+<span class="hljs-comment">// Human-readable datetime: 13-05-2016 04:00:00 </span>
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <p>دالة <code>date()</code> بتدعم لستة كبيرة من التنسيقات، زي مثلًا:</p>
+                <ul>
+                    <li><code>l</code>: عشان تجيب اسم اليوم (Day name).</li>
+                    <li><code>N</code>: عشان تجيب رقم اليوم في الأسبوع (الإثنين هو اليوم الأول).</li>
+                    <li><code>z</code>: عشان تجيب رقم اليوم في السنة.</li>
+                    <li><code>W</code>: عشان تجيب رقم الأسبوع في السنة.</li>
+                </ul>
+                <blockquote>
+                    <p><strong>ملاحظة:</strong> البارامتر التاني (الـtimestamp) في دالة <code>date()</code> اختياري. لو
+                        ما حطتش timestamp، هي بتستخدم الوقت الحالي.</p>
+                </blockquote>
+                <h5 id="-timestamp-4-3-2-">ب. التحويل من صيغة يقدر يقرأها الإنسان إلى Timestamp (4.3.2)</h5>
+                <p>ودي العملية العكسية، وبنستخدم فيها دالة <strong><code>strtotime()</code></strong>.</p>
+                <p><strong>المثال:</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>
+$ukDate = ’<span class="hljs-number">13</span><span class="hljs-number">-05</span><span class="hljs-number">-2016</span>’; <span class="hljs-comment">// بنفترض تنسيق UK، وفاصلة '-'</span>
+$usDate = ’<span class="hljs-number">05</span>/<span class="hljs-number">13</span>/<span class="hljs-number">2016</span>’; <span class="hljs-comment">// بنفترض تنسيق US، وفاصلة '/'</span>
+
+$ukTimestamp = strtotime($ukDate);
+$usTimestamp = strtotime($usDate);
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Timestamp created from UK date format: $ukTimestamp &lt;br&gt;"</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Timestamp created from US date format: $usTimestamp"</span>;
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <p>دالة <code>strtotime()</code> كمان بتدعم تعبيرات رياضية أو وصفية، زي:</p>
+                <ul>
+                    <li><code>tomorrow</code>: عشان تحسب timestamp بتاع بكرة.</li>
+                    <li><code>+2 weeks 5 days 12 hours</code>: عشان تحسب الوقت بعد الفترة دي.</li>
+                </ul>
+                <h5 id="-datetime-4-3-3-">ج. استخدام كلاس <code>DateTime</code> (4.3.3)</h5>
+                <p>PHP بتوفر كلاس اسمه <strong><code>DateTime</code></strong> فيه ميثودز (methods) مفيدة، زي حساب الفرق
+                    بين تاريخين.</p>
+                <p><strong>المثال (حساب فرق الوقت):</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>
+$currentDate = <span class="hljs-keyword">new</span> DateTime(); <span class="hljs-comment">// التاريخ الحالي</span>
+$targetDate = <span class="hljs-keyword">new</span> DateTime(’<span class="hljs-number">19</span><span class="hljs-number">-01</span><span class="hljs-number">-2038</span>’); <span class="hljs-comment">// ده التاريخ اللي هيحصل فيه أوفر فلو لـtimestamp في أنظمة 32 بت</span>
+
+$timeLeft = $currentDate-&gt;diff($targetDate); <span class="hljs-comment">// حساب الفرق بين التاريخين</span>
+
+$yearsLeft = $timeLeft-&gt;y; <span class="hljs-comment">// بجيب الفرق بالسنين</span>
+<span class="hljs-comment">// ... وبنفس الطريقة للشهور والأيام والساعات والدقائق والثواني</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Time left to Unix timestamp overflow in 32 bits systems: "</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"| $yearsLeft years | $monthsLeft months | $daysLeft days | ... |"</span>;
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <h5 id="-microtime-4-3-4-">د. زيادة الدقة باستخدام Microtime (4.3.4)</h5>
+                <p>لو محتاج دقة أعلى من الثواني، ممكن تستخدم دالة <strong><code>microtime()</code></strong> اللي بتجيب
+                    Unix time بالـ<strong>مايكروثانية</strong>.</p>
+                <p><strong>لكن فيه خدعة هنا:</strong> دالة <code>microtime()</code> بترجع سلسلة نصية متقسمة:
+                    <code>&lt;microseconds&gt; &lt;seconds&gt;</code>، ومفصولين بمسافة.</p>
+                <p><strong>المعالجة (Processing):</strong> لازم تعمل <code>explode</code> عشان تفصل الـmicroseconds عن
+                    الثواني، وبعدين تشيل الجزء الصحيح اللي هو <code>0.</code> من الـmicroseconds عشان يبقى رقم صحيح.
+                    وبعد كده بتضيف الـmicroseconds يدوياً للتاريخ المنسق.</p>
+                <blockquote>
+                    <p><strong>ملاحظة عجيبة:</strong> دالة <code>date()</code> بتدعم تنسيق المايكروثانية (الرمز
+                        <code>u</code>)، لكنها مش بتعرف تولدها، فبتطلع أصفار بس!.</p>
+                </blockquote>
+                <h5 id="-4-3-5-">هـ. التحقق من صحة تاريخ أدخله المستخدم (4.3.5)</h5>
+                <p>دي نقطة أمان مهمة جداً. لو المستخدم دخل تاريخ غلط أو مالهوش معنى زي <strong>40/15/2016</strong>، دالة
+                    <code>strtotime()</code> مش هتقولك خطأ، لأ، دي هتجيب timestamp وتقوم <strong>تصلح التاريخ</strong>
+                    ده تلقائياً وتطلع تاريخ سليم (مثلًا 14/04/2019).</p>
+                <p>عشان تتأكد إن التاريخ اللي دخله المستخدم صح (بالتنسيق اللي انت محدده)، لازم تستخدم دالة
+                    <strong><code>checkdate()</code></strong>.</p>
+                <p><strong>دالة <code>checkdate()</code>:</strong>
+                    وظيفتها إنها بتتحقق من صلاحية تاريخ جريجوري (Gregorian date)، <strong>وبتراعي كمان السنوات الكبيسة
+                        (leap years)</strong>. يعني مثلاً: <code>29-02-2016</code> هتعتبره تاريخ صحيح، لكن
+                    <code>29-02-2015</code> تاريخ غير صحيح.</p>
+                <p><strong>المثال (التحقق):</strong></p>
+                <pre><code class="lang-php"><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// بنفترض إنك بتستخدم تنسيق 'd-m-Y' وفاصلة '-'</span>
+define(’DEFAULT_DATE_SEPARATOR’, ’-’);
+<span class="hljs-comment">// ...</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">validateDate</span><span class="hljs-params">($date)</span> </span>{
+    <span class="hljs-comment">// لازم نقسم التاريخ يدوياً عشان ناخد الأجزاء</span>
+    <span class="hljs-keyword">list</span>($day, $month, $year) = explode(DEFAULT_DATE_SEPARATOR, $date);
+
+    <span class="hljs-comment">// checkdate() بتاخد البارامترات بالترتيب ده: الشهر، ثم اليوم، ثم السنة</span>
+    $validDate = checkdate($month, $day, $year);
+
+    <span class="hljs-keyword">return</span> $validDate;
+}
+<span class="hljs-comment">// ...</span>
+$inputDate = $_GET[’input-date’];
+$validDate = validateDate($inputDate);
+
+<span class="hljs-keyword">if</span> ($validDate) {
+    $response = <span class="hljs-string">"The date $inputDate is valid."</span>;
+} <span class="hljs-keyword">else</span> {
+    $response = <span class="hljs-string">"Error: the date $inputDate is not correct."</span>;
+}
+<span class="hljs-keyword">echo</span> $response;
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre>
+                <p>السبب إننا بنقسم التاريخ يدوياً (<code>explode</code>) هو إن أي دالة تانية ممكن &quot;تصلح&quot;
+                    التاريخ الغلط ده تلقائياً، وبالتالي مش هتعرف تعمل الـValidation المطلوب.</p>
+                <h4 id="-4-4-summary-">ملخص الفصل (4.4 Summary)</h4>
+                <p>الزبدة من الفصل ده:</p>
+                <ol>
+                    <li>تخزين التواريخ بأي صيغة بيقرأها الإنسان مش فكرة كويسة عشان الاختلافات الإقليمية.</li>
+                    <li><strong>وقت يونكس (Unix time)</strong> بيحل المشكلة دي لأنه بيوفر صيغة موحدة ومحمولة (portable
+                        format) ما بتعتمدش على منطقة أو لغة.</li>
+                    <li>PHP بتوفر دوال قوية زي <code>date()</code>, <code>strtotime()</code>, و <code>checkdate()</code>
+                        عشان تتعامل مع تحويلات التواريخ والتحقق من صحتها.</li>
+                </ol>
+                <hr>
+                <p>عشان تتخيل الموضوع بشكل واضح:
+                    تخيل إن <strong>Unix Time (الـTimestamp)</strong> هو زي <strong>&quot;التوقيت العسكري
+                        الدولي&quot;</strong>. رقم موحد مفهوش أي غموض، معروف للكل، ومحدش يقدر يغير شكله (ثواني معدودة من
+                    1970). أما <strong>التواريخ اللي بيشوفها المستخدم</strong> (13/05/2016) دي زي <strong>&quot;اللهجات
+                        العامية&quot;</strong>. هي مفهومة في محيطها، بس لو استخدمتها في نظام دولي، لازم ترجعها لأصلها
+                    الموحد (التوقيت العسكري) عشان العمليات الحسابية تشتغل صح.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
