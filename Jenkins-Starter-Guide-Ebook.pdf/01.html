@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <p>يا صديقي، طبعاً، ده شرح مفصّل للقسم الأول من الكتاب اللي هو <strong>&quot;مُقدمة: ليه بنستخدم Jenkins
+                        في Bugfender&quot;</strong> بالظبط زي ما طلبته، وكمان بالأمثلة عشان الصورة تبقى واضحة:</p>
+                <hr>
+                <h3 id="-jenkins-bugfender-">المقدمة: ليه بنستخدم Jenkins في Bugfender؟</h3>
+                <p><strong>البداية والاحتياج الداخلي (Bugfender):</strong></p>
+                <p>القصة بدأت إن شركة &quot;Mobile Jazz&quot; كانت محتاجة حل لمشكلة محددة. هما اللي صمموا
+                    &quot;Bugfender&quot; عشان يلبي احتياج داخلي عندهم: إنهم عايزين طريقة <strong>لتسجيل البيانات
+                        (remote logging)</strong> عن بعد، خاصةً لتطوير تطبيقات الموبايل. المطورين دول لاحظوا إنهم
+                    محتاجين مكان يخزنوا فيه سجلات المستخدمين (users’ logs) عن بعد، فبنوا البنية التحتية دي عشان تحقق ده.
+                    المشروع الجانبي ده كبر وبقى شركة قائمة بذاتها سنة 2015.</p>
+                <p><strong>السر ورا النجاح:</strong></p>
+                <p>التقدم اللي حصل في &quot;Bugfender&quot; بيرجع بشكل كبير جداً للشغل اللي عملوه في
+                    <strong>أتمتة</strong> (Automation) وصيانة بيئات التطوير والاختبار والنشر السحابية. يعني خلاصة
+                    الموضوع إنهم خلوا الشغل أوتوماتيك على قد ما يقدروا.</p>
+                <p><strong>الدرس الأهم: الكتابة بلا تنفيذ لا قيمة لها (المثال التفصيلي):</strong></p>
+                <p>من حوالي 4 سنين، اكتشفوا إنهم كانوا بيكتبوا <strong>اختبارات وحدة (iOS unit tests) كويسة</strong>،
+                    لكنهم <strong>مكّنوش بيشغلوها بانتظام كفاية</strong> عشان يتأكدوا إنها لسه شغالة. المصادر بتقولها
+                    صريحة: <strong>إنك تكتب اختبارات وماتستخدمهاش ده يعتبر &quot;إهدار كامل للوقت&quot;</strong>.</p>
+                <p>هنا بقى دخل &quot;Jenkins&quot;:</p>
+                <ul>
+                    <li>قرروا يخطوا خطوة للأمام وهي إنهم يستخدموا <strong>Jenkins عشان يخلي تنفيذ الاختبارات دي
+                            أوتوماتيكي</strong>.</li>
+                    <li>الـJenkins بيشغّل الاختبارات دي <strong>كل ما أي مطور يعمل تغيير في الكود</strong>.</li>
+                </ul>
+                <p><strong>الاستثمار الحقيقي وتوفير الوقت:</strong></p>
+                <p>الـJenkins ساعدهم يقللوا &quot;الفاقد&quot; عن طريق <strong>تقليل الوقت اللي كانوا بيقضوه في تشغيل
+                        الاختبارات يدويًا</strong>.</p>
+                <ol>
+                    <li><strong>توفير مئات الساعات (Compilation):</strong> الـJenkins بيتأكد إن الكود بتاعهم
+                        <strong>بيتجمّع (Compiles) صح</strong>. وده بيوفر <strong>&quot;مئات الساعات من المجهود
+                            البشري&quot;</strong> لأنهم مبقوش مضطرين يحلوا المشاكل الصغيرة دي في التجميع والنقل لحالة
+                        الإنتاج (Production-ready state) يدويًا.</li>
+                    <li><strong>النشر الفوري (Deployment):</strong> أي تعديل (commit) لونه أخضر (يعني عدى كل الاختبارات
+                        بنجاح) <strong>بيكون جاهز للنشر مباشرةً للإنتاج</strong>.</li>
+                </ol>
+                <p><strong>الفلسفة الأساسية (CI/CD):</strong></p>
+                <p>الخلاصة إن مفهوم التكامل والتسليم المستمر (CI/CD) كله بيدور حوالين مبدأ بسيط:</p>
+                <blockquote>
+                    <p><strong>إنك تخلي الآلات تعمل اللي بتعرف تعمله كويس، عشان البشر يقدروا يعملوا الحاجة اللي بتجيب
+                            قيمة أكبر للشركة</strong>.</p>
+                </blockquote>
+                <p><strong>التحويل للماديات (الأمثلة المالية):</strong></p>
+                <p>على الرغم من إن في ناس ممكن تشوف إن الـCI/CD كلام &quot;نظري&quot; ومحتاج مجهود، لكنه في الآخر
+                    <strong>استثمار بيوفر فلوس للشركة</strong>.</p>
+                <ul>
+                    <li>دراسة عملتها شركة CloudBees على أكثر من 100 مؤسسة لقت إن الـCI/CD بيحقق <strong>مكسب كفاءة بيوصل
+                            لـ 66 ساعة في السنة لكل مطور</strong>.</li>
+                    <li>يعني لو فريق فيه 100 شخص، المكسب ده بيعادل <strong>6,600 ساعة إضافية للاستثمار في
+                            الابتكار</strong>.</li>
+                    <li>ده بيترجم لقيمة سنوية مقدّرة بحوالي <strong>350,000 دولار</strong>.</li>
+                </ul>
+                <p><strong>هدف الكتاب:</strong></p>
+                <p>الهدف من الكتاب ده إنهم يساعدوا شركتك <strong>تسرّع عملية تطبيق Jenkins</strong>. عشان تبدأ على طول
+                    توفر فلوس، وتمنع &quot;الصداع الشائع&quot; اللي بيحصل للمطورين.</p>
+                <hr>
+                <p><strong>تشبيه لتبسيط الفكرة:</strong></p>
+                <p>تخيل إن &quot;Jenkins&quot; هو زي &quot;روبوت فحص الجودة&quot; في مصنع ملابس. زمان كنت بتخيط أنت وكل
+                    زمايلك قطعة قماش، وبعد ما تخلصوا خالص، بتجيبوا مشرف جودة (اللي هو المطور البشري) عشان يمسك كل حتة
+                    قماش ويشوف: &quot;يا ترى الخياطة دي صح؟ والقياسات مظبوطة؟&quot; وده كان بياخد وقت طويل جداً وبيكتشف
+                    الأخطاء متأخر.</p>
+                <p>دلوقتي، كل ما عامل (المطور) يخلص غرزتين صغيرين (commit)، الروبوت (Jenkins) بيشتغل أوتوماتيكياً وبيفحص
+                    الغرزتين دول فوراً. لو لقاهم كويسين (Green commit)، بتعدي. لو فيهم مشكلة، بيصوّت (Alert) للعامل عشان
+                    يصلحها فوراً. بكده بتوفر وقت مراجعة يدوي مهول، وتضمن إن المنتج النهائي جاهز للشحن في أي وقت.
+                    الـJenkins هنا بيضمن إن الآلة هي اللي بتعمل الشغل المكرر (الاختبار والتجميع)، وإنت بتركز على تصميم
+                    القميص (الابتكار).</p>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

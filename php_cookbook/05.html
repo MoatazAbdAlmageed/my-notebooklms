@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>05</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -19,9 +19,125 @@
 
 
 
-
-
-
+                <p>أهلاً وسهلاً يا فندم، الفصل رقم 5 ده فصل تقني شوية، لأنه بيتكلم عن <strong>&quot;مثال عميل SOAP&quot;
+                        (SoapClient Example)</strong>. الموضوع ده بيشرح إزاي تخلي التطبيق بتاعك (الـClient) يتكلم مع
+                    خدمات ويب خارجية (Web Services) باستخدام بروتوكول مشهور وقديم اسمه SOAP.</p>
+                <p>هنشرح كل حاجة بالتفصيل وبالأمثلة زي ما طلبت، وكل كلمة متوثقة من المصادر.</p>
+                <hr>
+                <h3 id="-5-php-soap-soapclient-example-">الفصل 5: إزاي تخلي PHP تتكلم SOAP (SoapClient Example)</h3>
+                <p>القصة كلها بتدور حوالين إنك تحتاج تبادل بيانات بين تطبيقك وبين تطبيق تاني بعيد على الإنترنت. بيتم ده
+                    باستخدام بروتوكول، والمثال ده مركز على بروتوكول <strong>SOAP</strong>.</p>
+                <h4 id="1-preparing-the-environment-">1. تجهيز البيئة (Preparing the environment)</h4>
+                <p>عشان نطبق المثال ده، المصدر بيفترض إننا شغالين على بيئة معينة:</p>
+                <ul>
+                    <li>نظام تشغيل <strong>Ubuntu (14.04)</strong>.</li>
+                    <li>سيرفر <strong>Apache HTTP (2.4.7)</strong>.</li>
+                    <li>لغة <strong>PHP (5.5.9)</strong>.</li>
+                </ul>
+                <p><strong>أهم خطوة هنا هي إعداد PHP:</strong>
+                    عشان شغالين في بيئة تطوير، يفضل إنك تقفل خاصية الكاش بتاع WSDL عشان ما تعملش مشاكل وأنت بتجرب.</p>
+                <ol>
+                    <li>بتفتح ملف إعداد PHP (<code>/etc/php5/apache2/php.ini</code>).</li>
+                    <li>بتخلي الـ<code>soap.wsdl_cache_enabled</code> قيمته <strong>0</strong>:
+                        <pre><code class="lang-ini"><span class="hljs-attr">soap.wsdl_cache_enabled</span>=<span class="hljs-string">0</span>
+</code></pre>
+                    </li>
+                    <li>طبعاً، لازم تعمل <strong>Restart لـApache</strong> بعد ما تخلص أي تعديل.</li>
+                </ol>
+                <h4 id="2-soap-what-is-soap-">2. إيه هو SOAP؟ (What is SOAP?)</h4>
+                <p>SOAP اختصار لـ<strong>Simple Object Access Protocol</strong>.</p>
+                <p><strong>الزبدة بتاعته:</strong>
+                    البروتوكول ده عبارة عن نظام قياسي بيحدد إزاي كائنين مختلفين (two different objects) في عمليتين
+                    مختلفتين (different processes) يقدروا يتواصلوا مع بعض. التواصل ده بيتم عن طريق تبادل البيانات بتنسيق
+                    <strong>XML</strong>.
+                </p>
+                <p>بمعنى أبسط، SOAP بيخليك تقدر <strong>تنده على ميثود (دالة برمجية)</strong> موجودة في جهاز كمبيوتر
+                    بعيد عنك تماماً.</p>
+                <h4 id="3-server-and-client-example-">3. مثال عملي: الخادم والعميل (Server and Client Example)</h4>
+                <p>المثال هنا بيفترض سيناريو تقليدي: خدمة ويب بتعمل إدخال وقراءة للبيانات (بس هنا محاكاة بملف نصي عادي،
+                    مش قاعدة بيانات فعلية).</p>
+                <h5 id="-the-server-logic-">أ. منطق الخادم (The Server Logic)</h5>
+                <p>ملف الخادم (مثلاً <code>simple_soap_server_class.php</code>) بيحتوي على ميثودز ممكن يتم النداء عليها
+                    عن بعد (remotely invoked).</p>
+                <ul>
+                    <li><strong><code>insertData($data)</code>:</strong> بتضيف البيانات لملف اسمه <code>data.txt</code>.
+                        لو نجحت العملية، بترجع عدد البايتات اللي اتكتبت.</li>
+                    <li><strong><code>readData()</code>:</strong> بتقرا محتوى الملف <code>data.txt</code> كله وبترجعه.
+                    </li>
+                </ul>
+                <h5 id="-the-client-logic-">ب. منطق العميل (The Client Logic)</h5>
+                <p>هنا بيجي دور <strong>كلاس <code>SoapClient</code></strong> المدمج في PHP. العميل (الـClient) هو اللي
+                    هيستخدم الكلاس ده عشان يكلم الخادم.</p>
+                <p><strong>الطريقتان لإنشاء عميل SOAP:</strong></p>
+                <p>الخدمة ممكن تكون معرفة بطريقتين:</p>
+                <ol>
+                    <li><strong>بـ WSDL (Web Services Definition Language):</strong> ودي لغة بتوصف الخدمة (إيه الميثودز
+                        اللي فيها، وإيه البارامترات المطلوبة، إلخ).</li>
+                    <li><strong>بدون WSDL (Non-WSDL):</strong>.</li>
+                </ol>
+                <p>كلاس <code>SimpleSoapClient</code> بيعمل تهيئة لـ<code>SoapClient</code> حسب الوضع ده:</p>
+                <ul>
+                    <li><strong>وضع WSDL:</strong> بتمرر موقع ملف التعريف (الـ<code>.wsdl</code> file) مباشرة
+                        للـ<code>SoapClient</code> كبارامتر في الـconstructor.</li>
+                    <li><strong>وضع Non-WSDL:</strong> بتمرر القيمة <code>NULL</code> للبارامتر الأول، وبتمرر مصفوفة
+                        (array) بتحتوي على عنصرين هما <code>location</code> و <code>uri</code> (وكلهم بياخدوا عنوان ملف
+                        PHP بتاع الخادم كقيمة).</li>
+                </ul>
+                <p><strong>السر في التعامل مع الميثودز:</strong>
+                    بعد ما بتنشئ الـ<code>SoapClient</code>، الموضوع بيكون &quot;سحر&quot; شوية. تقدر تنده على الميثودز
+                    المعرفة في السيرفر (زي <code>insertData</code> أو <code>readData</code>) <strong>مباشرة</strong> من
+                    كائن العميل.</p>
+                <pre><code class="lang-php"><span class="hljs-comment">// الكود في العميل اللي بينادي على السيرفر</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insertData</span><span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-comment">// SoapClient بيقوم بكل شغل البروتوكول نيابة عنك</span>
+    $response = <span class="hljs-keyword">$this</span>-&gt;client-&gt;insertData($data); <span class="hljs-comment">//</span>
+    <span class="hljs-keyword">return</span> $response;
+}
+</code></pre>
+                <p>الـ<code>SoapClient</code> بيترجم النداء ده لبروتوكول SOAP وينفذه على السيرفر البعيد، من غير ما تحتاج
+                    تقلق إزاي البروتوكول نفسه بيشتغل.</p>
+                <h5 id="-using-the-client-">ج. مثال الاستخدام (Using the Client)</h5>
+                <p>لو استخدمنا سكريبت وسيط (زي <code>handle_soap_request.php</code>) عشان نختبر العميل ده عن طريق
+                    بارامترات <code>GET</code>، النتيجة بتكون كده:</p>
+                <ol>
+                    <li>
+                        <p><strong>لو عملت إدخال بيانات (insert):</strong>
+                            لو دخلت في المتصفح مثلاً: <code>...&amp;action=insert&amp;value=testing_no_wsdl</code>
+                            الخدمة هتستقبل القيمة وتكتبها في الملف.
+                            <strong>النتيجة هتكون:</strong>
+                            <code>Response from SOAP service: 19 bytes have been inserted.</code>
+                        </p>
+                    </li>
+                    <li>
+                        <p><strong>لو عملت قراءة بيانات (read):</strong>
+                            لو دخلت في المتصفح مثلاً: <code>...&amp;action=read</code>
+                            الخدمة هترجع كل البيانات اللي اتكتبت.
+                            <strong>النتيجة هتكون:</strong>
+                            <code>Received data from SOAP service: testing_no_wsdl</code>
+                        </p>
+                    </li>
+                </ol>
+                <h4 id="4-considerations-">4. ملاحظات مهمة (Considerations)</h4>
+                <ul>
+                    <li><strong>التوثيق:</strong> أحسن طريقة عشان تعمل بيها خدمة SOAP هي إنك تستخدم ملفات
+                        <strong>WSDL</strong> لأنها بتوفر توثيق واضح للميثودز المتاحة.
+                    </li>
+                    <li><strong>تصحيح الأخطاء (Debugging):</strong> لو عايز تعرف إيه الميثودز اللي بيقدمها السيرفر عشان
+                        تجربها، ممكن تستخدم دالة <strong><code>__getFunctions()</code></strong> اللي بيوفرها
+                        <code>SoapClient</code>.
+                    </li>
+                    <li><strong>الأمان:</strong> لازم تتأكد إن الاتصال بين العميل والخادم <strong>مُشفَّر</strong>. لو
+                        الخدمة ما بتوفرش اتصال مُشفَّر (encrypted connection)، البيانات هتتبعت في <strong>نص عادي (plain
+                            text)</strong>. ولو بتتعامل مع معلومات حساسة، لازم تكون حريص جداً في النقطة دي.</li>
+                </ul>
+                <hr>
+                <p><strong>عشان نوصل الفكرة أكتر:</strong></p>
+                <p>تخيل إن SOAP ده زي <strong>&quot;قائمة طلبات&quot;</strong> مكتوبة بلغة XML موحدة. أنت (الـClient)
+                    محتاج تعمل طلب &quot;اقرا البيانات&quot; (Read Data). بتدي الطلب ده لـ<code>SoapClient</code>.
+                    الـ<code>SoapClient</code> ده هو <strong>&quot;المترجم الفوري&quot;</strong> اللي بياخد الطلب بتاعك،
+                    يحوله لقائمة XML المعقدة (SOAP message)، ويبعتها للسيرفر البعيد، اللي بدوره بيفهم الـXML وينفذ
+                    الطلب. كل اللي عليك هو إنك تنده على الدالة، والمترجم ده بيقوم بالشغل التقيل بتاع البروتوكول نيابة
+                    عنك.</p>
 
 
             </div>

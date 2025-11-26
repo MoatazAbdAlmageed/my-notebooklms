@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، الفصل التاسع (Chapter 9) ده <strong>مهم أوي</strong> وبيتكلم عن <strong>&quot;اختبارات
+                        الوحدات&quot; أو &quot;Unit Tests&quot;</strong>. ده مش مجرد كلام عن إننا لازم نكتب اختبارات،
+                    لأ، ده بيتكلم عن إزاي نخلي الاختبارات دي <strong>نظيفة</strong> زي الكود الإنتاجي بالظبط عشان متقلبش
+                    كابوس وتخلي النظام صعب التعديل.</p>
+                <p>بما إننا بنتكلم عن النظافة، تعال نشوف إيه هي أهم قواعد الفصل ده، وخصوصاً إن <strong>الاختبارات
+                        النظيفة بتمكنك من حاجات كتير (Tests Enable the -ilities)</strong>.</p>
+                <hr>
+                <h3 id="1-the-three-laws-of-tdd-">1. القوانين الثلاثة لتطوير المعتمد على الاختبار (The Three Laws of
+                    TDD)</h3>
+                <p>الفصل بيبدأ بتوضيح إن الاختبارات (Tests) مش مجرد حاجة بنعملها بعد ما نكتب الكود، لأ، ده <strong>أسلوب
+                        حياة</strong> اسمه <strong>TDD (Test-Driven Development)</strong>، وده بيتمشي على تلات قوانين
+                    أساسية:</p>
+                <ol>
+                    <li><strong>متقدرش تكتب كود إنتاجي (Production Code) إلا لو كنت كاتب اختبار وحدة (Unit Test)
+                            فاشل</strong>. يعني لازم تبدأ بالاختبار، وتتأكد إنه ساقط (Failing) عشان تعرف إيه اللي محتاج
+                        يتعمل بالظبط.</li>
+                    <li><strong>متقدرش تكتب أكتر من اختبار وحدة واحد فاشل في المرة الواحدة</strong>. لو الاختبار فشل، أو
+                        ظهر فيه أي خطأ في الكومبايل (Compilation) أو أي حاجة، تقف لحد هنا.</li>
+                    <li><strong>متقدرش تكتب كود إنتاجي يزيد عن اللي محتاجه بالظبط عشان تخلي الاختبار الفاشل ده
+                            ينجح</strong>. ده بيضمن إنك بتبني النظام خطوة بخطوة وبتتجنب التعقيد غير الضروري.</li>
+                </ol>
+                <p><strong>الزبدة:</strong> القوانين دي بتخلي الكود نضيف جداً من الأول. الكاتب نفسه بيقول إن عشان تكتب
+                    كود نظيف، لازم الأول تكتب كود &quot;وسخ&quot; (Dirty Code) وبعدين تنظفه خطوة خطوة، بس لما تستخدم
+                    TDD، بتخلي الكود نظيف في أغلب الأوقات.</p>
+                <hr>
+                <h3 id="2-keeping-tests-clean-">2. أهمية نظافة الاختبارات (Keeping Tests Clean)</h3>
+                <p>الاختبارات القذرة أو &quot;الوسخة&quot; بتدمر الكود الإنتاجي. ليه؟</p>
+                <ul>
+                    <li><strong>الكود اللي مش متغطي باختبارات بيكون كود إنتاجي وسخ (Dirty Production Code)</strong>.
+                    </li>
+                    <li>لما الاختبارات تكون صعبة القراءة، بتبقى <strong>صعبة التعديل</strong>. لو الاختبارات صعبة
+                        التعديل، فغالباً محدش هيعدلها لما الكود الإنتاجي يتغير، وبالتالي بتفقد قيمتها.</li>
+                    <li>لما الاختبارات تبطل تتطور، <strong>الكود اللي بتختبره بيبوظ ببطء</strong> (creeping cruft).</li>
+                </ul>
+                <p><strong>الاختبارات النظيفة بتمكنك من الآتي (Tests Enable the -ilities)</strong>:</p>
+                <ul>
+                    <li><strong>المرونة (Flexibility):</strong> الاختبارات بتخلي الكود مرن وقابل للتغيير، لأنها بتدي
+                        للبرمجر الشجاعة يغير أي حاجة وهو مطمن إن الاختبارات هتمسك أي غلط.</li>
+                    <li><strong>القابلية للصيانة (Maintainability):</strong> إذا كانت الاختبارات صعبة القراءة، فإن قيمة
+                        الكود النظيف الذي تختبره تقل.</li>
+                    <li><strong>قابلية إعادة الاستخدام (Reusability):</strong> الكود النظيف اللي ليه اختبارات نظيفة،
+                        بيكون سهل إنك تاخد منه أجزاء وتستخدمها في مكان تاني.</li>
+                </ul>
+                <hr>
+                <h3 id="3-clean-tests-">3. ما هي صفات الاختبارات النظيفة؟ (Clean Tests)</h3>
+                <p>زي ما الكود الإنتاجي لازم يكون نظيف، الاختبارات كمان لازم تكون نظيفة. أهم صفة في الاختبار النظيف هي
+                    <strong>القراءة السهلة</strong>.
+                </p>
+                <h4 id="-clarity-dsl">أ. الوضوح (Clarity) و الـ DSL</h4>
+                <p>أفضل طريقة لتنظيم اختبارات الوحدة هي إنك تخليها تتبع نمط <strong>&quot;التجهيز-التنفيذ-التأكيد&quot;
+                        (Arrange, Act, Assert)</strong> أو ما يعرف أيضاً بـ <strong>Given-When-Then</strong>.</p>
+                <p><strong>مثال:</strong> قارن بين طريقتين لكتابة الاختبار (في سياق نظام تحكم بيئي):</p>
+                <p><strong>الطريقة المعقدة (المش نظيفة):</strong>
+                    الكاتب بيشرح اختبار معقد بيعمل فحص لحالة السخان والمبرد والإنذارات. عين القارئ بتضطر تتحرك كتير
+                    (bounce back and forth) بين اسم الحالة (زي <code>heaterState</code>) والقيمة اللي بيتم التأكيد عليها
+                    (<code>assertTrue</code> أو <code>assertFalse</code>)، وده بيخلي القراءة مملة ومش موثوق فيها.</p>
+                <p><strong>الطريقة النظيفة (باستخدام لغة خاصة بالاختبار - Domain-Specific Testing Language):</strong>
+                </p>
+                <p>بدل ما تستخدم <code>assertTrue</code> و <code>assertFalse</code> كتير، الكاتب اقترح استخدام
+                    <strong>تعبير رمزي (Cryptic String)</strong> بيوصف حالة النظام كله في سطر واحد.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">الرمز</th>
+                            <th style="text-align:center">المعنى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center">H</td>
+                            <td style="text-align:center">السخان شغال (Heater ON)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">h</td>
+                            <td style="text-align:center">السخان مطفي (Heater OFF)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">B</td>
+                            <td style="text-align:center">المنفاخ شغال (Blower ON)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">b</td>
+                            <td style="text-align:center">المنفاخ مطفي (Blower OFF)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center">C, c, L, l</td>
+                            <td style="text-align:center">وهكذا لباقي المكونات</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>مثال الاختبار النظيف:</strong>
+                    لو الجو &quot;برد جداً&quot; (Way Too Cold)، لازم السخان والمنفاخ وإنذار الحرارة المنخفضة يكونوا
+                    شغالين، والباقي مطفي:</p>
+                <pre><code class="lang-java"><span class="hljs-meta">@Test</span>
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">turnOnLoTempAlarmAtThreshold</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+  <span class="hljs-comment">// Given (التجهيز)</span>
+  wayTooCold();
+  <span class="hljs-comment">// Then (التأكيد)</span>
+  assertEquals(<span class="hljs-string">"HBchL"</span>, hw.getState()); <span class="hljs-comment">// السخان (H)، المنفاخ (B)، المبرد (c)، إنذار الحرارة العالية (h)، إنذار الحرارة المنخفضة (L)</span>
+}
+</code></pre>
+                <p>مجرد النظر للـ String ده (&quot;HBchL&quot;) بيخلي عينك تقرا النتيجة بسرعة وبتكون فاهم ايه اللي حصل.
+                    بالرغم من إن التعبير ده (HBchL) ممكن يعتبر <strong>مخالف لقاعدة &quot;تجنب الإشارة الذهنية&quot;
+                        (Avoid Mental Mapping)</strong>، إلا إنه هنا يعتبر مناسب لأنه بيخلي قراءة الاختبار أسرع وأوضح
+                    بكتير.</p>
+                <h4 id="-f-i-r-s-t">ب. القاعدة الواحدة: F.I.R.S.T</h4>
+                <p>الاختبارات النظيفة لازم تكون سهلة القراءة، بس كمان لازم تحقق خمس متطلبات أساسية بيجمعهم اختصار
+                    <strong>F.I.R.S.T</strong> (لم يتم ذكر هذا الاختصار بالتفصيل في المصادر المقدمة، لكن المصادر تشير
+                    إلى أهمية كل عنصر من هذه العناصر):
+                </p>
+                <ol>
+                    <li><strong>Fast (سريعة):</strong> لازم الاختبارات تكون سريعة. لو الاختبارات بطيئة، المبرمج مش هيحب
+                        يشغلها كتير، ولو مشغلهاش كتير، مش هيقدر يكتشف الأخطاء بدري.</li>
+                    <li><strong>Independent (مستقلة):</strong> الاختبارات مش لازم تعتمد على بعضها. أي اختبار لازم يقدر
+                        يشتغل لوحده وفي أي ترتيب.</li>
+                    <li><strong>Repeatable (قابلة للتكرار):</strong> لازم الاختبار يديك نفس النتيجة في كل مرة تشغله
+                        فيها، سواء كان شغال على جهازك أو على السيرفر، أو على أي بيئة.</li>
+                    <li><strong>Self-Validating (تتحقق من نفسها):</strong> الاختبار لازم يقولك إما <strong>صح</strong>
+                        أو <strong>غلط</strong> (Boolean output). مش محتاج تفحص ملف log أو تقارن بين ملفين عشان تعرف
+                        النتيجة.</li>
+                    <li><strong>Timely (في الوقت المناسب):</strong> لازم تكتب الاختبارات في الوقت المناسب، أي قبل كتابة
+                        الكود الإنتاجي (TDD).</li>
+                </ol>
+                <hr>
+                <h3 id="4-a-dual-standard-">4. المعيار المزدوج (A Dual Standard)</h3>
+                <p>في الكود الإنتاجي، بنركز على الكفاءة (Efficiency) في استخدام الذاكرة ووقت المعالجة. لكن في كود
+                    الاختبار، ممكن نتساهل شوية في الكفاءة طالما إن الاختبار بيقوم بوظيفته صح وواضح.</p>
+                <p><strong>مثال على المعيار المزدوج:</strong></p>
+                <p>في المثال بتاع <code>getState()</code> اللي فوق (الرمز &quot;HBchL&quot;)، الكود اللي بيجمع الرمز ده
+                    ممكن يكون مش أكفأ حاجة من ناحية استخدام الـ <code>StringBuffers</code>، لكن بما إن ده كود اختبار،
+                    وتكلفة الكفاءة بسيطة، ممكن نغض الطرف عن استخدام <code>StringBuffers</code> عشان الكود يفضل أنظف
+                    وأسهل في القراءة.</p>
+                <p><strong>الخلاصة:</strong> ممكن نستخدم في كود الاختبار حاجات ممكن منحاولش نستخدمها في الكود الإنتاجي،
+                    زي إننا نضحي بكفاءة بسيطة عشان وضوح عظيم. لكن <strong>التساهل ده لا ينطبق أبداً على نظافة
+                        الكود</strong>. الاختبارات لازم تكون نظيفة زي الكود الإنتاجي بالظبط.</p>
+                <hr>
+                <p><strong>تخيل الاختبارات النظيفة زي &quot;قائمة فحص&quot; (Checklist) الطيار:</strong> الطيار مش
+                    بيخترع الخطوات في كل مرة بيطير فيها الطيارة، هو بيتبع قائمة واضحة ومحددة (Given-When-Then). لو
+                    القائمة دي مكتوبة بشكل معقد أو غامض، ممكن تحصل كوارث. الاختبار النظيف هو اللي بتقدر تقراه بسرعة
+                    وتفهم منه بوضوح <strong>ماذا</strong> يجب أن يفعله النظام، وكأنه مكتوب بلغة تطبيقك نفسها.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا معلم، طلبك على راسي! الفصل الثامن (Chapter 8) من الكتاب ده بيتكلم عن <strong>&quot;الحدود&quot;
+                        (Boundaries)</strong>، وهي نقطة مهمة جداً عشان تحافظ على الكود بتاعك نظيف ومستقل.</p>
+                <p>الهدف الأساسي من الفصل ده هو إزاي تتعامل مع <strong>الأكواد الخارجية (Third-Party Code)</strong> أو
+                    الخدمات اللي مش أنت اللي كاتبها، وتخلي الكود بتاعك معزول عن تفاصيلها عشان لو حصل تغيير فيها، الدنيا
+                    متتضربش عندك.</p>
+                <p>تعالى نشرح الموضوع ده بالتفصيل وبالأمثلة كأنك بتعمل &quot;طبقة عازلة&quot; بين بيتك وبين الجيران!</p>
+                <h3 id="1-using-third-party-code-">1. التعامل مع الأكواد الخارجية (Using Third-Party Code)</h3>
+                <p>لما بتستخدم مكتبة خارجية، زي مكتبة لقراءة ملفات PDF أو للاتصال بقاعدة بيانات، أنت كده بتعمل
+                    <strong>حد (Boundary)</strong> في الكود بتاعك. المشكلة إنك لو استخدمت المكتبة دي بشكل مباشر في كل
+                    حتة في الكود، بتبقى مرتبط بيها بشكل كبير (tightly coupled).
+                </p>
+                <p><strong>الفكرة هنا:</strong> لازم تعمل <strong>&quot;غلاف&quot; (Wrapper)</strong> أو طبقة عزل حوالين
+                    الأكواد الخارجية دي.</p>
+                <p><strong>ليه نعمل كده؟</strong></p>
+                <ol>
+                    <li><strong>الحرية في التغيير:</strong> لو قررت في يوم من الأيام تستبدل المكتبة دي بواحدة تانية، مش
+                        هتحتاج تغير الكود في كل مكان. التغيير هيكون بس في طبقة الـ Wrapper اللي أنت عملتها.</li>
+                    <li><strong>الوضوح والنية:</strong> الـ Wrapper ده بيوفر واجهة (Interface) بتكون مصممة خصيصاً
+                        لاحتياجات التطبيق بتاعك، وده بيخلي الكود الداخلي بتاعك واضح ومفهوم أكتر.</li>
+                </ol>
+                <p><strong>مثال على الحدود النظيفة (Clean Boundaries):</strong></p>
+                <p>افترض إنك بتستخدم <code>Map</code> خارجية (زي <code>HashMap</code> في Java) لتخزين أسماء الأجهزة.
+                    الكود اللي بيستخدم الـ <code>Map</code> دي ممكن يكون شكله كده:</p>
+                <pre><code class="lang-java"><span class="hljs-comment">// كود مش نظيف</span>
+Sensor s = (Sensor)sensors.<span class="hljs-built_in">get</span>(sensorId );
+<span class="hljs-comment">// الكلاينت (Client) هنا بيشيل مسؤولية الـ casting والتعامل مع Object</span>
+</code></pre>
+                <p>المشكلة إن الكود ده هيتكرر كتير في كل حتة بتستخدم الـ <code>Map</code>، وكل مرة بيحتاج يعمل
+                    <em>casting</em> للقيمة المسترجعة (تحويلها من <code>Object</code> للنوع المطلوب). ده مش كود نظيف،
+                    ومش بيحكي القصة صح.
+                </p>
+                <p><strong>الحل:</strong> نعمل كلاس <strong>مغلف (Wrapper class)</strong>، ونستخدم فيه الـ Generics عشان
+                    الكود يبقى أوضح:</p>
+                <pre><code class="lang-java"><span class="hljs-comment">// كود أنظف باستخدام الـ Generics والـ Wrapper</span>
+Sensor s = sensors.getSensor(sensorId);
+<span class="hljs-comment">// دلوقتي الكود ده بيحكي قصة أحسن وبيخفي تفاصيل الـ Map الداخلية</span>
+</code></pre>
+                <p>الـ Wrapper ده بيخفي عن المستخدمين إننا أصلاً بنستخدم <code>Map</code> وبيوفر واجهة نظيفة
+                    <strong>معزولة</strong>.
+                </p>
+                <hr>
+                <h3 id="2-exploring-and-learning-boundaries-">2. استكشاف وتعلم الحدود (Exploring and Learning
+                    Boundaries)</h3>
+                <p>قبل ما تستخدم أي مكتبة خارجية، لازم تتعلم إزاي تشتغل. أفضل طريقة لتعلم واجهة (API) جديدة هي عن طريق
+                    عمل <strong>اختبارات تعليمية (Learning Tests)</strong>.</p>
+                <p><strong>الاختبارات التعليمية (Learning Tests) ببلاش!</strong></p>
+                <p>ليه بنقول إنها ببلاش؟ لأنك كده كده هتحتاج تتعلم الـ API دي. الاختبارات دي بتوفر لك طريقة معزولة
+                    ودقيقة عشان تعمل تجارب وتزود فهمك للمكتبة.</p>
+                <p><strong>مثال عملي (Learning log4j):</strong></p>
+                <p>الفصل بيشرح إزاي تتعلم مكتبة <code>log4j</code> (المستخدمة في التسجيل/Logging) عن طريق كتابة اختبارات
+                    بسيطة. أنت بتكتب اختبارات عشان تعرف مثلاً إزاي تعمل تهيئة (initialize) للـ logger، أو إزاي تضيف
+                    <code>ConsoleAppender</code>.
+                </p>
+                <p><strong>مثلاً، ممكن تعمل اختبارات بالشكل ده (فكرة الاختبار):</strong></p>
+                <ul>
+                    <li><strong>اختبار <code>basicLogger()</code>:</strong> عشان تعرف إزاي تعمل التهيئة الأساسية
+                        للمكتبة.</li>
+                    <li><strong>اختبار <code>addAppenderWithStream()</code>:</strong> عشان تعرف إزاي توجه الـ log
+                        للإخراج القياسي (System.out) وتحدد نمط (Pattern) الرسالة.</li>
+                </ul>
+                <p><strong>نتيجة الاختبارات التعليمية:</strong>
+                    بعد ما بتخلص الاختبارات دي، بتكون عرفت بالظبط إزاي المكتبة بتشتغل. بعد كده، بتاخد المعرفة دي وتغلفها
+                    (encapsulate) في الكلاس بتاع الـ logger الخاص بالتطبيق بتاعك، وبكده تكون <strong>عزلت باقي التطبيق
+                        عن الواجهة الحدودية (boundary interface) لمكتبة <code>log4j</code></strong>.</p>
+                <hr>
+                <h3 id="3-using-code-that-does-not-yet-exist-">3. استخدام كود لم يكتمل بعد (Using Code That Does Not Yet
+                    Exist)</h3>
+                <p>مش بس بنستخدم الـ &quot;حدود&quot; عشان نعزل الكود بتاعنا عن الأكواد اللي موجودة، لأ، ممكن نستخدمها
+                    كمان عشان نصمم واجهة (Interface) لكود لسه متكتبش أصلاً!.</p>
+                <p>الفكرة إنك بتحدد بالظبط إيه الخدمات اللي محتاجها من جزء معين في النظام، حتى لو مكنش جاهز. ده بيخلي
+                    الفريق يكمل شغله من غير ما يستنى الطرف التاني، وفي نفس الوقت بيحدد إيه اللي محتاجينه في الواجهة
+                    المستقبلية.</p>
+                <p><strong>مثال نظام الاتصالات (Transmitter):</strong></p>
+                <p>في مثال لنظام اتصالات لاسلكية، كان فيه جزء اسمه &quot;Transmitter&quot; (المرسل) لسة لم يتم تعريف
+                    واجهته. فريق العمل حددوا شكل الواجهة اللي محتاجينها، زي إنهم عايزين يقولوا للمرسل:
+                    <strong>&quot;شغل المرسل على تردد معين، وطلع تمثيل تماثلي (analog) للبيانات اللي جاية من الـ stream
+                        ده&quot;</strong>.
+                </p>
+                <p>تحديد الواجهة دي بيساعد في صياغة الكود بتاعك وتجهيزه، وبيخلي الكود النظيف ده يضغط على الفريق التاني
+                    عشان يعملوا واجهة تلبي المتطلبات دي.</p>
+                <hr>
+                <p><strong>خلاصة الفصل الثامن (الزبدة):</strong></p>
+                <p>الفصل ده عامل زي جندي حراسة واقف على بوابة مدينتك (الكود بتاعك). شغلته إنه ميسمحش لأي تأثيرات خارجية
+                    (الأكواد التالتة) تخش وتسيطر على الأوضاع الداخلية.</p>
+                <p><strong>الخطوات العملية اللي لازم تعملها:</strong></p>
+                <ol>
+                    <li><strong>استخدم الأغلفة (Wrappers):</strong> أي كود خارجي، اعمل له طبقة عازلة (Wrapper) عشان
+                        تحميك من التغييرات اللي ممكن تحصل فيه.</li>
+                    <li><strong>استخدم اختبارات التعلم (Learning Tests):</strong> متخشش في تفاصيل الـ API مرة واحدة،
+                        جربها خطوة بخطوة في اختبارات صغيرة ومحددة.</li>
+                    <li><strong>ركز على الحدود النظيفة (Clean Boundaries):</strong> تأكد إن الواجهة اللي بتتعامل بيها مع
+                        الأكواد الخارجية واضحة وبتستخدم مصطلحات التطبيق بتاعك (Domain terms)، ومش مصطلحات المكتبة
+                        الغريبة.</li>
+                </ol>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

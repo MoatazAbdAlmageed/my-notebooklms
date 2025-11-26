@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، الفصل الرابع ده هو <strong>بداية الشغل الحقيقي</strong> والعمليات الأساسية في الـ MySQL. بما
+                    إننا عرفنا في الفصل اللي فات إزاي ندخل أوامر (Queries)، الفصل ده بيعلمنا إزاي نعمل قاعدة بيانات
+                    وجداول ونحط فيها البيانات ونسترجعها بألف طريقة وطريقة.</p>
+                <p>المرجع بيستخدم مثال اسمه <strong><code>menagerie</code></strong> (يعني حديقة حيوانات أليفة) عشان يسجل
+                    معلومات عن حيواناتك.</p>
+                <p>ده شرح مفصل للفصل الرابع: <strong>إنشاء واستخدام قاعدة بيانات (Creating and Using a
+                        Database)</strong>.</p>
+                <hr>
+                <h3 id="4-1-creating-and-selecting-a-database-">4.1 إنشاء واختيار قاعدة بيانات (Creating and Selecting a
+                    Database)</h3>
+                <p>الخطوة الأولى هي إننا نعمل مكان للبيانات دي (قاعدة البيانات).</p>
+                <ol>
+                    <li><strong>رؤية قواعد البيانات الموجودة:</strong> قبل ما تبدأ، ممكن تشوف إيه القواعد الموجودة
+                        بالفعل على السيرفر باستخدام أمر <code>SHOW DATABASES;</code>.
+                        <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SHOW DATABASES;
++----------+</span>
+<span class="hljs-section">| Database |
++----------+</span>
+| mysql    |
+| test     |
+<span class="hljs-section">| tmp      |
++----------+</span>
+</code></pre>
+                    </li>
+                    <li><strong>إنشاء قاعدة بيانات جديدة:</strong> عشان تعمل قاعدة البيانات بتاعتك اللي اسمها
+                        <code>menagerie</code>، بتستخدم أمر <code>CREATE DATABASE</code>:
+                        <pre><code class="lang-sql">mysql&gt; CREATE DATABASE menagerie<span class="hljs-comment">;</span>
+</code></pre>
+                        (ملاحظة: تحت نظام تشغيل زي يونكس/لينكس، أسماء قواعد البيانات حساسة لحالة الحروف
+                        (case-sensitive)، عشان كده لازم دايماً تستخدم نفس طريقة الكتابة <code>menagerie</code>، مش
+                        <code>MENAGERIE</code> مثلاً). ولو واجهتك مشكلة هنا، ممكن تكون محتاج صلاحيات من المدير.
+                    </li>
+                    <li><strong>اختيار قاعدة البيانات للاستخدام:</strong> مجرد إنك عملت قاعدة البيانات مش معناها إنك
+                        بدأت تشتغل عليها. لازم تحددها صراحة عشان كل أوامرك اللي جاية تتطبق جواها. بنستخدم أمر
+                        <code>USE</code>:
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">USE</span> <span class="hljs-title">menagerie</span>;
+Database changed
+</code></pre>
+                        زي الأمر <code>QUIT</code>، الأمر <code>USE</code> مش بيحتاج فاصلة منقوطة (<code>;</code>) في
+                        آخره، وميزة كمان إن لازم يتكتب في سطر واحد.
+                        (ممكن كمان تختار قاعدة البيانات دي وأنت بتفتح الـ <code>mysql</code> من الـ command line أصلاً).
+                    </li>
+                </ol>
+                <hr>
+                <h3 id="4-2-creating-a-table-">4.2 إنشاء جدول (Creating a Table)</h3>
+                <p>بعد ما اخترنا قاعدة البيانات، هي لسه فاضية. لو عملت <code>SHOW TABLES;</code> هتلاقيها فاضية:</p>
+                <pre><code class="lang-sql">mysql&gt; SHOW TABLES<span class="hljs-comment">;</span>
+Empty <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> <span class="hljs-keyword">sec</span>)
+</code></pre>
+                <p>دلوقتي محتاجين نعمل <strong>الجدول</strong> اللي هيشيل بيانات الحيوانات. الجدول ده بنسميه
+                    <code>pet</code>.</p>
+                <p><strong>إيه الأعمدة اللي محتاجينها؟</strong>
+                    المرجع بيقول إننا محتاجين نجمع معلومات زي الاسم، والمالك، والنوع (Species)، والجنس (Sex)، وتاريخ
+                    الميلاد، وتاريخ الوفاة.</p>
+                <blockquote>
+                    <p><strong>ملحوظة مهمة بخصوص العمر:</strong> بيقولك بلاش تخزن العمر في قاعدة البيانات مباشرة!. ليه؟
+                        عشان العمر بيتغير كل يوم، وده معناه إنك هتحتاج تحدث البيانات باستمرار. الأفضل إنك تخزن
+                        <strong>تاريخ الميلاد (birth date)</strong>، ولما تحتاج العمر، بتحسبه عن طريق دوال التاريخ (Date
+                        arithmetic). تخزين تاريخ الميلاد ده بيدي مميزات تانية، زي إنك تبعت تهنئة بأعياد الميلاد أو تحسب
+                        عمر الحيوان لما مات.</p>
+                </blockquote>
+                <p><strong>أمر إنشاء الجدول:</strong></p>
+                <p>بنستخدم أمر <code>CREATE TABLE</code> وبنحدد اسم كل عمود ونوعه:</p>
+                <pre><code class="lang-sql">mysql&gt; CREATE TABLE pet (<span class="hljs-name">name</span> VARCHAR(<span class="hljs-number">20</span>), owner VARCHAR(<span class="hljs-number">20</span>),
+        species VARCHAR(<span class="hljs-number">20</span>), sex CHAR(<span class="hljs-number">1</span>), birth DATE, death DATE)<span class="hljs-comment">;</span>
+</code></pre>
+                <ul>
+                    <li><strong>VARCHAR(20):</strong> مناسب لـ (name, owner, species) لأن قيمته بتتغير في الطول. الـ 20
+                        دي هي أقصى عدد حروف ممكن تحطه.</li>
+                    <li><strong>CHAR(1):</strong> مناسب لـ (sex) لو هتستخدم حرف واحد (&#39;f&#39; أو &#39;m&#39;).</li>
+                    <li><strong>DATE:</strong> مناسب لـ (birth, death).</li>
+                </ul>
+                <p><strong>التأكد من هيكل الجدول:</strong> عشان تتأكد إن الجدول اتعمل صح، بتستخدم أمر
+                    <code>DESCRIBE</code> (أو اختصارها <code>DESC</code>):</p>
+                <pre><code class="lang-sql">mysql&gt; DESCRIBE pet;
++---------+-------------+------+-----+---------+-------+
+|<span class="hljs-string"> Field   </span>|<span class="hljs-string"> Type        </span>|<span class="hljs-string"> Null </span>|<span class="hljs-string"> Key </span>|<span class="hljs-string"> Default </span>|<span class="hljs-string"> Extra </span>|
++---------+-------------+------+-----+---------+-------+
+|<span class="hljs-string"> name    </span>|<span class="hljs-string"> varchar(20) </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
+|<span class="hljs-string"> owner   </span>|<span class="hljs-string"> varchar(20) </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
+|<span class="hljs-string"> species </span>|<span class="hljs-string"> varchar(20) </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
+|<span class="hljs-string"> sex     </span>|<span class="hljs-string"> char(1)     </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
+|<span class="hljs-string"> birth   </span>|<span class="hljs-string"> date        </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
+|<span class="hljs-string"> death   </span>|<span class="hljs-string"> date        </span>|<span class="hljs-string"> YES  </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> NULL    </span>|<span class="hljs-string">       </span>|
++---------+-------------+------+-----+---------+-------+
+</code></pre>
+                <hr>
+                <h3 id="4-3-loading-data-into-a-table-">4.3 إدخال البيانات في جدول (Loading Data into a Table)</h3>
+                <p>بعد ما عملنا الجدول، محتاجين نملأه بالبيانات (Populate). فيه طريقتين مشهورين:</p>
+                <h4 id="1-load-data-">1. استخدام LOAD DATA (لإدخال بيانات كتير مرة واحدة)</h4>
+                <p>لو عندك بيانات كتير (مثلاً سجلات 8 حيوانات)، ممكن تحطها في ملف نصي (زي <code>pet.txt</code>) وتستخدم
+                    أمر <code>LOAD DATA</code>.</p>
+                <ul>
+                    <li><strong>صيغة التواريخ:</strong> لازم التواريخ تكون بصيغة <strong>&#39;YYYY-MM-DD&#39;</strong>
+                        (زي 1993-02-04).</li>
+                    <li><strong>القيم الناقصة (Missing Values):</strong> لو فيه قيمة مش عارفها (زي جنس Whistler أو تاريخ
+                        وفاة حيوان لسه عايش)، بتمثلها في الملف النصي بـ <strong><code>\N</code></strong> (باك سلاش و N
+                        كابيتال).</li>
+                </ul>
+                <pre><code class="lang-sql"><span class="hljs-comment"># شكل السطر في ملف pet.txt (بفرض إنهم مفصولين بـ Tab)</span>
+Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class="hljs-number">1997</span>-<span class="hljs-number">12</span>-<span class="hljs-number">09</span>      <span class="hljs-string">\N</span>
+</code></pre>
+                <p><strong>الأمر اللي بيحمل الملف:</strong></p>
+                <pre><code class="lang-sql">mysql&gt; LOAD <span class="hljs-built_in">DATA</span> <span class="hljs-built_in">LOCAL</span> INFILE <span class="hljs-string">'/path/pet.txt'</span> <span class="hljs-keyword">INTO</span> TABLE pet;
+</code></pre>
+                <p>(لو الملف معمول على ويندوز، قد تحتاج تضيف <code>LINES TERMINATED BY &#39;\r\n&#39;</code> عشان يتعرف
+                    على نهاية السطر صح).</p>
+                <h4 id="2-insert-">2. استخدام INSERT (لإدخال سجل واحد)</h4>
+                <p>لو عايز تضيف سجل جديد واحد بس (زي حيوان &quot;Puffball&quot; الجديد)، بتستخدم <code>INSERT</code>:
+                </p>
+                <pre><code class="lang-sql">mysql&gt; INSERT <span class="hljs-keyword">INTO</span> pet
+       VALUES (<span class="hljs-string">'Puffball'</span>,<span class="hljs-string">'Diane'</span>,<span class="hljs-string">'hamster'</span>,<span class="hljs-string">'f'</span>,<span class="hljs-string">'1999-03-30'</span>,<span class="hljs-keyword">NULL</span>);
+</code></pre>
+                <p><strong>مقارنة مهمة:</strong> في <code>INSERT</code>، لو فيه قيمة مفقودة، بتكتب
+                    <strong><code>NULL</code></strong> مباشرة. أما في ملف <code>LOAD DATA</code> كنا بنستخدم
+                    <code>\N</code>.</p>
+                <hr>
+                <h3 id="4-4-retrieving-information-from-a-table-">4.4 استرجاع البيانات من جدول (Retrieving Information
+                    from a Table)</h3>
+                <p>هنا بقى بنستخدم الـ <strong><code>SELECT</code></strong> عشان نطلع المعلومات اللي محتاجينها.</p>
+                <p>الصيغة العامة لأمر <code>SELECT</code>:</p>
+                <p><code>SELECT اللي_عايز_تشوفه FROM الجدول_اللي_هتجيب_منه WHERE شروط_التحقيق;</code></p>
+                <h4 id="4-4-1-selecting-all-data-">4.4.1 اختيار كل البيانات (Selecting All Data)</h4>
+                <p>عشان تشوف الجدول كله:</p>
+                <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet;
+</code></pre>
+                <ul>
+                    <li>الـ <code>*</code> دي اختصار لـ &quot;كل الأعمدة&quot;.</li>
+                    <li>النتيجة هتكون فيها كل السجلات اللي أدخلتها.</li>
+                </ul>
+                <p><strong>تصحيح الأخطاء (التعديل):</strong>
+                    لو لقيت إن فيه غلط في البيانات (زي إن تاريخ ميلاد Bowser كان المفروض 1989 مش 1979)، ممكن تصلحه
+                    باستخدام <code>UPDATE</code>:</p>
+                <pre><code class="lang-sql">mysql&gt; UPDATE pet <span class="hljs-keyword">SET</span> birth <span class="hljs-comment">=</span> <span class="hljs-comment">'1989-08-31'</span><span class="hljs-comment"> WHERE name =</span> <span class="hljs-comment">'Bowser'</span>;
+</code></pre>
+                <p>الـ <code>UPDATE</code> ده بيغير السجل اللي فيه المشكلة بس، ومش محتاج تعيد تحميل الجدول كله.</p>
+                <h4 id="4-4-2-selecting-particular-rows-">4.4.2 اختيار صفوف معينة (Selecting Particular Rows)</h4>
+                <p>لو عايز تجاوب على سؤال محدد، بتستخدم جملة <code>WHERE</code> عشان تحدد الشروط:</p>
+                <ul>
+                    <li>
+                        <p><strong>مثال (سجل حيوان معين):</strong> عايز أشوف بيانات &quot;Bowser&quot; بس:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name = <span class="hljs-string">'Bowser'</span>;
+</code></pre>
+                        <p>(المقارنة بين النصوص هنا مش حساسة لحالة الحروف (case-insensitive)، فممكن تكتب
+                            &#39;bowser&#39; أو &#39;BOWSER&#39; عادي).</p>
+                    </li>
+                    <li>
+                        <p><strong>مثال (شروط على التاريخ):</strong> الحيوانات اللي اتولدت في أو بعد سنة 1998:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> birth &gt;= <span class="hljs-string">'1998-1-1'</span>;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (دمج الشروط - AND):</strong> عايزة الكلاب (dog) اللي جنسها أنثى (f):</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> species = <span class="hljs-string">'dog'</span> <span class="hljs-keyword">AND</span> sex = <span class="hljs-string">'f'</span>;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (دمج الشروط - OR):</strong> عايزة الثعابين (snake) أو الطيور (bird):</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> species = <span class="hljs-string">'snake'</span> <span class="hljs-keyword">OR</span> species = <span class="hljs-string">'bird'</span>;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>ملاحظة الأقواس:</strong> لو هتستخدم <code>AND</code> و <code>OR</code> مع بعض، الأفضل
+                            تستخدم أقواس عشان تحدد الأولويات، لأن <code>AND</code> ليها أولوية أعلى من <code>OR</code>.
+                        </p>
+                    </li>
+                </ul>
+                <h4 id="4-4-3-selecting-particular-columns-">4.4.3 اختيار أعمدة معينة (Selecting Particular Columns)
+                </h4>
+                <p>عشان تشوف معلومات معينة بس، بتكتب أسماء الأعمدة بدل <code>*</code>:</p>
+                <ul>
+                    <li>
+                        <p><strong>مثال:</strong> عايزة الاسم وتاريخ الميلاد بس:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-built_in">SELECT</span> <span class="hljs-built_in">name</span>, birth <span class="hljs-keyword">FROM</span> pet;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (إزالة التكرار):</strong> عشان تعرف مين هم الملاك اللي عندهم حيوانات، وعايز كل
+                            اسم يظهر مرة واحدة بس:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> owner <span class="hljs-keyword">FROM</span> pet;
+</code></pre>
+                    </li>
+                </ul>
+                <h4 id="4-4-4-sorting-rows-">4.4.4 ترتيب الصفوف (Sorting Rows)</h4>
+                <p>عشان تخلي النتائج تظهر بشكل منظم ومفهوم، بتستخدم جملة <strong><code>ORDER BY</code></strong>:</p>
+                <ul>
+                    <li>
+                        <p><strong>مثال (ترتيب حسب الميلاد تصاعدي):</strong> أقدم حيوان أولاً:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> name, birth <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> birth;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (ترتيب حسب الميلاد تنازلي):</strong> أحدث حيوان أولاً: بتضيف كلمة
+                            <strong><code>DESC</code></strong> (Descending):</p>
+                        <pre><code class="lang-sql">mysql&gt; SELECT name, <span class="hljs-keyword">birth </span>FROM pet <span class="hljs-keyword">ORDER </span><span class="hljs-keyword">BY </span><span class="hljs-keyword">birth </span>DESC<span class="hljs-comment">;</span>
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (الترتيب بأكثر من عمود):</strong> الترتيب حسب النوع (تصاعدي)، وبعدين داخل كل
+                            نوع، الترتيب حسب تاريخ الميلاد (تنازلي):</p>
+                        <pre><code class="lang-sql">mysql&gt; SELECT name, species, <span class="hljs-keyword">birth </span>FROM pet
+       <span class="hljs-keyword">ORDER </span><span class="hljs-keyword">BY </span>species, <span class="hljs-keyword">birth </span>DESC<span class="hljs-comment">;</span>
+</code></pre>
+                        <p>(كلمة <code>DESC</code> بتطبق بس على العمود اللي قبلها مباشرة، وهو <code>birth</code>).</p>
+                    </li>
+                </ul>
+                <h4 id="4-4-5-date-calculations-">4.4.5 حسابات التواريخ (Date Calculations)</h4>
+                <p>MySQL عنده دوال كتير عشان تحسب بيها تواريخ:</p>
+                <ul>
+                    <li>
+                        <p><strong>حساب العمر:</strong> بنستخدم الدالة <code>TIMESTAMPDIFF(YEAR, date1, date2)</code>.
+                        </p>
+                        <pre><code class="lang-sql">mysql&gt; SELECT name, <span class="hljs-keyword">birth, </span>CURDATE(),
+       TIMESTAMPDIFF(YEAR,<span class="hljs-keyword">birth,CURDATE()) </span>AS age
+       FROM pet <span class="hljs-keyword">ORDER </span><span class="hljs-keyword">BY </span>age<span class="hljs-comment">;</span>
+</code></pre>
+                        <p>(استخدمنا <code>AS age</code> عشان نخلي اسم العمود في النتيجة شكله أحسن).</p>
+                    </li>
+                    <li>
+                        <p><strong>حساب العمر عند الوفاة:</strong> بنشوف الحيوانات اللي تاريخ وفاتها مش
+                            <code>NULL</code>، وبنحسب الفرق:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> name, birth, death,
+       TIMESTAMPDIFF(YEAR,birth,death) <span class="hljs-keyword">AS</span> age
+       <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> death <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> NULL <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> age;
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>إيجاد أعياد الميلاد الشهر الجاي:</strong> بنستخدم دالة <code>MONTH()</code> اللي
+                            بتجيب رقم الشهر، وبنستخدم دوال زي <code>DATE_ADD()</code> عشان نعرف الشهر اللي جاي:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> name, birth <span class="hljs-keyword">FROM</span> pet
+       WHERE <span class="hljs-keyword">MONTH</span>(birth) = <span class="hljs-keyword">MONTH</span>(DATE_ADD(CURDATE(),INTERVAL <span class="hljs-number">1</span> <span class="hljs-keyword">MONTH</span>));
+</code></pre>
+                        <p>(ممكن نستخدم دالة <code>MOD</code> عشان لو الشهر الحالي ديسمبر (12) يبقى الشهر اللي جاي يناير
+                            (1)).</p>
+                    </li>
+                </ul>
+                <h4 id="4-4-6-null-working-with-null-values-">4.4.6 التعامل مع قيم NULL (Working with NULL Values)</h4>
+                <p><strong>الـ <code>NULL</code></strong> معناها &quot;قيمة مجهولة أو مفقودة&quot;. وده بيخليها مختلفة
+                    شوية عن أي قيمة تانية.</p>
+                <ul>
+                    <li><strong>القاعدة الذهبية:</strong> <strong>ممنوع</strong> تستخدم علامات المقارنة العادية (=،
+                        &lt;، &lt;&gt;) عشان تختبر الـ <code>NULL</code>.</li>
+                    <li>لازم تستخدم <strong><code>IS NULL</code></strong> أو <strong><code>IS NOT NULL</code></strong>.
+                        <ul>
+                            <li>عشان كده في مثال حساب عمر الحيوانات اللي ماتت، استخدمنا <code>death IS NOT NULL</code>
+                                بدل <code>death &lt;&gt; NULL</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>نتيجة مقارنة أي شيء بـ NULL هي NULL أيضاً</strong>.
+                        <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT 1 = NULL;
++----------+</span>
+<span class="hljs-section">| 1 = NULL |
++----------+</span>
+<span class="hljs-section">|     NULL |
++----------+</span>
+</code></pre>
+                    </li>
+                    <li>ملاحظة: الصفر (<code>0</code>) والسلسلة الفارغة (<code>&#39;&#39;</code>) <strong>ليستا
+                            NULL</strong>.</li>
+                </ul>
+                <h4 id="4-4-7-pattern-matching-">4.4.7 مطابقة الأنماط (Pattern Matching)</h4>
+                <p>عشان تبحث عن نصوص معينة (مش لازم تكون متطابقة بالكامل)، عندنا طريقتين:</p>
+                <p><strong>1. مطابقة أنماط SQL (LIKE / NOT LIKE):</strong></p>
+                <ul>
+                    <li><strong><code>%</code>:</strong> يمثل أي عدد من الحروف (صفر أو أكثر).</li>
+                    <li>
+                        <p><strong><code>_</code>:</strong> يمثل حرف واحد بس.</p>
+                    </li>
+                    <li>
+                        <p><strong>مثال (الأسماء اللي تبدأ بـ b):</strong></p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name <span class="hljs-keyword">LIKE</span> <span class="hljs-comment">'b%';</span>
+</code></pre>
+                    </li>
+                    <li><strong>مثال (الأسماء اللي تنتهي بـ fy):</strong>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name <span class="hljs-keyword">LIKE</span> <span class="hljs-comment">'%fy';</span>
+</code></pre>
+                    </li>
+                    <li><strong>مثال (الأسماء اللي طولها خمس حروف بالظبط):</strong>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name <span class="hljs-keyword">LIKE</span> <span class="hljs-comment">'_____';</span>
+</code></pre>
+                    </li>
+                </ul>
+                <p><strong>2. التعبيرات القياسية الموسعة (REGEXP / RLIKE):</strong></p>
+                <p>دي بتستخدم رموز زي اللي بتشوفها في برامج يونكس (grep).</p>
+                <ul>
+                    <li><strong><code>^</code>:</strong> بداية القيمة (النص).</li>
+                    <li><strong><code>$</code>:</strong> نهاية القيمة.</li>
+                    <li><strong><code>.</code>:</strong> يطابق أي حرف واحد.</li>
+                    <li>
+                        <p>ميزة <code>REGEXP</code> إن النمط لو اتطابق في أي مكان في القيمة، الـ Query بينجح.</p>
+                    </li>
+                    <li>
+                        <p><strong>مثال (الأسماء اللي تبدأ بـ b):</strong></p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name REGEXP <span class="hljs-string">'^b'</span>;
+</code></pre>
+                    </li>
+                    <li><strong>مثال (الأسماء اللي طولها خمس حروف بالظبط):</strong> (باستخدام 5 نقاط بين البداية
+                        والنهاية):
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> name REGEXP <span class="hljs-string">'^.....$'</span>;
+</code></pre>
+                    </li>
+                </ul>
+                <h4 id="4-4-8-counting-rows-">4.4.8 عد الصفوف (Counting Rows)</h4>
+                <p>عشان نجاوب على أسئلة &quot;كام مرة&quot; أو &quot;ما هو العدد الكلي؟&quot;، بنستخدم دالة
+                    <strong><code>COUNT()</code></strong>.</p>
+                <ul>
+                    <li>
+                        <p><strong>مثال (العدد الكلي للحيوانات):</strong></p>
+                        <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT COUNT(*) FROM pet;
++----------+</span>
+<span class="hljs-section">| COUNT(*) |
++----------+</span>
+<span class="hljs-section">|        9 |
++----------+</span>
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>مثال (العد حسب المجموعات):</strong> عشان نعرف كل مالك عنده كام حيوان، بنستخدم
+                            <strong><code>GROUP BY</code></strong>:</p>
+                        <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT owner, COUNT(*) FROM pet GROUP BY owner;
++--------+----------+</span>
+<span class="hljs-section">| owner  | COUNT(*) |
++--------+----------+</span>
+| Benny  |        2 |
+| Diane  |        2 |
+| Gwen   |        3 |
+<span class="hljs-section">| Harold |        2 |
++--------+----------+</span>
+</code></pre>
+                        <p>(بنجمع كل السجلات اللي تخص مالك واحد في مجموعة واحدة، وبعدين بنعد المجموعة دي).</p>
+                    </li>
+                    <li><strong>مثال (العد حسب النوع والجنس):</strong>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-built_in">SELECT</span> species, sex, <span class="hljs-built_in">COUNT</span>(*) <span class="hljs-keyword">FROM</span> pet <span class="hljs-built_in">GROUP</span> BY species, sex;
+</code></pre>
+                        (ملاحظة: لو العمود <code>sex</code> فيه <code>NULL</code>، هيظهر صف منفصل في نتائج العد بيقولك
+                        فيه كام سجل جنسه غير معروف).
+                    </li>
+                </ul>
+                <h4 id="4-4-9-using-more-than-one-table-">4.4.9 استخدام أكثر من جدول (Using More Than one Table)</h4>
+                <p>أحياناً، عشان تجاوب على سؤال معين، بتحتاج معلومات متوزعة على أكتر من جدول.</p>
+                <ul>
+                    <li>
+                        <p><strong>الجدول الثاني:</strong> عملنا جدول تاني اسمه <code>event</code> عشان نسجل الأحداث (زي
+                            الولادة أو زيارة الدكتور):</p>
+                        <pre><code class="lang-sql">mysql&gt; CREATE TABLE event (<span class="hljs-name">name</span> VARCHAR(<span class="hljs-number">20</span>), date DATE,
+       type VARCHAR(<span class="hljs-number">15</span>), remark VARCHAR(<span class="hljs-number">255</span>))<span class="hljs-comment">;</span>
+</code></pre>
+                        <p>(وبعد كده بنملأه بالبيانات زي ما عملنا في جدول <code>pet</code>).</p>
+                    </li>
+                    <li>
+                        <p><strong>مثال (الـ JOIN):</strong> لو عايز تعرف عمر الحيوان لما ولَّد (لتر).</p>
+                        <ol>
+                            <li>تاريخ الولادة موجود في جدول <code>event</code>.</li>
+                            <li>تاريخ ميلاد الأم موجود في جدول <code>pet</code>.</li>
+                            <li>محتاجين نربط الجدولين ببعض عن طريق <strong>الاسم</strong>.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p><strong>استخدام INNER JOIN:</strong></p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> pet.name,
+       TIMESTAMPDIFF(YEAR,birth,<span class="hljs-built_in">date</span>) <span class="hljs-keyword">AS</span> age,
+       remark
+       <span class="hljs-keyword">FROM</span> pet INNER <span class="hljs-keyword">JOIN</span> <span class="hljs-keyword">event</span>
+       <span class="hljs-keyword">ON</span> pet.name = <span class="hljs-keyword">event</span>.name
+       <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">event</span>.type = <span class="hljs-comment">'litter';</span>
+</code></pre>
+                        <p><strong>إيه اللي حصل هنا؟</strong></p>
+                        <ol>
+                            <li>الـ <strong><code>FROM pet INNER JOIN event</code></strong> بيحدد الجدولين اللي
+                                هنستخدمهم.</li>
+                            <li>الـ <strong><code>ON pet.name = event.name</code></strong> ده هو شرط الربط، بيشوف السجل
+                                في <code>pet</code> اللي اسمه متطابق مع السجل في <code>event</code>.</li>
+                            <li>الـ <code>INNER JOIN</code> بيجيب الصفوف اللي ليها تطابق في الجدولين بس.</li>
+                            <li>لما تشوف عمود زي <code>name</code> موجود في الجدولين، لازم تحدد اسم الجدول قبله (زي
+                                <strong><code>pet.name</code></strong> و <strong><code>event.name</code></strong>).</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p><strong>الـ Self Join:</strong> ممكن تربط الجدول بنفسه عشان تقارن السجلات اللي جواه. لو عايز
+                            تشوف أزواج التزاوج المحتملة (أنثى حية وذكر حي من نفس النوع)، بتستخدم أسماء مستعارة (Aliases)
+                            زي <code>p1</code> و <code>p2</code> عشان تمثل الجدول مرتين.</p>
+                    </li>
+                </ul>
+                <pre><code class="lang-sql"><span class="hljs-symbol">mysql</span>&gt; <span class="hljs-keyword">SELECT </span><span class="hljs-built_in">p1</span>.name, <span class="hljs-built_in">p1</span>.sex, <span class="hljs-built_in">p2</span>.name, <span class="hljs-built_in">p2</span>.sex, <span class="hljs-built_in">p1</span>.species
+       FROM pet AS <span class="hljs-built_in">p1</span> INNER JOIN pet AS <span class="hljs-built_in">p2</span>
+       ON <span class="hljs-built_in">p1</span>.species = <span class="hljs-built_in">p2</span>.species
+         <span class="hljs-keyword">AND </span><span class="hljs-built_in">p1</span>.sex = <span class="hljs-string">'f'</span> <span class="hljs-keyword">AND </span><span class="hljs-built_in">p1</span>.death IS NULL
+         <span class="hljs-keyword">AND </span><span class="hljs-built_in">p2</span>.sex = <span class="hljs-string">'m'</span> <span class="hljs-keyword">AND </span><span class="hljs-built_in">p2</span>.death IS NULL<span class="hljs-comment">;</span>
+</code></pre>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>08</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -16,6 +16,117 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <p>يا باشا، تحت أمرك! طالما خلصنا حوار cURL، ندخل بقى في الفصل التامن (Chapter 8) اللي بيتكلم عن
+                    <strong>HTML Table Example</strong>، وده فصل لطيف جداً وبيشرح إزاي تعمل صفحات ويب شكلها منظم وبتتغير
+                    حسب البيانات اللي بتجيلها.</p>
+                <p>الفصل ده بيشرح إزاي تستخدم PHP عشان تولد <strong>جداول HTML ديناميكية</strong>. يعني بدل ما الجدول
+                    يبقى ثابت، البيانات اللي جواه بتتغير وتترتب أوتوماتيك كل ما حد يشوف الصفحة.</p>
+                <p>ركز معايا كده عشان نشوف إيه هي أهم الأجزاء اللي في الفصل ده وإزاي بتشتغل:</p>
+                <hr>
+                <h2 id="-html">الفصل الثامن: مثال جداول HTML</h2>
+                <p>الـ PHP هي لغة برمجة سكريبت بتشتغل على السيرفر (server-side scripting)، ووظيفتها الأساسية هنا إنها
+                    بتعمل <strong>محتوى ديناميكي</strong> (dynamic content). أما جداول HTML فوظيفتها إنها ترتب البيانات
+                    دي في صفوف وأعمدة بشكل منظم.</p>
+                <h3 id="1-">1. الهدف من المثال (القصة اللي بتحكيها)</h3>
+                <p>المثال اللي بيشرحه الفصل ده هو عبارة عن <strong>تطبيق ويب بسيط جداً</strong> بيسمح لمدرس إنه يسجل
+                    درجات الطلاب (student scores) على سيرفر.</p>
+                <p>البرنامج ده عنده فكرة معينة: هو بيفضل يجمع سجلات الطلاب. لما يوصل عدد السجلات اللي استلمها إلى
+                    <strong>ثلاثة</strong>، بيقوم مطلعهم كلهم في جدول HTML منظم، وبعد كده بيصفر العداد عشان يستقبل 3
+                    سجلات جديدة.</p>
+                <h3 id="2-html-forms-">2. جمع البيانات (HTML Forms)</h3>
+                <p>عشان المدرس يدخل البيانات دي، لازم يكون فيه <strong>Form</strong> (نموذج) في HTML. الـ Form دي بتجمع
+                    أربع حاجات لكل طالب:</p>
+                <ol>
+                    <li>الاسم الأول (<code>firstname</code>).</li>
+                    <li>الاسم الأخير (<code>lastname</code>).</li>
+                    <li>المادة (<code>subject</code>).</li>
+                    <li>الدرجة (<code>score</code>).</li>
+                </ol>
+                <p><strong>ملحوظات مهمة عن الـ Form:</strong></p>
+                <ul>
+                    <li>كل حقل من دول فيه خاصية اسمها <strong><code>required</code></strong>. دي بتقول للمتصفح (Browser)
+                        إن الحقل ده إجباري ولازم يتملاه.</li>
+                    <li>فيه دالة اسمها <code>validateForm()</code> بتتنده لما تدوس على زرار الـ Submit. الدالة دي شغلها
+                        إنها تتأكد إن كل الحقول المطلوبة (required fields) اتملت. لو لقت أي حقل فاضي، بترجع
+                        <code>false</code> وتوقف عملية إرسال الـ Form وتطلع رسالة خطأ.</li>
+                </ul>
+                <h3 id="3-php-sessions-">3. التخزين المؤقت (PHP Sessions)</h3>
+                <p>الفصل هنا بيوضح إزاي تخزن البيانات بشكل مؤقت لحد ما توصل للعدد المطلوب (3 طلاب). المفروض في أي تطبيق
+                    كبير إننا نستخدم قاعدة بيانات، لكن هنا، لتبسيط الشرح، استخدموا <strong>PHP Session</strong>.</p>
+                <p><strong>إيه هي الـ Session؟</strong>
+                    الـ Session هي طريقة لتخزين المعلومات اللي ممكن نوصلها ونستخدمها في أكتر من صفحة ويب.</p>
+                <p><strong>الخطوات الأساسية لاستخدام الـ Session هي:</strong></p>
+                <ol>
+                    <li><strong>البداية:</strong> لازم تنادي على الدالة <strong><code>session_start()</code></strong>
+                        قبل ما يطلع أي حاجة على المتصفح.</li>
+                    <li><strong>التخزين:</strong> كل قيم الـ Session بتتخزن في مصفوفة شاملة اسمها
+                        <strong><code>$_SESSION</code></strong>.</li>
+                    <li><strong>العداد:</strong> بيستخدموا متغير في الـ Session اسمه
+                        <code>$_SESSION[&#39;num&#39;]</code> عشان يعدوا كام سجل وصل.</li>
+                    <li><strong>المنطق:</strong> لما السكريبت بيستلم سجل جديد:<ul>
+                            <li>لو كان العداد (num) لسه مش واصل لـ 3، السكريبت بيزود العداد بواحد وبيخزن بيانات الطالب
+                                في متغيرات Session مختلفة (زي <code>$_SESSION[&#39;first1&#39;]</code>،
+                                <code>$_SESSION[&#39;first2&#39;]</code> وهكذا).</li>
+                            <li>لما العداد بيوصل <strong>3 أو أكتر</strong>، السكريبت بيعمل إعادة تعيين (Reset) للعداد
+                                ده وبيخليه 1 تاني، وبعدين بيطبع جدول HTML كله.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>تنظيف الـ Session:</strong>
+                    بعد ما يتم عرض الجدول، بيعتبر إنه كده خلص شغله، ولازم ينظف المكان:</p>
+                <ul>
+                    <li>بيستخدم الدالة <strong><code>session_unset()</code></strong> لحذف كل بيانات الـ Session.</li>
+                    <li>بيستخدم الدالة <strong><code>session_destroy()</code></strong> لتدمير الـ Session بالكامل.</li>
+                </ul>
+                <h3 id="4-html-tables-">4. بناء الجدول (HTML Tables)</h3>
+                <p>الـ PHP بتطبع الجدول ده ديناميكياً باستخدام بيانات الـ Session اللي تم تجميعها. الـ HTML عنده مجموعة
+                    من الـ Tags (العلامات) عشان يعرف الجدول ده.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">العلامة (Tag)</th>
+                            <th style="text-align:center">الوصف (Description)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;table&gt;</code></td>
+                            <td style="text-align:center">بتعرف أو بتنشئ الجدول في HTML.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;thead&gt;</code></td>
+                            <td style="text-align:center">بتعرف رأس (Header) الجدول.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;tbody&gt;</code></td>
+                            <td style="text-align:center">بتعرف جسم الجدول، ولازم تيجي بعد <code>&lt;thead&gt;</code>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;tr&gt;</code></td>
+                            <td style="text-align:center">بتعرف صف (Row) كامل في الجدول.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;th&gt;</code></td>
+                            <td style="text-align:center">بتعرف خلية رأس (Table Header Cell).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center"><code>&lt;td&gt;</code></td>
+                            <td style="text-align:center">بتعرف خلية بيانات عادية (Table Data Cell).</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>علامات تانية ممكن تحتاجها:</strong></p>
+                <ul>
+                    <li><strong><code>&lt;caption&gt;</code></strong>: علامة اختيارية بتدي عنوان للجدول، ودايماً بتكون
+                        أول علامة بعد الـ <code>&lt;table&gt;</code>.</li>
+                    <li><strong><code>&lt;tfoot&gt;</code></strong>: بتعرف مجموعة صفوف بتلخص الأعمدة بتاعت الجدول.</li>
+                </ul>
+                <hr>
+                <p><strong>الخلاصة كده يا معلم:</strong></p>
+                <p>الفصل الثامن عامل زي ما تكون بتملأ كوباية صغيرة (الـ Session) بالبيانات (الـ Form)، ولما الكوباية
+                    تتملي (3 سجلات)، بتقوم مفضيها في طبق كبير منظم (جدول HTML). وبعدين بتغسل الكوباية (Session cleanup)
+                    عشان تبدأ تجمع بيانات جديدة.</p>
 
 
 

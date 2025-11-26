@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>07</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -29,7 +29,8 @@
                 <ul>
                     <li><strong>المشكلة:</strong> لما الدالة ترجع كود خطأ، بتجبر اللي بيستخدمها إنه يعمل فحص فوري بالكود
                         ده، وده بيخلي المنطق الأساسي للبرنامج يتوه في وسط <strong>هياكل متداخلة معقدة</strong> من عبارات
-                        <code>if</code>. ده بيشوه <strong>مسار العمل الطبيعي (Happy Path)</strong>.</li>
+                        <code>if</code>. ده بيشوه <strong>مسار العمل الطبيعي (Happy Path)</strong>.
+                    </li>
                     <li><strong>الحل:</strong> لازم نستخدم <strong>الاستثناءات (Exceptions)</strong>. الاستثناءات بتسمح
                         بفصل كود معالجة الأخطاء عن المنطق العادي للبرنامج.</li>
                 </ul>
@@ -42,7 +43,8 @@
                     <li><strong>الطريقة:</strong> لما تبدأ تكتب كود ممكن يرمي استثناء، لازم تبدأ بـ
                         <code>try-catch-finally</code>. وده بيساعدك تحدد إيه اللي المفروض المستخدم يتوقعه من الكود ده،
                         حتى لو حصل فيه خطأ. كمان، ممكن تستخدم اختبارات الوحدات (Unit Tests) عشان تجبر الدالة ترمي
-                        استثناء، وتشوف الكود بتاعك هيعالجه إزاي.</li>
+                        استثناء، وتشوف الكود بتاعك هيعالجه إزاي.
+                    </li>
                 </ul>
                 <h2 id="3-try-catch-extract-try-catch-blocks-">3. استخرج كتل Try/Catch في دوال منفصلة (Extract Try/Catch
                     Blocks)</h2>
@@ -69,7 +71,8 @@
                                 بترميها المكتبة الخارجية (زي <code>DeviceResponseException</code> و
                                 <code>ATM1212UnlockedException</code>) ويرمي مكانها <strong>نوع واحد بس من
                                     الاستثناءات</strong> خاص بيك (مثل <code>PortDeviceFailure</code>). ده بيخلي الكود
-                                اللي بيستخدم الواجهة بتاعتك أنظف بكتير.</li>
+                                اللي بيستخدم الواجهة بتاعتك أنظف بكتير.
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -82,7 +85,8 @@
                     <li><strong>مثال:</strong> لو بتجمع مصروفات وجزء منها مش موجود (مثل مصروفات الوجبات)، فبدل ما ترمي
                         استثناء، ممكن الدالة ترجع <strong>كائن وجبات خاص (Special Case Object)</strong> بيحسب القيمة
                         الافتراضية (Per Diem) بدلاً من قيمة الوجبة المفقودة. ده بيخلي الكود اللي بيستخدم الدالة دي
-                        <strong>ميعرفش أصلاً إن فيه حالة استثنائية حصلت</strong>، وده بيحافظ على نظافة المنطق.</li>
+                        <strong>ميعرفش أصلاً إن فيه حالة استثنائية حصلت</strong>، وده بيحافظ على نظافة المنطق.
+                    </li>
                 </ul>
                 <h2 id="6-return-null-pass-argument">6. لا تُرجع (Return) قيمة Null ولا تُمشّيها (Pass) كـ Argument</h2>
                 <p>الـ <code>Null</code> هو أكبر مدعو للأخطاء في الكود.</p>
@@ -90,11 +94,13 @@
                     <li><strong>لا تُرجع Null:</strong> لو رجعت <code>null</code> من دالة، فإنت كده بتجبر اللي بيستدعيها
                         إنه يضيف فحص للـ <code>null</code> في كل سطر تقريباً. ولو نسيت فحص واحد بس، هيحصل
                         <strong>NullPointerException</strong> في وقت التشغيل (Runtime). الحل: ارمي استثناء، أو رجّع كائن
-                        حالة خاصة (مثل قائمة فارغة بدلاً من قائمة <code>null</code>).</li>
+                        حالة خاصة (مثل قائمة فارغة بدلاً من قائمة <code>null</code>).
+                    </li>
                     <li><strong>لا تُمشّي Null:</strong> مينفعش تمرر <code>null</code> كـ <code>argument</code> لدالة.
                         لو حد عمل كده بالغلط، هتحصل <code>NullPointerException</code>. بما إن أغلب لغات البرمجة مفيهاش
                         طريقة كويسة للتعامل مع <code>null</code> غير مقصود كـ <code>argument</code>، فالأفضل إنك
-                        <strong>تمنع تمرير الـ <code>null</code> كقاعدة أساسية</strong>.</li>
+                        <strong>تمنع تمرير الـ <code>null</code> كقاعدة أساسية</strong>.
+                    </li>
                 </ul>
 
 

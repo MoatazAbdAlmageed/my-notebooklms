@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>أهلاً بيك، ده فصل مهم جداً لأنه بيوريك إزاي تبدأ فعلياً. الفصل ده بيشرح خطوات تثبيت Jenkins على نظام
+                    <strong>Ubuntu</strong> بالتفصيل الممل، وكمان بيدي نصايح مهمة جداً قبل ما تبدأ عملية التثبيت نفسها.
+                </p>
+                <hr>
+                <h3 id="-jenkins-ubuntu">ثالثاً: كيفية تثبيت Jenkins في Ubuntu</h3>
+                <p>قبل ما تدوس على زرار التحميل، فيه حاجات كتير لازم تفكر فيها. لازم تقرر هتشغل Jenkins فين بالظبط: يا
+                    إما على جهاز (hardware) أنت اللي بتصينه بنفسك، أو عن طريق خدمة استضافة (hosting service).</p>
+                <h4 id="1-selecting-the-right-machine-">1. اختيار الجهاز المناسب (Selecting the Right Machine)</h4>
+                <p>الخطوة دي حاسمة عشان الـ Jenkins يشتغل بكفاءة:</p>
+                <ol>
+                    <li><strong>ذاكرة الوصول العشوائي (RAM):</strong> لازم تتأكد إن الجهاز اللي هتستخدمه فيه <strong>على
+                            الأقل 1 جيجابايت RAM</strong>. لو الذاكرة الداخلية مش كافية، Jenkins مش هيشتغل أصلاً. لكن
+                        عشان تاخد أداء كويس، <strong>من 2 لـ 4 جيجابايت RAM</strong> هو الأفضل.</li>
+                    <li><strong>أمثلة على الأجهزة (حسب نوع الشغل):</strong>
+                        <ul>
+                            <li><strong>لتطبيقات Android:</strong> بيوصوا إن الجهاز يكون <code>t2.medium</code> على
+                                الأقل.</li>
+                            <li><strong>لتطبيقات iOS:</strong> بما إنك محتاج تشتغل على نظام Apple، لازم يكون عندك جهاز
+                                <strong>Mac</strong>، وبيوصوا بـ <strong>Mac Mini</strong>. المصادر بتشير إلى إن البعض
+                                بيستخدم جهاز MacBook قديم كان مركون في المكتب، بس لاحظ إن اللاب توب ممكن
+                                <strong>&quot;يسخن بسرعة كبيرة&quot;</strong> لو استخدمته كخدمة مستمرة، وده اللي خلاهم
+                                يضطروا يعملوا &quot;ترقية&quot; أو تحديث في تجربتهم الخاصة.</li>
+                        </ul>
+                    </li>
+                    <li><strong>تجربة Bugfender:</strong> شركة Bugfender نفسها، بما إنها بتشتغل عن بُعد، اختارت تستخدم
+                        خدمة <strong>Amazon Web Services (AWS)</strong> على جهاز من نوع <code>t2.nano</code> مع نظام
+                        <strong>Ubuntu 16.04</strong>، بس طبعاً الإعداد ده ممكن يتغير حسب احتياجك.</li>
+                </ol>
+                <h4 id="2-choosing-an-operating-system-">2. اختيار نظام التشغيل (Choosing an Operating System)</h4>
+                <p>Jenkins بيشتغل على أي نظام تشغيل تقريباً يخطر على بالك، طول ما النظام ده بيقدر يشغّل <strong>Java أو
+                        Docker</strong>. في الشرح ده، هيستخدموا <strong>Ubuntu</strong> لأن الخطوات بتكون متشابهة جداً
+                    لأي نظام تاني تختاره.</p>
+                <h4 id="3-jenkins-how-to-install-jenkins-">3. كيفية تثبيت Jenkins (How to Install Jenkins)</h4>
+                <p>الخطوات دي بتتم على Ubuntu باستخدام مدير الحزم (Package Manager):</p>
+                <p><strong>الخطوة 1: تثبيت Jenkins</strong>
+                    بتستخدم الأوامر دي في Terminal (أو سطر الأوامر) عشان تثبت Jenkins:</p>
+                <p><em>(الأوامر التقنية)</em></p>
+                <ul>
+                    <li><strong>ملاحظة بخصوص المنافذ (Ports):</strong> بمجرد التثبيت، Jenkins هيشتغل على <strong>Port
+                            8080</strong>. لو كنت بتدخل على السيرفر ده عن بُعد (Remote)، لازم تتأكد إن <strong>بورت 8080
+                            مفتوح</strong> في الـ Firewall بتاعك.</li>
+                </ul>
+                <p><strong>الخطوة 2: افتح المتصفح</strong>
+                    بتروح على المتصفح بتاعك وتدخل العنوان ده: <code>http://your-ci-server-name.com:8080</code>. لو كل
+                    حاجة تمام، هتظهر قدامك شاشة <strong>Setup Wizard</strong> (معالج الإعداد).</p>
+                <p><strong>الخطوة 3: فتح قفل Jenkins (Unlocking Jenkins)</strong>
+                    عشان النظام يتأكد إنك أنت فعلاً المسؤول الحقيقي عن الجهاز، الباسورد بتتكتب في ملف Log محدد. عشان
+                    تجيب الباسورد المؤقتة دي، بتستخدم الأمر <code>sudo cat</code> في Terminal مع المسار اللي هيظهرلك على
+                    شاشة المتصفح. ده إجراء أمني مهم جداً، خصوصاً لو كان Jenkins بتاعك متاح للعامة على الإنترنت.</p>
+                <p><strong>الخطوة 4: تخصيص إضافات Jenkins (Customizing Jenkins Plugins)</strong>
+                    هنا بتدوس على زرار <strong>&quot;Install the suggested plugins&quot;</strong> (تثبيت الإضافات
+                    المقترحة). الإضافات دي بتشمل حاجات مفيدة زي <strong>Git</strong> وبعض إضافات
+                    <strong>Pipeline</strong>. طبعاً، ممكن تحمل إضافات تانية في أي وقت تحتاجه.</p>
+                <p><strong>الخطوة 5: إنشاء حساب المدير (Create Admin Login)</strong>
+                    بتعمل حساب مستخدم جديد عن طريق إضافة اسم مستخدم وباسورد جديد، وتدخل اسمك بالكامل وإيميل. بعد ما تدخل
+                    على Jenkins، ممكن تختار إنك تفعل خاصية إن زملاؤك يقدروا يعملوا حسابات تسجيل دخول إضافية زي ما
+                    يحتاجوا.</p>
+                <p><strong>وبكده نكون خلصنا التثبيت!</strong>.</p>
+                <hr>
+                <h4 id="4-ssl-jenkins-recommended-detour-">4. تحويلة مُقترحة: إضافة SSL لحماية تثبيت Jenkins
+                    (Recommended Detour)</h4>
+                <p>النقطة دي مهمة جداً ومُوصى بها:</p>
+                <ul>
+                    <li><strong>ليه بنحتاج التشفير (SSL)؟</strong> بما إن Jenkins بيكون عنده <strong>وصول للـ Source
+                            Code (الكود المصدري)</strong> بتاع التطبيق، وده طبعاً يعتبر حساس ولازم تفضل محافظ على
+                        خصوصيته. لو كنت بتشغل Jenkins من خلال الإنترنت أو حتى على شبكة محلية مشتركة مع أشخاص تانيين،
+                        الأفضل إنك تشفّر الاتصالات دي باستخدام <strong>SSL</strong>.</li>
+                    <li><strong>Let’s Encrypt:</strong> المصادر بتنصح باستخدام <strong>Let’s Encrypt</strong> لأن الحصول
+                        على شهادات التشفير دي بقى سهل ومجاني بالكامل.</li>
+                </ul>
+                <p><strong>الخطوات الرئيسية لإضافة SSL:</strong></p>
+                <ol>
+                    <li><strong>إعداد الجدار الناري:</strong> لازم تتأكد إن الـ Firewall بتاعك بيقبل المرور على بورتات
+                        <strong>80 و 443</strong>، وتلغي الوصول إلى بورت <strong>8080</strong>.</li>
+                    <li><strong>تثبيت وإعداد Nginx:</strong> بتثبت <code>nginx</code> عن طريق الأمر
+                        <code>sudo apt-get install nginx</code>. وبتعدل ملف الكونفيجريشن عشان يستخدم <code>nginx</code>
+                        كـ Reverse Proxy لبورت 8080.</li>
+                    <li><strong>الحصول على الشهادة:</strong> بتثبت وكيل <strong>Let’s Encrypt</strong> عشان يعمل شهادة
+                        SSL للسيرفر بتاعك.</li>
+                    <li><strong>تفعيل SSL:</strong> بتعدل ملف <code>nginx</code> مرة تانية عشان يستخدم شهادات الـ SSL
+                        اللي تم إنشاؤها.</li>
+                    <li><strong>الاختبار:</strong> في النهاية، بتجرب تفتح العنوان بالـ <strong>HTTPS</strong> (مثلاً:
+                        <code>https://your-ci-server-name.com</code>) عشان تتأكد إن التشفير اشتغل وJenkins بتاعك بقى
+                        محمي.</li>
+                </ol>
+                <p><strong>تشبيه لتبسيط فكرة SSL:</strong>
+                    تخيل إنك اشتريت خزنة (Jenkins) وحطيت فيها أهم أسرار شركتك (Source Code). التثبيت العادي اللي عملناه
+                    في الأول هو إنك تحط الخزنة دي في أوضة في المكتب (سيرفر على بورت 8080). إضافة <strong>SSL</strong> هي
+                    زي إنك تحط الخزنة دي ورا باب مصفح، وتتأكد إن أي حد بيتكلم عن محتويات الخزنة دي في التليفون، الاتصال
+                    بتاعه متشفّر عشان محدش يتجسس على اللي بتقوله. ده بيحافظ على أهم أصولك (الكود) من أي مخاطر.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

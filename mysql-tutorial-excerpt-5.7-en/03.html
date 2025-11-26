@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، تحت أمرك. بما إنك طالب شرح مفصل <strong>باللهجة المصرية</strong> وبالأمثلة للفصل رقم 3، اللي
+                    بيتكلم عن <strong>&quot;إدخال الاستعلامات&quot; (Entering Queries)</strong> في دليل MySQL، هنجاوب
+                    بالتفصيل الممل عشان تبقى فاهم كل خطوة.</p>
+                <p>الفصل ده هو الخطوة اللي بتيجي بعد ما تكون عملت اتصال بالسيرفر (زي ما شرح الفصل اللي قبله).</p>
+                <hr>
+                <h3 id="-3-entering-queries-">الفصل 3: إدخال الاستعلامات (Entering Queries)</h3>
+                <p>الخلاصة: الفصل ده بيعلمك إزاي تبعت أوامر (Queries) لـ MySQL وإزاي تفهم رد السيرفر عليك، وإيه العلامات
+                    اللي بتظهرلك في الشاشة عشان تعرف إنت بتعمل إيه بالظبط.</p>
+                <h4 id="1-query-">1. أساسيات كتابة الاستعلام (الـ Query)</h4>
+                <p>لما بتكون فاتح الـ <code>mysql&gt;</code> (الـ monitor أو الـ client)، السيرفر بيكون مستني منك أوامر
+                    SQL.</p>
+                <ul>
+                    <li>
+                        <p><strong>القاعدة الأساسية:</strong> أي استعلام (Query) أو أمر SQL بتكتبه لازم يخلص بـ
+                            <strong>فاصلة منقوطة (Semicolon ;)</strong>.</p>
+                        <ul>
+                            <li><strong>ملحوظة:</strong> فيه أوامر استثناء زي أمر الخروج <code>QUIT</code> أو أمر اختيار
+                                قاعدة البيانات <code>USE</code> مش بيحتاجوا فاصلة منقوطة، بس لو كتبتها مش هتضر.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>تنفيذ الأمر:</strong> أول ما بتكتب الأمر والفاصلة المنقوطة وتدوس <code>Enter</code>،
+                            برنامج <code>mysql</code> بيبعت الأمر للسيرفر عشان ينفذه ويعرض النتيجة، وبعدها بيظهرلك
+                            برومبت <code>mysql&gt;</code> تاني عشان تستعد للأمر اللي بعده.</p>
+                    </li>
+                    <li>
+                        <p><strong>الكلمات المفتاحية (Keywords):</strong> ممكن تكتب الكلمات المفتاحية بتاعت SQL بأي
+                            طريقة تعجبك (كابيتال، سمول، ميكس).</p>
+                        <ul>
+                            <li><strong>مثال:</strong> الأوامر دي كلها زي بعض بالظبط:
+                                <pre><code class="lang-sql">mysql&gt; <span class="hljs-function">SELECT <span class="hljs-title">VERSION</span>(<span class="hljs-params"></span>), CURRENT_DATE</span>;
+mysql&gt; <span class="hljs-function"><span class="hljs-keyword">select</span> <span class="hljs-title">version</span>(<span class="hljs-params"></span>), current_date</span>;
+mysql&gt; <span class="hljs-function">SeLeCt <span class="hljs-title">vErSiOn</span>(<span class="hljs-params"></span>), current_DATE</span>;
+</code></pre>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 id="2-">2. أمثلة بسيطة للتجربة</h4>
+                <p>عشان تجرب وتتعود على طريقة شغل الـ <code>mysql</code>، ممكن تجرب الأوامر دي:</p>
+                <p><strong>أ. معرفة إصدار السيرفر والتاريخ الحالي:</strong>
+                    الاستعلام ده بسيط وبيجيبلك رقم إصدار السيرفر والتاريخ:</p>
+                <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT VERSION(), CURRENT_DATE;
++--------------+--------------+</span>
+<span class="hljs-section">| VERSION()    | CURRENT_DATE |
++--------------+--------------+</span>
+<span class="hljs-section">| 5.7.1-m4-log | 2012-12-25   |
++--------------+--------------+</span>
+1 row in set (0.01 sec)
+</code></pre>
+                <p><strong>إيه اللي نفهمه من النتيجة؟</strong></p>
+                <ol>
+                    <li><strong>الجدول:</strong> بيعرض النتيجة في شكل جدول (صفوف وأعمدة).</li>
+                    <li><strong>رؤوس الأعمدة:</strong> أسماء الأعمدة بتكون عادةً هي أسماء الحقول اللي بتجيبها من الجدول،
+                        أو لو بتجيب قيمة تعبير (Expression) زي المثال ده، بيسمي العمود باسم التعبير نفسه (زي
+                        <code>VERSION()</code>).</li>
+                    <li><strong>وقت التنفيذ:</strong> بيوريك كام صف رجع (1 row in set) والوقت اللي أخده الأمر عشان يتنفذ
+                        (0.01 sec). ده بيديلك فكرة تقريبية عن أداء السيرفر.</li>
+                </ol>
+                <p><strong>ب. استخدام MySQL كآلة حاسبة:</strong>
+                    الـ <code>mysql</code> ممكن تستخدمه كآلة حاسبة بسيطة:</p>
+                <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT SIN(PI()/4), (4+1)*5;
++------------------+---------+</span>
+<span class="hljs-section">| SIN(PI()/4)      | (4+1)*5 |
++------------------+---------+</span>
+<span class="hljs-section">| 0.70710678118655 |      25 |
++------------------+---------+</span>
+1 row in set (0.02 sec)
+</code></pre>
+                <p><strong>ج. كتابة أكثر من أمر في سطر واحد:</strong>
+                    ممكن تكتب كذا أمر ورا بعض في سطر واحد، المهم إن كل واحد يخلص بفاصلة منقوطة:</p>
+                <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> VERSION(); <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">NOW</span>();
+</code></pre>
+                <h4 id="3-">3. التعامل مع الاستعلامات اللي على كذا سطر</h4>
+                <p>لو عندك استعلام طويل، مش لازم تكتبه كله في سطر واحد. الـ <code>mysql</code> بيستنى وبيجمع كل السطور
+                    اللي بتكتبها ومش بينفذ الأمر إلا لما يشوف الـ <strong>فاصلة منقوطة (;)</strong>.</p>
+                <p><strong>أ. تغيير علامة الإدخال (الـ Prompt):</strong>
+                    لما تبدأ تكتب الأمر وتدوس <code>Enter</code> قبل ما تحط الفاصلة المنقوطة، الـ
+                    <strong>Prompt</strong> بيتغير من <code>mysql&gt;</code> إلى <strong><code>-&gt;</code></strong>.
+                </p>
+                <ul>
+                    <li><strong>مثال للاستعلام متعدد السطور:</strong>
+                        <pre><code class="lang-sql">mysql&gt; SELECT
+<span class="hljs-code">    -&gt; USER()</span>
+<span class="hljs-code">    -&gt; ,</span>
+<span class="hljs-section">    -&gt; CURRENT_DATE;
++---------------+--------------+</span>
+<span class="hljs-section">| USER()        | CURRENT_DATE |
++---------------+--------------+</span>
+<span class="hljs-section">| jon@localhost | 2010-08-06   |
++---------------+--------------+</span>
+</code></pre>
+                        الـ <code>-&gt;</code> دي هي <strong>صديقك</strong>! بتوريك إنك لسه بتكتب في استعلام غير مكتمل
+                        والسيرفر مستني بقية الأمر.
+                    </li>
+                </ul>
+                <p><strong>ب. إلغاء استعلام (Cancellation):</strong>
+                    لو بدأت تكتب استعلام على كذا سطر وغيرت رأيك ومش عايز تكمله، ممكن تلغيه بإنك تكتب
+                    <strong><code>\c</code></strong>.</p>
+                <pre><code class="lang-sql">mysql&gt; SELECT<span class="hljs-function">
+    -&gt;</span> USER<span class="hljs-function"><span class="hljs-params">()</span>
+    -&gt;</span> <span class="hljs-string">\c</span>
+mysql&gt;
+</code></pre>
+                <p>بمجرد ما تكتب <code>\c</code>، الـ Prompt بيرجع تاني <code>mysql&gt;</code> وبيقولك إنه جاهز لاستعلام
+                    جديد.</p>
+                <h4 id="4-prompt-">4. إشارات الـ Prompt والوقوع في الفخ!</h4>
+                <p>الـ Prompts دي مهمة جداً عشان تعرف الـ <code>mysql</code> مستني منك إيه بالظبط:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الـ Prompt</th>
+                            <th style="text-align:left">المعنى (بالعامية المصرية)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><code>mysql&gt;</code></td>
+                            <td style="text-align:left">جاهز لأمر جديد.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>-&gt;</code></td>
+                            <td style="text-align:left">مستني بقية الأمر اللي على كذا سطر.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>&#39;&gt;</code></td>
+                            <td style="text-align:left">مستني تكملة <strong>نص (string)</strong> بدأته بعلامة اقتباس
+                                مفردة (<code>&#39;</code>).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>&quot;&gt;</code></td>
+                            <td style="text-align:left">مستني تكملة <strong>نص (string)</strong> بدأته بعلامة اقتباس
+                                مزدوجة (<code>&quot;</code>).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>` </code>&gt;`</td>
+                            <td style="text-align:left">مستني تكملة <strong>اسم مُعَرِّف (identifier)</strong> بدأته بـ
+                                Backtick (<code>` </code>).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>/*&gt;</code></td>
+                            <td style="text-align:left">مستني تكملة <strong>تعليق (comment)</strong> بدأ بـ
+                                <code>/*</code>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>فخ النسيان (الفاصلة المنقوطة):</strong>
+                    أكتر سبب بيخلي الـ Prompt يتحول لـ <code>-&gt;</code> وأنت فاكر إنك خلصت، هو إنك نسيت الـ
+                    <strong>فاصلة منقوطة (;) بعد الأمر</strong>.</p>
+                <pre><code class="lang-sql">mysql&gt; SELECT USER<span class="hljs-function"><span class="hljs-params">()</span>
+    -&gt;</span> ;  &lt;- مجرد ما تضيف الفاصلة المنقوطة، الأمر بيتنفذ
+</code></pre>
+                <p><strong>فخ النصوص (Strings):</strong>
+                    لو شفت الـ Prompt اتحول لـ <code>&#39;&gt;</code> أو <code>&quot;&gt;</code> ده معناه إنك
+                    <strong>نسيت علامة الإغلاق للنص</strong>.</p>
+                <ul>
+                    <li>
+                        <p>الـ <code>mysql</code> بيسمح إن النصوص تمتد على كذا سطر، ولما بتنسى علامة الإغلاق، بيفضل
+                            مستني بقية النص.</p>
+                    </li>
+                    <li>
+                        <p><strong>مثال لخطأ في نص:</strong> شوف المثال ده، النقطة الحمراء دي بتقولك إنك نسيت علامة
+                            الاقتباس الثانية:</p>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> my_table <span class="hljs-keyword">WHERE</span> name = <span class="hljs-comment">'Smith AND age <span class="hljs-doctag">&lt; 30;
+    '&gt;</span></span>
+</code></pre>
+                        <p>الـ <code>&#39;&gt;</code> دي هي الدليل بتاعك! هي اللي بتقولك إن الـ Query &quot;نايم&quot;
+                            ومستني علامة اقتباس.</p>
+                    </li>
+                </ul>
+                <p><strong>طريقة الخروج من فخ النص:</strong>
+                    لو وقعت في فخ الـ <code>&#39;&gt;</code> أو <code>&quot;&gt;</code>، ما ينفعش تكتب <code>\c</code>
+                    لوحدها، لأن الـ <code>mysql</code> هيعتبرها جزء من النص اللي بيجمعه.
+                    <strong>الحل هو:</strong> تكمل النص الناقص (تحط علامة الاقتباس المناسبة)، وبعدها تلغي الأمر.
+                </p>
+                <pre><code class="lang-sql">    <span class="hljs-string">'&gt; '</span><span class="hljs-string">\c</span>
+mysql&gt;
+</code></pre>
+                <p>الـ Prompt هيرجع تاني <code>mysql&gt;</code>.</p>
+                <p>فهمك للـ Prompts دي مهم جداً، عشان لو كتبت أمر غلط، مش هتفضل مستني الـ Query اللي مش هيتنفذ، وهتعرف
+                    إيه اللي السيرفر مستنيه منك.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

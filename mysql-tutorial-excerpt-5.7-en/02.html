@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا فندم، الفصل التاني (Chapter 2) ده مهمته بسيطة وواضحة جداً، وهي <strong>إزاي تدخل وتخرج من سيرفر
+                        MySQL</strong> باستخدام برنامج الـ <code>mysql</code> (اللي اتكلمنا عليه في الفصل الأول).</p>
+                <p>إليك الشرح بالتفصيل والأمثلة، يا معلم:</p>
+                <hr>
+                <h3 id="-connecting-to-and-disconnecting-from-the-server-">الفصل التاني: الاتصال والانفصال عن السيرفر
+                    (Connecting to and Disconnecting from the Server)</h3>
+                <p>الفصل ده بيدور كله حوالين إزاي تفتح الباب وتدخل على سيرفر MySQL عشان تبدأ تكتب الأوامر.</p>
+                <h4 id="1-">1. متطلبات الاتصال (المفتاح السري والعنوان)</h4>
+                <p>عشان تعرف تتصل بالسيرفر، غالباً هتحتاج توفر ثلاث حاجات أساسية:</p>
+                <ol>
+                    <li><strong>اسم مستخدم (MySQL user name):</strong> اللي هو اسم الدخول بتاعك.</li>
+                    <li><strong>كلمة مرور (Password):</strong> غالباً بتكون مطلوبة.</li>
+                    <li><strong>اسم المضيف (Host Name):</strong> لو السيرفر شغال على جهاز تاني غير اللي أنت قاعد عليه،
+                        لازم تحدد اسم الجهاز ده.</li>
+                </ol>
+                <blockquote>
+                    <p><strong>نصيحة المسؤول:</strong> الكتاب بينصح إنك تتكلم مع <strong>المسؤول
+                            (Administrator)</strong> بتاع MySQL عشان تعرف بالظبط إيه هي المعاملات اللي المفروض تستخدمها
+                        (زي الـ Host والـ User والـ Password).</p>
+                </blockquote>
+                <h4 id="2-">2. طريقة الاتصال العامة (اللوج إن)</h4>
+                <p>لما تكون عارف بياناتك، بتستخدم الأمر التالي عشان تتصل بالسيرفر، وبيطلب منك الباسورد بعد كده:</p>
+                <p><strong>الأمر:</strong></p>
+                <pre><code class="lang-sql">$&gt; mysql -h host -u <span class="hljs-keyword">user</span> <span class="hljs-title">-p</span>
+Enter password: ********
+</code></pre>
+                <ul>
+                    <li><strong><code>host</code></strong>: ده بتمثل اسم الجهاز أو السيرفر اللي عليه MySQL.</li>
+                    <li><strong><code>user</code></strong>: ده بتمثل اسم المستخدم بتاعك على MySQL.</li>
+                    <li><strong><code>-p</code></strong>: الاختصار ده بيطلب من برنامج <code>mysql</code> إنه يسألك على
+                        كلمة المرور، وده أحسن عشان متبانش الباسورد في سطر الأوامر (Command Line).</li>
+                </ul>
+                <h4 id="3-">3. لما الاتصال ينجح</h4>
+                <p>لو الاتصال مشي تمام، هتلاقي البرنامج عرضلك شوية معلومات ترحيبية، وبعدها هيظهر لك البرومبت (prompt)
+                    اللي مستني منك الأوامر:</p>
+                <p><strong>شكل الإخراج بعد النجاح:</strong></p>
+                <pre><code class="lang-sql">Welcome <span class="hljs-keyword">to</span> the MySQL monitor.  Commands <span class="hljs-keyword">end</span> <span class="hljs-keyword">with</span> ; <span class="hljs-keyword">or</span> \g.
+Your MySQL connection id <span class="hljs-keyword">is</span> <span class="hljs-number">25338</span> <span class="hljs-keyword">to</span> server version: <span class="hljs-number">5.7</span>.<span class="hljs-number">44</span>-standard
+<span class="hljs-keyword">Type</span> <span class="hljs-string">'help;'</span> <span class="hljs-keyword">or</span> <span class="hljs-string">'\h'</span> <span class="hljs-keyword">for</span> help.
+<span class="hljs-keyword">Type</span> <span class="hljs-string">'\c'</span> <span class="hljs-keyword">to</span> clear the buffer.
+mysql&gt;
+</code></pre>
+                <p>البرومبت ده اللي هو <strong><code>mysql&gt;</code></strong> بيعرفك إنك دلوقتي متصل، وجاهز تكتب أوامر
+                    SQL وتنفذها.</p>
+                <h4 id="4-">4. حالة الاتصال المحلي</h4>
+                <p>لو سيرفر MySQL شغال على <strong>نفس الجهاز</strong> اللي أنت بتستخدمه عشان تدخل، ممكن تستغنى عن تحديد
+                    الـ Host (يعني تشيل <code>-h host</code>) وتستخدم الأمر ده بس:</p>
+                <p><strong>الأمر للاتصال المحلي:</strong></p>
+                <pre><code class="lang-sql">$&gt; mysql -u <span class="hljs-keyword">user</span> <span class="hljs-title">-p</span>
+</code></pre>
+                <p>وفي بعض التسطيبات (Installations) لـ MySQL، بيسمحوا للمستخدمين إنهم يدخلوا باسم مستخدم مجهول
+                    (anonymous user) لو بيتصلوا من نفس الجهاز، وفي الحالة دي ممكن تدخل ومتحطش أي خيارات خالص:</p>
+                <pre><code class="lang-sql"><span class="hljs-variable">$&gt;</span> mysql
+</code></pre>
+                <h4 id="5-">5. التعامل مع الأخطاء الشائعة</h4>
+                <p>لو حاولت تعمل Log In وجاتلك رسالة خطأ زي دي:</p>
+                <p><code>ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket &#39;/tmp/mysql.sock&#39; (2)</code>
+                </p>
+                <p>ده معناه إن <strong>سيرفر MySQL نفسه مش شغال</strong>، سواء كان كخدمة (Service) على ويندوز أو كخادم
+                    (Daemon) على يونكس/لينكس. ولازم ترجع للمسؤول عشان يشغله.</p>
+                <h4 id="6-log-out-">6. إزاي تفصل الاتصال (Log Out)</h4>
+                <p>بعد ما تخلص شغلك، ممكن تفصل الاتصال في أي وقت عن طريق كتابة الأمر <strong><code>QUIT</code></strong>
+                    أو الاختصار بتاعه <strong><code>\q</code></strong> عند البرومبت بتاع <code>mysql&gt;</code>:</p>
+                <p><strong>مثال الفصل:</strong></p>
+                <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">QUIT</span>
+Bye
+</code></pre>
+                <p>كمان ممكن تفصل الاتصال على أنظمة يونكس (Unix) بالضغط على <strong>Control+D</strong>.</p>
+                <hr>
+                <p><strong>ملخص الفصل ده زي...</strong></p>
+                <p>تخيل إن سيرفر MySQL ده زي <strong>خزنة بنك معلومات ضخمة</strong>. الفصل الأول عرفك على الأداة اللي
+                    هتستخدمها عشان تفتح الخزنة (برنامج <code>mysql</code>). الفصل التاني ده بقى هو اللي بيدي الأوامر
+                    الفعلية <strong>لفتح باب الخزنة</strong> عن طريق إنك بتقدم اسمك وعنوانك (User و Host) وتدخل مفتاحك
+                    (Password) عشان يقولك &quot;أهلاً بك&quot; وتبدأ شغل (يظهر لك <code>mysql&gt;</code>). ولما تخلص،
+                    بتدوس على زرار &quot;خروج&quot; (<code>QUIT</code>) عشان الباب يتقفل بأمان.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

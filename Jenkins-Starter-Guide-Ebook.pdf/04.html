@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+
+
+                <p>يا فندم، الفصل ده هو بداية الشغل الحقيقي! هنا هنتعلم إزاي نخلي Jenkins يبني ويختبر أول تطبيق
+                    <strong>Android</strong> لينا خطوة بخطوة.</p>
+                <p>ده شرح مفصل للفصل الرابع: <strong>&quot;كيفية إضافة أول وظيفة Android لك إلى Jenkins&quot;</strong>
+                    بالكامل:</p>
+                <hr>
+                <h3 id="-android-jenkins">رابعاً: كيفية إضافة أول وظيفة Android لك إلى Jenkins</h3>
+                <p>الهدف هنا هو إنك تستخدم تطبيقك الخاص عشان تجرّب الخطوات دي. في العرض ده، هيستخدموا تطبيق كمثال
+                    بيستخدم Bugfender SDK في Android. بس اطمن، الخطوات هي هي بالظبط عشان تضيف أي مشروع Android تاني ليك
+                    سواء كان تطبيق أو مكتبة.</p>
+                <p><strong>الخطوة الأولى والأهم:</strong> لازم نجهز السيرفر اللي عليه Jenkins عشان يقدر أصلاً يعمل
+                    <strong>&quot;Compile&quot;</strong> (تجميع) ويشغّل تطبيقات Android.</p>
+                <h4 id="1-android-jenkins-configuring-android-app-builds-in-jenkins-">1. تهيئة بناء تطبيقات Android في
+                    Jenkins (Configuring Android App Builds in Jenkins)</h4>
+                <h4 id="-setup-"><strong>الـ Setup الأساسي (إعداد البيئة):</strong></h4>
+                <p><strong>الخطوة 1: تثبيت Java JDK</strong>
+                    بما إن Jenkins مكتوب بلغة Java، وتطبيقات Android بتعتمد عليها، لازم نثبت حزمة تطوير Java (Java
+                    Development Kit).</p>
+                <ul>
+                    <li>الأمر ببساطة: <code>sudo apt-get install java-8-openjdk</code>.</li>
+                </ul>
+                <p><strong>الخطوة 2: تثبيت Android SDK</strong>
+                    محتاجين حزمة تطوير Android عشان الـ Gradle يقدر يعمل البناء.</p>
+                <ul>
+                    <li>بتروح على موقع المطورين بتاع Android (developer.android.com) وبتاخد اللينك الخاص بـ
+                        <strong>&quot;command line tools&quot; (أدوات سطر الأوامر)</strong> لإصدار Linux (ماتحملش حاجة،
+                        بس انسخ اللينك).</li>
+                    <li>بتبدأ تثبت الـ tools دي، بس المهم إن الأوامر دي لازم تتنفذ باسم المستخدم بتاع
+                        <strong>Jenkins</strong> (اللي هو <code>jenkins</code>) عشان يكون ليه الصلاحيات الكافية:<ul>
+                            <li>بتبدأ بتثبيت برنامج فك الضغط: <code>sudo apt-get install unzip</code>.</li>
+                            <li>بتستخدم <code>wget</code> عشان تحمل الـ tools.</li>
+                            <li>بتعمل فولدر (مجلد) اسمه <code>android-sdk</code>.</li>
+                            <li>بتفك ضغط الملفات في الفولدر ده.</li>
+                        </ul>
+                    </li>
+                    <li><strong>الخطوة الأهم (الترخيص):</strong> لو ماعملتش دي، البناء هيفشل! لازم توافق على ترخيص
+                        Android SDK. بتستخدم أمر <code>sdkmanager --licenses</code>، وبتدخّل عليه <code>yes</code> عشان
+                        يوافق أوتوماتيكي:
+                        <code>yes | sudo -iu jenkins android-sdk/tools/bin/sdkmanager --licenses</code>.</li>
+                </ul>
+                <p><strong>الخطوة 3: تهيئة Jenkins</strong>
+                    بعد ما ثبتنا الـ SDK، لازم Jenkins يعرف مكانه بالظبط:</p>
+                <ol>
+                    <li>بتسجل دخولك في Jenkins.</li>
+                    <li>بتروح على <strong>Manage Jenkins &gt; Configure System</strong>.</li>
+                    <li>بتعلم على <strong>“Environment variables”</strong>.</li>
+                    <li>بتضيف متغير اسمه: <strong><code>ANDROID_HOME</code></strong>.</li>
+                    <li>وبتحط القيمة بتاعته: <strong><code>/var/lib/jenkins/android-sdk</code></strong>.</li>
+                    <li>بتدوس <strong>“Apply”</strong> وبعدين <strong>“Save”</strong>.</li>
+                </ol>
+                <h4 id="-android-job-"><strong>إنشاء وظيفة Android (الـ Job):</strong></h4>
+                <p><strong>الخطوة 4: إنشاء وظيفة Android (Job)</strong>
+                    بترجع للصفحة الرئيسية:</p>
+                <ul>
+                    <li>بتدوس على <strong>New Item</strong> (عنصر جديد).</li>
+                    <li>بتدخل اسم للمشروع بتاعك.</li>
+                    <li>بتختار <strong>“Freestyle project”</strong> (مشروع نمط حر).</li>
+                </ul>
+                <p><strong>الخطوة 5: تحميل الكود (Downloading Your Code)</strong>
+                    Jenkins محتاج يعرف منين هيجيب الكود بتاعك:</p>
+                <ul>
+                    <li>في قسم <strong>Source Code Management</strong>، بتحدد الـ <strong>Git URL</strong> للمخزن بتاعك
+                        (Repository).</li>
+                    <li>كمثال، لو كنت بتستخدم نفس المشروع بتاعهم:
+                        <code>https://github.com/bugfender/BugfenderSDK-android-sample.git</code>.</li>
+                    <li>لو المخزن بتاعك خاص (Private)، ممكن تعمل <strong>SSH keys</strong> عشان Jenkins يقدر يوصل له
+                        ببروتوكول Git.</li>
+                </ul>
+                <p><strong>الخطوة 6: إعداد مُحفّزات البناء (Build Triggers)</strong>
+                    دي الخطوة اللي بتخلي Jenkins يشتغل أوتوماتيك:</p>
+                <ul>
+                    <li>الأفضل إنك تستخدم <strong>Hook</strong> (خطاف) عشان يبدأ البناء تلقائياً كل ما حد يعمل
+                        <strong>Push</strong> للكود على المخزن.</li>
+                    <li><strong>لخدمات زي BitBucket أو Gitlab:</strong> بتستخدم خاصية <strong>“Trigger builds
+                            remotely”</strong>، ودي بتديك رابط (URL) بتحطه في إعدادات الـ Webhook في خدمة Git اللي
+                        بتستخدمها عشان تبدأ البناء أوتوماتيك.</li>
+                    <li><strong>لمستخدمي GitHub:</strong> الأسهل إنك تثبت <strong>“GitHub plugin”</strong> (من خلال
+                        Manage Jenkins &gt; Manage Plugins)، وده هيظهرلك خيار خاص بـ GitHub وهيثبت الـ webhook مكانك.
+                    </li>
+                </ul>
+                <p><strong>الخطوة 7: البناء (Build)</strong>
+                    أخيراً، هنقول لـ Jenkins إزاي يبني المشروع:</p>
+                <ul>
+                    <li>لو مشروعك بيستخدم <strong>Gradle wrapper</strong> (وده الأغلب في مشاريع Android)، لازم تستخدمه.
+                    </li>
+                    <li>بتضيف خطوة بناء (Build step) من نوع <strong>“Invoke Gradle script”</strong>.</li>
+                    <li>لو مشروعك قديم وبيستخدم <strong>Ant</strong>، فيه خيار <strong>&quot;Invoke Ant&quot;</strong>،
+                        أو ممكن تستخدم <strong>&quot;Execute shell&quot;</strong> لو عايز أقصى مرونة في الأوامر.</li>
+                    <li>بتدوس <strong>“Save”</strong> عشان تجرب أول بناء ليك.</li>
+                </ul>
+                <h4 id="2-gradle-accelerate-gradle-optional-">2. تسريع Gradle (Accelerate Gradle - Optional)</h4>
+                <p>لو بتعمل بناءات كتير، ممكن توفر وقت عن طريق تشغيل Gradle كـ <strong>daemon</strong> (خادم بيشتغل في
+                    الخلفية).</p>
+                <ul>
+                    <li>عشان تعمل كده، بتنشئ فولدر <code>.gradle</code> وبتضيف فيه ملف <code>gradle.properties</code>
+                        فيه الأمر <code>org.gradle.daemon=true</code>.</li>
+                </ul>
+                <p><em>(الأوامر التقنية)</em>:</p>
+                <pre><code class="lang-bash">mkdir -p /var/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">jenkins</span>/.<span class="hljs-title">gradle</span> </span>
+echo org.gradle.daemon=<span class="hljs-literal">true</span> | sudo -iu jenkins tee -a /var/<span class="hljs-class"><span class="hljs-keyword">lib</span>/<span class="hljs-title">jenkins</span>/.<span class="hljs-title">gradle</span>/<span class="hljs-title">gradle</span>.<span class="hljs-title">properties</span></span>
+</code></pre>
+                <h4 id="3-running-unit-tests-">3. تشغيل اختبارات الوحدة (Running Unit Tests)</h4>
+                <p>Jenkins مش بس للبناء، ده كمان للاختبار!</p>
+                <ul>
+                    <li>بتضيف خطوة بناء تانية.</li>
+                    <li>وبتستخدم مهمة (task) الـ Gradle اللي اسمها <strong><code>test</code></strong>.</li>
+                </ul>
+                <h4 id="4-running-integration-tests-">4. تشغيل اختبارات التكامل (Running Integration Tests)</h4>
+                <p>ده الجزء الأصعب لو عايز تشغّل اختبارات الواجهة الرسومية (UI tests):</p>
+                <ul>
+                    <li><strong>المشكلة:</strong> Jenkins عنده إضافة اسمها <strong>Android Emulator Plugin</strong>، لكن
+                        المصادر بتقول إنها <strong>مش شغالة صح مع أحدث إصدارات Android SDK حالياً</strong>.</li>
+                    <li><strong>الحل البديل (Workaround):</strong> تثبيت وتشغيل المحاكي يدوياً في الخلفية.</li>
+                </ul>
+                <p><strong>الخطوات لتشغيل المحاكي في الخلفية:</strong></p>
+                <ol>
+                    <li><strong>تحميل صورة المحاكي:</strong> عشان تشغّل المحاكي (Emulator) محتاج تختار صورة نظام (System
+                        Image).<ul>
+                            <li><em>ملاحظة مهمة:</em> صور <code>x86</code> أسرع، بس محتاجة خاصية تسريع الأجهزة (KVM
+                                acceleration) في السيرفر، ومش بتشتغل لو السيرفر بتاعك هو نفسه جهاز افتراضي (Virtual
+                                Machine). عشان كده بيختاروا صورة <strong>ARM</strong>، اللي بتكون أبطأ بس بتشتغل في أي
+                                مكان.</li>
+                            <li>بتحمل الصورة المناسبة، مثلاً:
+                                <code>system-images;android-25;google_apis;armeabi-v7a</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>إنشاء المحاكي (AVD):</strong> بتنشئ نسخة محاكي افتراضية بالصورة اللي حملتها.</li>
+                    <li><strong>تشغيل المحاكي كخدمة:</strong> بنستخدم أداة اسمها <strong>Supervisord</strong> عشان نشغّل
+                        المحاكي ده كخدمة نظام، ويفضل شغال دايماً في الخلفية.<ul>
+                            <li>بتثبت <code>supervisor</code>.</li>
+                            <li>بتنشئ ملف إعدادات (Configuration file) في
+                                <code>etc/supervisor/conf.d/emulator.conf</code>، وبتحدد فيه أمر تشغيل المحاكي بالصيغة
+                                اللي تخليه يشتغل في الخلفية بدون واجهة (<code>-no-window -noaudio</code>) باسم المستخدم
+                                <strong>jenkins</strong>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>بدء الخدمة:</strong> بتعمل Restart للـ <code>supervisor</code> عشان يشغّل المحاكي.</li>
+                    <li><strong>التأكد من التشغيل:</strong> بتستنى دقيقة أو دقيقتين، وبعدين بتشوف المحاكي ظهر في قائمة
+                        الأجهزة بـ <code>adb devices</code>.</li>
+                    <li><strong>تشغيل الاختبارات في الـ Job:</strong> بتضيف خطوة بناء من نوع <strong>Execute
+                            shell</strong> في وظيفة Jenkins، وظيفتها:<ul>
+                            <li>تنتظر لحد ما المحاكي يعمل Boot بالكامل.</li>
+                            <li>تعمل إلغاء قفل للشاشة.</li>
+                            <li>بتنفذ الأمر اللي بيشغّل اختبارات الـ Android الموصولة (connectedAndroidTest):
+                                <code>./gradlew connectedAndroidTest</code>.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h4 id="5-suggestions-for-next-steps-">5. اقتراحات للخطوات التالية (Suggestions for Next Steps)</h4>
+                <p>بعد ما عملت أول وظيفة ليك، ممكن تتوسع باستخدام إضافات (Plugins) مفيدة:</p>
+                <ol>
+                    <li><strong>Android Emulator Plugin:</strong> الإضافة دي حالياً مش شغالة، بس ممكن تصلح في المستقبل،
+                        أو ممكن تستخدم إصدار SDK أقدم كبديل لحد ما تصلح.</li>
+                    <li><strong>Android Signing Plugin:</strong> لإضافة التوقيع الرقمي (Signing) على التطبيقات.</li>
+                    <li><strong>Google Play Android Publisher Plugin:</strong> لنشر التطبيقات مباشرة على Google Play.
+                    </li>
+                </ol>
+                <hr>
+                <p><strong>تشبيه لتبسيط الفكرة:</strong></p>
+                <p>تخيل إنك بتجهز &quot;ورشة عمل&quot; آلية لبناء نموذج طيارة ورقية (تطبيق Android).</p>
+                <ul>
+                    <li><strong>الخطوات من 1 لـ 3 (Setup):</strong> دي زي إنك بتجهز الترابيزة بالعدة الأساسية: ثبت
+                        <strong>المفك الكهربائي (Java JDK)</strong>، وجهزت <strong>كتالوج الأدوات (Android
+                            SDK)</strong>. وعرّفت الماكينة الأم (Jenkins) على مكان الكتالوج ده.</li>
+                    <li><strong>الخطوات من 4 لـ 7 (Job Creation):</strong> دي زي إنك بتعمل <strong>&quot;طلب شغل&quot;
+                            (Job)</strong> للماكينة: بتقول لها روحي جيبي التصميم من المخزن (Git URL)، وابدأي قصي وتجمعي
+                        الورق <strong>أوتوماتيكي</strong> كل ما حد يضيف تعديل في التصميم (Build Trigger).</li>
+                    <li><strong>اختبارات التكامل:</strong> لو عايز تشوف الطيارة الورقية دي بتطير بجد، مش بس تجمعت صح،
+                        محتاج <strong>&quot;نفق رياح افتراضي&quot; (Emulator)</strong>. بما إن جهاز الـ Testing اللي كان
+                        جاهز (الـ Plugin) بايظ، فأنت اضطريت تبني نفق رياح بنفسك في الغرفة المجاورة وتشغله دايماً في
+                        الخلفية (Supervisord) عشان الطيارة (التطبيق) تتجرب فيه فوراً.</li>
+                </ul>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

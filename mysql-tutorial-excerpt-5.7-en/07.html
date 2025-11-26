@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <p>يا فندم، الفصل السابع (Chapter 7) ده هو فصل <strong>&quot;الحِتِت الصعبة والحلول
+                        الجاهزة&quot;</strong>. هو مش بيعلمك أوامر جديدة زي <code>SELECT</code> أو <code>INSERT</code>،
+                    لأ، هو بياخد الأوامر اللي اتعلمناها في الفصل الرابع والخامس وبيوريك إزاي تستخدمها بذكاء عشان تحل
+                    مشاكل واستعلامات معقدة ومشهورة جداً في الشغل.</p>
+                <p>ركز معايا عشان الفصل ده بيعتمد على أمثلة عملية، وبيستخدم جدول جديد اسمه
+                    <strong><code>shop</code></strong> (المحل) عشان يسجل أسعار سلع (articles) عند تجار مختلفين
+                    (dealers).</p>
+                <h3 id="-shop-">إعداد جدول المثال (<code>shop</code>)</h3>
+                <p>بيفترض المرجع إننا أنشأنا جدول <code>shop</code> اللي بيخزن رقم الصنف (article)، والتاجر (dealer)،
+                    والسعر (price)، وبيعتبر إن (article, dealer) هو المفتاح الأساسي (Primary Key).</p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> shop (
+    article <span class="hljs-built_in">INT</span> <span class="hljs-keyword">UNSIGNED</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'0000'</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    dealer <span class="hljs-built_in">CHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">''</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    price <span class="hljs-built_in">DECIMAL</span>(<span class="hljs-number">16</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'0.00'</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    PRIMARY <span class="hljs-keyword">KEY</span>(article, dealer)
+);
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> shop <span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-number">1</span>,<span class="hljs-string">'A'</span>,<span class="hljs-number">3.45</span>),(<span class="hljs-number">1</span>,<span class="hljs-string">'B'</span>,<span class="hljs-number">3.99</span>),
+    (<span class="hljs-number">2</span>,<span class="hljs-string">'A'</span>,<span class="hljs-number">10.99</span>),
+    (<span class="hljs-number">3</span>,<span class="hljs-string">'B'</span>,<span class="hljs-number">1.45</span>),(<span class="hljs-number">3</span>,<span class="hljs-string">'C'</span>,<span class="hljs-number">1.69</span>),(<span class="hljs-number">3</span>,<span class="hljs-string">'D'</span>,<span class="hljs-number">1.25</span>),
+    (<span class="hljs-number">4</span>,<span class="hljs-string">'D'</span>,<span class="hljs-number">19.95</span>);
+</code></pre>
+                <p><strong>الجدول بعد الإدخال بيكون شكله كده:</strong>
+                    | article | dealer | price |
+                    | :------ | :----- | :---- |
+                    | 1 | A | 3.45 |
+                    | 1 | B | 3.99 |
+                    | 2 | A | 10.99 |
+                    | 3 | B | 1.45 |
+                    | 3 | C | 1.69 |
+                    | 3 | D | 1.25 |
+                    | 4 | D | 19.95 |</p>
+                <hr>
+                <h2 id="7-1-7-2-maximum-value-">7.1 و 7.2 إيجاد القيمة القصوى (Maximum Value)</h2>
+                <p>الأسئلة دي ليها طريقتين للإجابة:</p>
+                <h3 id="7-1-the-maximum-value-for-a-column-">7.1 أعلى قيمة لعمود واحد (The Maximum Value for a Column)
+                </h3>
+                <p><strong>السؤال:</strong> إيه هو أعلى رقم صنف (article number) موجود في الجدول؟.
+                    <strong>الحل:</strong> بنستخدم دالة التجميع <code>MAX()</code>.
+                </p>
+                <p><strong>المثال:</strong></p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MAX</span>(article) <span class="hljs-keyword">AS</span> article <span class="hljs-keyword">FROM</span> shop;
+<span class="hljs-comment">-- النتيجة: 4 (أعلى رقم صنف)</span>
+</code></pre>
+                <h3 id="7-2-the-row-holding-the-maximum-of-a-certain-column-">7.2 الصف اللي بيحتوي على أعلى قيمة (The
+                    Row Holding the Maximum of a Certain Column)</h3>
+                <p><strong>السؤال:</strong> مين هو <strong>أغلى صنف</strong>؟ (يعني عايز بيانات الصنف كلها: رقم الصنف،
+                    واسم التاجر، والسعر نفسه).</p>
+                <p>دي ليها كذا طريقة لحلها، عشان نجيب كل بيانات الصف اللي فيه أعلى سعر:</p>
+                <p><strong>الطريقة الأولى: استخدام استعلام فرعي (Subquery)</strong>
+                    بنجيب أولاً أعلى سعر في الجدول كله، وبعدين نستخدم القيمة دي عشان نختار الصف المطابق.</p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> article, dealer, price
+<span class="hljs-keyword">FROM</span> shop
+<span class="hljs-keyword">WHERE</span> price = (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MAX</span>(price) <span class="hljs-keyword">FROM</span> shop);
+<span class="hljs-comment">-- النتيجة: الصنف رقم 4 عند التاجر D بسعر 19.95</span>
+</code></pre>
+                <p><strong>الطريقة الثانية: استخدام الـ LEFT JOIN (الطريقة الأصعب/الأكثر كفاءة)</strong>
+                    بنشوف إيه هو الصف اللي مفيش صف تاني سعره أعلى منه.</p>
+                <pre><code class="lang-sql">SELECT <span class="hljs-built_in">s1</span>.article, <span class="hljs-built_in">s1</span>.dealer, <span class="hljs-built_in">s1</span>.price
+FROM <span class="hljs-keyword">shop </span><span class="hljs-built_in">s1</span> LEFT <span class="hljs-keyword">JOIN </span><span class="hljs-keyword">shop </span><span class="hljs-built_in">s2</span>
+ON <span class="hljs-built_in">s1</span>.price &lt; <span class="hljs-built_in">s2</span>.price -- ربط حيث السعر الأول أقل من السعر الثاني
+WHERE <span class="hljs-built_in">s2</span>.article IS NULL<span class="hljs-comment">; -- الصف اللي سعره هو الأقصى، مش هيلاقي سعر أكبر منه</span>
+</code></pre>
+                <p><strong>الطريقة الثالثة: استخدام ORDER BY و LIMIT (الأسهل والأكثر استخداماً في MySQL)</strong>
+                    بترتب كل الأسعار تنازلي وبتجيب أول صف.</p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> article, dealer, price
+<span class="hljs-keyword">FROM</span> shop
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1</span>;
+</code></pre>
+                <p><strong>ملاحظة:</strong> لو كان فيه أكتر من صنف بنفس السعر الأقصى (مثلاً كلاهما 19.95)، الـ
+                    <code>LIMIT 1</code> هيجيب واحد منهم بس.</p>
+                <hr>
+                <h2 id="7-3-7-4-group-wise-maximum-">7.3 و 7.4 إيجاد القيمة القصوى للمجموعة (Group-wise Maximum)</h2>
+                <p>هنا السؤال بيختلف، إحنا مش عايزين أعلى سعر في الجدول كله، إحنا عايزين أعلى سعر <strong>لكل
+                        مجموعة</strong> (كل صنف لوحده).</p>
+                <h3 id="7-3-maximum-of-column-per-group-">7.3 أعلى قيمة لعمود لكل مجموعة (Maximum of Column per Group)
+                </h3>
+                <p><strong>السؤال:</strong> إيه هو أعلى سعر بيتباع بيه كل صنف على حدة؟.
+                    <strong>الحل:</strong> دمج <code>MAX()</code> مع <code>GROUP BY article</code>.
+                    <strong>المثال:</strong>
+                </p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> article, <span class="hljs-keyword">MAX</span>(price) <span class="hljs-keyword">AS</span> price
+<span class="hljs-keyword">FROM</span> shop
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> article
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> article;
+<span class="hljs-comment">-- النتيجة: أعلى سعر للصنف 1 هو 3.99، وللصنف 2 هو 10.99، إلخ.</span>
+</code></pre>
+                <h3 id="7-4-the-rows-holding-the-group-wise-maximum-">7.4 الصفوف اللي بتحتوي على القيمة القصوى لكل
+                    مجموعة (The Rows Holding the Group-wise Maximum)</h3>
+                <p><strong>السؤال الأصعب:</strong> مين هو التاجر أو التجار اللي بيبيعوا <strong>كل صنف</strong> بأعلى
+                    سعر بتاعه؟.</p>
+                <p><strong>الطريقة الأولى: استخدام الاستعلام الفرعي المترابط (Correlated Subquery)</strong>
+                    الاستعلام ده بياخد كل صف في الجدول الأول (<code>s1</code>) ويقارنه بأعلى سعر لنفس الصنف في الجدول
+                    الثاني (<code>s2</code>).</p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> article, dealer, price
+<span class="hljs-keyword">FROM</span> shop s1
+<span class="hljs-keyword">WHERE</span> price = (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MAX</span>(s2.price)
+               <span class="hljs-keyword">FROM</span> shop s2
+               <span class="hljs-keyword">WHERE</span> s1.article = s2.article) <span class="hljs-comment">-- هنا الربط: قارن فقط بأصناف متطابقة</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> article;
+</code></pre>
+                <p><strong>ملحوظة:</strong> الاستعلامات الفرعية المترابطة دي ممكن تكون غير فعالة في الأداء على جداول
+                    كبيرة.</p>
+                <p><strong>الطريقة الثانية: استخدام الـ LEFT JOIN (نفس فكرة 7.2 ولكن مع شروط الربط على Article)</strong>
+                    بنقول للسيرفر: هات كل الصفوف اللي مفيش سعر أعلى منها <strong>لنفس الصنف</strong>.</p>
+                <pre><code class="lang-sql">SELECT <span class="hljs-built_in">s1</span>.article, <span class="hljs-built_in">s1</span>.dealer, <span class="hljs-built_in">s1</span>.price
+FROM <span class="hljs-keyword">shop </span><span class="hljs-built_in">s1</span>
+LEFT <span class="hljs-keyword">JOIN </span><span class="hljs-keyword">shop </span><span class="hljs-built_in">s2</span>
+ON <span class="hljs-built_in">s1</span>.article = <span class="hljs-built_in">s2</span>.article   -- لازم يكونوا نفس الصنف
+<span class="hljs-keyword">AND </span><span class="hljs-built_in">s1</span>.price &lt; <span class="hljs-built_in">s2</span>.price      -- بس السعر مختلف (أصغر)
+WHERE <span class="hljs-built_in">s2</span>.article IS NULL     -- لو ملقاش صنف لنفس الـ article بس بسعر أعلى، يبقى ده هو الأقصى
+<span class="hljs-keyword">ORDER </span><span class="hljs-keyword">BY </span><span class="hljs-built_in">s1</span>.article<span class="hljs-comment">;</span>
+</code></pre>
+                <hr>
+                <h2 id="7-5-using-user-defined-variables-">7.5 استخدام المتغيرات المعرفة من قبل المستخدم (Using
+                    User-Defined Variables)</h2>
+                <p>المتغيرات دي بتخليك تخزن نتيجة استعلام وتستخدمها فوراً في استعلام تاني، بدل ما تضطر تخزنها في برنامج
+                    خارجي.</p>
+                <p><strong>السؤال:</strong> عايز أعرف إيه هي الأصناف اللي بتتباع بأعلى سعر <strong>وأقل سعر</strong> في
+                    الجدول كله؟
+                    <strong>الحل:</strong>
+                </p>
+                <ol>
+                    <li><strong>تخزين أعلى وأقل سعر في متغيرين:</strong>
+                        بنستخدم علامة <code>@</code> عشان نعمل متغير، وعلامة <code>:=</code> عشان نحط فيه قيمة.
+                        <pre><code class="lang-sql">mysql&gt; SELECT @min_pri<span class="hljs-symbol">ce:</span>=<span class="hljs-built_in">MIN</span>(<span class="hljs-built_in">price</span>), @max_pri<span class="hljs-symbol">ce:</span>=<span class="hljs-built_in">MAX</span>(<span class="hljs-built_in">price</span>) FROM shop;
+</code></pre>
+                    </li>
+                    <li><strong>استخدام المتغيرات في استعلام ثاني:</strong>
+                        <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> * FROM shop WHERE price=<span class="hljs-symbol">@min_price</span> <span class="hljs-literal">OR</span> price=<span class="hljs-symbol">@max_price</span><span class="hljs-comment">;</span>
+-- النتيجة: هتجيب الصنف الأغلى (<span class="hljs-number">4</span>, D, <span class="hljs-number">19.95</span>) والأرخص (<span class="hljs-number">3</span>, D, <span class="hljs-number">1.25</span>)
+</code></pre>
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="7-6-using-foreign-keys-">7.6 استخدام المفاتيح الأجنبية (Using Foreign Keys)</h2>
+                <p>الـ Foreign Keys (المفاتيح الأجنبية) مهمة عشان نعمل ربط بين الجداول ونضمن <strong>اتساق البيانات
+                        (Referential Integrity)</strong>. يعني نضمن إن مفيش قيمة في جدول الابن بتشاور على قيمة مش موجودة
+                    في جدول الأب.</p>
+                <ul>
+                    <li><strong>العلاقة:</strong> جدول <code>parent</code> (الأب) هو اللي فيه القيم الأساسية، وجدول
+                        <code>child</code> (الابن) هو اللي بيستخدم الـ Foreign Key عشان يشاور على قيم الأب.</li>
+                </ul>
+                <p><strong>أمثلة على قيود الـ Foreign Key:</strong></p>
+                <ol>
+                    <li>
+                        <p><strong>المنع التلقائي (الـ RESTRICT):</strong>
+                            لو حاولنا ندخل صف في جدول الابن (<code>child</code>) بيشاور على <code>parent_id</code> غير
+                            موجود في جدول الأب (<code>parent</code>)، العملية بتفشل وبيظهر خطأ.</p>
+                        <pre><code class="lang-sql">-- محاولة إدخال قيمة 2 غير موجودة في الأب
+mysql&gt; INSERT INTO child (id,parent_id) VALUES(2,2);
+<span class="hljs-keyword">ERROR </span>1452 (23000): Cannot add or update a child row...
+</code></pre>
+                        <p>كمان، لو حاولنا نمسح صف من جدول الأب، والصف ده لسه فيه إشارات من الابن، العملية بتفشل (ده
+                            السلوك الافتراضي أو لما نستخدم <code>RESTRICT</code>).</p>
+                    </li>
+                    <li>
+                        <p><strong>التتابع (الـ CASCADE):</strong>
+                            ده بيحصل لما نحدد <code>ON UPDATE CASCADE</code> أو <code>ON DELETE CASCADE</code> وقت إنشاء
+                            الجدول.</p>
+                        <ul>
+                            <li><strong>ON UPDATE CASCADE:</strong> لو حدثنا الـ <code>id</code> في جدول الأب، القيمة
+                                بتتحدث تلقائياً في كل الصفوف المرتبطة في جدول الابن.</li>
+                            <li><strong>ON DELETE CASCADE:</strong> لو مسحنا صف من جدول الأب، كل الصفوف اللي في جدول
+                                الابن اللي بتشاور عليه بتتمسح تلقائياً.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="7-7-searching-on-two-keys-">7.7 البحث على مفتاحين (Searching on Two Keys)</h2>
+                <p>لو عايز تعمل بحث بيستخدم <code>OR</code> على عمودين مختلفين (وكل واحد منهم عليه فهرس - index).</p>
+                <p><strong>الحل الأفضل هو استخدام <code>UNION</code>:</strong>
+                    بدل ما تعمل <code>SELECT</code> واحد بشرط <code>OR</code> على المفتاحين (ودي ممكن تكون بطيئة)،
+                    بنقسمها لاثنين <code>SELECT</code> وبنستخدم <code>UNION</code> عشان نجمع النتايج:</p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> field1_index, field2_index
+    <span class="hljs-keyword">FROM</span> test_table <span class="hljs-keyword">WHERE</span> field1_index = <span class="hljs-string">'1'</span> <span class="hljs-comment">-- بحث على المفتاح الأول</span>
+<span class="hljs-keyword">UNION</span>
+<span class="hljs-keyword">SELECT</span> field1_index, field2_index
+    <span class="hljs-keyword">FROM</span> test_table <span class="hljs-keyword">WHERE</span> field2_index = <span class="hljs-string">'1'</span>; <span class="hljs-comment">-- بحث على المفتاح الثاني</span>
+</code></pre>
+                <p>كل استعلام منفرد بيتم تحسينه (Optimized) لأنه بيبحث على مفتاح واحد بس.</p>
+                <hr>
+                <h2 id="7-8-calculating-visits-per-day-">7.8 حساب الزيارات اليومية (Calculating Visits Per Day)</h2>
+                <p>ده مثال متقدم بيوري إزاي نستخدم دوال الـ Bit Group عشان نحسب عدد الأيام المختلفة اللي حصلت فيها
+                    زيارات في كل شهر.</p>
+                <p><strong>الهدف:</strong> نحسب عدد الأيام الفريدة اللي زار فيها مستخدم صفحة ويب خلال شهر معين.</p>
+                <p><strong>الاستعلام بيستخدم دوال بتعمل عمليات على البتات (Bits):</strong></p>
+                <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">year</span>, <span class="hljs-keyword">month</span>, <span class="hljs-keyword">BIT_COUNT</span>(<span class="hljs-keyword">BIT_OR</span>(<span class="hljs-number">1</span>&lt;&lt;<span class="hljs-keyword">day</span>)) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">days</span>
+<span class="hljs-keyword">FROM</span> t1
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">year</span>, <span class="hljs-keyword">month</span>;
+</code></pre>
+                <p><strong>إيه اللي بيحصل هنا؟</strong></p>
+                <ol>
+                    <li><strong><code>1 &lt;&lt; day</code>:</strong> بتنقل البت (Bit) بمقدار رقم اليوم (مثلاً لو اليوم
+                        5، البت بتتنقل 5 مرات).</li>
+                    <li><strong><code>BIT_OR(...)</code>:</strong> بتعمل دمج لكل الأيام في كل مجموعة (شهر وسنة) عشان لو
+                        اليوم اتكرر، مش بيتحسب مرتين.</li>
+                    <li><strong><code>BIT_COUNT(...)</code>:</strong> بيعد عدد البتات اللي لسه متفعلة (مترجمة إلى 1)،
+                        وده بيدينا عدد الأيام الفريدة.</li>
+                </ol>
+                <hr>
+                <h2 id="7-9-auto_increment">7.9 استخدام الـ AUTO_INCREMENT</h2>
+                <p>الخاصية دي بتستخدم عشان <strong>تولد قيمة فريدة تلقائياً</strong> لصف جديد بيتم إدخاله.</p>
+                <ul>
+                    <li>
+                        <p><strong>الإنشاء:</strong> عشان تستخدم الخاصية دي، لازم تحددها في عمود لما تنشئ الجدول،
+                            والعمود ده غالباً بيكون المفتاح الأساسي (Primary Key).</p>
+                    </li>
+                    <li>
+                        <p><strong>الإدخال التلقائي:</strong></p>
+                        <ul>
+                            <li>لو ممررتش أي قيمة للعمود (<code>id</code>) في الـ <code>INSERT</code>، هيحط رقم تسلسلي
+                                (1، 2، 3...).</li>
+                            <li>ممكن تحط <code>0</code> عشان الـ MySQL يحط القيمة التسلسلية اللي عليها الدور.</li>
+                            <li>ممكن تحط <code>NULL</code> (لو العمود <code>NOT NULL</code>) عشان يحط القيمة التسلسلية.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>تغيير مسار العد:</strong> لو أدخلت قيمة كبيرة (زي <code>100</code>)، العداد بتاع الـ
+                            <code>AUTO_INCREMENT</code> بيتم ضبطه عشان القيمة اللي بعدها تبقى تالية لها (يعني القيمة
+                            اللي بعدها هتبقى 101).</p>
+                    </li>
+                    <li>
+                        <p><strong>معرفة آخر قيمة:</strong> ممكن تسترجع آخر قيمة تم إدخالها تلقائياً (في نفس اتصالك
+                            بالسيرفر) باستخدام الدالة <code>LAST_INSERT_ID()</code>. دي مهمة عشان لو عايز تستخدم الـ ID
+                            ده في جدول تاني.</p>
+                    </li>
+                    <li>
+                        <p><strong>البدء بقيمة مختلفة:</strong> لو عايز تبدأ العداد من رقم معين غير 1، بتستخدم
+                            <code>ALTER TABLE</code>:</p>
+                        <pre><code class="lang-sql">mysql&gt; ALTER <span class="hljs-keyword">TABLE</span> tbl <span class="hljs-comment">AUTO_INCREMENT = 100</span>;
+</code></pre>
+                    </li>
+                </ul>
+                <p><strong>ملاحظة على نوع البيانات:</strong> لازم تختار نوع بيانات (زي <code>MEDIUMINT</code>) يكون كبير
+                    بما يكفي عشان يستوعب أقصى قيمة تتوقعها للعداد. استخدام <code>UNSIGNED</code> (غير سالب) بيضاعف المدى
+                    المسموح به للقيمة القصوى.</p>
+                <hr>
+                <p><strong>تخيل الفصل 7 ده عامل زي كتاب &quot;طبخ الـ SQL&quot;:</strong> هو مش بيعلمك إزاي تقطع الخضار
+                    (ده كان الفصل 4 اللي علمك <code>SELECT</code> و <code>WHERE</code>)، لأ، هو بيوريك إزاي تجمع
+                    المكونات دي مع بعض (Subqueries و JOINs و GROUP BY) عشان تعمل طبق معقد ومطلوب، زي &quot;أعلى سعر لكل
+                    تاجر&quot; أو &quot;تتبع العمر عند الوفاة&quot;. هو بيوريك الـ &quot;وصفات&quot; المثالية لحل
+                    المشاكل الشائعة.</p>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

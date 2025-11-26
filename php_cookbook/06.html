@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>06</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -17,6 +17,175 @@
         <div class="row">
             <div class="col-12">
 
+                <p>أهلاً بك يا باشا! طلبك أوامر. الفصل رقم 6 ده فصل من أهم الفصول في الكتيب ده، لأنه بيتكلم عن
+                    <strong>&quot;مثال نموذج تسجيل الدخول&quot; (Login Form Example)</strong>. تسجيل الدخول ده دايماً
+                    بيكون هدف رئيسي لأي مهاجم، عشان كده لازم نكون حريصين جداً في كل خطوة نعملها عشان نحمي نظامنا.</p>
+                <p>هنشرح بالتفصيل إزاي تبني آلية تسجيل دخول آمنة باستخدام PHP والـSQLite.</p>
+                <hr>
+                <h3 id="-6-login-form-example-">الفصل 6: إزاي تعمل شاشة دخول آمنة (Login Form Example)</h3>
+                <p>المثال ده بيفترض إنك شغال على بيئة معينة عشان تعرف تطبق:</p>
+                <ul>
+                    <li>نظام تشغيل <strong>Ubuntu (14.04)</strong>.</li>
+                    <li>سيرفر <strong>Apache HTTP (2.4.7)</strong>.</li>
+                    <li>لغة <strong>PHP (5.5.9)</strong>.</li>
+                    <li>قاعدة بيانات <strong>SQLite3</strong>، ودي قاعدة بيانات خفيفة جداً ومفيدة لأغراض التطوير، بس
+                        <strong>ما ينفعش نستخدمها في بيئات الإنتاج الفعلية (Production environments)</strong>.</li>
+                </ul>
+                <h4 id="1-preparing-the-environment-">1. تجهيز البيئة (Preparing the environment)</h4>
+                <p>عشان نستخدم SQLite3 مع PHP، لازم نعمل كام خطوة إعداد:</p>
+                <ol>
+                    <li><strong>التثبيت (Installation):</strong> بنطبّق أوامر تثبيت Apache و PHP، وبنضيف معاهم مكتبة
+                        <strong><code>php5-sqlite</code></strong>.</li>
+                    <li><strong>إعداد PHP (PHP configuration):</strong> بنفتح ملف إعداد PHP
+                        (<code>/etc/php5/apache2/php.ini</code>) وبنتأكد إن الإضافة دي متفعلة:
+                        <pre><code class="lang-ini"><span class="hljs-attr">extension</span>=sqlite.so
+</code></pre>
+                    </li>
+                    <li><strong>ملاحظة هامة:</strong> لازم تعمل <strong>Restart لـApache</strong> بعد أي تعديل في
+                        الإعدادات، وكمان لازم تتأكد إن مجلد الشغل بتاعك عنده صلاحيات الكتابة، لأن قاعدة البيانات هتتنشئ
+                        جواه.</li>
+                </ol>
+                <h4 id="2-how-should-passwords-be-stored-">2. السؤال الأهم: إزاي نخزن الباسوردات؟ (How should passwords
+                    be stored?)</h4>
+                <p>ده هو قلب الفصل ده. تخزين الباسوردات صح هو خط الدفاع الأول. المصدر بيقسم طرق التخزين من الأسوأ
+                    للأحسن:</p>
+                <h5 id="-plain-text-">أ. الأسوأ: نص عادي (Plain Text)</h5>
+                <ul>
+                    <li><strong>ببساطة: ما تعملش كده أبداً!</strong>.</li>
+                    <li>لو الباسورد اتخزنت نص عادي، أي حد يوصل لقاعدة البيانات هيعرف كل الباسوردات. في اللحظة اللي بتخزن
+                        فيها الباسورد، بتكون مكشوفة.</li>
+                </ul>
+                <h5 id="-password-hashing-">ب. مش بطّال: تجزئة الباسورد (Password Hashing)</h5>
+                <ul>
+                    <li>الحل ده أحسن من الأول بكتير. بيعتمد على دالة <strong>تجزئة أحادية الاتجاه (one-way
+                            function)</strong>، يعني لو طلعنا Hash من الباسورد، بيكون شبه مستحيل نرجع للباسورد الأصلية.
+                    </li>
+                    <li>للتسجيل، بنخزن الـHash بتاع الباسورد. ولتسجيل الدخول، بنجيب الـHash بتاع الباسورد اللي اليوزر
+                        دخلها وبنقارنه بالـHash المخزن.</li>
+                    <li><strong>العيوب:</strong> النظام ده لسه ضعيف. المهاجم ممكن يستخدم <strong>جداول مُعدة مسبقاً
+                            (Precomputed tables)</strong>، زي جداول قوس قزح (Rainbow tables)، عشان يجبر تسجيل الدخول أو
+                        يرجع الباسورد الأصلية من الـHash. كمان دالة الـHash العادية بتكون <strong>سريعة جداً</strong>،
+                        ودي نقطة ضعف؛ لأن السرعة دي بتخلي المهاجم يقدر يجرب عدد ضخم من المحاولات في وقت قليل.</li>
+                </ul>
+                <h5 id="-password-hashing-salting-">ج. الأحسن: التجزئة + التمليح (Password Hashing + Salting)</h5>
+                <ul>
+                    <li>التمليح (Salting) بيحل جزء من مشكلة الجداول المُعدة مسبقاً.</li>
+                    <li>الفكرة: بنضيف <strong>سلسلة عشوائية من البايتات (Random string of bytes)</strong> اسمها
+                        <strong>&quot;الملح&quot; (Salt)</strong> للباسورد <strong>قبل ما نعملها Hash</strong>.</li>
+                    <li>العملية بتكون كده: <code>hf(password + salt) = hash</code>.</li>
+                    <li>النتيجة: لو اتنين يوزرز عندهم نفس الباسورد، هيكون لكل واحد فيهم <strong>Hash مختلف</strong>، وده
+                        بيصعّب على المهاجم إنه يرجع الـHash للباسورد الأصلية.</li>
+                    <li><strong>ملاحظة أمان:</strong> لازم الملح ده يتولّد باستخدام دوال عشوائية قوية جداً بتعتمد على
+                        الإنتروبيا (entropy)، مش دوال ضعيفة زي <code>rand()</code>.</li>
+                </ul>
+                <h5 id="-key-derivation-functions-kdfs-">د. الأفضل: دوال اشتقاق المفتاح (Key Derivation Functions -
+                    KDFs)</h5>
+                <ul>
+                    <li>دي أحسن طريقة حالياً. الهدف منها هو إنها تكون <strong>مكلفة حسابياً (computationally
+                            intense)</strong>، يعني بتاخد وقت كبير عشان تشتق المفتاح.</li>
+                    <li>ده بيخلي هجمات القوة الغاشمة (brute-force attack) صعبة جداً وبطيئة.</li>
+                    <li>العملية بتعتمد على 3 متغيرات: الباسورد، الملح (Salt)، و <strong>التكلفة (Cost)</strong> اللي
+                        بتحدد درجة الشدة الحسابية.</li>
+                    <li>الصيغة بتكون: <code>kdf(password, salt, cost) = dk</code> (المفتاح المُشتق).</li>
+                </ul>
+                <p><strong>مثال يوضح الفارق في السرعة (SHA1 vs. bcrypt):</strong>
+                    لو قارنا بين دالة Hash قديمة زي SHA1 (المُهملة حالياً) وبين KDF زي <strong>bcrypt</strong>، هنلاقي
+                    الفرق كبير:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الدالة</th>
+                            <th style="text-align:left">الوقت التقريبي</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>SHA1</strong></td>
+                            <td style="text-align:left">حوالي $1.5 \times 10^{-5}$ ثانية</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>bcrypt</strong></td>
+                            <td style="text-align:left">حوالي 1.2 ثانية (بتكلفة 14)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>الـKDF (bcrypt) بيقلل بشكل كبير محاولات المهاجم؛ لأنه بياخد ثانية أو أكتر، وده وقت <strong>شبه غير
+                        محسوس للمستخدم العادي</strong> اللي بيسجّل دخوله، لكنه <strong>وقت ضخم جداً للمهاجم</strong>.
+                </p>
+                <h4 id="3-creating-users-">3. تنفيذ إنشاء المستخدمين (Creating users)</h4>
+                <p>لإنشاء مستخدم جديد، بنستخدم دالة <code>password_hash()</code> في PHP:</p>
+                <p><strong>مثال على إنشاء مستخدم (داخل دالة <code>createUser</code>):</strong></p>
+                <pre><code class="lang-php"><span class="hljs-comment">// بنحدد التكلفة (Cost) اللي بنحدد بيها قد إيه الدالة هتاخد وقت</span>
+$options = <span class="hljs-built_in">array</span>(’cost’ =&gt; <span class="hljs-built_in">self</span><span class="hljs-type">::BCRYPT_COST</span>);
+
+<span class="hljs-comment">// password_hash هي اللي بتعمل الـKDF (bcrypt) وتولد الملح تلقائياً</span>
+$derivedPassword = password_hash($password, PASSWORD_BCRYPT, $options);
+
+<span class="hljs-comment">// ثم يتم تخزين الناتج (الـderivedPassword) في قاعدة البيانات</span>
+$sql = ’INSERT <span class="hljs-keyword">INTO</span> user VALUES (:username, :password)’;
+<span class="hljs-comment">// ...</span>
+</code></pre>
+                <p>الناتج اللي بيطلع من <code>password_hash()</code> بيكون عامل كده، وهو اللي بيتخزن في قاعدة البيانات:
+                    <code>$2y$14$WH1yQiP1naJD8b8lWOK1bOxGQUjgCpFwuzSKohGL/ZV1NaYYr5Cge</code>
+                    السترينج ده بيحتوي على:
+                </p>
+                <ul>
+                    <li><code>$2y</code>: مُعرّف الخوارزمية (bcrypt).</li>
+                    <li><code>$14</code>: التكلفة (Cost).</li>
+                    <li>الحروف اللي بعد كده: الملح (Salt) والـHash المشتق.</li>
+                </ul>
+                <h4 id="4-login-">4. تنفيذ تسجيل الدخول (Login)</h4>
+                <p>في نموذج الدخول، بنطلب اسم المستخدم وكلمة المرور. وعند معالجة النموذج، بيتم استدعاء دالة
+                    <code>authenticateUser</code>.</p>
+                <p>الجزء الأهم في عملية المصادقة هو دالة <strong><code>password_verify()</code></strong>.</p>
+                <p><strong>إزاي بتشتغل <code>password_verify()</code>؟</strong></p>
+                <ul>
+                    <li>الدالة دي عظيمة لأنها بتخلصك من كل الحسابات اليدوية.</li>
+                    <li>هي بتأخذ الباسورد اللي دخلها المستخدم (<code>$password</code>)، وبتاخد الباسورد المشتقة المخزنة
+                        (<code>$storedPassword</code>).</li>
+                    <li>بتقوم تلقائياً بـ<strong>قراءة الأجزاء المطلوبة</strong> (الخوارزمية، والملح، والتكلفة) من
+                        الباسورد المخزنة.</li>
+                    <li>بـ<strong>تعيد تكرار العملية الحسابية للـKDF</strong> باستخدام الباسورد المُدخلة والملح والتكلفة
+                        اللي قرأتها.</li>
+                    <li>وفي النهاية، <strong>بتقارن</strong> بين الناتج الجديد والناتج المخزن عشان تحدد ما إذا كانت
+                        الباسورد صحيحة أم لا.</li>
+                </ul>
+                <pre><code class="lang-php"><span class="hljs-comment">// في دالة authenticateUser</span>
+$storedPassword = <span class="hljs-keyword">$this</span>-&gt;getUsersPassword($username);
+<span class="hljs-keyword">if</span> (password_verify($password, $storedPassword)) { <span class="hljs-comment">// هنا بيتم التحقق الآمن</span>
+    $authenticated = <span class="hljs-keyword">true</span>;
+} <span class="hljs-keyword">else</span> {
+    $authenticated = <span class="hljs-keyword">false</span>;
+}
+</code></pre>
+                <h4 id="5-sql-sql-injection-">5. الأمان الأهم: منع حقن SQL (SQL Injection)</h4>
+                <p>في جزء التفاعل مع قاعدة البيانات، الفصل بيشدد على استخدام <strong>Prepared Statements (العبارات
+                        المُجهزة)</strong>.</p>
+                <p><strong>ليه مهمة؟</strong></p>
+                <ul>
+                    <li>لو استخدمت طريقة تنفيذ مباشرة لـSQL (زي دالة <code>exec()</code>)، نظامك هيكون <strong>عرضة
+                            لهجوم حقن SQL</strong>. المهاجم ممكن يدخل أوامر خبيثة عشان يوصل للنظام أو يسرق بيانات.</li>
+                    <li><strong>Prepared Statement</strong> بيمنع ده تماماً. هي بتربط (bind) البارامترات باستخدام
+                        بروتوكول مختلف، وده بيخلي الأوامر اللي بيدخلها المستخدم كبيانات يتم التعامل معاها
+                        كـ<strong>بيانات فقط</strong>، مش كـ<strong>أوامر تنفيذية</strong>.</li>
+                </ul>
+                <blockquote>
+                    <p><strong>ملخص الأمن:</strong>
+                        عشان نظامك يكون آمن: <strong>استخدم KDFs (زي bcrypt) لتخزين الباسوردات</strong>، و
+                        <strong>استخدم Prepared Statements للتفاعل مع قاعدة البيانات</strong>.</p>
+                </blockquote>
+                <hr>
+                <p><strong>تخيل الموضوع عامل إزاي:</strong></p>
+                <p>تخيل إن الباسورد بتاعتك اللي بتدخلها هي <strong>&quot;مفتاح&quot;</strong>.</p>
+                <ul>
+                    <li>زمان (نص عادي)، كنت بتدي المفتاح ده للحارس عشان يخزنه زي ما هو. لو الحارس ضاع، المفتاح ضاع.</li>
+                    <li>بالتجزئة (Hashing)، بتدي للحارس بصمة من المفتاح، والبصمة دي سريعة جداً. بس لو فيه مجرم عنده
+                        كتالوج بكل البصمات، ممكن يعرف مفتاحك.</li>
+                    <li>بالـ<strong>KDFs (bcrypt)</strong>، أنت بتدي المفتاح للحارس، بس الحارس بيعمل كذا خطوة معقدة جداً
+                        عشان ينتج <strong>&quot;مفتاح مشتق&quot;</strong> معقد، والعملية دي متعمدة إنها تكون
+                        <strong>بطيئة جداً</strong> (1.2 ثانية). الحارس ده لو ضاع، المجرم هيحتاج 1.2 ثانية عشان يجرب
+                        مفتاح واحد بس، يعني هيموت من الزهق قبل ما يوصل لحاجة.</li>
+                </ul>
 
 
 

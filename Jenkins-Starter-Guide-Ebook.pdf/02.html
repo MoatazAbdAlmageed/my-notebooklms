@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا باشا، تحت أمرك. ده شرح مفصّل ووافي للفصل التاني، عشان تفهم بالظبط إيه هو Jenkins وليه لازم يكون
+                    موجود في فريقك.</p>
+                <hr>
+                <h3 id="-jenkins-">ثانياً: ما هو Jenkins ولماذا يجب أن تستخدمه؟</h3>
+                <h4 id="1-">1. المشكلة الأساسية: الشغل المتفرّق والبطء</h4>
+                <p>زي ما بيقولوا في المصادر، المشكلة الشائعة في فرق الـ Devops هي <strong>&quot;الشغل المتفرّق&quot;
+                        (fragmented workflow)</strong>. وده بيسبب إحساس بالـ <strong>&quot;إنفِيشانسي&quot;
+                        (Inefficiency)</strong> أو عدم الكفاءة اللي بتخنق الواحد.</p>
+                <p><strong>إزاي بتحصل المشكلة دي؟</strong></p>
+                <ol>
+                    <li><strong>الشغل الانفرادي:</strong> الأفراد في الفريق بيشتغلوا كل واحد لوحده (independently).
+                        المهندس بيكتب أجزاء كبيرة من الكود وهو شغال &quot;سولو&quot;، وغالباً بيكون بعيد عن نظام التحكم
+                        في الإصدارات المشترك (version control).</li>
+                    <li><strong>المفاجأة الكبيرة:</strong> لما المطور &quot;يخلص&quot; شغله، بيضيف الكمية الكبيرة دي من
+                        الكود مرة واحدة للـ basecode.</li>
+                    <li><strong>الـ &quot;صداع&quot; بيبدأ:</strong> بيقوم فريق تاني (أو نفس الفريق يدوياً) بتشغيل
+                        الاختبارات عشان يتأكدوا إن الكود ده سليم. لما مطورين كتير بيعملوا تغييرات كبيرة في نفس الوقت، ده
+                        بيولّد <strong>&quot;أخطاء معقدة&quot; (complex bugs)</strong>، وبيخلي تصليح الأخطاء ده ياخد وقت
+                        كبير جداً (time-intensive fixes)، وبتزيد الحاجة للاختبار اليدوي.</li>
+                    <li><strong>النتيجة:</strong> كل حاجة بتبطأ. عدم الكفاءة ده بيسد دورة بناء التطبيق (build cycle)
+                        وبيخلي وقت الوصول للإنتاج (production) أبطأ، وده في الآخر بيقلل أرباح الشركة.</li>
+                </ol>
+                <p>Jenkins والـ CI/CD بييجوا عشان يحلوا المشكلة دي بالكامل.</p>
+                <h4 id="2-continuous-integration-ci-">2. إيه هو التكامل المستمر (Continuous Integration - CI)؟</h4>
+                <p>التكامل المستمر (CI) هو عملية هدفها <strong>قصقصة عدم الكفاءة</strong> في دورة البناء.</p>
+                <ul>
+                    <li><strong>إيه بيعمله CI؟</strong>
+                        <ul>
+                            <li>بيسمح للمطورين <strong>يجمعوا كود الفريق كله</strong> من مكان واحد مشترك (shared version
+                                control repository).</li>
+                            <li>بيخليك تعمل <strong>أتمتة للاختبارات</strong>، يعني بتظبط النظام عشان يشغّل اختبارات
+                                الوحدة (unit tests) أو اختبارات التكامل (integration tests) بشكل أوتوماتيكي.</li>
+                        </ul>
+                    </li>
+                    <li><strong>المراقبة المستمرة:</strong> الـCI بيراقب التغييرات اللي بيعملها كل مهندس أول بأول. ده
+                        بيخلي بناء الكود والتحقق منه عملية سلسة، وبيقلل مخاطر الاختبار.</li>
+                    <li><strong>سيرفر مشترك وإنذار مبكر:</strong> بيشتغل على سيرفر مشترك بيزود الرؤية (visibility)، فكل
+                        المهندسين بيبقوا عارفين التغييرات اللي بتحصل في الكود الأساسي كل يوم. وممكن تظبطه عشان
+                        <strong>ينبّه المطور</strong> لو الكود اللي دخّله فشل في الاختبار، عشان يلحق يصلح المشاكل اللي
+                        عملها بسرعة.</li>
+                    <li><strong>مستويات الاختبار:</strong> أبسط اختبار ممكن تعمله هو إنك تتأكد إن الكود <strong>بيتجمّع
+                            فعلاً (compiles)</strong>. ممكن كمان تفحص الـ&quot;Style&quot; أو الشكل العام للكود
+                        (linted). وممكن تكتب اختبارات معقدة زي اختبارات الضغط (stress) أو الارتداد (regression testing).
+                    </li>
+                </ul>
+                <h4 id="3-ci-continuous-delivery-cd-">3. إيه الفرق بين CI و التسليم المستمر (Continuous Delivery - CD)؟
+                </h4>
+                <p>الـ CI والـ CD مش حاجة واحدة، الـ CD بتيجي بعد الـ CI.</p>
+                <ul>
+                    <li><strong>التكامل المستمر (CI):</strong> بيجمّع وبيختبر التطبيق بالكامل (ممكن يشغّل التطبيق في
+                        محاكي مثلاً).</li>
+                    <li><strong>التسليم المستمر (CD):</strong> ده بيزيد خطوة. بعد ما التطبيق يتجمّع ويتجرب، الـCD
+                        <strong>بينشر (pushes)</strong> التطبيق ده في مكان تخزين (repository).</li>
+                </ul>
+                <p><strong>التسليم ده ليه معنيين:</strong></p>
+                <ol>
+                    <li><strong>للمختبرين:</strong> ممكن يكون معناه إن التطبيق يتحط على سيرفر عشان المختبرين اليدويين
+                        (manual tests) يجربوه، أو يتبعت عن طريق الإيميل لمجموعة اختبارات (زي تطبيق موبايل بيتبعت بالبريد
+                        الإلكتروني).</li>
+                    <li><strong>للإنتاج:</strong> بالنسبة لنسخ الإنتاج (production builds)، التسليم معناه <strong>نشر
+                            التطبيق للمستخدمين النهائيين (end users)</strong>.</li>
+                </ol>
+                <p>الـ CD هدفه هو <strong>اللوجستيات المرنة</strong> (lean-logistics)، يعني أتمتة العملية من أول إضافة
+                    الكود الجديد لحد اختبار القبول. وده بيسمح بعمليات نشر أصغر وأسرع، وده <strong>بيقلل مخاطر النشر
+                        (deployment risk)</strong>.</p>
+                <h4 id="4-ci-cd-devops-">4. إيه فايدة CI/CD لفريق Devops؟</h4>
+                <p>لما تطبق CI/CD، ده بيعمل &quot;تحوّل ثقافي&quot; (cultural shift) في الفريق:</p>
+                <ul>
+                    <li><strong>تجنب إهدار الوقت:</strong> بتوقف إهدار الوقت البشري اللي كان بيضيع في محاولة حل الأكواد
+                        المتضاربة أو تشغيل الاختبارات يدويًا.</li>
+                    <li><strong>إصلاح أسرع:</strong> العملية بتتأكد إن التغييرات اللي بيعملها كل مطور بتشتغل كويس مع شغل
+                        زمايله. واكتشاف المشاكل بدري بيخلي تصليح الأخطاء أسهل وأسرع.</li>
+                    <li><strong>تشجيع التغييرات الصغيرة:</strong> بيشجع الفريق يضيف تغييرات صغيرة ومتزايدة في الكود
+                        (small, incremental changes)، بدل ما تلاقي نفسك قدام &quot;أخطاء ضخمة ومعقدة&quot; لازم تصلحها.
+                        ده بيسرّع دورة البناء والوصول للإنتاج.</li>
+                    <li><strong>مبدأ العمل الأساسي:</strong> <strong>&quot;الـCI/CD كله بيدور حوالين إنك تخلي الآلات
+                            تعمل اللي بتعرف تعمله كويس، عشان البشر يقدروا يعملوا الحاجة اللي بتجيب قيمة أكبر
+                            للشركة&quot;</strong>.</li>
+                    <li><strong>مساعدة الفرق البعيدة:</strong> لو فريقك بيشتغل عن بعد (remote team)، الـCI بيكون مفيد
+                        جداً لأنه بيجمع شغلكم مع بعض بشكل مستمر وبيخليكم على نفس الصفحة. Jenkins بيساعد في هيكلة دورة
+                        بناء الفريق اللي بيشتغل عن بعد.</li>
+                </ul>
+                <p><strong>مثال على Bugfender:</strong></p>
+                <p>Bugfender بيستخدموا Jenkins عشان:</p>
+                <ul>
+                    <li>يضمنوا باستمرار إن الكود بيتجمّع صح.</li>
+                    <li>يشغّلوا مجموعة من الاختبارات الأساسية عشان يتحققوا من الكود بعد كل تغيير.</li>
+                    <li>ينشروا الكود المدمج بشكل أوتوماتيكي في بيئة التكامل (continuous delivery) عشان الاختبارات
+                        اليدوية.</li>
+                    <li>يولّدوا وينشروا نسخ الإنتاج (production builds)، خاصةً إن عمليات النشر عندهم معقدة لأنهم
+                        بيحدّثوا مجموعة كبيرة من الأجهزة (cluster of machines) مش جهاز واحد. وده بيقلل الأخطاء اللي ممكن
+                        تحصل لو عملها إنسان.</li>
+                </ul>
+                <h4 id="5-jenkins">5. تعرّف على Jenkins</h4>
+                <ul>
+                    <li><strong>إيه هو Jenkins؟</strong>
+                        <ul>
+                            <li>Jenkins هو تطبيق <strong>مفتوح المصدر (open source)</strong> بيعمل كسيرفر
+                                <strong>للتكامل المستمر (CI server)</strong>.</li>
+                            <li>مكتوب بلغة <strong>Java</strong>.</li>
+                            <li>ممكن تستخدمه كخيار تستضيفه بنفسك (self-hosted option) عشان تعمل أتمتة لدورة البناء لأي
+                                مشروع.</li>
+                            <li>بيشتغل مع أي لغة برمجة وأي منصة (Windows, Linux, macOS).</li>
+                        </ul>
+                    </li>
+                    <li><strong>تاريخ وشعبية:</strong>
+                        <ul>
+                            <li>تم تأسيسه في الأصل سنة 2006 تحت اسم &quot;Hudson&quot;.</li>
+                            <li>هو واحد من أهم سيرفرات الأتمتة الموجودة.</li>
+                            <li>في سنة 2015، تجاوز عدد التثبيتات المعروفة ليه <strong>100,000 تثبيت</strong>، وده خلاه
+                                السيرفر الأكتر استخداماً للأتمتة.</li>
+                        </ul>
+                    </li>
+                    <li><strong>نظام الإضافات (Plugins):</strong> أهم ميزة ليه هي <strong>معمارية الإضافات القابلة
+                            للتوسيع (extensible, plugin-based architecture)</strong>. المطورين عملوا مئات الإضافات عشان
+                        يخلي Jenkins يتناسب مع أي شغل أتمتة للبناء أو الاختبار أو النشر.</li>
+                </ul>
+                <h4 id="6-jenkins">6. مميزات وعيوب Jenkins</h4>
+                <p>لما تفكر في استخدام Jenkins، لازم تعرف المزايا والعيوب بتاعته:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">المميزات (Pros)</th>
+                            <th style="text-align:left">العيوب (Cons)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>مفتوح المصدر ومجاني:</strong> هو واحد من أفضل وأوسع
+                                الأدوات المجانية استخداماً لتطبيق CI/CD.</td>
+                            <td style="text-align:left"><strong>واجهة المستخدم (UI) قديمة:</strong> هو أداة قديمة وواجهة
+                                المستخدم بتاعتها مش ودّية. (بس نزلوا إصدار جديد اسمه Blue Ocean بيحسن الواجهة دي بشكل
+                                كبير).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>دعم مجتمعي كبير:</strong> أداة معروفة ولها دعم مجتمعي
+                                ضخم، وفيها إضافات كتير مشهورة زي Slack و GitHub.</td>
+                            <td style="text-align:left"><strong>التكلفة والصيانة:</strong> لازم يشتغل على سيرفر (وده
+                                بيكلف فلوس). وبيحتاج حد متخصص في إدارة الأنظمة (system administration) عشان يتابعه.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>التحكم في البيانات:</strong> لو استضفته بنفسك
+                                (self-hosting)، بيكون عندك تحكم أكبر في أمان بياناتك، وده ميزة على البدائل المدفوعة
+                                (SaaS alternatives).</td>
+                            <td style="text-align:left"><strong>الصيانة الدورية:</strong> مابتسيبوش يشتغل لوحده، بيحتاج
+                                تحديثات وصيانة مستمرة. أنظمة CI ممكن &quot;تتكسر&quot; بانتظام، وأي تغيير في إعدادات
+                                المشروع بيحتاج تعديل في إعدادات Jenkins.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>استثمار مش مصاريف:</strong> رغم الجهد الأولي، الـCI/CD
+                                هو <strong>استثمار</strong> بيوفر فلوس للشركة على المدى الطويل عن طريق تسريع البناء
+                                وتقليل الأخطاء.</td>
+                            <td style="text-align:left"><strong>ضرورة كتابة الاختبارات:</strong> عشان تستفيد منه، لازم
+                                الفريق يكتب اختبارات، ودي مهمة بتأجل عشان الشغل &quot;الأكثر إلحاحاً&quot; في كتابة
+                                الكود الأساسي.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"></td>
+                            <td style="text-align:left"><strong>التحوّل الثقافي:</strong> الإدارة لازم تدي وقت للمطورين
+                                لـ&quot;الشغل غير الإنتاجي&quot; ده (fixing the CI system and writing tests).</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>الخلاصة:</strong>
+                    إعداد Jenkins بياخد وقت، وجهد مستمر عشان يبقى شغال. لكن التضحية المؤقتة بالوقت ده بتتحول لمكاسب
+                    طويلة الأمد للشركة. الكود بتاعك بيكون أسهل في الصيانة، والأخطاء اللي بتوصل للإنتاج بتكون أقل.</p>
+                <hr>
+                <p><strong>تشبيه لتبسيط الفكرة:</strong></p>
+                <p>تخيل إن عملية التطوير بدون CI/CD هي زي إنك بتعمل أكلة كبيرة، وكل واحد في المطبخ شغال على مكون لوحده،
+                    وكلهم بيجيبوا المكونات بتاعتهم مرة واحدة على السفرة عشان تحطوها في طبق واحد. طبعاً هيطلع الطعم مش
+                    متجانس وفيه أخطاء كتير ومكونات مش متوافقة.</p>
+                <p>الـ <strong>CI/CD (وجينكنز)</strong> هو زي إنك بتجيب الخلاط (Jenkins) وتظبطه يشتغل أوتوماتيك: كل ما
+                    حد يحط مكون جديد (Commit)، الخلاط بيشتغل فوراً وبيقلب المكونات كلها مع بعض (Integration) وبيذوقها
+                    (Test). لو المذاق طلع بايظ، بيطلّع إنذار <strong>فوري</strong> عشان اللي حط المكون الأخير يصلحه وهو
+                    لسه فاكر عمل إيه. بكده بتضمن إن الطبق النهائي (المنتج) دايماً جاهز للتقديم للضيوف (Delivery) ومحدش
+                    بيستنى للآخر عشان يكتشف الكارثة. ده بيخلي شغلك منظم، أسرع، ونتائجه مضمونة.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
