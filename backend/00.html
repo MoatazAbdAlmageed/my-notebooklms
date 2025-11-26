@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>أكبر كذبة في الباك-اند — مقال موسّع</title>
+  <style>
+    :root {
+      --bg: #fbfbfd;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #1f2937
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, "Noto Sans Arabic", "Arial", sans-serif;
+      background: var(--bg);
+      color: var(--accent);
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 28px
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(20, 20, 40, 0.06)
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-bottom: 18px
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 22px 0 8px
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 14px 0 6px
+    }
+
+    p {
+      line-height: 1.65;
+      color: #111827
+    }
+
+    ul {
+      line-height: 1.7
+    }
+
+    .pill {
+      display: inline-block;
+      background: #eef2ff;
+      color: #3730a3;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px
+    }
+
+    blockquote {
+      border-right: 4px solid #e5e7eb;
+      padding: 12px 16px;
+      margin: 18px 0;
+      background: #fafafa;
+      color: #374151
+    }
+
+    .cta {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      color: white;
+      text-decoration: none;
+      display: inline-block
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media (max-width:600px) {
+      .wrap {
+        padding: 18px
+      }
+
+      h1 {
+        font-size: 22px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <article class="card">
+      <header>
+        <div class="pill">مقال تحفيزي للمطورين</div>
+        <h1>أكبر كذبة في الباك-اند: إنك لازم تكون عبقري عشان تبقى شاطر</h1>
+        <p class="lead">الحقيقة؟ مش محتاج تكون <strong>Genius</strong>… محتاج تكون <strong>مستمر</strong>. هذا نص موسع
+          بنفس الروح التحفيزية ومع مزيد من التفاصيل العملية.</p>
+      </header>
+
+      <section>
+        <p>الناس اللي شايفة الطريق صعب هي نفس الناس اللي كل يوم تبدأ Project جديد، تتحمس له ساعتين... وبعدها تقفله وتبدأ
+          غيره. النتيجة؟ Zero progress. اللي بيكسب فعلاً مش الأسرع، ولا الأذكى، ولا اللي حافظ Documentation.
+          <strong>اللي بيكسب هو اللي بيكمّل</strong>. اللي بيكتب كود وحش في الأول، ويتكسف منه، وبعدين يرجع يصلحه، ويعيد
+          بناءه لحد ما يبقى شغل محترم.</p>
+
+        <blockquote>وهذا سر أي Back-End Developer تقيل… مش العبقرية، بل الاستمرارية.</blockquote>
+      </section>
+
+      <section>
+        <h2>عايز تبقى Back-End Developer محترف؟ ركز على الـ 5 أساسيات دول</h2>
+        <p>لو أتقنتهم بنسبة 60% هتسبق ناس متفوقة عليك في الذكاء نفسه — لأن الفارق الحقيقي هو الممارسة والالتزام.</p>
+
+        <h3>1. فهم حقيقي للـ Data</h3>
+        <p>مش بس تحفظ SQL queries وخلاص. افهم <em>Relationships</em> — الـ <em>Indexes</em> — <em>Normalization</em> —
+          <em>Caching</em> — و<em>Query Optimization</em>. الباك-اند في جوهره بيتعامل مع الداتا؛ لو فهمتها صح، بقيت نصف
+          مبرمج.</p>
+
+        <h3>2. APIs نضيفة وسهلة تتوسع</h3>
+        <p>API محترمة لازم تكون:</p>
+        <ul>
+          <li>منظمة وواضحة</li>
+          <li>قابلة للتغير من غير ما تكسر النظام</li>
+          <li>تراعي <strong>versioning</strong> و<em>consistency</em></li>
+        </ul>
+        <p>الفرق بين Junior وSenior مش الكم، بل جودة التصميم.</p>
+
+        <h3>3. Logging مظبوط ينقذك وقت المصايب</h3>
+        <p>هتقابل Bugs غريبة، Errors مش مفهومة، Requests بتقع، وPerformance بيموت. اللي هينقذك هو Logging مضبوط: Request
+          ID، Error trace، Timing وMonitoring. بدون Logging هتضل تايه — معاه هتبقى شايف كل حاجة.</p>
+
+        <h3>4. Testing بسيط بس مستمر</h3>
+        <p>مش لازم 100% coverage. ركز على:</p>
+        <ul>
+          <li>Unit tests للأجزاء اللي ممكن تتكسر</li>
+          <li>Integration tests للحاجات الحرجة</li>
+          <li>كتابة اختبار بسيط مع كل Feature جديدة</li>
+        </ul>
+        <p>Testing مش رفاهية — ده اللي يخليك تطور بسرعة من غير خوف.</p>
+
+        <h3>5. متستناش الإلهام — اشتغل حتى لو مش قادر</h3>
+        <p>أفضل المبرمجين مش عباقرة؛ هم ناس بتفتح اللابتوب كل يوم وتشتغل حتى لو تعبانين أو زهقانين. اللي بيعتمد على
+          الإلهام يشتغل يومين ويقف شهر؛ اللي بيعتمد على الالتزام بيتطور بثبات.</p>
+      </section>
+
+      <section>
+        <h2>هل الموهبة كافية؟</h2>
+        <p>الموهبة شيء جميل ومفيد، لكن الالتزام هو اللي <strong>يكسبها كل مرة</strong>. مش لازم تكون الأفضل — لازم تكمل.
+          التكملة وحدها كافية لتحوّل أي مطور إلى ممتاز بعد فترة.</p>
+      </section>
+
+      <footer>
+        <p>لو شايف الكلام ده حقيقي — <a class="cta" href="#share">اعمله Share</a>.<br>مش عشاني، عشان حد زيك محتاج يسمع
+          الكلمتين دول النهاردة.</p>
+      </footer>
+    </article>
+  </div>
+</body>
+
+</html>
