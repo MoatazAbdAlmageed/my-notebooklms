@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -68,7 +68,8 @@ Database changed
 Empty <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</span> <span class="hljs-keyword">sec</span>)
 </code></pre>
                 <p>دلوقتي محتاجين نعمل <strong>الجدول</strong> اللي هيشيل بيانات الحيوانات. الجدول ده بنسميه
-                    <code>pet</code>.</p>
+                    <code>pet</code>.
+                </p>
                 <p><strong>إيه الأعمدة اللي محتاجينها؟</strong>
                     المرجع بيقول إننا محتاجين نجمع معلومات زي الاسم، والمالك، والنوع (Species)، والجنس (Sex)، وتاريخ
                     الميلاد، وتاريخ الوفاة.</p>
@@ -77,7 +78,8 @@ Empty <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</spa
                         عشان العمر بيتغير كل يوم، وده معناه إنك هتحتاج تحدث البيانات باستمرار. الأفضل إنك تخزن
                         <strong>تاريخ الميلاد (birth date)</strong>، ولما تحتاج العمر، بتحسبه عن طريق دوال التاريخ (Date
                         arithmetic). تخزين تاريخ الميلاد ده بيدي مميزات تانية، زي إنك تبعت تهنئة بأعياد الميلاد أو تحسب
-                        عمر الحيوان لما مات.</p>
+                        عمر الحيوان لما مات.
+                    </p>
                 </blockquote>
                 <p><strong>أمر إنشاء الجدول:</strong></p>
                 <p>بنستخدم أمر <code>CREATE TABLE</code> وبنحدد اسم كل عمود ونوعه:</p>
@@ -91,7 +93,8 @@ Empty <span class="hljs-keyword">set</span> (<span class="hljs-number">0.00</spa
                     <li><strong>DATE:</strong> مناسب لـ (birth, death).</li>
                 </ul>
                 <p><strong>التأكد من هيكل الجدول:</strong> عشان تتأكد إن الجدول اتعمل صح، بتستخدم أمر
-                    <code>DESCRIBE</code> (أو اختصارها <code>DESC</code>):</p>
+                    <code>DESCRIBE</code> (أو اختصارها <code>DESC</code>):
+                </p>
                 <pre><code class="lang-sql">mysql&gt; DESCRIBE pet;
 +---------+-------------+------+-----+---------+-------+
 |<span class="hljs-string"> Field   </span>|<span class="hljs-string"> Type        </span>|<span class="hljs-string"> Null </span>|<span class="hljs-string"> Key </span>|<span class="hljs-string"> Default </span>|<span class="hljs-string"> Extra </span>|
@@ -133,7 +136,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
 </code></pre>
                 <p><strong>مقارنة مهمة:</strong> في <code>INSERT</code>، لو فيه قيمة مفقودة، بتكتب
                     <strong><code>NULL</code></strong> مباشرة. أما في ملف <code>LOAD DATA</code> كنا بنستخدم
-                    <code>\N</code>.</p>
+                    <code>\N</code>.
+                </p>
                 <hr>
                 <h3 id="4-4-retrieving-information-from-a-table-">4.4 استرجاع البيانات من جدول (Retrieving Information
                     from a Table)</h3>
@@ -211,7 +215,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
                     </li>
                     <li>
                         <p><strong>مثال (ترتيب حسب الميلاد تنازلي):</strong> أحدث حيوان أولاً: بتضيف كلمة
-                            <strong><code>DESC</code></strong> (Descending):</p>
+                            <strong><code>DESC</code></strong> (Descending):
+                        </p>
                         <pre><code class="lang-sql">mysql&gt; SELECT name, <span class="hljs-keyword">birth </span>FROM pet <span class="hljs-keyword">ORDER </span><span class="hljs-keyword">BY </span><span class="hljs-keyword">birth </span>DESC<span class="hljs-comment">;</span>
 </code></pre>
                     </li>
@@ -238,7 +243,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
                     </li>
                     <li>
                         <p><strong>حساب العمر عند الوفاة:</strong> بنشوف الحيوانات اللي تاريخ وفاتها مش
-                            <code>NULL</code>، وبنحسب الفرق:</p>
+                            <code>NULL</code>، وبنحسب الفرق:
+                        </p>
                         <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">SELECT</span> name, birth, death,
        TIMESTAMPDIFF(YEAR,birth,death) <span class="hljs-keyword">AS</span> age
        <span class="hljs-keyword">FROM</span> pet <span class="hljs-keyword">WHERE</span> death <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> NULL <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> age;
@@ -322,7 +328,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
                 </ul>
                 <h4 id="4-4-8-counting-rows-">4.4.8 عد الصفوف (Counting Rows)</h4>
                 <p>عشان نجاوب على أسئلة &quot;كام مرة&quot; أو &quot;ما هو العدد الكلي؟&quot;، بنستخدم دالة
-                    <strong><code>COUNT()</code></strong>.</p>
+                    <strong><code>COUNT()</code></strong>.
+                </p>
                 <ul>
                     <li>
                         <p><strong>مثال (العدد الكلي للحيوانات):</strong></p>
@@ -336,7 +343,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
                     </li>
                     <li>
                         <p><strong>مثال (العد حسب المجموعات):</strong> عشان نعرف كل مالك عنده كام حيوان، بنستخدم
-                            <strong><code>GROUP BY</code></strong>:</p>
+                            <strong><code>GROUP BY</code></strong>:
+                        </p>
                         <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT owner, COUNT(*) FROM pet GROUP BY owner;
 +--------+----------+</span>
 <span class="hljs-section">| owner  | COUNT(*) |
@@ -392,7 +400,8 @@ Whistler    Gwen    bird    <span class="hljs-string">\N</span>      <span class
                                 في <code>pet</code> اللي اسمه متطابق مع السجل في <code>event</code>.</li>
                             <li>الـ <code>INNER JOIN</code> بيجيب الصفوف اللي ليها تطابق في الجدولين بس.</li>
                             <li>لما تشوف عمود زي <code>name</code> موجود في الجدولين، لازم تحدد اسم الجدول قبله (زي
-                                <strong><code>pet.name</code></strong> و <strong><code>event.name</code></strong>).</li>
+                                <strong><code>pet.name</code></strong> و <strong><code>event.name</code></strong>).
+                            </li>
                         </ol>
                     </li>
                     <li>

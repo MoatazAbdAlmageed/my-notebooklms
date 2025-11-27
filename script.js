@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const folderName = parts.length ? parts[parts.length - 1] : '';
 
     // Final text
-    const titleText = `${folderName} - ${fileName}`;
+    const titleText = `${fileName} - ${folderName}`;
 
     // Set page title
     document.title = titleText;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -23,7 +23,8 @@
                     مشاكل واستعلامات معقدة ومشهورة جداً في الشغل.</p>
                 <p>ركز معايا عشان الفصل ده بيعتمد على أمثلة عملية، وبيستخدم جدول جديد اسمه
                     <strong><code>shop</code></strong> (المحل) عشان يسجل أسعار سلع (articles) عند تجار مختلفين
-                    (dealers).</p>
+                    (dealers).
+                </p>
                 <h3 id="-shop-">إعداد جدول المثال (<code>shop</code>)</h3>
                 <p>بيفترض المرجع إننا أنشأنا جدول <code>shop</code> اللي بيخزن رقم الصنف (article)، والتاجر (dealer)،
                     والسعر (price)، وبيعتبر إن (article, dealer) هو المفتاح الأساسي (Primary Key).</p>
@@ -88,7 +89,8 @@ WHERE <span class="hljs-built_in">s2</span>.article IS NULL<span class="hljs-com
 <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1</span>;
 </code></pre>
                 <p><strong>ملاحظة:</strong> لو كان فيه أكتر من صنف بنفس السعر الأقصى (مثلاً كلاهما 19.95)، الـ
-                    <code>LIMIT 1</code> هيجيب واحد منهم بس.</p>
+                    <code>LIMIT 1</code> هيجيب واحد منهم بس.
+                </p>
                 <hr>
                 <h2 id="7-3-7-4-group-wise-maximum-">7.3 و 7.4 إيجاد القيمة القصوى للمجموعة (Group-wise Maximum)</h2>
                 <p>هنا السؤال بيختلف، إحنا مش عايزين أعلى سعر في الجدول كله، إحنا عايزين أعلى سعر <strong>لكل
@@ -159,7 +161,8 @@ WHERE <span class="hljs-built_in">s2</span>.article IS NULL     -- لو ملقا
                     في جدول الأب.</p>
                 <ul>
                     <li><strong>العلاقة:</strong> جدول <code>parent</code> (الأب) هو اللي فيه القيم الأساسية، وجدول
-                        <code>child</code> (الابن) هو اللي بيستخدم الـ Foreign Key عشان يشاور على قيم الأب.</li>
+                        <code>child</code> (الابن) هو اللي بيستخدم الـ Foreign Key عشان يشاور على قيم الأب.
+                    </li>
                 </ul>
                 <p><strong>أمثلة على قيود الـ Foreign Key:</strong></p>
                 <ol>
@@ -239,7 +242,8 @@ mysql&gt; INSERT INTO child (id,parent_id) VALUES(2,2);
                     <li>
                         <p><strong>تغيير مسار العد:</strong> لو أدخلت قيمة كبيرة (زي <code>100</code>)، العداد بتاع الـ
                             <code>AUTO_INCREMENT</code> بيتم ضبطه عشان القيمة اللي بعدها تبقى تالية لها (يعني القيمة
-                            اللي بعدها هتبقى 101).</p>
+                            اللي بعدها هتبقى 101).
+                        </p>
                     </li>
                     <li>
                         <p><strong>معرفة آخر قيمة:</strong> ممكن تسترجع آخر قيمة تم إدخالها تلقائياً (في نفس اتصالك
@@ -248,7 +252,8 @@ mysql&gt; INSERT INTO child (id,parent_id) VALUES(2,2);
                     </li>
                     <li>
                         <p><strong>البدء بقيمة مختلفة:</strong> لو عايز تبدأ العداد من رقم معين غير 1، بتستخدم
-                            <code>ALTER TABLE</code>:</p>
+                            <code>ALTER TABLE</code>:
+                        </p>
                         <pre><code class="lang-sql">mysql&gt; ALTER <span class="hljs-keyword">TABLE</span> tbl <span class="hljs-comment">AUTO_INCREMENT = 100</span>;
 </code></pre>
                     </li>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -21,7 +21,8 @@
 
 
                 <p>يا فندم، الفصل ده هو بداية الشغل الحقيقي! هنا هنتعلم إزاي نخلي Jenkins يبني ويختبر أول تطبيق
-                    <strong>Android</strong> لينا خطوة بخطوة.</p>
+                    <strong>Android</strong> لينا خطوة بخطوة.
+                </p>
                 <p>ده شرح مفصل للفصل الرابع: <strong>&quot;كيفية إضافة أول وظيفة Android لك إلى Jenkins&quot;</strong>
                     بالكامل:</p>
                 <hr>
@@ -30,7 +31,8 @@
                     بيستخدم Bugfender SDK في Android. بس اطمن، الخطوات هي هي بالظبط عشان تضيف أي مشروع Android تاني ليك
                     سواء كان تطبيق أو مكتبة.</p>
                 <p><strong>الخطوة الأولى والأهم:</strong> لازم نجهز السيرفر اللي عليه Jenkins عشان يقدر أصلاً يعمل
-                    <strong>&quot;Compile&quot;</strong> (تجميع) ويشغّل تطبيقات Android.</p>
+                    <strong>&quot;Compile&quot;</strong> (تجميع) ويشغّل تطبيقات Android.
+                </p>
                 <h4 id="1-android-jenkins-configuring-android-app-builds-in-jenkins-">1. تهيئة بناء تطبيقات Android في
                     Jenkins (Configuring Android App Builds in Jenkins)</h4>
                 <h4 id="-setup-"><strong>الـ Setup الأساسي (إعداد البيئة):</strong></h4>
@@ -45,7 +47,8 @@
                 <ul>
                     <li>بتروح على موقع المطورين بتاع Android (developer.android.com) وبتاخد اللينك الخاص بـ
                         <strong>&quot;command line tools&quot; (أدوات سطر الأوامر)</strong> لإصدار Linux (ماتحملش حاجة،
-                        بس انسخ اللينك).</li>
+                        بس انسخ اللينك).
+                    </li>
                     <li>بتبدأ تثبت الـ tools دي، بس المهم إن الأوامر دي لازم تتنفذ باسم المستخدم بتاع
                         <strong>Jenkins</strong> (اللي هو <code>jenkins</code>) عشان يكون ليه الصلاحيات الكافية:<ul>
                             <li>بتبدأ بتثبيت برنامج فك الضغط: <code>sudo apt-get install unzip</code>.</li>
@@ -57,7 +60,8 @@
                     <li><strong>الخطوة الأهم (الترخيص):</strong> لو ماعملتش دي، البناء هيفشل! لازم توافق على ترخيص
                         Android SDK. بتستخدم أمر <code>sdkmanager --licenses</code>، وبتدخّل عليه <code>yes</code> عشان
                         يوافق أوتوماتيكي:
-                        <code>yes | sudo -iu jenkins android-sdk/tools/bin/sdkmanager --licenses</code>.</li>
+                        <code>yes | sudo -iu jenkins android-sdk/tools/bin/sdkmanager --licenses</code>.
+                    </li>
                 </ul>
                 <p><strong>الخطوة 3: تهيئة Jenkins</strong>
                     بعد ما ثبتنا الـ SDK، لازم Jenkins يعرف مكانه بالظبط:</p>
@@ -83,7 +87,8 @@
                     <li>في قسم <strong>Source Code Management</strong>، بتحدد الـ <strong>Git URL</strong> للمخزن بتاعك
                         (Repository).</li>
                     <li>كمثال، لو كنت بتستخدم نفس المشروع بتاعهم:
-                        <code>https://github.com/bugfender/BugfenderSDK-android-sample.git</code>.</li>
+                        <code>https://github.com/bugfender/BugfenderSDK-android-sample.git</code>.
+                    </li>
                     <li>لو المخزن بتاعك خاص (Private)، ممكن تعمل <strong>SSH keys</strong> عشان Jenkins يقدر يوصل له
                         ببروتوكول Git.</li>
                 </ul>
@@ -91,7 +96,8 @@
                     دي الخطوة اللي بتخلي Jenkins يشتغل أوتوماتيك:</p>
                 <ul>
                     <li>الأفضل إنك تستخدم <strong>Hook</strong> (خطاف) عشان يبدأ البناء تلقائياً كل ما حد يعمل
-                        <strong>Push</strong> للكود على المخزن.</li>
+                        <strong>Push</strong> للكود على المخزن.
+                    </li>
                     <li><strong>لخدمات زي BitBucket أو Gitlab:</strong> بتستخدم خاصية <strong>“Trigger builds
                             remotely”</strong>، ودي بتديك رابط (URL) بتحطه في إعدادات الـ Webhook في خدمة Git اللي
                         بتستخدمها عشان تبدأ البناء أوتوماتيك.</li>
@@ -142,7 +148,8 @@ echo org.gradle.daemon=<span class="hljs-literal">true</span> | sudo -iu jenkins
                                 Machine). عشان كده بيختاروا صورة <strong>ARM</strong>، اللي بتكون أبطأ بس بتشتغل في أي
                                 مكان.</li>
                             <li>بتحمل الصورة المناسبة، مثلاً:
-                                <code>system-images;android-25;google_apis;armeabi-v7a</code>.</li>
+                                <code>system-images;android-25;google_apis;armeabi-v7a</code>.
+                            </li>
                         </ul>
                     </li>
                     <li><strong>إنشاء المحاكي (AVD):</strong> بتنشئ نسخة محاكي افتراضية بالصورة اللي حملتها.</li>
@@ -152,7 +159,8 @@ echo org.gradle.daemon=<span class="hljs-literal">true</span> | sudo -iu jenkins
                             <li>بتنشئ ملف إعدادات (Configuration file) في
                                 <code>etc/supervisor/conf.d/emulator.conf</code>، وبتحدد فيه أمر تشغيل المحاكي بالصيغة
                                 اللي تخليه يشتغل في الخلفية بدون واجهة (<code>-no-window -noaudio</code>) باسم المستخدم
-                                <strong>jenkins</strong>.</li>
+                                <strong>jenkins</strong>.
+                            </li>
                         </ul>
                     </li>
                     <li><strong>بدء الخدمة:</strong> بتعمل Restart للـ <code>supervisor</code> عشان يشغّل المحاكي.</li>
@@ -163,7 +171,8 @@ echo org.gradle.daemon=<span class="hljs-literal">true</span> | sudo -iu jenkins
                             <li>تنتظر لحد ما المحاكي يعمل Boot بالكامل.</li>
                             <li>تعمل إلغاء قفل للشاشة.</li>
                             <li>بتنفذ الأمر اللي بيشغّل اختبارات الـ Android الموصولة (connectedAndroidTest):
-                                <code>./gradlew connectedAndroidTest</code>.</li>
+                                <code>./gradlew connectedAndroidTest</code>.
+                            </li>
                         </ul>
                     </li>
                 </ol>
@@ -182,7 +191,8 @@ echo org.gradle.daemon=<span class="hljs-literal">true</span> | sudo -iu jenkins
                 <ul>
                     <li><strong>الخطوات من 1 لـ 3 (Setup):</strong> دي زي إنك بتجهز الترابيزة بالعدة الأساسية: ثبت
                         <strong>المفك الكهربائي (Java JDK)</strong>، وجهزت <strong>كتالوج الأدوات (Android
-                            SDK)</strong>. وعرّفت الماكينة الأم (Jenkins) على مكان الكتالوج ده.</li>
+                            SDK)</strong>. وعرّفت الماكينة الأم (Jenkins) على مكان الكتالوج ده.
+                    </li>
                     <li><strong>الخطوات من 4 لـ 7 (Job Creation):</strong> دي زي إنك بتعمل <strong>&quot;طلب شغل&quot;
                             (Job)</strong> للماكينة: بتقول لها روحي جيبي التصميم من المخزن (Git URL)، وابدأي قصي وتجمعي
                         الورق <strong>أوتوماتيكي</strong> كل ما حد يضيف تعديل في التصميم (Build Trigger).</li>

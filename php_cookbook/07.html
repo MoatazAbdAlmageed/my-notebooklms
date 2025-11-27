@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -46,11 +46,13 @@
                 <ol>
                     <li><strong>فتح الجلسة (Initialization):</strong> لازم تفتح قناة اتصال جديدة باستخدام الدالة
                         <code>curl_init()</code>. لو حصل خطأ في فتح الجلسة، الدالة بترجع <code>false</code> ولازم تتأكد
-                        إن الجلسة اتفتحت بنجاح.</li>
+                        إن الجلسة اتفتحت بنجاح.
+                    </li>
                     <li>
                         <p><strong>تحديد الإعدادات (Configuration):</strong> بتستخدم الدالة
                             <code>curl_setopt_array()</code> عشان تدي تعليمات للـ cURL إيه اللي المفروض يعمله بالظبط.
-                            أهم الإعدادات هنا هي:</p>
+                            أهم الإعدادات هنا هي:
+                        </p>
                         <ul>
                             <li><strong>العنوان (URL):</strong> بتحدد عنوان الويب بالكامل اللي عايز تكلمه، بما في ذلك كل
                                 المتغيرات (Parameters) اللي بتبعتها معاه في هيئة <code>key=value</code>. ومن المهم جدًا
@@ -62,16 +64,19 @@
                             </li>
                             <li><strong>استقبال الرد (Return Transfer):</strong> بتخلي
                                 <code>CURLOPT_RETURNTRANSFER</code> بـ <code>true</code>. وده أهم جزء، عشان الرد اللي
-                                هيجيلك من السيرفر يتخزن في متغير تقدر تستخدمه، بدل ما يتطبع على الشاشة مباشرة.</li>
+                                هيجيلك من السيرفر يتخزن في متغير تقدر تستخدمه، بدل ما يتطبع على الشاشة مباشرة.
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <p><strong>التنفيذ (Execution):</strong> بعد ما تظبط الإعدادات، بتنفذ الطلب عن طريق الدالة
-                            <code>curl_exec()</code>.</p>
+                            <code>curl_exec()</code>.
+                        </p>
                     </li>
                     <li>
                         <p><strong>إغلاق الجلسة (Closing):</strong> بعد ما تخلص شغل، لازم تقفل الجلسة بالدالة
-                            <code>curl_close()</code> عشان توفر موارد السيرفر.</p>
+                            <code>curl_close()</code> عشان توفر موارد السيرفر.
+                        </p>
                     </li>
                 </ol>
                 <blockquote>
@@ -92,7 +97,8 @@
                 <p>العملية هنا شبه GET بالظبط، بس فيه اختلافين رئيسيين في مرحلة الإعدادات:</p>
                 <ol>
                     <li><strong>تحديد نوع الطلب:</strong> لازم تحدد إنك بتعمل طلب POST عن طريق وضع الإعداد
-                        <code>CURLOPT_POST</code> بـ <code>true</code>.</li>
+                        <code>CURLOPT_POST</code> بـ <code>true</code>.
+                    </li>
                     <li><strong>إرسال البيانات:</strong> البيانات اللي عايز تبعتها (المتغيرات) مش بتتحط في الـ URL. بدل
                         كده، بتتحط في إعداد منفصل اسمه <code>CURLOPT_POSTFIELDS</code>.</li>
                 </ol>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -19,17 +19,20 @@
 
 
                 <p>يا فندم، تحت أمرك. الفصل رقم 6 ده فصل صغير ومهم جداً، وهو بيتكلم عن طريقة مختلفة لاستخدام برنامج
-                    <code>mysql</code> غير الطريقة التفاعلية اللي كنا شغالين بيها في الفصول اللي فاتت.</p>
+                    <code>mysql</code> غير الطريقة التفاعلية اللي كنا شغالين بيها في الفصول اللي فاتت.
+                </p>
                 <p>الفصل ده اسمه: <strong>&quot;استخدام <code>mysql</code> في وضع الدفعة (Batch Mode)&quot;</strong>.
                 </p>
                 <hr>
                 <h3 id="-6-mysql-batch-mode-">الفصل 6: استخدام <code>mysql</code> في وضع الدفعة (Batch Mode)</h3>
                 <p>الخلاصة: بدل ما تقعد تكتب أمر أمر وتشوف النتيجة مباشرة (الوضع التفاعلي <code>mysql&gt;</code>), وضع
                     الدفعة (Batch Mode) بيخليك تحط كل الأوامر بتاعتك في ملف واحد (Script File)، وتدي الأمر ده كله لـ
-                    <code>mysql</code> عشان ينفذه مرة واحدة.</p>
+                    <code>mysql</code> عشان ينفذه مرة واحدة.
+                </p>
                 <h4 id="1-how-to-run-batch-mode-">1. إزاي بنشغل وضع الدفعة؟ (How to Run Batch Mode)</h4>
                 <p>الطريقة الأساسية عشان تخلي <code>mysql</code> يقرأ الأوامر من ملف هي إنك تستخدم علامة
-                    <strong><code>&lt;</code></strong> (Input redirection) في سطر الأوامر (Command Line):</p>
+                    <strong><code>&lt;</code></strong> (Input redirection) في سطر الأوامر (Command Line):
+                </p>
                 <p><strong>الصيغة:</strong></p>
                 <pre><code class="lang-bash"><span class="hljs-symbol">$</span>&gt; mysql &lt; batch-<span class="hljs-keyword">file</span>
 </code></pre>
@@ -111,12 +114,14 @@ Enter password: ********</span>
                     <li>لو عايز إن ناتج الـ Batch Mode يكون بنفس تنسيق الجدول المُنَسَّق بتاع الوضع التفاعلي، بتستخدم
                         الخيار <strong><code>-t</code></strong>: <code>mysql -t</code>.</li>
                     <li>لو عايز إن الأوامر اللي بتتنفذ تظهر (تتعملها Echo) في الإخراج، بتستخدم الخيار
-                        <strong><code>-v</code></strong>: <code>mysql -v</code>.</li>
+                        <strong><code>-v</code></strong>: <code>mysql -v</code>.
+                    </li>
                 </ul>
                 <h4 id="4-script-mysql-">4. تشغيل الـ Script من داخل <code>mysql&gt;</code></h4>
                 <p>حتى لو كنت شغال بالفعل في الوضع التفاعلي (عند الـ Prompt بتاع <code>mysql&gt;</code>)، ممكن تنفذ ملف
                     Script باستخدام أمر <strong><code>source</code></strong> أو اختصاره
-                    <strong><code>\.</code></strong>:</p>
+                    <strong><code>\.</code></strong>:
+                </p>
                 <p><strong>الأمثلة:</strong></p>
                 <pre><code class="lang-sql">mysql&gt; <span class="hljs-keyword">source</span> <span class="hljs-keyword">filename</span>;
 mysql&gt; \. <span class="hljs-keyword">filename</span>

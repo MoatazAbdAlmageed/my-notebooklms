@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
   <!-- Required meta tags -->
@@ -16,260 +16,365 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-
-        <p>أهلاً بيك. الكتاب اللي بنتكلم عنه ده هو &quot;Design Patterns: Elements of Reusable Object-Oriented
-          Software&quot;.</p>
-        <p>ده كتاب أساسي جدًا في مجال هندسة البرمجيات، ومحتواه ممكن نوضحه بالبلدي كالتالي:</p>
-        <h3 id="-">تعريف مبسط بمحتوى الكتاب (بلهجة مصرية)</h3>
-        <p>الكتاب ده بيعتبر <strong>تجميع لخبرات كبار مصممي البرامج</strong> في الأنظمة اللي بتعتمد على البرمجة كائنية
-          التوجّه (Object-Oriented). المؤلفين (وهم أربعة خبراء: Erich Gamma, Richard Helm, Ralph Johnson, John
-          Vlissides) لقوا إن فيه مشاكل تصميم بتتكرر كتير في مشاريع مختلفة، فبدل ما كل واحد يرجع يخترع العجلة، هما عملوا
-          كاتالوج للحلول دي.</p>
-        <p><strong>الـ &quot;Design Pattern&quot; أو نمط التصميم</strong> ده ببساطة هو <strong>وصف لحل مُجرّب وناجح
-            لمشكلة تصميم بتتكرر</strong> في سياق معين.</p>
-        <p><strong>طب إيه فايدته؟</strong></p>
+        <p>That is a great request! This book is one of the most important books in software design, and explaining it
+          simply is the best way to understand it. I will explain the whole book, Chapter by Chapter, using very simple
+          English, just like we are having a friendly conversation.</p>
+        <p>The book is called <strong>Design Patterns: Elements of Reusable Object-Oriented Software</strong>. It was
+          written by four experts (Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides). The main goal of the
+          book is to share <strong>simple and elegant solutions</strong> to specific, recurring problems in
+          object-oriented software design.</p>
+        <h3 id="chapter-1-the-foundation-and-golden-rules">Chapter 1: The Foundation and Golden Rules</h3>
+        <p>Chapter 1 introduces the fundamental ideas you need to know to be a good designer.</p>
+        <p><strong>1. The Big Problem in Design</strong></p>
+        <ul>
+          <li><strong>Simple Explanation:</strong> Designing software using objects (Object-Oriented) is hard, but
+            making that software <strong>flexible and easy to reuse</strong> later is even harder. Experts rarely get
+            the design perfect on the first try. Instead, they reuse solutions that have worked for them before.</li>
+          <li><strong>What is a Design Pattern?</strong> A Design Pattern is a description of a proven solution to a
+            common design problem.</li>
+        </ul>
+        <p><strong>The four essential elements of a Pattern are:</strong></p>
         <ol>
-          <li><strong>بيدينا لغة مشتركة:</strong> بيخلي المصممين يقدروا يتكلموا عن الأجزاء المعقدة في تصميمهم باستخدام
-            أسماء موحدة (زي &quot;Singleton&quot; أو &quot;Factory&quot;).</li>
-          <li><strong>بيزود المرونة وإعادة الاستخدام:</strong> الحلول دي بتخليك تعمل تصميمات قابلة للتوسع والتغيير
-            بسهولة. على سبيل المثال، بتعلمك إزاي تخلي نظامك مستقل عن كيفية إنشاء الكائنات (Object Creation)، أو إزاي
-            تزود خصائص على كائن معين من غير ما تغير الكلاس (Class) الأصلي بتاعه.</li>
-          <li><strong>بيصنف المشاكل:</strong> الكتالوج بتاع الكتاب بيقسم الـ 23 نمط تصميم اللي فيه لثلاث مجموعات رئيسية:
+          <li><strong>Name:</strong> A simple handle (like &quot;Observer&quot;) so you can talk about complex ideas
+            easily.</li>
+          <li><strong>Problem:</strong> Describes when to use the pattern and the situation (context).</li>
+          <li><strong>Solution:</strong> Describes the parts (classes and objects) and their responsibilities. It is an
+            abstract <strong>template</strong>, not specific code.</li>
+          <li><strong>Consequences:</strong> Explains the pros and cons (trade-offs) of using the pattern.</li>
+        </ol>
+        <p><strong>2. The Golden Rules for Flexible Design</strong></p>
+        <p>Design patterns help you apply two very important rules:</p>
+        <p><strong>Rule A: Program to an Interface, Not an Implementation</strong></p>
+        <ul>
+          <li><strong>Simple Explanation:</strong> When you define a variable, you should use the <strong>Abstract
+              Class</strong> (the interface) and not the <strong>Concrete Class</strong> (the specific implementation).
+          </li>
+          <li><strong>Why is this important?</strong> This means that the code using the object (the client) remains
+            unaware of the specific class of object it is using. This greatly reduces dependencies between different
+            parts of the system.</li>
+          <li><strong>Example:</strong> If you write code that uses a <code>Car</code> object, you should define the
+            variable as <code>Vehicle</code> (Abstract Interface) and not <code>ToyotaCivic</code> (Concrete
+            Implementation). If you later want to change the car to a <code>HondaCivic</code>, the rest of your code
+            won&#39;t need changes because it only relies on the general <code>Vehicle</code> interface.</li>
+        </ul>
+        <p><strong>Rule B: Favor Object Composition over Class Inheritance</strong></p>
+        <ul>
+          <li><strong>Simple Explanation:</strong> You should rely on building objects out of other objects
+            (<strong>Composition</strong>) rather than inheriting all their features from a parent class
+            (<strong>Inheritance</strong>).</li>
+          <li><strong>Inheritance (White-Box Reuse):</strong> This is when you can see the internal parts of the parent
+            class (like a white box). It is rigid and reduces encapsulation.</li>
+          <li><strong>Composition (Black-Box Reuse):</strong> This is when an object holds other objects inside it. You
+            only see the outside interface (like a black box). This is more flexible because you can swap out the
+            internal objects at run-time. Composition helps keep your classes small and focused on one task.</li>
+        </ul>
+        <hr>
+        <h3 id="chapter-2-a-case-study-lexi-">Chapter 2: A Case Study (Lexi)</h3>
+        <ul>
+          <li><strong>Simple Explanation:</strong> This chapter shows how to apply eight basic patterns (like Composite,
+            Strategy, Decorator, and Command) to a real-world application: a document editor called Lexi. It
+            demonstrates how patterns help solve common problems like managing document structure, formatting text,
+            supporting different user interfaces, and supporting &quot;undo&quot; functionality.</li>
+        </ul>
+        <hr>
+        <h3 id="the-catalog-chapters-3-4-5-">The Catalog (Chapters 3, 4, 5)</h3>
+        <p>The rest of the book lists 23 patterns in a catalog. They are categorized by what they do
+          (<strong>Purpose</strong>) and where they apply (<strong>Scope</strong>).</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">Purpose</th>
+              <th style="text-align:left">What does it do?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>Creational (Chapter 3)</strong></td>
+              <td style="text-align:left">Manages how objects are <strong>created</strong>.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Structural (Chapter 4)</strong></td>
+              <td style="text-align:left">Manages how objects are <strong>put together</strong> to form larger
+                structures.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Behavioral (Chapter 5)</strong></td>
+              <td style="text-align:left">Manages <strong>communication and responsibilities</strong> between objects.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 id="1-creational-patterns-chapter-3-">1. Creational Patterns (Chapter 3)</h4>
+        <p>These patterns help you avoid naming concrete classes explicitly when creating objects.</p>
+        <ul>
+          <li>
+            <p><strong>Singleton (127):</strong></p>
             <ul>
-              <li><strong>أنماط إنشائية (Creational):</strong> اللي بتهتم بطريقة إنشاء الكائنات.</li>
-              <li><strong>أنماط هيكلية (Structural):</strong> اللي بتهتم بتركيب الكلاسات والكائنات لتكوين هياكل أكبر.
-              </li>
-              <li><strong>أنماط سلوكية (Behavioral):</strong> اللي بتهتم بتفاعل الكائنات وتوزيع المسؤوليات بينها.</li>
+              <li><strong>Goal:</strong> Ensures a class only has <strong>one instance</strong> and provides a global
+                access point to it.</li>
+              <li><strong>Example:</strong> A <code>Logger</code> class for writing application events to a file. You
+                only want one instance of the Logger running, or else you might have conflicts.</li>
             </ul>
           </li>
+          <li>
+            <p><strong>Abstract Factory (87):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Provides an interface for creating <strong>families of related
+                  products</strong> (objects) without specifying their specific classes.</li>
+              <li><strong>Example:</strong> If you build a user interface that needs to work with both Motif and
+                Presentation Manager (PM) styles. An <code>AbstractFactory</code> ensures that when you ask for a button
+                and a scrollbar, they both come from the same style family (e.g., <code>MotifButton</code> and
+                <code>MotifScrollbar</code>).</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Prototype (117):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Creates new objects by <strong>copying (cloning)</strong> an existing object
+                (the prototype).</li>
+              <li><strong>Example:</strong> In a graphical editor, instead of creating new <code>Note</code> objects
+                using the <code>new</code> keyword, you copy a pre-configured <code>Note</code> prototype.</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="2-structural-patterns-chapter-4-">2. Structural Patterns (Chapter 4)</h4>
+        <p>These patterns help you assemble objects into larger, more flexible structures.</p>
+        <ul>
+          <li>
+            <p><strong>Decorator (175):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Adds <strong>new responsibilities or features to an object dynamically</strong>
+                by wrapping it. This is a flexible alternative to using inheritance.</li>
+              <li><strong>Example:</strong> You have a <code>TextView</code> object. You wrap it in a
+                <code>ScrollDecorator</code> to add scrolling, and then wrap that in a <code>BorderDecorator</code> to
+                add a border [91, 176o]. The original <code>TextView</code> object remains unchanged.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Facade (185):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Provides a <strong>single, unified, and simplified interface</strong> to a
+                complex set of interfaces within a subsystem.</li>
+              <li><strong>Example:</strong> A compiler subsystem has complex classes like <code>Scanner</code>,
+                <code>Parser</code>, and <code>ProgramNode</code>. A <code>Compiler</code> class acts as a
+                <strong>Facade</strong>, giving the client a simple <code>Compile(sourceCode)</code> method that handles
+                all the complex internal calls.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Proxy (207):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Provides a <strong>stand-in or substitute (surrogate)</strong> for another
+                object to control access to it.</li>
+              <li><strong>Example:</strong> A <strong>Virtual Proxy</strong> for a large image file. When the
+                application starts, the proxy loads quickly and holds only the image file name. The actual large
+                <code>Image</code> object is only created and loaded into memory when the user explicitly tries to draw
+                it.</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="3-behavioral-patterns-chapter-5-">3. Behavioral Patterns (Chapter 5)</h4>
+        <p>These patterns manage how objects communicate and distribute tasks.</p>
+        <ul>
+          <li>
+            <p><strong>Observer (293):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Defines a <strong>one-to-many dependency</strong> so that when one object (the
+                Subject) changes, all its dependent objects (Observers) are notified and updated automatically.</li>
+              <li><strong>Example:</strong> In a spreadsheet, the cell data (Subject) notifies all charts and graphs
+                (Observers) that display that data when the cell value changes.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Strategy (315):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Defines a <strong>family of algorithms</strong>, encapsulates each one, and
+                makes them <strong>interchangeable</strong>.</li>
+              <li><strong>Example:</strong> A text layout system (Context) can use different algorithms (Strategies) for
+                breaking lines: <code>SimpleCompositor</code> (fast but basic) or <code>TeXCompositor</code> (slower but
+                high quality). The layout system can swap these strategies without changing its core logic.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Iterator (257):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Provides a way to <strong>access the elements of an aggregate object
+                  sequentially</strong> without showing the client how the data is stored internally.</li>
+              <li><strong>Example:</strong> You have a <code>List</code> of customers. You can use an
+                <code>Iterator</code> to move from the first customer to the last, regardless of whether the
+                <code>List</code> uses an array, a linked list, or any other structure inside.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Visitor (331):</strong></p>
+            <ul>
+              <li><strong>Goal:</strong> Allows you to <strong>add a new operation (behavior)</strong> to a set of
+                classes <strong>without changing those classes</strong>.</li>
+              <li><strong>Example:</strong> If you have a fixed set of document structure classes
+                (<code>Character</code>, <code>Row</code>, <code>Column</code>). If you need to add a new function, like
+                &quot;Spelling Check,&quot; you create a <code>SpellingCheckerVisitor</code> instead of modifying every
+                single document class.</li>
+            </ul>
+          </li>
+        </ul>
+        <hr>
+        <h3 id="code-example-iterator-257-">Code Example: Iterator (257)</h3>
+        <p>The Iterator pattern is a good example of Rule A (Program to an Interface). We define an abstract interface
+          for iteration, and then specific classes implement it.</p>
+        <p>We need two main classes: <code>List</code> (the collection) and <code>Iterator</code> (the way to walk
+          through the collection).</p>
+        <pre><code class="lang-cpp"><span class="hljs-comment">// 1. Abstract Iterator Interface (The 'Interface' Rule A)</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> Item&gt;
+<span class="hljs-keyword">class</span> Iterator {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">First</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;           <span class="hljs-comment">// Go to the start</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Next</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;            <span class="hljs-comment">// Move to the next item</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">IsDone</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>= <span class="hljs-number">0</span>;    <span class="hljs-comment">// Check if finished</span>
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> Item <span class="hljs-title">CurrentItem</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>= <span class="hljs-number">0</span>; <span class="hljs-comment">// Get the current item</span>
+<span class="hljs-keyword">protected</span>:
+    Iterator();
+};
+
+<span class="hljs-comment">// 2. A specific list implementation</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> Item&gt;
+<span class="hljs-keyword">class</span> List {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// ... basic list operations ...</span>
+    <span class="hljs-function">Item&amp; <span class="hljs-title">Get</span><span class="hljs-params">(<span class="hljs-keyword">long</span> index)</span> <span class="hljs-keyword">const</span></span>; <span class="hljs-comment">// Get item by index</span>
+    <span class="hljs-comment">// ...</span>
+};
+
+<span class="hljs-comment">// 3. A Concrete Iterator for the List class</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> Item&gt;
+<span class="hljs-keyword">class</span> ListIterator : <span class="hljs-keyword">public</span> Iterator&lt;Item&gt; {
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">const</span> List&lt;Item&gt;* _aList; <span class="hljs-comment">// Reference to the list we are traversing</span>
+    <span class="hljs-keyword">long</span> _current;            <span class="hljs-comment">// Current index position</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// Constructor takes the list to traverse</span>
+    ListIterator(<span class="hljs-keyword">const</span> List&lt;Item&gt;* aList) : _aList(aList), _current(<span class="hljs-number">0</span>) {}
+
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">First</span><span class="hljs-params">()</span> </span>{ _current = <span class="hljs-number">0</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Next</span><span class="hljs-params">()</span> </span>{ _current++; }
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">IsDone</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> _current &gt;= _aList-&gt;Count(); }
+    <span class="hljs-function"><span class="hljs-keyword">virtual</span> Item <span class="hljs-title">CurrentItem</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{ <span class="hljs-keyword">return</span> _aList-&gt;Get(_current); }
+};
+</code></pre>
+        <p><strong>Explanation:</strong></p>
+        <ul>
+          <li><strong><code>Iterator</code> (Abstract Class):</strong> This is the <strong>Interface</strong>. It
+            defines the standard operations (First, Next, IsDone) that <em>any</em> iterator must support, regardless of
+            the data structure it is walking through.</li>
+          <li><strong><code>List</code> (Aggregate Object):</strong> This is the collection of items.</li>
+          <li><strong><code>ListIterator</code> (Concrete Class):</strong> This class <strong>implements</strong> the
+            standard <code>Iterator</code> interface specifically for a <code>List</code>. It knows that a
+            <code>List</code> is indexed by numbers, so it uses <code>_current</code> to keep track of the position. If
+            we had another class like <code>SkipList</code>, we would create a <code>SkipListIterator</code> that still
+            adheres to the generic <code>Iterator</code> interface.</li>
+        </ul>
+        <p><strong>How to Use It:</strong></p>
+        <p>A client (your main program) can use the generic <code>Iterator</code> to print employees without knowing if
+          they are in a <code>List</code> or a <code>SkipList</code>:</p>
+        <pre><code class="lang-cpp"><span class="hljs-comment">// This function only knows the Iterator interface (Rule A)</span>
+<span class="hljs-keyword">void</span> PrintEmployees (Iterator&lt;Employee*&gt;&amp; i) {
+    <span class="hljs-keyword">for</span> (i.First(); !i.IsDone(); i.<span class="hljs-keyword">Next</span>()) { <span class="hljs-comment">// The iteration loop is standard</span>
+        i.CurrentItem()-&gt;<span class="hljs-keyword">Print</span>();
+    }
+}
+<span class="hljs-comment">// Usage: </span>
+<span class="hljs-comment">// List&lt;Employee*&gt;* employees = ... ; </span>
+<span class="hljs-comment">// ListIterator&lt;Employee*&gt; forward(employees); </span>
+<span class="hljs-comment">// PrintEmployees(forward);</span>
+</code></pre>
+        <p>The <code>PrintEmployees</code> function only talks to the abstract <code>Iterator</code> interface, keeping
+          it flexible and reusable.</p>
+        <hr>
+        <h2 id="conclusion">Conclusion</h2>
+        <p>Here is a summary of the whole book and practical advice.</p>
+        <h3 id="short-summary-for-each-chapter">Short Summary for Each Chapter</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">Chapter</th>
+              <th style="text-align:left">Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 1: Introduction</strong></td>
+              <td style="text-align:left">This chapter defines what a design pattern is (a reusable solution) and
+                establishes the golden rules of good object-oriented design: <strong>Program to an Interface</strong>
+                and <strong>Favor Composition over Inheritance</strong>.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 2: A Case Study</strong></td>
+              <td style="text-align:left">This chapter uses the Lexi document editor to show practical application of
+                basic patterns like Composite, Strategy, Decorator, and Command for solving real-world design problems.
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 3: Creational Patterns</strong></td>
+              <td style="text-align:left">These patterns focus on abstracting object creation to give the system more
+                flexibility in deciding which specific classes to instantiate.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 4: Structural Patterns</strong></td>
+              <td style="text-align:left">These patterns deal with composing (assembling) classes and objects into
+                larger, more useful structures while maintaining flexibility, using techniques like wrapping and
+                delegation.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 5: Behavioral Patterns</strong></td>
+              <td style="text-align:left">These patterns focus on communication between objects and distributing
+                responsibilities and algorithms, which often helps to decouple senders and receivers.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Chapter 6: Conclusion</strong></td>
+              <td style="text-align:left">This final chapter discusses the impact of patterns, emphasizing that they
+                provide a common vocabulary and help bridge the gap between abstract design methods and expert
+                experience.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="the-main-key-ideas-of-the-book">The Main Key Ideas of the Book</h3>
+        <ul>
+          <li><strong>Patterns are Experience:</strong> Design patterns capture a wealth of object-oriented design
+            experience in a compact and reusable form.</li>
+          <li><strong>Encapsulate Change:</strong> The key to designing reusable systems is to find the parts that are
+            most likely to change and wrap them inside an object (encapsulation).</li>
+          <li><strong>High-Level Vocabulary:</strong> Using pattern names (like Strategy or Proxy) allows designers to
+            communicate and document their work at a much higher level of abstraction than just code syntax.</li>
+        </ul>
+        <h3 id="practical-examples-i-can-use-right-away">Practical Examples I Can Use Right Away</h3>
+        <ol>
+          <li><strong>Observer (293):</strong> Use this whenever you have one object that needs to notify multiple,
+            unknown dependent objects about a change. For instance, notifying a GUI display and a log file when a
+            background process finishes.</li>
+          <li><strong>Strategy (315):</strong> Use this when you have one main task that can be performed using several
+            different algorithms. For instance, swapping between different validation rules or different sorting
+            methods.</li>
+          <li><strong>Singleton (127):</strong> Use this for resources like database connection pools or system
+            configuration objects, where having more than one instance would cause errors.</li>
         </ol>
-        <p>الكتاب بيبدأ بمقدمة وشرح لمشكلة تصميم كاملة (Case Study) لتطبيق تحرير مستندات اسمه <strong>Lexi</strong>،
-          وبعد كده بيقدم الكتالوج الرئيسي للأنماط.</p>
-        <hr>
-        <h3 id="-">محتويات الكتاب من أبواب وفصول</h3>
-        <p>الكتاب مقسوم لقسمين رئيسيين، بيبدأ بفصول تمهيدية (الفصل 1 و 2) وبتاليها <strong>كتالوج أنماط التصميم</strong>
-          (الفصول 3، 4، 5).</p>
-        <h4 id="-chapters-1-and-2-">الأبواب التمهيدية (Chapters 1 and 2)</h4>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left">الباب/الفصل (Chapter)</th>
-              <th style="text-align:left">المحتوى الرئيسي (Contents)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left"><strong>مقدمة (Introduction) (1)</strong></td>
-              <td style="text-align:left">شرح ماهية نمط التصميم، وتنظيم الكتالوج، وكيفية حل أنماط التصميم لمشاكل التصميم
-                المختلفة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>دراسة حالة: تصميم محرر مستندات (A Case Study: Designing a Document
-                  Editor) (2)</strong></td>
-              <td style="text-align:left">تحليل مشاكل تصميم تطبيق اسمه <strong>Lexi</strong>، وتوضيح كيفية تطبيق أنماط
-                التصميم لحل مشاكل مثل هيكلة المستندات، التنسيق، تجميل واجهة المستخدم (Embellishment)، ودعم أنظمة النوافذ
-                المتعددة، وعمليات المستخدم القابلة للتراجع (Undo).</td>
-            </tr>
-          </tbody>
-        </table>
-        <hr>
-        <h4 id="-design-pattern-catalog-">كتالوج أنماط التصميم (Design Pattern Catalog)</h4>
-        <p>يبدأ الكتالوج من صفحة 79، وينقسم لثلاثة فصول رئيسية حسب <strong>الغرض (Purpose)</strong> من النمط:</p>
-        <p><strong>1. أنماط التصميم الإنشائية (Creational Patterns) (الفصل 3)</strong>
-          تهدف هذه الأنماط إلى تجريد عملية إنشاء الكائنات (Object Creation).</p>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left">النمط (Pattern)</th>
-              <th style="text-align:left">الصفحة</th>
-              <th style="text-align:left">الوصف المبسط (Intent)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left"><strong>Abstract Factory</strong></td>
-              <td style="text-align:left">87</td>
-              <td style="text-align:left">يوفر واجهة لإنشاء &quot;عائلات&quot; من الكائنات المترابطة دون تحديد كلاساتها
-                الملموسة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Builder</strong></td>
-              <td style="text-align:left">97</td>
-              <td style="text-align:left">يفصل بناء كائن معقد عن تمثيله، بحيث يمكن لعملية البناء نفسها أن تخلق تمثيلات
-                مختلفة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Factory Method</strong></td>
-              <td style="text-align:left">107</td>
-              <td style="text-align:left">يحدد واجهة لإنشاء كائن، لكن يسمح للكلاسات الفرعية أن تقرر أي كلاس يتم إنشاء
-                مثيل له.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Prototype</strong></td>
-              <td style="text-align:left">117</td>
-              <td style="text-align:left">يحدد أنواع الكائنات المراد إنشاؤها باستخدام مثيل نموذجي، ويخلق كائنات جديدة عن
-                طريق نسخ هذا النموذج.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Singleton</strong></td>
-              <td style="text-align:left">127</td>
-              <td style="text-align:left">يضمن أن الكلاس يملك مثيلًا واحدًا فقط، ويوفر نقطة وصول عالمية إليه.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>مناقشة الأنماط الإنشائية (Discussion)</strong></td>
-              <td style="text-align:left">135</td>
-            </tr>
-          </tbody>
-        </table>
-        <p><strong>2. أنماط التصميم الهيكلية (Structural Patterns) (الفصل 4)</strong>
-          تتعامل هذه الأنماط مع كيفية تجميع الكلاسات أو الكائنات لتكوين هياكل أكبر.</p>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left">النمط (Pattern)</th>
-              <th style="text-align:left">الصفحة</th>
-              <th style="text-align:left">الوصف المبسط (Intent)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left"><strong>Adapter</strong></td>
-              <td style="text-align:left">139</td>
-              <td style="text-align:left">يحول واجهة كلاس إلى واجهة أخرى يتوقعها العملاء، مما يسمح للكلاسات غير
-                المتوافقة بالعمل معًا.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Bridge</strong></td>
-              <td style="text-align:left">151</td>
-              <td style="text-align:left">يفصل التجريد عن تنفيذه بحيث يمكن أن يتغيرا بشكل مستقل.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Composite</strong></td>
-              <td style="text-align:left">163</td>
-              <td style="text-align:left">يجمع الكائنات في هياكل شجرية لتمثيل تسلسلات جزء-كل، مما يجعل العملاء يعاملون
-                الكائنات الفردية والمركبة بنفس الطريقة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Decorator</strong></td>
-              <td style="text-align:left">175</td>
-              <td style="text-align:left">يضيف مسؤوليات إضافية إلى كائن ديناميكيًا، ويوفر بديلاً مرنًا للـ subclassing
-                لتوسيع الوظائف.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Facade</strong></td>
-              <td style="text-align:left">185</td>
-              <td style="text-align:left">يوفر واجهة موحدة لمجموعة من الواجهات في نظام فرعي، مما يجعل النظام الفرعي أسهل
-                في الاستخدام.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Flyweight</strong></td>
-              <td style="text-align:left">195</td>
-              <td style="text-align:left">يستخدم المشاركة (Sharing) لدعم أعداد كبيرة من الكائنات ذات الحجم الدقيق
-                بكفاءة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Proxy</strong></td>
-              <td style="text-align:left">207</td>
-              <td style="text-align:left">يوفر بديلاً (Surrogate) أو نائبًا (Placeholder) لكائن آخر للتحكم في الوصول
-                إليه.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>مناقشة الأنماط الهيكلية (Discussion)</strong></td>
-              <td style="text-align:left">219</td>
-            </tr>
-          </tbody>
-        </table>
-        <p><strong>3. أنماط التصميم السلوكية (Behavioral Patterns) (الفصل 5)</strong>
-          تتميز هذه الأنماط بالطرق التي تتفاعل بها الكلاسات أو الكائنات وتوزع المسؤولية.</p>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left">النمط (Pattern)</th>
-              <th style="text-align:left">الصفحة</th>
-              <th style="text-align:left">الوصف المبسط (Intent)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left"><strong>Chain of Responsibility</strong></td>
-              <td style="text-align:left">223</td>
-              <td style="text-align:left">يتجنب ربط مُرسِل الطلب بمُستقبِله عن طريق منح أكثر من كائن فرصة لمعالجة الطلب،
-                وتمرير الطلب عبر سلسلة منهم.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Command</strong></td>
-              <td style="text-align:left">233</td>
-              <td style="text-align:left">يغلف طلبًا ككائن، مما يسمح بـ parameterize العملاء بطلبات مختلفة، أو وضع
-                الطلبات في قائمة، أو دعم العمليات القابلة للتراجع (undo).</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Interpreter</strong></td>
-              <td style="text-align:left">243</td>
-              <td style="text-align:left">بالنظر إلى لغة ما، يحدد تمثيلاً لقواعدها النحوية ومترجمًا (Interpreter) يستخدم
-                هذا التمثيل لتفسير الجمل في اللغة.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Iterator</strong></td>
-              <td style="text-align:left">257</td>
-              <td style="text-align:left">يوفر طريقة للوصول إلى عناصر كائن مجمّع بالتسلسل دون كشف تمثيله الأساسي.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Mediator</strong></td>
-              <td style="text-align:left">273</td>
-              <td style="text-align:left">يحدد كائنًا يغلف كيفية تفاعل مجموعة من الكائنات، مما يعزز الاقتران المرن.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Memento</strong></td>
-              <td style="text-align:left">283</td>
-              <td style="text-align:left">يلتقط الحالة الداخلية للكائن ويخزنها خارجيًا دون انتهاك التغليف
-                (Encapsulation) حتى يمكن استعادة الكائن إلى هذه الحالة لاحقًا.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Observer</strong></td>
-              <td style="text-align:left">293</td>
-              <td style="text-align:left">يحدد تبعية واحد-ل-متعدد (one-to-many) بين الكائنات، بحيث عندما يتغير كائن
-                واحد، يتم إخطار وتحديث جميع الكائنات التابعة تلقائيًا.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>State</strong></td>
-              <td style="text-align:left">305</td>
-              <td style="text-align:left">يسمح لكائن بتغيير سلوكه عندما تتغير حالته الداخلية، مما يجعله يبدو وكأنه يغير
-                فئته.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Strategy</strong></td>
-              <td style="text-align:left">315</td>
-              <td style="text-align:left">يحدد عائلة من الخوارزميات، ويغلف كل واحدة منها، ويجعلها قابلة للتبديل، مما
-                يسمح بتغيير الخوارزمية بشكل مستقل عن العملاء الذين يستخدمونها.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Template Method</strong></td>
-              <td style="text-align:left">325</td>
-              <td style="text-align:left">يحدد الهيكل العظمي لخوارزمية في عملية ما، مؤجلاً بعض الخطوات إلى الكلاسات
-                الفرعية، مما يسمح للكلاسات الفرعية بإعادة تعريف خطوات معينة دون تغيير هيكل الخوارزمية.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>Visitor</strong></td>
-              <td style="text-align:left">331</td>
-              <td style="text-align:left">يمثل عملية يجب إجراؤها على عناصر هيكل كائن ما، مما يسمح بتعريف عملية جديدة دون
-                تغيير كلاسات العناصر التي يعمل عليها.</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><strong>مناقشة الأنماط السلوكية (Discussion)</strong></td>
-              <td style="text-align:left">345</td>
-            </tr>
-          </tbody>
-        </table>
-        <p><strong>4. الخاتمة (Conclusion) (الفصل 6)</strong>
-          يتناول ما يمكن توقعه من أنماط التصميم، وتاريخها الموجز، ومجتمع الأنماط.</p>
-        <p><strong>الملاحق (Appendices)</strong>
-          تتضمن مسردًا للمصطلحات (Glossary)، ودليلًا للرموز المستخدمة في الرسوم البيانية (Notation)، بالإضافة إلى
-          الكلاسات الأساسية (Foundation Classes) المستخدمة في أمثلة لغة C++.</p>
-
-
-
-
-
+        <h3 id="simple-tips-to-help-me-apply-what-i-learned">Simple Tips to Help Me Apply What I Learned</h3>
+        <ol>
+          <li><strong>Anticipate the Future:</strong> When designing, constantly ask yourself: &quot;What if the client
+            wants to change X later?&quot; If changing &#39;X&#39; requires touching many files, you need a pattern to
+            isolate &#39;X&#39;.</li>
+          <li><strong>Don&#39;t Overuse:</strong> Patterns add complexity. Only use a pattern when you actually need the
+            flexibility it provides. If a class never changes, keeping it simple is fine.</li>
+          <li><strong>Learn the Intent:</strong> Focus on reading the <strong>Intent</strong> section for each pattern
+            (what problem does it solve?) before trying to implement the code.</li>
+        </ol>
+        <h3 id="short-quiz-questions-to-test-basic-understanding">Short Quiz Questions to Test Basic Understanding</h3>
+        <ol>
+          <li>What is the main difference between &quot;Object Composition&quot; and &quot;Class Inheritance,&quot; and
+            which one is generally preferred for flexibility?</li>
+          <li>Which essential element of a design pattern is a handle that immediately increases your design vocabulary?
+          </li>
+          <li>Which category of patterns (Creational, Structural, or Behavioral) is concerned with distributing
+            algorithms and responsibilities between communicating objects?</li>
+        </ol>
 
 
       </div>

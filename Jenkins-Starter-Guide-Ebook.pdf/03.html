@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -39,12 +39,14 @@
                                 <strong>Mac</strong>، وبيوصوا بـ <strong>Mac Mini</strong>. المصادر بتشير إلى إن البعض
                                 بيستخدم جهاز MacBook قديم كان مركون في المكتب، بس لاحظ إن اللاب توب ممكن
                                 <strong>&quot;يسخن بسرعة كبيرة&quot;</strong> لو استخدمته كخدمة مستمرة، وده اللي خلاهم
-                                يضطروا يعملوا &quot;ترقية&quot; أو تحديث في تجربتهم الخاصة.</li>
+                                يضطروا يعملوا &quot;ترقية&quot; أو تحديث في تجربتهم الخاصة.
+                            </li>
                         </ul>
                     </li>
                     <li><strong>تجربة Bugfender:</strong> شركة Bugfender نفسها، بما إنها بتشتغل عن بُعد، اختارت تستخدم
                         خدمة <strong>Amazon Web Services (AWS)</strong> على جهاز من نوع <code>t2.nano</code> مع نظام
-                        <strong>Ubuntu 16.04</strong>، بس طبعاً الإعداد ده ممكن يتغير حسب احتياجك.</li>
+                        <strong>Ubuntu 16.04</strong>، بس طبعاً الإعداد ده ممكن يتغير حسب احتياجك.
+                    </li>
                 </ol>
                 <h4 id="2-choosing-an-operating-system-">2. اختيار نظام التشغيل (Choosing an Operating System)</h4>
                 <p>Jenkins بيشتغل على أي نظام تشغيل تقريباً يخطر على بالك، طول ما النظام ده بيقدر يشغّل <strong>Java أو
@@ -70,7 +72,8 @@
                 <p><strong>الخطوة 4: تخصيص إضافات Jenkins (Customizing Jenkins Plugins)</strong>
                     هنا بتدوس على زرار <strong>&quot;Install the suggested plugins&quot;</strong> (تثبيت الإضافات
                     المقترحة). الإضافات دي بتشمل حاجات مفيدة زي <strong>Git</strong> وبعض إضافات
-                    <strong>Pipeline</strong>. طبعاً، ممكن تحمل إضافات تانية في أي وقت تحتاجه.</p>
+                    <strong>Pipeline</strong>. طبعاً، ممكن تحمل إضافات تانية في أي وقت تحتاجه.
+                </p>
                 <p><strong>الخطوة 5: إنشاء حساب المدير (Create Admin Login)</strong>
                     بتعمل حساب مستخدم جديد عن طريق إضافة اسم مستخدم وباسورد جديد، وتدخل اسمك بالكامل وإيميل. بعد ما تدخل
                     على Jenkins، ممكن تختار إنك تفعل خاصية إن زملاؤك يقدروا يعملوا حسابات تسجيل دخول إضافية زي ما
@@ -91,17 +94,20 @@
                 <p><strong>الخطوات الرئيسية لإضافة SSL:</strong></p>
                 <ol>
                     <li><strong>إعداد الجدار الناري:</strong> لازم تتأكد إن الـ Firewall بتاعك بيقبل المرور على بورتات
-                        <strong>80 و 443</strong>، وتلغي الوصول إلى بورت <strong>8080</strong>.</li>
+                        <strong>80 و 443</strong>، وتلغي الوصول إلى بورت <strong>8080</strong>.
+                    </li>
                     <li><strong>تثبيت وإعداد Nginx:</strong> بتثبت <code>nginx</code> عن طريق الأمر
                         <code>sudo apt-get install nginx</code>. وبتعدل ملف الكونفيجريشن عشان يستخدم <code>nginx</code>
-                        كـ Reverse Proxy لبورت 8080.</li>
+                        كـ Reverse Proxy لبورت 8080.
+                    </li>
                     <li><strong>الحصول على الشهادة:</strong> بتثبت وكيل <strong>Let’s Encrypt</strong> عشان يعمل شهادة
                         SSL للسيرفر بتاعك.</li>
                     <li><strong>تفعيل SSL:</strong> بتعدل ملف <code>nginx</code> مرة تانية عشان يستخدم شهادات الـ SSL
                         اللي تم إنشاؤها.</li>
                     <li><strong>الاختبار:</strong> في النهاية، بتجرب تفتح العنوان بالـ <strong>HTTPS</strong> (مثلاً:
                         <code>https://your-ci-server-name.com</code>) عشان تتأكد إن التشفير اشتغل وJenkins بتاعك بقى
-                        محمي.</li>
+                        محمي.
+                    </li>
                 </ol>
                 <p><strong>تشبيه لتبسيط فكرة SSL:</strong>
                     تخيل إنك اشتريت خزنة (Jenkins) وحطيت فيها أهم أسرار شركتك (Source Code). التثبيت العادي اللي عملناه

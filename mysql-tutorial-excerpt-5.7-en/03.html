@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -32,7 +32,8 @@
                 <ul>
                     <li>
                         <p><strong>القاعدة الأساسية:</strong> أي استعلام (Query) أو أمر SQL بتكتبه لازم يخلص بـ
-                            <strong>فاصلة منقوطة (Semicolon ;)</strong>.</p>
+                            <strong>فاصلة منقوطة (Semicolon ;)</strong>.
+                        </p>
                         <ul>
                             <li><strong>ملحوظة:</strong> فيه أوامر استثناء زي أمر الخروج <code>QUIT</code> أو أمر اختيار
                                 قاعدة البيانات <code>USE</code> مش بيحتاجوا فاصلة منقوطة، بس لو كتبتها مش هتضر.</li>
@@ -73,7 +74,8 @@ mysql&gt; <span class="hljs-function">SeLeCt <span class="hljs-title">vErSiOn</s
                     <li><strong>الجدول:</strong> بيعرض النتيجة في شكل جدول (صفوف وأعمدة).</li>
                     <li><strong>رؤوس الأعمدة:</strong> أسماء الأعمدة بتكون عادةً هي أسماء الحقول اللي بتجيبها من الجدول،
                         أو لو بتجيب قيمة تعبير (Expression) زي المثال ده، بيسمي العمود باسم التعبير نفسه (زي
-                        <code>VERSION()</code>).</li>
+                        <code>VERSION()</code>).
+                    </li>
                     <li><strong>وقت التنفيذ:</strong> بيوريك كام صف رجع (1 row in set) والوقت اللي أخده الأمر عشان يتنفذ
                         (0.01 sec). ده بيديلك فكرة تقريبية عن أداء السيرفر.</li>
                 </ol>
@@ -116,7 +118,8 @@ mysql&gt; <span class="hljs-function">SeLeCt <span class="hljs-title">vErSiOn</s
                 </ul>
                 <p><strong>ب. إلغاء استعلام (Cancellation):</strong>
                     لو بدأت تكتب استعلام على كذا سطر وغيرت رأيك ومش عايز تكمله، ممكن تلغيه بإنك تكتب
-                    <strong><code>\c</code></strong>.</p>
+                    <strong><code>\c</code></strong>.
+                </p>
                 <pre><code class="lang-sql">mysql&gt; SELECT<span class="hljs-function">
     -&gt;</span> USER<span class="hljs-function"><span class="hljs-params">()</span>
     -&gt;</span> <span class="hljs-string">\c</span>
@@ -160,19 +163,22 @@ mysql&gt;
                         <tr>
                             <td style="text-align:left"><code>/*&gt;</code></td>
                             <td style="text-align:left">مستني تكملة <strong>تعليق (comment)</strong> بدأ بـ
-                                <code>/*</code>.</td>
+                                <code>/*</code>.
+                            </td>
                         </tr>
                     </tbody>
                 </table>
                 <p><strong>فخ النسيان (الفاصلة المنقوطة):</strong>
                     أكتر سبب بيخلي الـ Prompt يتحول لـ <code>-&gt;</code> وأنت فاكر إنك خلصت، هو إنك نسيت الـ
-                    <strong>فاصلة منقوطة (;) بعد الأمر</strong>.</p>
+                    <strong>فاصلة منقوطة (;) بعد الأمر</strong>.
+                </p>
                 <pre><code class="lang-sql">mysql&gt; SELECT USER<span class="hljs-function"><span class="hljs-params">()</span>
     -&gt;</span> ;  &lt;- مجرد ما تضيف الفاصلة المنقوطة، الأمر بيتنفذ
 </code></pre>
                 <p><strong>فخ النصوص (Strings):</strong>
                     لو شفت الـ Prompt اتحول لـ <code>&#39;&gt;</code> أو <code>&quot;&gt;</code> ده معناه إنك
-                    <strong>نسيت علامة الإغلاق للنص</strong>.</p>
+                    <strong>نسيت علامة الإغلاق للنص</strong>.
+                </p>
                 <ul>
                     <li>
                         <p>الـ <code>mysql</code> بيسمح إن النصوص تمتد على كذا سطر، ولما بتنسى علامة الإغلاق، بيفضل

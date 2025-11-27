@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -29,7 +29,8 @@
                 <hr>
                 <h3 id="1-">1. معرفة قاعدة البيانات الحالية (أنت فين دلوقتي؟)</h3>
                 <p>لو نسيت إنت شغال على أي قاعدة بيانات بالظبط، ممكن تسأل السيرفر مباشرة باستخدام الدالة
-                    <code>DATABASE()</code> مع أمر <code>SELECT</code>.</p>
+                    <code>DATABASE()</code> مع أمر <code>SELECT</code>.
+                </p>
                 <p><strong>المثال:</strong></p>
                 <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SELECT DATABASE();
 +------------+</span>
@@ -42,7 +43,8 @@
                     <li><strong>الشرح:</strong> لو كنت عامل <code>USE menagerie;</code> قبل كده، السيرفر هيرجع اسم قاعدة
                         البيانات اللي شغال عليها حالياً، اللي هي <strong><code>menagerie</code></strong>.</li>
                     <li><strong>ملحوظة:</strong> لو مكنتش مختار أي قاعدة بيانات أصلاً، النتيجة هتكون
-                        <strong><code>NULL</code></strong>.</li>
+                        <strong><code>NULL</code></strong>.
+                    </li>
                 </ul>
                 <hr>
                 <h3 id="2-">2. عرض قواعد البيانات الموجودة (كل السيرفر)</h3>
@@ -53,7 +55,8 @@
                 <hr>
                 <h3 id="3-">3. معرفة الجداول في قاعدة البيانات الحالية (إيه اللي جوا الداتا بيز دي؟)</h3>
                 <p>لو عايز تعرف إيه الجداول اللي عملتها جوه قاعدة البيانات اللي إنت مختارها حالياً (مثلاً
-                    <code>menagerie</code>)، بتستخدم أمر <code>SHOW TABLES</code>.</p>
+                    <code>menagerie</code>)، بتستخدم أمر <code>SHOW TABLES</code>.
+                </p>
                 <p><strong>المثال:</strong></p>
                 <pre><code class="lang-sql"><span class="hljs-section">mysql&gt; SHOW TABLES;
 +---------------------+</span>
@@ -66,14 +69,17 @@
                 <ul>
                     <li><strong>الشرح:</strong> العمود اللي في النتيجة دايماً بيكون اسمه غريب شوية
                         <strong><code>Tables_in_db_name</code></strong>، واسم <code>db_name</code> بيتغير حسب اسم قاعدة
-                        البيانات اللي إنت بتسأل عنها.</li>
+                        البيانات اللي إنت بتسأل عنها.
+                    </li>
                     <li>في المثال ده، إحنا في قاعدة بيانات <code>menagerie</code>، وفيها جدولين اسمهم <code>pet</code> و
-                        <code>event</code>.</li>
+                        <code>event</code>.
+                    </li>
                 </ul>
                 <hr>
                 <h3 id="4-structure-">4. معرفة هيكل الجدول (الـ Structure)</h3>
                 <p>ده أهم جزء، وهو اللي بيوريك كل تفصيلة عن الجدول. لو نسيت اسم عمود، أو نوع بياناته، بتستخدم أمر
-                    <strong><code>DESCRIBE</code></strong>.</p>
+                    <strong><code>DESCRIBE</code></strong>.
+                </p>
                 <p><strong>المثال:</strong></p>
                 <pre><code class="lang-sql">mysql&gt; DESCRIBE pet;
 +---------+-------------+------+-----+---------+-------+
@@ -91,20 +97,24 @@
                 <ol>
                     <li><strong>Field (الحقل):</strong> ده اسم العمود.</li>
                     <li><strong>Type (النوع):</strong> ده نوع البيانات اللي متخزنة في العمود ده (زي
-                        <code>varchar(20)</code> أو <code>date</code>).</li>
+                        <code>varchar(20)</code> أو <code>date</code>).
+                    </li>
                     <li><strong>Null (هل يقبل قيم مجهولة؟):</strong> بيوريك لو العمود ممكن يسجل فيه قيمة
-                        <code>NULL</code> (قيمة مجهولة) ولا لازم يكون فيه بيانات.</li>
+                        <code>NULL</code> (قيمة مجهولة) ولا لازم يكون فيه بيانات.
+                    </li>
                     <li><strong>Key (مفتاح):</strong> لو العمود ده عليه فهرس (Index) أو هو مفتاح أساسي (Primary Key)،
                         بيظهر هنا (زي <code>PRI</code> أو <code>MUL</code>).</li>
                     <li><strong>Default (القيمة الافتراضية):</strong> لو مكنتش دخلت قيمة للعمود، القيمة دي هي اللي هتتحط
                         فيه.</li>
                     <li><strong>Extra (إضافات):</strong> هنا بتظهر معلومات خاصة زي مثلاً لو العمود ده متظبط على خاصية
                         <strong><code>AUTO_INCREMENT</code></strong> (اللي بتزود الرقم تلقائي)، بتظهر هنا
-                        <code>auto_increment</code>.</li>
+                        <code>auto_increment</code>.
+                    </li>
                 </ol>
                 <blockquote>
                     <p><strong>نصيحة سريعة:</strong> ممكن تختصر <strong><code>DESCRIBE</code></strong> وتكتب
-                        <strong><code>DESC</code></strong> بس عشان تجيب نفس النتيجة.</p>
+                        <strong><code>DESC</code></strong> بس عشان تجيب نفس النتيجة.
+                    </p>
                 </blockquote>
                 <hr>
                 <h3 id="5-">5. أدوات متقدمة للحصول على معلومات (للمحترفين شوية)</h3>
@@ -123,7 +133,8 @@
                 <p>الفصل الخامس ده عامل زي <strong>فريق الإسعافات الأولية</strong> اللي بتنادي عليه لما بتنسى تفاصيل
                     الجدول بتاعك. بدل ما تقعد تحاول تخمن إيه اسم العمود أو إيه نوع بياناته، بتستخدم أوامر
                     <code>SHOW</code> و <code>DESCRIBE</code> عشان تاخد نظرة سريعة وموثوقة على كل حاجة متخزنة في السيرفر
-                    بتاعك.</p>
+                    بتاعك.
+                </p>
 
 
 

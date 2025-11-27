@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -19,7 +19,8 @@
 
                 <p>أهلاً بك يا باشا! طلبك أوامر. الفصل رقم 6 ده فصل من أهم الفصول في الكتيب ده، لأنه بيتكلم عن
                     <strong>&quot;مثال نموذج تسجيل الدخول&quot; (Login Form Example)</strong>. تسجيل الدخول ده دايماً
-                    بيكون هدف رئيسي لأي مهاجم، عشان كده لازم نكون حريصين جداً في كل خطوة نعملها عشان نحمي نظامنا.</p>
+                    بيكون هدف رئيسي لأي مهاجم، عشان كده لازم نكون حريصين جداً في كل خطوة نعملها عشان نحمي نظامنا.
+                </p>
                 <p>هنشرح بالتفصيل إزاي تبني آلية تسجيل دخول آمنة باستخدام PHP والـSQLite.</p>
                 <hr>
                 <h3 id="-6-login-form-example-">الفصل 6: إزاي تعمل شاشة دخول آمنة (Login Form Example)</h3>
@@ -29,13 +30,15 @@
                     <li>سيرفر <strong>Apache HTTP (2.4.7)</strong>.</li>
                     <li>لغة <strong>PHP (5.5.9)</strong>.</li>
                     <li>قاعدة بيانات <strong>SQLite3</strong>، ودي قاعدة بيانات خفيفة جداً ومفيدة لأغراض التطوير، بس
-                        <strong>ما ينفعش نستخدمها في بيئات الإنتاج الفعلية (Production environments)</strong>.</li>
+                        <strong>ما ينفعش نستخدمها في بيئات الإنتاج الفعلية (Production environments)</strong>.
+                    </li>
                 </ul>
                 <h4 id="1-preparing-the-environment-">1. تجهيز البيئة (Preparing the environment)</h4>
                 <p>عشان نستخدم SQLite3 مع PHP، لازم نعمل كام خطوة إعداد:</p>
                 <ol>
                     <li><strong>التثبيت (Installation):</strong> بنطبّق أوامر تثبيت Apache و PHP، وبنضيف معاهم مكتبة
-                        <strong><code>php5-sqlite</code></strong>.</li>
+                        <strong><code>php5-sqlite</code></strong>.
+                    </li>
                     <li><strong>إعداد PHP (PHP configuration):</strong> بنفتح ملف إعداد PHP
                         (<code>/etc/php5/apache2/php.ini</code>) وبنتأكد إن الإضافة دي متفعلة:
                         <pre><code class="lang-ini"><span class="hljs-attr">extension</span>=sqlite.so
@@ -71,7 +74,8 @@
                 <ul>
                     <li>التمليح (Salting) بيحل جزء من مشكلة الجداول المُعدة مسبقاً.</li>
                     <li>الفكرة: بنضيف <strong>سلسلة عشوائية من البايتات (Random string of bytes)</strong> اسمها
-                        <strong>&quot;الملح&quot; (Salt)</strong> للباسورد <strong>قبل ما نعملها Hash</strong>.</li>
+                        <strong>&quot;الملح&quot; (Salt)</strong> للباسورد <strong>قبل ما نعملها Hash</strong>.
+                    </li>
                     <li>العملية بتكون كده: <code>hf(password + salt) = hash</code>.</li>
                     <li>النتيجة: لو اتنين يوزرز عندهم نفس الباسورد، هيكون لكل واحد فيهم <strong>Hash مختلف</strong>، وده
                         بيصعّب على المهاجم إنه يرجع الـHash للباسورد الأصلية.</li>
@@ -136,7 +140,8 @@ $sql = ’INSERT <span class="hljs-keyword">INTO</span> user VALUES (:username, 
                 </ul>
                 <h4 id="4-login-">4. تنفيذ تسجيل الدخول (Login)</h4>
                 <p>في نموذج الدخول، بنطلب اسم المستخدم وكلمة المرور. وعند معالجة النموذج، بيتم استدعاء دالة
-                    <code>authenticateUser</code>.</p>
+                    <code>authenticateUser</code>.
+                </p>
                 <p>الجزء الأهم في عملية المصادقة هو دالة <strong><code>password_verify()</code></strong>.</p>
                 <p><strong>إزاي بتشتغل <code>password_verify()</code>؟</strong></p>
                 <ul>
@@ -172,7 +177,8 @@ $storedPassword = <span class="hljs-keyword">$this</span>-&gt;getUsersPassword($
                 <blockquote>
                     <p><strong>ملخص الأمن:</strong>
                         عشان نظامك يكون آمن: <strong>استخدم KDFs (زي bcrypt) لتخزين الباسوردات</strong>، و
-                        <strong>استخدم Prepared Statements للتفاعل مع قاعدة البيانات</strong>.</p>
+                        <strong>استخدم Prepared Statements للتفاعل مع قاعدة البيانات</strong>.
+                    </p>
                 </blockquote>
                 <hr>
                 <p><strong>تخيل الموضوع عامل إزاي:</strong></p>
@@ -184,7 +190,8 @@ $storedPassword = <span class="hljs-keyword">$this</span>-&gt;getUsersPassword($
                     <li>بالـ<strong>KDFs (bcrypt)</strong>، أنت بتدي المفتاح للحارس، بس الحارس بيعمل كذا خطوة معقدة جداً
                         عشان ينتج <strong>&quot;مفتاح مشتق&quot;</strong> معقد، والعملية دي متعمدة إنها تكون
                         <strong>بطيئة جداً</strong> (1.2 ثانية). الحارس ده لو ضاع، المجرم هيحتاج 1.2 ثانية عشان يجرب
-                        مفتاح واحد بس، يعني هيموت من الزهق قبل ما يوصل لحاجة.</li>
+                        مفتاح واحد بس، يعني هيموت من الزهق قبل ما يوصل لحاجة.
+                    </li>
                 </ul>
 
 

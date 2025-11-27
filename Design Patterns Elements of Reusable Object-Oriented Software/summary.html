@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark" lang="ar" dir="rtl">
+<html data-bs-theme="dark" lang="en" dir="ltr">
 
 <head>
     <!-- Required meta tags -->
@@ -50,7 +50,8 @@
                             <td style="text-align:left"><strong>الأساس النظري:</strong> بيفهمك إن الأنماط بتدينا
                                 <strong>لغة مشتركة</strong> عشان نتكلم عن التصميم المعقد. وبتعلمك <strong>إنك تصمم
                                     لواجهة (Interface) مش للتنفيذ (Implementation)</strong>، وإن التركيب (Composition)
-                                أحسن من الوراثة (Inheritance) في تحقيق المرونة.</td>
+                                أحسن من الوراثة (Inheritance) في تحقيق المرونة.
+                            </td>
                         </tr>
                         <tr>
                             <td style="text-align:left"><strong>2: دراسة حالة (Case Study: Lexi)</strong></td>
@@ -226,13 +227,16 @@
                 <ol>
                     <li><strong>Lazy Initialization (التهيئة الكسولة):</strong> فكرة بتلاقيها في
                         <strong>Singleton</strong> و <strong>Virtual Proxy</strong>. الكائن ما بيتمش إنشاؤه إلا عند أول
-                        طلب عليه (لما بيكون <code>_instance == 0</code>).</li>
+                        طلب عليه (لما بيكون <code>_instance == 0</code>).
+                    </li>
                     <li><strong>Protected Operations:</strong> تصريح العمليات البدائية (Primitive Operations) في الـ
                         <strong>Template Method</strong> كـ Protected عشان تضمن إنها تُستخدم وتُعاد تعريفها بس عن طريق
-                        الـ Subclasses، مش عن طريق الكلاينت مباشرة.</li>
+                        الـ Subclasses، مش عن طريق الكلاينت مباشرة.
+                    </li>
                     <li><strong>Friend Class:</strong> بتستخدم في <strong>Memento</strong> لضمان إن الـ
                         <strong>Originator</strong> بس هو اللي يقدر يوصل للواجهة الواسعة (Wide Interface) اللي بتخزن
-                        الحالة الداخلية للكائن، وده عشان يحافظ على التغليف (Encapsulation).</li>
+                        الحالة الداخلية للكائن، وده عشان يحافظ على التغليف (Encapsulation).
+                    </li>
                     <li><strong><code>virtual</code> and <code>pure virtual</code>:</strong> بتستخدم لتعريف العمليات
                         اللي يجب تنفيذها في الـ Subclasses (زي في Factory Method).</li>
                 </ol>
@@ -245,13 +249,15 @@
                         Factory).</li>
                     <li><strong>اقرأ النمط كله أولاً:</strong> قبل ما تنفذ، اقرأ أولاً الـ
                         <strong>Applicability</strong> والـ <strong>Consequences</strong>. ده بيضمن إن النمط ده هو الحل
-                        الصح لمشكلتك وبيوريك التضحيات (Trade-offs) اللي هتعملها.</li>
+                        الصح لمشكلتك وبيوريك التضحيات (Trade-offs) اللي هتعملها.
+                    </li>
                     <li><strong>استخدم اللغة المشتركة:</strong> لما تتكلم مع زمايلك عن التصميم، استخدم أسماء الأنماط (زي
                         &quot;هنستخدم هنا Decorator&quot;). ده بيخلي الوثائق والمحادثات أوضح بكتير.</li>
                     <li><strong>الأنماط بتشتغل مع بعض:</strong> متفكرش في الأنماط بشكل منعزل. <strong>Composite</strong>
                         و <strong>Iterator</strong> و <strong>Visitor</strong> غالباً بيجوا مع بعض. <strong>Abstract
                             Factory</strong> ممكن يتنفذ باستخدام <strong>Singleton</strong> أو
-                        <strong>Prototype</strong>.</li>
+                        <strong>Prototype</strong>.
+                    </li>
                     <li><strong>الأكواد مش هي الأنماط:</strong> متفكرش إن النمط مجرد شوية كود؛ النمط هو <strong>الفكرة
                             المجردة للحل</strong>. لازم تفهم العلاقات بين الكلاسات والمسؤوليات اللي متوزعة بينهم
                         (Structure, Participants, Collaborations).</li>
