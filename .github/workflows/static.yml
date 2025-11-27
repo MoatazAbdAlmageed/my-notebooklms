@@ -1,3 +1,4 @@
+# Deploy static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
@@ -25,20 +26,37 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate directory index files
+      - name: Prepare directory listings
         run: |
-          echo "Generating index.html for directories..."
-          find . -type d | while read dir; do
-            index="$dir/index.html"
-            echo "<h2>Index of $dir</h2><ul>" > "$index"
-            for f in "$dir"/*; do
-              if [ -e "$f" ]; then
-                name=$(basename "$f")
-                echo "<li><a href=\"$name\">$name</a></li>" >> "$index"
-              fi
-            done
-            echo "</ul>" >> "$index"
+          echo "Renaming nested index.html to 00.html..."
+          find . -type f -name "index.html" ! -path "./index.html" -exec bash -c 'mv "$1" "${1%/*}/00.html"' _ {} \;
+
+          echo "Generating root index.html..."
+          cat > index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <title>Directory Listing</title>
+            <style>
+              body { font-family: Arial, sans-serif; padding: 20px; }
+              ul { line-height: 1.7; font-size: 18px; }
+            </style>
+          </head>
+          <body>
+          <h2>Index of /</h2>
+          <ul>
+          EOF
+
+          for f in *; do
+            echo "<li><a href=\"$f\">$f</a></li>" >> index.html
           done
+
+          cat >> index.html <<'EOF'
+          </ul>
+          </body>
+          </html>
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
