@@ -16,231 +16,238 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-
-
-                <p>أهلاً بيك يا بطل المذاكرة! الفصل الأول ده هو <strong>الأساس</strong> اللي بيبني عليه الكتاب كله، لو
-                    فهمت المبادئ اللي فيه، بقية الأنماط هتبقى سهلة عليك.</p>
-                <p>ده ملخص شامل ومفصل للفصل الأول (Introduction) بلهجة بسيطة، كإننا قاعدين بنراجع سوا:</p>
+                <p>This is a fantastic request! Chapter 1 is the most important part of the book because it lays down
+                    the fundamental rules that guide all the successful designs that follow.</p>
+                <p>The book is titled <strong>Design Patterns: Elements of Reusable Object-Oriented Software</strong>.
+                    It was written by four experts: Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.</p>
+                <p>The main idea of this book is to capture the solutions that expert designers have developed and
+                    evolved over time, which reflect untold redesign efforts to achieve greater reuse and flexibility in
+                    software.</p>
                 <hr>
-                <h2 id="-introduction-">الفصل الأول: مقدمة (Introduction)</h2>
-                <p>الزتونة بتاعة الفصل ده بتقول: <strong>تصميم برامج كائنية التوجه (Object-Oriented) قابلة لإعادة
-                        الاستخدام صعب جدًا</strong>. الخبرة دي مش بنسجلها كويس، فبنضطر &quot;نخترع العجلة&quot; كل مرة.
-                    الكتاب ده جه عشان يسجل الخبرات دي في شكل <strong>&quot;أنماط تصميم&quot; (Design Patterns)</strong>.
-                </p>
-                <h3 id="1-1-what-is-a-design-pattern-">1.1 إيه هو نمط التصميم (What Is a Design Pattern)?</h3>
-                <p>بص، نمط التصميم (Design Pattern) ده ببساطة هو:</p>
+                <h2 id="chapter-1-introduction">Chapter 1: Introduction</h2>
+                <h3 id="section-1-the-problem-and-the-solution-1-1-">Section 1: The Problem and the Solution (1.1)</h3>
+                <p><strong>Step 1: Understand why design is hard.</strong></p>
                 <ul>
-                    <li><strong>وصف لحل مُجرب وناجح لمشكلة تصميم بتتكرر</strong> في أنظمة البرمجة كائنية التوجه.</li>
-                    <li>النمط ده بيعمل 4 حاجات أساسية:<ol>
-                            <li><strong>بيدينا اسم (Pattern Name):</strong> ده مهم جدًا عشان بيزود <strong>المفردات
-                                    التصميمية (design vocabulary)</strong> بتاعتنا وبيخلينا نتكلم عن التصميم المعقد في
-                                <strong>مستوى تجريد أعلى</strong>.
+                    <li><strong>Simple Explanation:</strong> Designing software using objects is difficult, and
+                        designing software that is flexible and reusable for the future is even harder. Experienced
+                        designers know that it is nearly impossible to get the design <strong>&quot;right&quot;</strong>
+                        the first time.</li>
+                    <li><strong>Expert Solution:</strong> Expert designers avoid solving every problem from scratch.
+                        Instead, they reuse solutions that have worked for them in the past. These reusable solutions
+                        are <strong>recurring patterns of classes and communicating objects</strong>.</li>
+                    <li><strong>Analogy:</strong> If a playwright wants to write a tragedy, they might follow the
+                        recognized structure of a &quot;Tragically Flawed Hero&quot; (like Macbeth). Once you know this
+                        pattern, many design decisions follow automatically.</li>
+                </ul>
+                <p><strong>Step 2: Define what a Design Pattern is.</strong></p>
+                <ul>
+                    <li><strong>Simple Explanation:</strong> A design pattern is a description of a problem and its
+                        solution within a context. The pattern captures a <strong>general design problem</strong> and
+                        how a general arrangement of elements (classes and objects) solves it.</li>
+                </ul>
+                <p><strong>Step 3: Learn the four essential parts of every pattern.</strong></p>
+                <ul>
+                    <li><strong>1. The Pattern Name:</strong> This is a handle (a short, memorable word) you use to
+                        describe the problem and solution quickly. Naming a pattern immediately <strong>increases your
+                            design vocabulary</strong> and lets you think and communicate designs at a <strong>higher
+                            level of abstraction</strong>.</li>
+                    <li><strong>2. The Problem:</strong> This describes when to apply the pattern. It might describe
+                        specific design problems (like how to represent algorithms as objects) or structures that show
+                        an inflexible design.</li>
+                    <li><strong>3. The Solution:</strong> This describes the classes, their relationships, and their
+                        responsibilities. It is an <strong>abstract template</strong> that can be applied in many
+                        situations, not a specific, concrete implementation.</li>
+                    <li><strong>4. Consequences:</strong> This section explains the good effects (benefits) and the bad
+                        effects (trade-offs) of using the pattern.</li>
+                </ul>
+                <hr>
+                <h3 id="section-2-the-golden-rules-for-good-design-1-6-">Section 2: The Golden Rules for Good Design
+                    (1.6)</h3>
+                <p>Design patterns solve day-to-day problems by enforcing core principles that make software more
+                    reusable.</p>
+                <p><strong>Step 4: Rule A: Program to an interface, not an implementation.</strong></p>
+                <ul>
+                    <li><strong>Simple Explanation:</strong> You should declare variables or define parameters using an
+                        <strong>abstract class or interface</strong> (the general type) rather than using a specific,
+                        <strong>concrete class</strong> (the detailed type).</li>
+                    <li><strong>Why is this important?</strong> When you program to an interface, two things happen:<ol>
+                            <li>Clients (the code that uses the object) remain unaware of the <strong>specific
+                                    types</strong> of objects they use.</li>
+                            <li>Clients remain unaware of the <strong>concrete classes</strong> that implement these
+                                objects.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>This greatly reduces dependencies between different parts of the system, making the system
+                            easier to change later.</p>
+                    </li>
+                    <li>
+                        <p><strong>Practical Example and Code:</strong>
+                            Imagine you need to store a sequence of employee names.</p>
+                    </li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">Bad Design (Relies on Implementation)</th>
+                            <th style="text-align:left">Good Design (Relies on Interface)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><code>ListIterator&lt;Employee*&gt;* i;</code></td>
+                            <td style="text-align:left"><code>Iterator&lt;Employee*&gt;* i;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li><strong>Code Explanation:</strong> The source code foundation includes an abstract class called
+                        <code>Iterator</code> and a concrete class <code>ListIterator</code>.<ul>
+                            <li>The <strong>Bad Design</strong> locks your code to <code>ListIterator</code>. If you
+                                later decide to use a <code>ReverseListIterator</code> or a
+                                <code>SkipListIterator</code> (which traverses data differently), you must change this
+                                line everywhere.</li>
+                            <li>The <strong>Good Design</strong> declares the variable <code>i</code> as the abstract
+                                <code>Iterator</code>. All iteration classes (Forward, Reverse, SkipList) implement this
+                                same abstract interface. The client code only knows that <code>i</code> supports
+                                <code>First()</code>, <code>Next()</code>, and <code>IsDone()</code>. This means you can
+                                swap the implementation without changing the client code, following the golden rule.
                             </li>
-                            <li><strong>بيحدد المشكلة (Problem):</strong> بيشرح امتى تطبق النمط ده (السياق).</li>
-                            <li><strong>بيوصف الحل (Solution):</strong> وده بيبقى عبارة عن ترتيب معين للعلاقات بين
-                                الكلاسات والكائنات.</li>
-                            <li><strong>بيوضح النتائج (Consequences):</strong> بيشرح إيجابيات وسلبيات تطبيق النمط (الـ
-                                Trade-offs).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Step 5: Rule B: Favor Object Composition over Class Inheritance.</strong></p>
+                <ul>
+                    <li><strong>Simple Explanation:</strong> When you want to reuse functionality, it is usually better
+                        to build (or <strong>compose</strong>) an object by combining smaller objects (like LEGO pieces)
+                        than to make a class inherit all its features from a parent (<strong>Inheritance</strong>).</li>
+                    <li><strong>Inheritance (White-Box Reuse):</strong> This is called &quot;white-box reuse&quot;
+                        because the internal implementation details of the parent class are often visible to the
+                        subclass. This makes the system rigid; if you change the parent class implementation, you might
+                        break the subclass.</li>
+                    <li><strong>Composition (Black-Box Reuse):</strong> This is called &quot;black-box reuse&quot;
+                        because the complex object interacts with its smaller internal objects only through their
+                        defined interfaces. You cannot see their internal implementation details. Composition helps keep
+                        each class small, encapsulated, and focused on one task.</li>
+                </ul>
+                <p><strong>Step 6: Encapsulate the Concept that Varies.</strong></p>
+                <ul>
+                    <li><strong>Simple Explanation:</strong> The key to maximizing reuse is to anticipate future changes
+                        and design your system so it can evolve. You must identify the parts of the system that are most
+                        likely to change (like an algorithm or a specific hardware platform) and <strong>encapsulate
+                            that changing concept</strong> within an object.</li>
+                    <li><strong>Example:</strong> If you know that the method for calculating taxes might change, you
+                        wrap the calculation logic inside a separate <code>TaxCalculator</code> object. This way, if the
+                        tax law changes, you only modify the <code>TaxCalculator</code> object, not the rest of your
+                        core business logic.</li>
+                </ul>
+                <hr>
+                <h3 id="section-3-organizing-and-using-patterns-1-5-1-8-">Section 3: Organizing and Using Patterns (1.5,
+                    1.8)</h3>
+                <p><strong>Step 7: Understand how the Catalog is organized.</strong></p>
+                <ul>
+                    <li><strong>Simple Explanation:</strong> The catalog contains 23 design patterns. They are organized
+                        along two dimensions to help you find what you need:<ol>
+                            <li><strong>Purpose (What does it do?):</strong>
+                                <ul>
+                                    <li><strong>Creational:</strong> Deals with how objects are <strong>created</strong>
+                                        (instantiated).</li>
+                                    <li><strong>Structural:</strong> Deals with how classes and objects are
+                                        <strong>composed</strong> to form larger structures.</li>
+                                    <li><strong>Behavioral:</strong> Deals with <strong>algorithms</strong> and how
+                                        responsibilities and communication are distributed between objects.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Scope (Where does it apply?):</strong>
+                                <ul>
+                                    <li><strong>Class:</strong> Uses <strong>inheritance</strong> to structure classes
+                                        (relationships are static, fixed at compile-time).</li>
+                                    <li><strong>Object:</strong> Uses <strong>object composition</strong> to structure
+                                        objects (relationships are dynamic, can change at run-time).</li>
+                                </ul>
+                            </li>
                         </ol>
                     </li>
                 </ul>
-                <p><strong>مهمة المذاكرة:</strong> الأنماط اللي في الكتاب مش مجرد هياكل بيانات بسيطة (زي linked lists)،
-                    ولا هي تصميمات معقدة لنظام كامل. هي <strong>وصف لكائنات وكلاسات بتتواصل</strong> مع بعض عشان تحل
-                    مشكلة تصميم عامة في سياق معين.</p>
-                <h3 id="1-2-smalltalk-mvc-">1.2 أنماط التصميم في Smalltalk MVC (أمثلة حقيقية)</h3>
-                <p>الكتاب بيستخدم إطار العمل المشهور <strong>MVC (Model/View/Controller)</strong> بتاع Smalltalk عشان
-                    يوريك إن الأنماط دي مش جديدة، هي كانت موجودة بس متسمتش.</p>
+                <p><strong>Step 8: Follow the steps to use a pattern effectively.</strong></p>
                 <ul>
-                    <li><strong>المشكلة الأولى (فك الارتباط):</strong> لما يكون عندنا كائن (زي الـ
-                        <strong>Model</strong> اللي فيه البيانات) وعايزين لما يتغير، أي كائنات تانية معتمدة عليه (زي الـ
-                        <strong>Views</strong> اللي بتعرض البيانات) تتحدث أوتوماتيك، من غير ما الـ Model يكون عارف
-                        تفاصيل الـ Views دي.<ul>
-                            <li><strong>الحل:</strong> ده هو <strong>نمط Observer</strong>. بيخلي التغييرات في كائن واحد
-                                تأثر على أي عدد من الكائنات التابعة، من غير ما الكائن المُتغير يكون عارف تفاصيلهم.</li>
-                        </ul>
-                    </li>
-                    <li><strong>المشكلة الثانية (تجميع الأجزاء):</strong> لو عندنا واجهة مستخدم، زي لوحة تحكم فيها زراير
-                        (Buttons). اللوحة دي عبارة عن كائن مركب (Composite View) بيحتوي على زراير (وهي كائنات بسيطة).
-                        أنت عايز تتعامل مع اللوحة المركبة دي زي ما بتتعامل مع الزرار الواحد بالظبط.<ul>
-                            <li><strong>الحل:</strong> ده هو <strong>نمط Composite</strong>. النمط ده بيخليك تعامل
-                                الكائنات الفردية والكائنات المركبة بنفس الطريقة.</li>
-                        </ul>
-                    </li>
-                    <li><strong>المشكلة الثالثة (تغيير السلوك):</strong> إنك تقدر تغير طريقة استجابة العرض (View)
-                        لمدخلات المستخدم (زي تغيير وظيفة زرار) من غير ما تغير شكل العرض نفسه.<ul>
-                            <li><strong>الحل:</strong> بيتم تغليف آلية الاستجابة في كائن <strong>Controller</strong>.
-                                عشان تغير الاستراتيجية، بتبدل كائن الـ Controller ده بكائن تاني، حتى في وقت التشغيل
-                                (run-time). (ودي بتوضح أساس <strong>نمط Strategy</strong>).</li>
-                        </ul>
+                    <li><strong>Simple Explanation:</strong> Once you have chosen a pattern, you must apply it
+                        systematically.</li>
+                    <li><strong>Step 8.1: Read and Review.</strong> Read the pattern once, paying special attention to
+                        the <strong>Applicability</strong> and <strong>Consequences</strong> sections to make sure it
+                        solves your problem correctly and is worth the trade-offs.</li>
+                    <li><strong>Step 8.2: Study the Structure.</strong> Study the diagrams (Structure, Participants, and
+                        Collaborations) to understand how the classes and objects relate to each other.</li>
+                    <li><strong>Step 8.3: Review Sample Code.</strong> Look at the provided C++ or Smalltalk code
+                        fragments to understand how the pattern is implemented in practice.</li>
+                    <li><strong>Step 8.4: Choose Meaningful Names.</strong> The names in the pattern are abstract (like
+                        &quot;Strategy&quot;). Choose names that are meaningful in your specific application (e.g.,
+                        instead of &quot;Strategy,&quot; use <code>TeXLayoutStrategy</code>).</li>
+                    <li><strong>Step 8.5: Define Classes and Interfaces.</strong> Declare the classes and define their
+                        abstract interfaces, and establish their inheritance relationships based on the pattern&#39;s
+                        structure.</li>
+                    <li><strong>Step 8.6: Implement Operations.</strong> Implement the specific methods to carry out the
+                        responsibilities defined in the pattern.</li>
+                    <li><strong>A Warning:</strong> Design patterns should not be applied indiscriminately. They often
+                        add complexity, so they should only be used when the flexibility they provide is truly needed.
                     </li>
                 </ul>
-                <h3 id="1-5-">1.5 تصنيف كتالوج أنماط التصميم</h3>
-                <p>الـ 23 نمط تصميم اللي في الكتاب متقسمين حسب معيارين عشان يسهلوا المذاكرة والاختيار:</p>
-                <h4 id="-purpose-">أ. حسب الغرض (Purpose) - بيعمل إيه؟</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align:left">التصنيف</th>
-                            <th style="text-align:left">الهدف (الزتونة)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align:left"><strong>Creational (إنشائية)</strong></td>
-                            <td style="text-align:left">بتهتم <strong>بإنشاء الكائنات</strong> (Object Creation). هدفها
-                                الأساسي إن النظام ميعرفش الكلاسات الملموسة (Concrete Classes) اللي بيتم إنشاء مثيل ليها.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>Structural (هيكلية)</strong></td>
-                            <td style="text-align:left">بتهتم <strong>بتركيب الكلاسات أو الكائنات</strong> عشان تكون
-                                هياكل أكبر وأكثر مرونة.</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>Behavioral (سلوكية)</strong></td>
-                            <td style="text-align:left">بتهتم <strong>بتفاعل الكلاسات أو الكائنات</strong> وتوزيع
-                                المسؤوليات بينها.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 id="-scope-">ب. حسب النطاق (Scope) - بيتطبق فين؟</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align:left">النطاق</th>
-                            <th style="text-align:left">التطبيق (الزتونة)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align:left"><strong>Class (الكلاس)</strong></td>
-                            <td style="text-align:left">يتعامل مع العلاقات بين الكلاسات والـ Subclasses بتاعتها، وده
-                                بيتم عن طريق <strong>الوراثة (Inheritance)</strong>. العلاقات دي <strong>ثابتة
-                                    (Static)</strong> في وقت التصميم.</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>Object (الكائن)</strong></td>
-                            <td style="text-align:left">يتعامل مع العلاقات بين الكائنات، وده بيتم عن طريق
-                                <strong>التكوين/التجميع (Composition)</strong>. العلاقات دي <strong>ديناميكية
-                                    (Dynamic)</strong> وممكن تتغير في وقت التشغيل.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><strong>تذكرة سريعة:</strong> معظم أنماط التصميم اللي في الكتالوج هي أنماط ذات نطاق <strong>الكائن
-                        (Object scope)</strong>.</p>
-                <h3 id="1-6-">1.6 إزاي أنماط التصميم بتحل مشاكل التصميم؟ (المبادئ الأساسية)</h3>
-                <p>الأنماط بتساعدك تتجاوز المشاكل اللي بتخليك تعيد تصميم النظام (Redesign)، وده بيتم عن طريق الالتزام بـ
-                    4 مبادئ رئيسية:</p>
-                <h4 id="1-finding-objects-">1. اكتشاف التجريدات والأهداف المناسبة (Finding Objects)</h4>
-                <p>الأنماط بتساعدك تلاقي كائنات مكانتش واضحة في الأول:</p>
-                <ul>
-                    <li><strong>Strategy (315):</strong> بيوصف إزاي تعمل كائنات تمثل <strong>الخوارزميات</strong>.</li>
-                    <li><strong>State (305):</strong> بيوصف إزاي تمثل <strong>حالة الكائن</strong> ككائن منفصل.</li>
-                    <li>الكائنات دي بتخلي التصميم مرن وقابل لإعادة الاستخدام.</li>
-                </ul>
-                <h4 id="2-determining-object-granularity-">2. تحديد حجم الكائنات (Determining Object Granularity)</h4>
-                <p>الأنماط بتساعدك تحدد حجم الكائن، من الكائنات الصغيرة جدًا لحد الأنظمة الفرعية بالكامل:</p>
-                <ul>
-                    <li><strong>Facade (185):</strong> بيوصف إزاي تمثل نظام فرعي كامل (Complete Subsystem) ككائن واحد.
-                    </li>
-                    <li><strong>Flyweight (195):</strong> بيوصف إزاي تدعم أعداد ضخمة من الكائنات متناهية الصغر بكفاءة
-                        (عن طريق المشاركة Sharing).</li>
-                    <li><strong>Abstract Factory (87), Builder (97), Command (233), Visitor (331):</strong> كلها بتنتج
-                        كائنات مسؤوليتها الوحيدة هي إنشاء كائنات أخرى، أو تنفيذ طلب، أو تطبيق عملية على كائن آخر.</li>
-                </ul>
-                <h4 id="3-program-to-an-interface-not-an-implementation-">3. البرمجة للواجهة وليست للتنفيذ (Program to
-                    an Interface, Not an Implementation)</h4>
-                <p>دي قاعدة ذهبية في البرمجة كائنية التوجه.</p>
-                <ul>
-                    <li>معناها: إنك تستخدم <strong>الأنواع المجردة (Abstract Types)</strong> زي (Abstract Classes أو
-                        Interfaces) لتعريف المتغيرات وتمريرها، بدل ما تتعامل مع <strong>الكلاسات الملموسة (Concrete
-                            Classes)</strong> مباشرة.</li>
-                    <li>الأنماط الإنشائية (Creational Patterns) زي <strong>Abstract Factory و Factory Method و
-                            Singleton</strong> بتضمن إن نظامك يكون مكتوب بلغة <strong>الواجهات</strong>، مش بلغة
-                        <strong>التنفيذ</strong>.
-                    </li>
-                </ul>
-                <h4 id="4-favor-object-composition-over-class-inheritance-">4. تفضيل تجميع الكائنات على وراثة الكلاسات
-                    (Favor Object Composition over Class Inheritance)</h4>
-                <ul>
-                    <li><strong>الوراثة (Class Inheritance):</strong> بتعرف تنفيذ كائن بدلالة تنفيذ كائن تاني. مشكلتها
-                        إنها بتخلي الـ Subclass مكشوف (White-box reuse)، وبالتالي الـ Encapsulation بيقل، وأي تغيير في
-                        الـ Parent class ممكن يكسر الـ Subclass.</li>
-                    <li><strong>التجميع (Object Composition):</strong> الكائن بيتكون من كائنات تانية (Black-box reuse).
-                        وده أفضل وبيزود المرونة وإعادة الاستخدام.<ul>
-                            <li><strong>Delegation (التفويض):</strong> ده شكل متطرف من التجميع، حيث كائن بيفوض عملية
-                                لكائن تاني (delegate). الميزة إنه سهل تغير السلوك في وقت التشغيل.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h4 id="5-encapsulate-the-concept-that-varies-">5. تغليف المفهوم الذي يتغير (Encapsulate the Concept
-                    that Varies)</h4>
-                <p>ده ملخص لكل قواعد التصميم. لو عرفت إيه اللي هيتغير في المستقبل، دور على نمط يغلفه.</p>
-                <p><strong>مثال على التغليف في نمط Memento (283):</strong>
-                    نمط <strong>Memento</strong> بيوصف إزاي تحفظ الحالة الداخلية لكائن بحيث يمكن استرجاعها لاحقاً. عشان
-                    يحافظ على التغليف (Encapsulation)، النمط ده بيعرف واجهتين (Two Interfaces) للـ Memento:</p>
-                <ul>
-                    <li><strong>واجهة مقيدة (Restricted Interface):</strong> للكلاينت (Caretaker)، بيقدر بس يحتفظ بالـ
-                        Memento ويمرره.</li>
-                    <li><strong>واجهة مميزة (Privileged Interface):</strong> للكائن الأصلي (Originator) فقط، عشان يقدر
-                        يخزن ويسترجع الحالة الداخلية.</li>
-                </ul>
-                <h3 id="1-7-">1.7 إزاي تختار نمط تصميم؟</h3>
-                <p>عشان تختار النمط الصح، اسأل نفسك السؤال ده: <strong>إيه اللي عايزني أقدر أغيره في التصميم ده من غير
-                        ما أعيد التصميم كله؟</strong>.</p>
-                <ul>
-                    <li>ممكن ترجع للـ <strong>جدول 1.2</strong> اللي في الكتاب (في صفحة 30) اللي بيجمع الجوانب اللي
-                        بيخليك كل نمط تغيرها بشكل مستقل.</li>
-                </ul>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align:left">جانب التصميم اللي ممكن يتغير</th>
-                            <th style="text-align:left">الأنماط الرئيسية اللي بتسمح بده</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align:left"><strong>عائلات كائنات المنتج</strong> (Product objects)</td>
-                            <td style="text-align:left">Abstract Factory (87)</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>صنف الكائن اللي بيتم إنشاءه</strong> (Class of object)
-                            </td>
-                            <td style="text-align:left">Factory Method (107), Prototype (117)</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>خوارزمية معينة</strong> (An algorithm)</td>
-                            <td style="text-align:left">Strategy (315)</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>خطوات خوارزمية</strong> (Steps of an algorithm)</td>
-                            <td style="text-align:left">Template Method (325)</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left"><strong>مسؤوليات الكائن</strong> (Responsibilities of an object)
-                            </td>
-                            <td style="text-align:left">Decorator (175)</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 id="1-8-steps-">1.8 إزاي تطبق نمط تصميم؟ (Steps)</h3>
-                <p>بمجرد ما تختار النمط، دي الخطوات اللي تمشي عليها:</p>
+                <hr>
+                <h2 id="conclusion-for-chapter-1">Conclusion for Chapter 1</h2>
+                <h3 id="short-chapter-summary">Short Chapter Summary</h3>
+                <p>Chapter 1 introduces design patterns as a way to record and reuse successful object-oriented design
+                    experience, providing a common vocabulary for designers. The chapter establishes two foundational
+                    principles for creating flexible software: <strong>Program to an interface, not an
+                        implementation</strong> (relying on abstract definitions) and <strong>Favor object composition
+                        over class inheritance</strong> (using black-box reuse for flexibility). The chapter also
+                    organizes the catalog into <strong>Creational, Structural, and Behavioral</strong> categories,
+                    showing how patterns achieve flexibility by encapsulating concepts that are likely to vary.</p>
+                <h3 id="the-main-key-ideas-to-remember">The Main Key Ideas to Remember</h3>
                 <ol>
-                    <li><strong>اقرأ النمط كله:</strong> عشان تفهم السياق والنتائج (Consequences) بشكل كامل.</li>
-                    <li><strong>استخدم اسم النمط:</strong> في كلامك وتوثيقك عشان ترفع مستوى التجريد.</li>
-                    <li><strong>حدد الكلاسات والكائنات:</strong> اللي هتشارك في تطبيق النمط.</li>
-                    <li><strong>ضيف أسماء خاصة بالـ Application</strong> للعمليات في النمط، وحافظ على الاتساق في
-                        التسمية.</li>
-                    <li><strong>نفذ العمليات</strong> عشان تحقق المسؤوليات والتفاعلات الموضحة في النمط.</li>
+                    <li><strong>Vocabulary Boost:</strong> The <strong>Pattern Name</strong> is the essential element
+                        that gives designers a standard way to communicate complex designs.</li>
+                    <li><strong>Interface Focus:</strong> Always commit to an abstract <strong>Interface</strong>
+                        (Abstract Class) rather than a <strong>Concrete Class</strong> to reduce implementation
+                        dependencies.</li>
+                    <li><strong>Composition is Key:</strong> <strong>Object Composition</strong> (building an object
+                        from other objects) is preferred because it maintains encapsulation and increases run-time
+                        flexibility.</li>
+                    <li><strong>Design for Change:</strong> The primary goal of using patterns is to anticipate new
+                        requirements and changes, and design systems so that they can evolve easily.</li>
                 </ol>
-                <p><strong>خلاصة المذاكرة:</strong> الفصل الأول بيزرع جواك فكرة إن <strong>التصميم الجيد هو إدراك ما هو
-                        ثابت وما هو متغير</strong> في نظامك، واستخدام الأنماط لتغليف كل جزء متغير بحيث يمكن تبديله
-                    بسهولة.</p>
-
-
-
+                <h3 id="practical-examples-i-can-try-right-away">Practical Examples I Can Try Right Away</h3>
+                <ol>
+                    <li><strong>Interface Practice (Rule A):</strong> When you use a generic data container, always
+                        declare the variable using the abstract type, such as <code>Iterator&lt;Item&gt;*</code>. This
+                        ensures your code is portable regardless of how the collection is internally implemented (List,
+                        array, etc.).</li>
+                    <li><strong>Encapsulating Variation (Rule B):</strong> If you have a class that needs different
+                        &quot;display styles&quot; (like light mode vs. dark mode), define <code>DisplayStyle</code> as
+                        an abstract interface. Instead of using inheritance to manage styles, make your main object hold
+                        a reference to a <code>DisplayStyle</code> object (Composition).</li>
+                </ol>
+                <h3 id="quick-tips-to-help-apply-what-i-learned">Quick Tips to Help Apply What I Learned</h3>
+                <ol>
+                    <li><strong>Learn the Names:</strong> Use the pattern names immediately in discussion with
+                        colleagues. This raises the level of abstraction in your design conversations.</li>
+                    <li><strong>Identify the Weak Point:</strong> Focus your energy on finding what part of the system
+                        is most likely to change. That is where a design pattern should be applied to encapsulate the
+                        varying concept.</li>
+                    <li><strong>Review Consequences:</strong> Before applying any pattern, always review the
+                        <strong>Consequences</strong> section to understand the potential drawbacks (like increased
+                        complexity or performance cost).</li>
+                </ol>
+                <h3 id="short-quiz-questions-to-test-basic-understanding">Short Quiz Questions to Test Basic
+                    Understanding</h3>
+                <ol>
+                    <li>What are the two most common techniques for reusing functionality, and which one is often
+                        referred to as <strong>&quot;white-box&quot;</strong> reuse?.</li>
+                    <li>According to the rule &quot;Program to an interface, not an implementation,&quot; should a
+                        variable be declared as an instance of a specific concrete class or an interface defined by an
+                        abstract class?.</li>
+                    <li>What are the three categories used to organize the pattern catalog based on their
+                        <strong>purpose</strong>?.</li>
+                </ol>
 
 
 
