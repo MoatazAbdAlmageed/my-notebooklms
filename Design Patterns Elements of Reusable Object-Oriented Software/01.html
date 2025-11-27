@@ -18,6 +18,223 @@
             <div class="col-12">
 
 
+                <p>أهلاً بيك يا بطل المذاكرة! الفصل الأول ده هو <strong>الأساس</strong> اللي بيبني عليه الكتاب كله، لو
+                    فهمت المبادئ اللي فيه، بقية الأنماط هتبقى سهلة عليك.</p>
+                <p>ده ملخص شامل ومفصل للفصل الأول (Introduction) بلهجة بسيطة، كإننا قاعدين بنراجع سوا:</p>
+                <hr>
+                <h2 id="-introduction-">الفصل الأول: مقدمة (Introduction)</h2>
+                <p>الزتونة بتاعة الفصل ده بتقول: <strong>تصميم برامج كائنية التوجه (Object-Oriented) قابلة لإعادة
+                        الاستخدام صعب جدًا</strong>. الخبرة دي مش بنسجلها كويس، فبنضطر &quot;نخترع العجلة&quot; كل مرة.
+                    الكتاب ده جه عشان يسجل الخبرات دي في شكل <strong>&quot;أنماط تصميم&quot; (Design Patterns)</strong>.
+                </p>
+                <h3 id="1-1-what-is-a-design-pattern-">1.1 إيه هو نمط التصميم (What Is a Design Pattern)?</h3>
+                <p>بص، نمط التصميم (Design Pattern) ده ببساطة هو:</p>
+                <ul>
+                    <li><strong>وصف لحل مُجرب وناجح لمشكلة تصميم بتتكرر</strong> في أنظمة البرمجة كائنية التوجه.</li>
+                    <li>النمط ده بيعمل 4 حاجات أساسية:<ol>
+                            <li><strong>بيدينا اسم (Pattern Name):</strong> ده مهم جدًا عشان بيزود <strong>المفردات
+                                    التصميمية (design vocabulary)</strong> بتاعتنا وبيخلينا نتكلم عن التصميم المعقد في
+                                <strong>مستوى تجريد أعلى</strong>.</li>
+                            <li><strong>بيحدد المشكلة (Problem):</strong> بيشرح امتى تطبق النمط ده (السياق).</li>
+                            <li><strong>بيوصف الحل (Solution):</strong> وده بيبقى عبارة عن ترتيب معين للعلاقات بين
+                                الكلاسات والكائنات.</li>
+                            <li><strong>بيوضح النتائج (Consequences):</strong> بيشرح إيجابيات وسلبيات تطبيق النمط (الـ
+                                Trade-offs).</li>
+                        </ol>
+                    </li>
+                </ul>
+                <p><strong>مهمة المذاكرة:</strong> الأنماط اللي في الكتاب مش مجرد هياكل بيانات بسيطة (زي linked lists)،
+                    ولا هي تصميمات معقدة لنظام كامل. هي <strong>وصف لكائنات وكلاسات بتتواصل</strong> مع بعض عشان تحل
+                    مشكلة تصميم عامة في سياق معين.</p>
+                <h3 id="1-2-smalltalk-mvc-">1.2 أنماط التصميم في Smalltalk MVC (أمثلة حقيقية)</h3>
+                <p>الكتاب بيستخدم إطار العمل المشهور <strong>MVC (Model/View/Controller)</strong> بتاع Smalltalk عشان
+                    يوريك إن الأنماط دي مش جديدة، هي كانت موجودة بس متسمتش.</p>
+                <ul>
+                    <li><strong>المشكلة الأولى (فك الارتباط):</strong> لما يكون عندنا كائن (زي الـ
+                        <strong>Model</strong> اللي فيه البيانات) وعايزين لما يتغير، أي كائنات تانية معتمدة عليه (زي الـ
+                        <strong>Views</strong> اللي بتعرض البيانات) تتحدث أوتوماتيك، من غير ما الـ Model يكون عارف
+                        تفاصيل الـ Views دي.<ul>
+                            <li><strong>الحل:</strong> ده هو <strong>نمط Observer</strong>. بيخلي التغييرات في كائن واحد
+                                تأثر على أي عدد من الكائنات التابعة، من غير ما الكائن المُتغير يكون عارف تفاصيلهم.</li>
+                        </ul>
+                    </li>
+                    <li><strong>المشكلة الثانية (تجميع الأجزاء):</strong> لو عندنا واجهة مستخدم، زي لوحة تحكم فيها زراير
+                        (Buttons). اللوحة دي عبارة عن كائن مركب (Composite View) بيحتوي على زراير (وهي كائنات بسيطة).
+                        أنت عايز تتعامل مع اللوحة المركبة دي زي ما بتتعامل مع الزرار الواحد بالظبط.<ul>
+                            <li><strong>الحل:</strong> ده هو <strong>نمط Composite</strong>. النمط ده بيخليك تعامل
+                                الكائنات الفردية والكائنات المركبة بنفس الطريقة.</li>
+                        </ul>
+                    </li>
+                    <li><strong>المشكلة الثالثة (تغيير السلوك):</strong> إنك تقدر تغير طريقة استجابة العرض (View)
+                        لمدخلات المستخدم (زي تغيير وظيفة زرار) من غير ما تغير شكل العرض نفسه.<ul>
+                            <li><strong>الحل:</strong> بيتم تغليف آلية الاستجابة في كائن <strong>Controller</strong>.
+                                عشان تغير الاستراتيجية، بتبدل كائن الـ Controller ده بكائن تاني، حتى في وقت التشغيل
+                                (run-time). (ودي بتوضح أساس <strong>نمط Strategy</strong>).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="1-5-">1.5 تصنيف كتالوج أنماط التصميم</h3>
+                <p>الـ 23 نمط تصميم اللي في الكتاب متقسمين حسب معيارين عشان يسهلوا المذاكرة والاختيار:</p>
+                <h4 id="-purpose-">أ. حسب الغرض (Purpose) - بيعمل إيه؟</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">التصنيف</th>
+                            <th style="text-align:left">الهدف (الزتونة)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Creational (إنشائية)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بإنشاء الكائنات</strong> (Object Creation). هدفها
+                                الأساسي إن النظام ميعرفش الكلاسات الملموسة (Concrete Classes) اللي بيتم إنشاء مثيل ليها.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Structural (هيكلية)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بتركيب الكلاسات أو الكائنات</strong> عشان تكون
+                                هياكل أكبر وأكثر مرونة.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Behavioral (سلوكية)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بتفاعل الكلاسات أو الكائنات</strong> وتوزيع
+                                المسؤوليات بينها.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 id="-scope-">ب. حسب النطاق (Scope) - بيتطبق فين؟</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">النطاق</th>
+                            <th style="text-align:left">التطبيق (الزتونة)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Class (الكلاس)</strong></td>
+                            <td style="text-align:left">يتعامل مع العلاقات بين الكلاسات والـ Subclasses بتاعتها، وده
+                                بيتم عن طريق <strong>الوراثة (Inheritance)</strong>. العلاقات دي <strong>ثابتة
+                                    (Static)</strong> في وقت التصميم.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Object (الكائن)</strong></td>
+                            <td style="text-align:left">يتعامل مع العلاقات بين الكائنات، وده بيتم عن طريق
+                                <strong>التكوين/التجميع (Composition)</strong>. العلاقات دي <strong>ديناميكية
+                                    (Dynamic)</strong> وممكن تتغير في وقت التشغيل.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>تذكرة سريعة:</strong> معظم أنماط التصميم اللي في الكتالوج هي أنماط ذات نطاق <strong>الكائن
+                        (Object scope)</strong>.</p>
+                <h3 id="1-6-">1.6 إزاي أنماط التصميم بتحل مشاكل التصميم؟ (المبادئ الأساسية)</h3>
+                <p>الأنماط بتساعدك تتجاوز المشاكل اللي بتخليك تعيد تصميم النظام (Redesign)، وده بيتم عن طريق الالتزام بـ
+                    4 مبادئ رئيسية:</p>
+                <h4 id="1-finding-objects-">1. اكتشاف التجريدات والأهداف المناسبة (Finding Objects)</h4>
+                <p>الأنماط بتساعدك تلاقي كائنات مكانتش واضحة في الأول:</p>
+                <ul>
+                    <li><strong>Strategy (315):</strong> بيوصف إزاي تعمل كائنات تمثل <strong>الخوارزميات</strong>.</li>
+                    <li><strong>State (305):</strong> بيوصف إزاي تمثل <strong>حالة الكائن</strong> ككائن منفصل.</li>
+                    <li>الكائنات دي بتخلي التصميم مرن وقابل لإعادة الاستخدام.</li>
+                </ul>
+                <h4 id="2-determining-object-granularity-">2. تحديد حجم الكائنات (Determining Object Granularity)</h4>
+                <p>الأنماط بتساعدك تحدد حجم الكائن، من الكائنات الصغيرة جدًا لحد الأنظمة الفرعية بالكامل:</p>
+                <ul>
+                    <li><strong>Facade (185):</strong> بيوصف إزاي تمثل نظام فرعي كامل (Complete Subsystem) ككائن واحد.
+                    </li>
+                    <li><strong>Flyweight (195):</strong> بيوصف إزاي تدعم أعداد ضخمة من الكائنات متناهية الصغر بكفاءة
+                        (عن طريق المشاركة Sharing).</li>
+                    <li><strong>Abstract Factory (87), Builder (97), Command (233), Visitor (331):</strong> كلها بتنتج
+                        كائنات مسؤوليتها الوحيدة هي إنشاء كائنات أخرى، أو تنفيذ طلب، أو تطبيق عملية على كائن آخر.</li>
+                </ul>
+                <h4 id="3-program-to-an-interface-not-an-implementation-">3. البرمجة للواجهة وليست للتنفيذ (Program to
+                    an Interface, Not an Implementation)</h4>
+                <p>دي قاعدة ذهبية في البرمجة كائنية التوجه.</p>
+                <ul>
+                    <li>معناها: إنك تستخدم <strong>الأنواع المجردة (Abstract Types)</strong> زي (Abstract Classes أو
+                        Interfaces) لتعريف المتغيرات وتمريرها، بدل ما تتعامل مع <strong>الكلاسات الملموسة (Concrete
+                            Classes)</strong> مباشرة.</li>
+                    <li>الأنماط الإنشائية (Creational Patterns) زي <strong>Abstract Factory و Factory Method و
+                            Singleton</strong> بتضمن إن نظامك يكون مكتوب بلغة <strong>الواجهات</strong>، مش بلغة
+                        <strong>التنفيذ</strong>.</li>
+                </ul>
+                <h4 id="4-favor-object-composition-over-class-inheritance-">4. تفضيل تجميع الكائنات على وراثة الكلاسات
+                    (Favor Object Composition over Class Inheritance)</h4>
+                <ul>
+                    <li><strong>الوراثة (Class Inheritance):</strong> بتعرف تنفيذ كائن بدلالة تنفيذ كائن تاني. مشكلتها
+                        إنها بتخلي الـ Subclass مكشوف (White-box reuse)، وبالتالي الـ Encapsulation بيقل، وأي تغيير في
+                        الـ Parent class ممكن يكسر الـ Subclass.</li>
+                    <li><strong>التجميع (Object Composition):</strong> الكائن بيتكون من كائنات تانية (Black-box reuse).
+                        وده أفضل وبيزود المرونة وإعادة الاستخدام.<ul>
+                            <li><strong>Delegation (التفويض):</strong> ده شكل متطرف من التجميع، حيث كائن بيفوض عملية
+                                لكائن تاني (delegate). الميزة إنه سهل تغير السلوك في وقت التشغيل.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 id="5-encapsulate-the-concept-that-varies-">5. تغليف المفهوم الذي يتغير (Encapsulate the Concept
+                    that Varies)</h4>
+                <p>ده ملخص لكل قواعد التصميم. لو عرفت إيه اللي هيتغير في المستقبل، دور على نمط يغلفه.</p>
+                <p><strong>مثال على التغليف في نمط Memento (283):</strong>
+                    نمط <strong>Memento</strong> بيوصف إزاي تحفظ الحالة الداخلية لكائن بحيث يمكن استرجاعها لاحقاً. عشان
+                    يحافظ على التغليف (Encapsulation)، النمط ده بيعرف واجهتين (Two Interfaces) للـ Memento:</p>
+                <ul>
+                    <li><strong>واجهة مقيدة (Restricted Interface):</strong> للكلاينت (Caretaker)، بيقدر بس يحتفظ بالـ
+                        Memento ويمرره.</li>
+                    <li><strong>واجهة مميزة (Privileged Interface):</strong> للكائن الأصلي (Originator) فقط، عشان يقدر
+                        يخزن ويسترجع الحالة الداخلية.</li>
+                </ul>
+                <h3 id="1-7-">1.7 إزاي تختار نمط تصميم؟</h3>
+                <p>عشان تختار النمط الصح، اسأل نفسك السؤال ده: <strong>إيه اللي عايزني أقدر أغيره في التصميم ده من غير
+                        ما أعيد التصميم كله؟</strong>.</p>
+                <ul>
+                    <li>ممكن ترجع للـ <strong>جدول 1.2</strong> اللي في الكتاب (في صفحة 30) اللي بيجمع الجوانب اللي
+                        بيخليك كل نمط تغيرها بشكل مستقل.</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">جانب التصميم اللي ممكن يتغير</th>
+                            <th style="text-align:left">الأنماط الرئيسية اللي بتسمح بده</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>عائلات كائنات المنتج</strong> (Product objects)</td>
+                            <td style="text-align:left">Abstract Factory (87)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>صنف الكائن اللي بيتم إنشاءه</strong> (Class of object)
+                            </td>
+                            <td style="text-align:left">Factory Method (107), Prototype (117)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>خوارزمية معينة</strong> (An algorithm)</td>
+                            <td style="text-align:left">Strategy (315)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>خطوات خوارزمية</strong> (Steps of an algorithm)</td>
+                            <td style="text-align:left">Template Method (325)</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>مسؤوليات الكائن</strong> (Responsibilities of an object)
+                            </td>
+                            <td style="text-align:left">Decorator (175)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 id="1-8-steps-">1.8 إزاي تطبق نمط تصميم؟ (Steps)</h3>
+                <p>بمجرد ما تختار النمط، دي الخطوات اللي تمشي عليها:</p>
+                <ol>
+                    <li><strong>اقرأ النمط كله:</strong> عشان تفهم السياق والنتائج (Consequences) بشكل كامل.</li>
+                    <li><strong>استخدم اسم النمط:</strong> في كلامك وتوثيقك عشان ترفع مستوى التجريد.</li>
+                    <li><strong>حدد الكلاسات والكائنات:</strong> اللي هتشارك في تطبيق النمط.</li>
+                    <li><strong>ضيف أسماء خاصة بالـ Application</strong> للعمليات في النمط، وحافظ على الاتساق في
+                        التسمية.</li>
+                    <li><strong>نفذ العمليات</strong> عشان تحقق المسؤوليات والتفاعلات الموضحة في النمط.</li>
+                </ol>
+                <p><strong>خلاصة المذاكرة:</strong> الفصل الأول بيزرع جواك فكرة إن <strong>التصميم الجيد هو إدراك ما هو
+                        ثابت وما هو متغير</strong> في نظامك، واستخدام الأنماط لتغليف كل جزء متغير بحيث يمكن تبديله
+                    بسهولة.</p>
 
 
 

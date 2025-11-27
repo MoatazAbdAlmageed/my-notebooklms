@@ -17,6 +17,255 @@
     <div class="row">
       <div class="col-12">
 
+        <p>أهلاً بيك. الكتاب اللي بنتكلم عنه ده هو &quot;Design Patterns: Elements of Reusable Object-Oriented
+          Software&quot;.</p>
+        <p>ده كتاب أساسي جدًا في مجال هندسة البرمجيات، ومحتواه ممكن نوضحه بالبلدي كالتالي:</p>
+        <h3 id="-">تعريف مبسط بمحتوى الكتاب (بلهجة مصرية)</h3>
+        <p>الكتاب ده بيعتبر <strong>تجميع لخبرات كبار مصممي البرامج</strong> في الأنظمة اللي بتعتمد على البرمجة كائنية
+          التوجّه (Object-Oriented). المؤلفين (وهم أربعة خبراء: Erich Gamma, Richard Helm, Ralph Johnson, John
+          Vlissides) لقوا إن فيه مشاكل تصميم بتتكرر كتير في مشاريع مختلفة، فبدل ما كل واحد يرجع يخترع العجلة، هما عملوا
+          كاتالوج للحلول دي.</p>
+        <p><strong>الـ &quot;Design Pattern&quot; أو نمط التصميم</strong> ده ببساطة هو <strong>وصف لحل مُجرّب وناجح
+            لمشكلة تصميم بتتكرر</strong> في سياق معين.</p>
+        <p><strong>طب إيه فايدته؟</strong></p>
+        <ol>
+          <li><strong>بيدينا لغة مشتركة:</strong> بيخلي المصممين يقدروا يتكلموا عن الأجزاء المعقدة في تصميمهم باستخدام
+            أسماء موحدة (زي &quot;Singleton&quot; أو &quot;Factory&quot;).</li>
+          <li><strong>بيزود المرونة وإعادة الاستخدام:</strong> الحلول دي بتخليك تعمل تصميمات قابلة للتوسع والتغيير
+            بسهولة. على سبيل المثال، بتعلمك إزاي تخلي نظامك مستقل عن كيفية إنشاء الكائنات (Object Creation)، أو إزاي
+            تزود خصائص على كائن معين من غير ما تغير الكلاس (Class) الأصلي بتاعه.</li>
+          <li><strong>بيصنف المشاكل:</strong> الكتالوج بتاع الكتاب بيقسم الـ 23 نمط تصميم اللي فيه لثلاث مجموعات رئيسية:
+            <ul>
+              <li><strong>أنماط إنشائية (Creational):</strong> اللي بتهتم بطريقة إنشاء الكائنات.</li>
+              <li><strong>أنماط هيكلية (Structural):</strong> اللي بتهتم بتركيب الكلاسات والكائنات لتكوين هياكل أكبر.
+              </li>
+              <li><strong>أنماط سلوكية (Behavioral):</strong> اللي بتهتم بتفاعل الكائنات وتوزيع المسؤوليات بينها.</li>
+            </ul>
+          </li>
+        </ol>
+        <p>الكتاب بيبدأ بمقدمة وشرح لمشكلة تصميم كاملة (Case Study) لتطبيق تحرير مستندات اسمه <strong>Lexi</strong>،
+          وبعد كده بيقدم الكتالوج الرئيسي للأنماط.</p>
+        <hr>
+        <h3 id="-">محتويات الكتاب من أبواب وفصول</h3>
+        <p>الكتاب مقسوم لقسمين رئيسيين، بيبدأ بفصول تمهيدية (الفصل 1 و 2) وبتاليها <strong>كتالوج أنماط التصميم</strong>
+          (الفصول 3، 4، 5).</p>
+        <h4 id="-chapters-1-and-2-">الأبواب التمهيدية (Chapters 1 and 2)</h4>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">الباب/الفصل (Chapter)</th>
+              <th style="text-align:left">المحتوى الرئيسي (Contents)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>مقدمة (Introduction) (1)</strong></td>
+              <td style="text-align:left">شرح ماهية نمط التصميم، وتنظيم الكتالوج، وكيفية حل أنماط التصميم لمشاكل التصميم
+                المختلفة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>دراسة حالة: تصميم محرر مستندات (A Case Study: Designing a Document
+                  Editor) (2)</strong></td>
+              <td style="text-align:left">تحليل مشاكل تصميم تطبيق اسمه <strong>Lexi</strong>، وتوضيح كيفية تطبيق أنماط
+                التصميم لحل مشاكل مثل هيكلة المستندات، التنسيق، تجميل واجهة المستخدم (Embellishment)، ودعم أنظمة النوافذ
+                المتعددة، وعمليات المستخدم القابلة للتراجع (Undo).</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h4 id="-design-pattern-catalog-">كتالوج أنماط التصميم (Design Pattern Catalog)</h4>
+        <p>يبدأ الكتالوج من صفحة 79، وينقسم لثلاثة فصول رئيسية حسب <strong>الغرض (Purpose)</strong> من النمط:</p>
+        <p><strong>1. أنماط التصميم الإنشائية (Creational Patterns) (الفصل 3)</strong>
+          تهدف هذه الأنماط إلى تجريد عملية إنشاء الكائنات (Object Creation).</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">النمط (Pattern)</th>
+              <th style="text-align:left">الصفحة</th>
+              <th style="text-align:left">الوصف المبسط (Intent)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>Abstract Factory</strong></td>
+              <td style="text-align:left">87</td>
+              <td style="text-align:left">يوفر واجهة لإنشاء &quot;عائلات&quot; من الكائنات المترابطة دون تحديد كلاساتها
+                الملموسة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Builder</strong></td>
+              <td style="text-align:left">97</td>
+              <td style="text-align:left">يفصل بناء كائن معقد عن تمثيله، بحيث يمكن لعملية البناء نفسها أن تخلق تمثيلات
+                مختلفة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Factory Method</strong></td>
+              <td style="text-align:left">107</td>
+              <td style="text-align:left">يحدد واجهة لإنشاء كائن، لكن يسمح للكلاسات الفرعية أن تقرر أي كلاس يتم إنشاء
+                مثيل له.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Prototype</strong></td>
+              <td style="text-align:left">117</td>
+              <td style="text-align:left">يحدد أنواع الكائنات المراد إنشاؤها باستخدام مثيل نموذجي، ويخلق كائنات جديدة عن
+                طريق نسخ هذا النموذج.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Singleton</strong></td>
+              <td style="text-align:left">127</td>
+              <td style="text-align:left">يضمن أن الكلاس يملك مثيلًا واحدًا فقط، ويوفر نقطة وصول عالمية إليه.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>مناقشة الأنماط الإنشائية (Discussion)</strong></td>
+              <td style="text-align:left">135</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>2. أنماط التصميم الهيكلية (Structural Patterns) (الفصل 4)</strong>
+          تتعامل هذه الأنماط مع كيفية تجميع الكلاسات أو الكائنات لتكوين هياكل أكبر.</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">النمط (Pattern)</th>
+              <th style="text-align:left">الصفحة</th>
+              <th style="text-align:left">الوصف المبسط (Intent)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>Adapter</strong></td>
+              <td style="text-align:left">139</td>
+              <td style="text-align:left">يحول واجهة كلاس إلى واجهة أخرى يتوقعها العملاء، مما يسمح للكلاسات غير
+                المتوافقة بالعمل معًا.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Bridge</strong></td>
+              <td style="text-align:left">151</td>
+              <td style="text-align:left">يفصل التجريد عن تنفيذه بحيث يمكن أن يتغيرا بشكل مستقل.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Composite</strong></td>
+              <td style="text-align:left">163</td>
+              <td style="text-align:left">يجمع الكائنات في هياكل شجرية لتمثيل تسلسلات جزء-كل، مما يجعل العملاء يعاملون
+                الكائنات الفردية والمركبة بنفس الطريقة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Decorator</strong></td>
+              <td style="text-align:left">175</td>
+              <td style="text-align:left">يضيف مسؤوليات إضافية إلى كائن ديناميكيًا، ويوفر بديلاً مرنًا للـ subclassing
+                لتوسيع الوظائف.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Facade</strong></td>
+              <td style="text-align:left">185</td>
+              <td style="text-align:left">يوفر واجهة موحدة لمجموعة من الواجهات في نظام فرعي، مما يجعل النظام الفرعي أسهل
+                في الاستخدام.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Flyweight</strong></td>
+              <td style="text-align:left">195</td>
+              <td style="text-align:left">يستخدم المشاركة (Sharing) لدعم أعداد كبيرة من الكائنات ذات الحجم الدقيق
+                بكفاءة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Proxy</strong></td>
+              <td style="text-align:left">207</td>
+              <td style="text-align:left">يوفر بديلاً (Surrogate) أو نائبًا (Placeholder) لكائن آخر للتحكم في الوصول
+                إليه.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>مناقشة الأنماط الهيكلية (Discussion)</strong></td>
+              <td style="text-align:left">219</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>3. أنماط التصميم السلوكية (Behavioral Patterns) (الفصل 5)</strong>
+          تتميز هذه الأنماط بالطرق التي تتفاعل بها الكلاسات أو الكائنات وتوزع المسؤولية.</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">النمط (Pattern)</th>
+              <th style="text-align:left">الصفحة</th>
+              <th style="text-align:left">الوصف المبسط (Intent)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>Chain of Responsibility</strong></td>
+              <td style="text-align:left">223</td>
+              <td style="text-align:left">يتجنب ربط مُرسِل الطلب بمُستقبِله عن طريق منح أكثر من كائن فرصة لمعالجة الطلب،
+                وتمرير الطلب عبر سلسلة منهم.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Command</strong></td>
+              <td style="text-align:left">233</td>
+              <td style="text-align:left">يغلف طلبًا ككائن، مما يسمح بـ parameterize العملاء بطلبات مختلفة، أو وضع
+                الطلبات في قائمة، أو دعم العمليات القابلة للتراجع (undo).</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Interpreter</strong></td>
+              <td style="text-align:left">243</td>
+              <td style="text-align:left">بالنظر إلى لغة ما، يحدد تمثيلاً لقواعدها النحوية ومترجمًا (Interpreter) يستخدم
+                هذا التمثيل لتفسير الجمل في اللغة.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Iterator</strong></td>
+              <td style="text-align:left">257</td>
+              <td style="text-align:left">يوفر طريقة للوصول إلى عناصر كائن مجمّع بالتسلسل دون كشف تمثيله الأساسي.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Mediator</strong></td>
+              <td style="text-align:left">273</td>
+              <td style="text-align:left">يحدد كائنًا يغلف كيفية تفاعل مجموعة من الكائنات، مما يعزز الاقتران المرن.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Memento</strong></td>
+              <td style="text-align:left">283</td>
+              <td style="text-align:left">يلتقط الحالة الداخلية للكائن ويخزنها خارجيًا دون انتهاك التغليف
+                (Encapsulation) حتى يمكن استعادة الكائن إلى هذه الحالة لاحقًا.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Observer</strong></td>
+              <td style="text-align:left">293</td>
+              <td style="text-align:left">يحدد تبعية واحد-ل-متعدد (one-to-many) بين الكائنات، بحيث عندما يتغير كائن
+                واحد، يتم إخطار وتحديث جميع الكائنات التابعة تلقائيًا.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>State</strong></td>
+              <td style="text-align:left">305</td>
+              <td style="text-align:left">يسمح لكائن بتغيير سلوكه عندما تتغير حالته الداخلية، مما يجعله يبدو وكأنه يغير
+                فئته.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Strategy</strong></td>
+              <td style="text-align:left">315</td>
+              <td style="text-align:left">يحدد عائلة من الخوارزميات، ويغلف كل واحدة منها، ويجعلها قابلة للتبديل، مما
+                يسمح بتغيير الخوارزمية بشكل مستقل عن العملاء الذين يستخدمونها.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Template Method</strong></td>
+              <td style="text-align:left">325</td>
+              <td style="text-align:left">يحدد الهيكل العظمي لخوارزمية في عملية ما، مؤجلاً بعض الخطوات إلى الكلاسات
+                الفرعية، مما يسمح للكلاسات الفرعية بإعادة تعريف خطوات معينة دون تغيير هيكل الخوارزمية.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>Visitor</strong></td>
+              <td style="text-align:left">331</td>
+              <td style="text-align:left">يمثل عملية يجب إجراؤها على عناصر هيكل كائن ما، مما يسمح بتعريف عملية جديدة دون
+                تغيير كلاسات العناصر التي يعمل عليها.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>مناقشة الأنماط السلوكية (Discussion)</strong></td>
+              <td style="text-align:left">345</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>4. الخاتمة (Conclusion) (الفصل 6)</strong>
+          يتناول ما يمكن توقعه من أنماط التصميم، وتاريخها الموجز، ومجتمع الأنماط.</p>
+        <p><strong>الملاحق (Appendices)</strong>
+          تتضمن مسردًا للمصطلحات (Glossary)، ودليلًا للرموز المستخدمة في الرسوم البيانية (Notation)، بالإضافة إلى
+          الكلاسات الأساسية (Foundation Classes) المستخدمة في أمثلة لغة C++.</p>
+
 
 
 

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>يا سلام، طلبك على راسي!</p>
+                <p>الكتاب ده كنز بجد، وهنعملك خريطة ذهنية مبسطة عشان تعرف ترسمها أو تتخيلها بسهولة بالبلدي.</p>
+                <h3 id="-design-patterns">الخريطة الذهنية لكتاب Design Patterns</h3>
+                <p><strong>المركز (القلب): Design Patterns</strong> (أنماط التصميم)</p>
+                <p>ده <strong>كاتالوج</strong> بيجمع حلول تصميم ناجحة ومجربة لمشاكل بتظهر وتتكرر في البرمجة الكائنية
+                    (Object-Oriented Software).</p>
+                <h4 id="-">الفرع الأول: الهيكل والتصنيف (ازاي الكتاب متقسم)</h4>
+                <ul>
+                    <li><strong>الهدف (Purpose):</strong> الكتالوج بيقسم الـ 23 نمط تصميم حسب الهدف لـ 3 مجموعات رئيسية.
+                    </li>
+                    <li><strong>المدى (Scope):</strong> وبيصنف الأنماط ما إذا كانت بتطبق على مستوى <strong>الكلاس
+                            (Class)</strong> أو <strong>الكائن (Object)</strong>.</li>
+                    <li><strong>المحتوى العام:</strong> الكتاب مش بس بيقدم الحلول، لكن بيشرح إزاي الأنماط دي بتحل مشاكل
+                        التصميم اللي بتتكرر.</li>
+                </ul>
+                <hr>
+                <h4 id="-creational-patterns-">الفرع الثاني: الأنماط الإنشائية (Creational Patterns) - (بتهتم إزاي بنعمل
+                    الكائنات)</h4>
+                <p>وظيفتها الأساسية: <strong>تجعل عملية إنشاء الكائنات أكثر مرونة وتجريدًا</strong>.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">النمط (Pattern)</th>
+                            <th style="text-align:left">الهدف منه بالبلدي (Intent)</th>
+                            <th style="text-align:left">مصدر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Abstract Factory</strong></td>
+                            <td style="text-align:left">يوفر واجهة لإنشاء <strong>عائلات</strong> من الكائنات المرتبطة
+                                ببعضها، من غير ما نحدد كلاساتهم الملموسة. (زي مصنع بيطلع أثاث مودرن أو كلاسيك)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Builder</strong></td>
+                            <td style="text-align:left">بيفصل بناء كائن معقد عن شكله النهائي عشان تقدر تعمل
+                                <strong>تمثيلات مختلفة</strong> لنفس عملية البناء.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Factory Method</strong></td>
+                            <td style="text-align:left">بيخلي الـ <strong>Subclasses</strong> (الكلاسات الفرعية) هي اللي
+                                تقرر أي كائن يتم إنشاؤه، بدل ما تحدده الكلاس الأب.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Prototype</strong></td>
+                            <td style="text-align:left">بيستخدم كائن <strong>نموذج (Prototype)</strong> وبيعمل كائنات
+                                جديدة عن طريق <strong>نسخه (copying)</strong>.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Singleton</strong></td>
+                            <td style="text-align:left">بيضمن إن الكلاس يكون له <strong>نسخة واحدة فقط</strong> (sole
+                                instance)، وبيوفر طريقة وصول عامة ليها. (مفيد في الكائنات اللي لازم تكون فريدة، زي مدير
+                                الإعدادات)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h4 id="-structural-patterns-">الفرع الثالث: الأنماط الهيكلية (Structural Patterns) - (بتهتم إزاي بنركب
+                    الكائنات)</h4>
+                <p>وظيفتها الأساسية: <strong>تجميع الكلاسات أو الكائنات في هياكل أكبر وأكثر مرونة</strong>.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">النمط (Pattern)</th>
+                            <th style="text-align:left">الهدف منه بالبلدي (Intent)</th>
+                            <th style="text-align:left">مصدر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Adapter</strong></td>
+                            <td style="text-align:left">بيحول واجهة كلاس لواجهة تانية متوقعة عشان <strong>يخلي كلاسات
+                                    غير متوافقة تشتغل سوا</strong>. (زي تحويل الفيشة الثلاثية لثنائية)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Bridge</strong></td>
+                            <td style="text-align:left"><strong>بيفصل الواجهة (Abstraction) عن التنفيذ
+                                    (Implementation)</strong> عشان كل واحدة تتغير لوحدها من غير ما تأثر على التانية.
+                            </td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Composite</strong></td>
+                            <td style="text-align:left">بيجمع الكائنات في <strong>هياكل شجرية (Part-Whole)</strong>
+                                وبيخلي العملاء يتعاملوا مع الكائنات الفردية والمركبة بنفس الطريقة. (زي تجميع المجلدات
+                                والملفات)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Decorator</strong></td>
+                            <td style="text-align:left">بيضيف مسؤوليات إضافية للكائن <strong>بشكل ديناميكي</strong>، وده
+                                بديل مرن لـ <strong>Subclassing</strong>. (زي إضافة برواز أو شريط تمرير على واجهة
+                                المستخدم)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Facade</strong></td>
+                            <td style="text-align:left">بيوفر <strong>واجهة موحدة ومبسطة</strong> لمجموعة من الواجهات
+                                المعقدة جوه نظام فرعي. (واجهة واحدة بتكلم النظام كله)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Flyweight</strong></td>
+                            <td style="text-align:left">بيستخدم <strong>المشاركة (Sharing)</strong> عشان يدعم أعداد
+                                كبيرة من الكائنات الصغيرة بكفاءة. (مفيد في تمثيل كل حرف في مستند ككائن)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Proxy</strong></td>
+                            <td style="text-align:left">بيوفر <strong>بديل (Surrogate) أو &quot;نائب&quot;</strong>
+                                لكائن تاني عشان يتحكم في الوصول إليه. (زي وكيل بيحمي الكائن الأصلي أو بيأجل إنشائه)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h4 id="-behavioral-patterns-">الفرع الرابع: الأنماط السلوكية (Behavioral Patterns) - (بتهتم إزاي
+                    الكائنات بتتفاعل)</h4>
+                <p>وظيفتها الأساسية: <strong>توزيع المسؤوليات وتحديد طريقة تفاعل الكائنات مع بعضها</strong>.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">النمط (Pattern)</th>
+                            <th style="text-align:left">الهدف منه بالبلدي (Intent)</th>
+                            <th style="text-align:left">مصدر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Chain of Responsibility</strong></td>
+                            <td style="text-align:left">بيمنع الربط المباشر بين مُرسِل الطلب ومُستقبِله، وبيمرر الطلب في
+                                <strong>سلسلة</strong> لحد ما كائن يتعامل معاه.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Command</strong></td>
+                            <td style="text-align:left"><strong>بيغلف الطلب ككائن</strong>، وده بيسمح بعمليات زي
+                                <strong>التراجع (Undoable operations)</strong> وتخزين الطلبات.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Interpreter</strong></td>
+                            <td style="text-align:left">بيحدد تمثيل لقواعد <strong>لغة معينة (Grammar)</strong> ومترجم
+                                بيستخدم التمثيل ده لتفسير الجمل.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Iterator</strong></td>
+                            <td style="text-align:left">بيوفر طريقة للوصول لعناصر كائن مجمّع <strong>بالتسلسل</strong>
+                                من غير ما تكشف عن تمثيله الداخلي. (عشان تمشي على عناصر القائمة أو المصفوفة)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Mediator</strong></td>
+                            <td style="text-align:left">بيحدد كائن بيغلف طريقة <strong>تفاعل مجموعة من
+                                    الكائنات</strong>، وده بيقلل الترابط المباشر بينهم. (زي مدير الحوار بين عناصر
+                                الشاشة)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Memento</strong></td>
+                            <td style="text-align:left">بيحفظ <strong>حالة الكائن الداخلية</strong> خارجيًا عشان يقدر
+                                يرجع للحالة دي بعد كده، مع الحفاظ على <strong>التغليف (Encapsulation)</strong>.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Observer</strong></td>
+                            <td style="text-align:left">بيحدد <strong>اعتمادية واحد-ل-متعدد (one-to-many)</strong> بحيث
+                                لو كائن اتغير، كل التابعين ليه بيتحدثوا أوتوماتيك. (مشهور بنمط
+                                <strong>Publish-Subscribe</strong>)</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>State</strong></td>
+                            <td style="text-align:left">بيسمح للكائن <strong>يغير سلوكه</strong> لما حالته الداخلية
+                                تتغير، وكأنه غير الكلاس بتاعه.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Strategy</strong></td>
+                            <td style="text-align:left">بيحدد <strong>عائلة من الخوارزميات</strong> ويغلف كل واحدة،
+                                ويخليهم قابلين للتبديل، عشان تقدر تغير الخوارزمية بمنتهى السهولة.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Template Method</strong></td>
+                            <td style="text-align:left">بيحدد <strong>الهيكل الأساسي للخوارزمية</strong> في كلاس أب،
+                                وبيأجل خطوات معينة للكلاسات الفرعية (Subclasses) عشان تنفذها.</td>
+                            <td style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Visitor</strong></td>
+                            <td style="text-align:left">بيمثل عملية جديدة هتتنفذ على عناصر هيكل كائن <strong>من غير ما
+                                    تغير الكلاسات الأصلية</strong> للعناصر دي. (مفيد لإضافة تحليل أو وظيفة جديدة للنظام)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 id="-">العلاقات بين المفاهيم الأساسية (إزاي دول مرتبطين ببعض):</h3>
+                <ol>
+                    <li>
+                        <p><strong>الأنماط كأساس البناء (Base Construction):</strong></p>
+                        <ul>
+                            <li><strong>Composite</strong> (هيكلي) هو اللي بيعرف الهيكل الشجري (Tree Structure) بتاع
+                                الكائنات. كتير من الأنماط السلوكية بتشتغل على الهيكل ده، زي <strong>Visitor</strong> و
+                                <strong>Iterator</strong>.</li>
+                            <li><strong>Abstract Factory</strong> و <strong>Prototype</strong> و
+                                <strong>Builder</strong> كلهم أنماط <strong>إنشائية</strong> بتفصل عملية الإنشاء عن
+                                الكود، لكن بتنافس بعضها في بعض الأحيان وممكن تستخدم مع بعضها لتنفيذ عملية الإنشاء.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>المرونة والتغيير (Flexibility and Change):</strong></p>
+                        <ul>
+                            <li><strong>Strategy</strong> (السلوكي) و <strong>Decorator</strong> (الهيكلي) و
+                                <strong>State</strong> (السلوكي) كلهم بيعتمدوا على <strong>Object Composition</strong>
+                                (تكوين الكائنات) لزيادة المرونة.<ul>
+                                    <li><strong>Strategy</strong> بيغير الـ &quot;جُـزْء الداخلي&quot; (guts) للكائن،
+                                        يعني بيغير الخوارزمية اللي بيستخدمها.</li>
+                                    <li><strong>Decorator</strong> بيغير &quot;الشكل الخارجي&quot; (skin) للكائن، يعني
+                                        بيضيف مسؤوليات جديدة عليه.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bridge</strong> بيستخدم <strong>الدلجة (Delegation)</strong> عشان يفصل الواجهة
+                                عن التنفيذ، وده بيخليهم يتغيروا بشكل مستقل عن بعض.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>الفصل والترابط (Decoupling):</strong></p>
+                        <ul>
+                            <li><strong>Observer</strong> و <strong>Mediator</strong> و <strong>Chain of
+                                    Responsibility</strong> و <strong>Command</strong> كلهم أنماط بتشتغل على <strong>فصل
+                                    المُرسِل عن المُستقبِل</strong> (decoupling senders and receivers).</li>
+                            <li><strong>Mediator</strong> و <strong>Observer</strong> ممكن يستخدموا مع بعض، حيث يعمل
+                                <strong>ChangeManager</strong> كوسيط (Mediator) لتنسيق التحديثات بين الموضوعات
+                                (Subjects) والمراقبين (Observers).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>أنماط الكائنات المُغلفة (Encapsulated Objects):</strong></p>
+                        <ul>
+                            <li><strong>Command</strong> بيغلف طلب عشان يدعم التراجع، وممكن يستخدم
+                                <strong>Memento</strong> لتسجيل وحفظ حالة الكائن عشان عملية التراجع تكون موثوقة.</li>
+                            <li><strong>Strategy</strong> و <strong>State</strong> غالبًا ما يتم تنفيذ كائناتهم كـ
+                                <strong>Flyweights</strong> (كائنات مُشاركة) إذا لم يكن لديهم حالة داخلية متغيرة (No
+                                instance variables) لتوفير الذاكرة.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>الخلاصة، الكتاب عامل زي <strong>صندوق أدوات المهندس المعماري</strong>؛ كل نمط هو أداة أو
+                    &quot;وصفة&quot; لحل مشكلة متكررة، والأنماط دي مش أدوات منعزلة، هي بتشتغل مع بعضها عشان تبني تصميم
+                    متماسك ومرن في النهاية.</p>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

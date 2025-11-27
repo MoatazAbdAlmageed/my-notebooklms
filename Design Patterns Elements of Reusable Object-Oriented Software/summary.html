@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ar" dir="rtl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>يا سيدي، بما إنك بتذاكر عشان الامتحان، فاحنا هنظبطلك الخلاصة دي كأنها نوتة مذاكرة سريعة تركز فيها على
+                    الحاجات المهمة في الكتاب.</p>
+                <p>الكتاب هو: <strong>&quot;Design Patterns: Elements of Reusable Object-Oriented
+                        Software&quot;</strong>، والمؤلفين هما الأربعة المشهورين: <strong>جاما، وهيلم، وجونسون،
+                        وفليسيديس</strong>.</p>
+                <hr>
+                <h2 id="-">ملخص شامل للكتاب (نوتة مذاكرة)</h2>
+                <h3 id="1-">1. الفكرة الأساسية (الزتونة)</h3>
+                <p>الكتاب ده عبارة عن <strong>كتالوج لخبرات تصميم ناجحة ومُجربة</strong>، تم تجميعها على مر السنين في
+                    مجال البرمجة كائنية التوجه (Object-Oriented).</p>
+                <p><strong>إيه هو &quot;نمط التصميم&quot; (Design Pattern)؟</strong>
+                    هو <strong>وصف لحل مُجرد لمشكلة تصميم بتتكرر</strong> في سياق معين. الهدف الرئيسي إنك تستخدم الحلول
+                    دي عشان تخلي تصميمك:</p>
+                <ol>
+                    <li><strong>قابل لإعادة الاستخدام (Reusable)</strong>.</li>
+                    <li><strong>مرن وقابل للتعديل (Flexible)</strong>.</li>
+                </ol>
+                <hr>
+                <h3 id="2-">2. ملخص الأبواب والفصول الرئيسية</h3>
+                <p>الكتاب متقسم لستة فصول رئيسية، أهمها الكتالوج اللي فيه الـ 23 نمط تصميم.</p>
+                <h4 id="-chapter-1-2-">الباب الأول: المقدمة والمفاهيم الأساسية (Chapter 1 &amp; 2)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الفصل</th>
+                            <th style="text-align:left">الملخص الأساسي (بتركز على إيه؟)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>1: المقدمة (Introduction)</strong></td>
+                            <td style="text-align:left"><strong>الأساس النظري:</strong> بيفهمك إن الأنماط بتدينا
+                                <strong>لغة مشتركة</strong> عشان نتكلم عن التصميم المعقد. وبتعلمك <strong>إنك تصمم
+                                    لواجهة (Interface) مش للتنفيذ (Implementation)</strong>، وإن التركيب (Composition)
+                                أحسن من الوراثة (Inheritance) في تحقيق المرونة.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>2: دراسة حالة (Case Study: Lexi)</strong></td>
+                            <td style="text-align:left"><strong>تطبيق عملي:</strong> بياخدك في رحلة تصميم محرر مستندات
+                                اسمه <strong>Lexi</strong>. بيوريك إزاي تطبق 8 أنماط عشان تحل مشاكل حقيقية، زي: تصميم
+                                هيكل المستند باستخدام <strong>Composite</strong>، ومرونة خوارزميات التنسيق باستخدام
+                                <strong>Strategy</strong>، ودعم منصات التشغيل المختلفة باستخدام <strong>Bridge</strong>.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 id="-design-pattern-catalog-">الباب الثاني: كتالوج أنماط التصميم (Design Pattern Catalog)</h4>
+                <p>الـ 23 نمط متقسمين حسب <strong>الغرض (Purpose)</strong>:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">الفصل</th>
+                            <th style="text-align:left">الغرض (Purpose)</th>
+                            <th style="text-align:left">عدد الأنماط</th>
+                            <th style="text-align:left">ملخص الهدف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>3: الأنماط الإنشائية (Creational)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بإنشاء الكائنات</strong> (Object Creation).</td>
+                            <td style="text-align:left">5 أنماط (Abstract Factory, Builder, Factory Method, Prototype,
+                                Singleton).</td>
+                            <td style="text-align:left">بتخلي النظام اللي بتصممه <strong>مستقل</strong> عن الطريقة اللي
+                                الكائنات بتُنشأ بيها أو بتتركب. هدفها تجريد عملية الـ instantiation.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>4: الأنماط الهيكلية (Structural)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بتكوين وتركيب الكلاسات أو الكائنات</strong>
+                                (Composition).</td>
+                            <td style="text-align:left">7 أنماط (Adapter, Bridge, Composite, Decorator, Facade,
+                                Flyweight, Proxy).</td>
+                            <td style="text-align:left">بتوريك إزاي تجمع الكائنات في <strong>هياكل أكبر ومرنة</strong>،
+                                مع الحفاظ على وضوح الهيكل (زي Facade) أو تبديل الواجهات (زي Adapter).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>5: الأنماط السلوكية (Behavioral)</strong></td>
+                            <td style="text-align:left">بتهتم <strong>بتفاعل الكائنات وتوزيع المسؤوليات</strong> بينها.
+                            </td>
+                            <td style="text-align:left">11 نمط (Chain of Responsibility, Command, Interpreter, Iterator,
+                                Mediator, Memento, Observer, State, Strategy, Template Method, Visitor).</td>
+                            <td style="text-align:left">بتوصف أنماط الاتصال المعقدة، وبتساعد في فصل المُرسِل عن
+                                المُستقبِل، ودعم التراجع (Undo)، وتغيير سلوك الكائن ديناميكيًا.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 id="-">أهم الأنماط السلوكية وتلخيصها (ملخص تفصيلي للفصل الخامس):</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">النمط</th>
+                            <th style="text-align:left">فكرته الأساسية (Intent)</th>
+                            <th style="text-align:left">مفتاح التطبيق</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Command</strong></td>
+                            <td style="text-align:left"><strong>تغليف الطلب ككائن</strong>. يسمح بـ parameterize العملاء
+                                بطلبات مختلفة، وبدعم عمليات <strong>التراجع والـ Log</strong>.</td>
+                            <td style="text-align:left">بيستخدم Unexecute() لعمل Undo.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Iterator</strong></td>
+                            <td style="text-align:left"><strong>الوصول لعناصر كائن مجمع بالتسلسل</strong> من غير ما تكشف
+                                عن شكله الداخلي.</td>
+                            <td style="text-align:left">يُستخدم لـ Traversal (التجول) على هياكل البيانات زي Lists.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Mediator</strong></td>
+                            <td style="text-align:left"><strong>تحديد كائن يغلف طريقة تفاعل مجموعة من الكائنات</strong>.
+                                بيقلل الترابط المباشر (Loose Coupling).</td>
+                            <td style="text-align:left">الكائنات بتتكلم مع الـ Mediator بس، مش مع بعضها.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Memento</strong></td>
+                            <td style="text-align:left"><strong>التقاط وتخزين حالة الكائن الداخلية</strong> خارجيًا عشان
+                                تقدر ترجع للحالة دي بعد كده، مع الحفاظ على <strong>التغليف (Encapsulation)</strong>.
+                            </td>
+                            <td style="text-align:left">الـ Caretaker بيحفظ الـ Memento من غير ما يعرف محتوياته.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Observer</strong></td>
+                            <td style="text-align:left">تحديد <strong>تبعية واحد-ل-متعدد</strong> (one-to-many). لما
+                                كائن يتغير، كل الكائنات التابعة بتعرف وبتتحدث أوتوماتيك.</td>
+                            <td style="text-align:left">يُعرف أيضًا بـ <strong>Publish-Subscribe</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>State</strong></td>
+                            <td style="text-align:left">يسمح للكائن <strong>يغير سلوكه</strong> لما حالته الداخلية
+                                تتغير، وكأنه غير الكلاس بتاعه.</td>
+                            <td style="text-align:left">بيستبدل جمل الـ <code>if/switch</code> الطويلة بكلاسات منفصلة
+                                لكل حالة.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Strategy</strong></td>
+                            <td style="text-align:left"><strong>تحديد عائلة من الخوارزميات، وتغليف كل واحدة</strong>،
+                                وجعلها قابلة للتبديل.</td>
+                            <td style="text-align:left">بيخلي الخوارزمية تتغير بشكل مستقل عن العميل اللي بيستخدمها.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Template Method</strong></td>
+                            <td style="text-align:left">تحديد <strong>الهيكل العظمي للخوارزمية</strong> في كلاس أب،
+                                وتأجيل بعض الخطوات للـ Subclasses.</td>
+                            <td style="text-align:left">بيضمن ثبات هيكل العملية مع مرونة الخطوات الفرعية.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Visitor</strong></td>
+                            <td style="text-align:left"><strong>تمثيل عملية (Operation) جديدة</strong> يجب إجراؤها على
+                                عناصر هيكل كائن <strong>من غير ما تغير الكلاسات الأصلية</strong> للعناصر دي.</td>
+                            <td style="text-align:left">بيحل مشكلة &quot;تضخم الواجهة&quot; (Interface Bloat) لما نحتاج
+                                نضيف عمليات تحليلية جديدة.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 id="3-">3. أهم المفاهيم الأساسية اللي لازم تعرفها</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">المفهوم (Concept)</th>
+                            <th style="text-align:left">شرحه بالبلدي (Focus)</th>
+                            <th style="text-align:left">أهميته في الامتحان</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><strong>Program to an Interface</strong></td>
+                            <td style="text-align:left">استخدم <strong>الأنواع المجردة (Abstract Types)</strong> في
+                                تعريف المتغيرات بدل ما تستخدم كلاسات ملموسة (Concrete Classes).</td>
+                            <td style="text-align:left">ده المبدأ الأساسي اللي بيشتغل عليه الـ Creational Patterns عشان
+                                تعمل فصل بين الواجهة والتنفيذ.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Composition over Inheritance</strong></td>
+                            <td style="text-align:left">الاعتماد على <strong>تجميع الكائنات</strong> (Object
+                                Composition) في وقت التشغيل أفضل لتحقيق المرونة وإعادة الاستخدام من الوراثة
+                                (Implementation Inheritance).</td>
+                            <td style="text-align:left">الـ Decorator و Proxy و Strategy و Bridge كلها أنماط بتعتمد على
+                                الـ Composition لتحقيق هدفها.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Decoupling (فك الارتباط)</strong></td>
+                            <td style="text-align:left">تقليل الاعتماد بين المكونات. الأنماط كلها شغالة على ده.</td>
+                            <td style="text-align:left"><strong>Mediator</strong> و <strong>Observer</strong> أنماط
+                                متنافسة بتحقق الـ Decoupling: الأول بيعمل مركزية (Centralization)، والتاني توزيع
+                                (Distribution).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Intrinsic vs. Extrinsic State</strong></td>
+                            <td style="text-align:left">حالة الكائن اللي ما بتتغيرش وقابلة للمشاركة (Intrinsic)، مقابل
+                                حالته اللي بتعتمد على السياق (Extrinsic).</td>
+                            <td style="text-align:left">أساس نمط <strong>Flyweight</strong> لتقليل تكلفة آلاف الكائنات
+                                عن طريق مشاركة الـ Intrinsic State.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><strong>Safety vs. Transparency</strong></td>
+                            <td style="text-align:left">موازنة بين الوضوح/الشفافية في الواجهة (زي في Composite) وبين
+                                أمان الكود.</td>
+                            <td style="text-align:left">في <strong>Composite</strong>، لو خليت <code>Add/Remove</code>
+                                في الكلاس الأب، بتبقى &quot;شفافية&quot; بس ممكن تكون غير آمنة في الـ Leaves.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h3 id="4-implementation-techniques">4. أهم الأكواد أو الـ Implementation Techniques</h3>
+                <p>دي بعض الأفكار اللي بتستخدم في تنفيذ الأنماط في لغة زي C++:</p>
+                <ol>
+                    <li><strong>Lazy Initialization (التهيئة الكسولة):</strong> فكرة بتلاقيها في
+                        <strong>Singleton</strong> و <strong>Virtual Proxy</strong>. الكائن ما بيتمش إنشاؤه إلا عند أول
+                        طلب عليه (لما بيكون <code>_instance == 0</code>).</li>
+                    <li><strong>Protected Operations:</strong> تصريح العمليات البدائية (Primitive Operations) في الـ
+                        <strong>Template Method</strong> كـ Protected عشان تضمن إنها تُستخدم وتُعاد تعريفها بس عن طريق
+                        الـ Subclasses، مش عن طريق الكلاينت مباشرة.</li>
+                    <li><strong>Friend Class:</strong> بتستخدم في <strong>Memento</strong> لضمان إن الـ
+                        <strong>Originator</strong> بس هو اللي يقدر يوصل للواجهة الواسعة (Wide Interface) اللي بتخزن
+                        الحالة الداخلية للكائن، وده عشان يحافظ على التغليف (Encapsulation).</li>
+                    <li><strong><code>virtual</code> and <code>pure virtual</code>:</strong> بتستخدم لتعريف العمليات
+                        اللي يجب تنفيذها في الـ Subclasses (زي في Factory Method).</li>
+                </ol>
+                <hr>
+                <h3 id="5-">5. نصايح لتطبيق اللي اتعلمته (عشان تنجح في التصميم)</h3>
+                <ol>
+                    <li><strong>ابحث عن اللي هيتغير:</strong> قاعدة التصميم الأساسية: <strong>اعزل مفهوم التغيير
+                            (Encapsulate the Concept that Varies)</strong>. لو عرفت إيه اللي ممكن يتغير في المستقبل (زي
+                        الخوارزميات، أو نظام النوافذ، أو الواجهات)، هتلاقي النمط المناسب على طول (زي Strategy، Bridge،
+                        Factory).</li>
+                    <li><strong>اقرأ النمط كله أولاً:</strong> قبل ما تنفذ، اقرأ أولاً الـ
+                        <strong>Applicability</strong> والـ <strong>Consequences</strong>. ده بيضمن إن النمط ده هو الحل
+                        الصح لمشكلتك وبيوريك التضحيات (Trade-offs) اللي هتعملها.</li>
+                    <li><strong>استخدم اللغة المشتركة:</strong> لما تتكلم مع زمايلك عن التصميم، استخدم أسماء الأنماط (زي
+                        &quot;هنستخدم هنا Decorator&quot;). ده بيخلي الوثائق والمحادثات أوضح بكتير.</li>
+                    <li><strong>الأنماط بتشتغل مع بعض:</strong> متفكرش في الأنماط بشكل منعزل. <strong>Composite</strong>
+                        و <strong>Iterator</strong> و <strong>Visitor</strong> غالباً بيجوا مع بعض. <strong>Abstract
+                            Factory</strong> ممكن يتنفذ باستخدام <strong>Singleton</strong> أو
+                        <strong>Prototype</strong>.</li>
+                    <li><strong>الأكواد مش هي الأنماط:</strong> متفكرش إن النمط مجرد شوية كود؛ النمط هو <strong>الفكرة
+                            المجردة للحل</strong>. لازم تفهم العلاقات بين الكلاسات والمسؤوليات اللي متوزعة بينهم
+                        (Structure, Participants, Collaborations).</li>
+                </ol>
+                <blockquote>
+                    <p><strong>تشبيه للمذاكرة:</strong>
+                        فكر في الأنماط كأنها <strong>عدة المهندس المعماري</strong>. كل نمط (زي Bridge أو Decorator) هو
+                        طريقة مثبتة لبناء جزء معين في الهيكل. أنت بتستخدم الوصفات دي (Patterns) عشان تبني مبنى (نظامك
+                        البرمجي) <strong>مرن وقوي</strong>. أنت مش بتعيد اختراع طريقة بناء الأعمدة في كل مبنى، أنت
+                        بتستخدم &quot;نمط العمود&quot; (Pattern) وتعدل عليه حسب السياق.</p>
+                </blockquote>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
