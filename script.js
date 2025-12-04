@@ -1,5 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
+    // Create balloon element
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.id = "progressBalloon";
+    balloon.innerText = "0%";
+
+    // Create string element
+    const string = document.createElement("div");
+    string.className = "string";
+
+    // Append to body
+    document.body.appendChild(balloon);
+    document.body.appendChild(string);
+    // Update progress on scroll
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.round((scrollTop / docHeight) * 100);
+
+        document.getElementById("progressBalloon").innerText =
+            progress >= 100 ? "100%" : progress + "%";
+    }
+
+    window.addEventListener("scroll", updateProgress);
+
+
+
     // Decode path (fix %20)
     const decodedPath = decodeURIComponent(window.location.pathname);
 

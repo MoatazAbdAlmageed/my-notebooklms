@@ -33,7 +33,8 @@
                 <p>The main goal of React is not &quot;Write once, run everywhere,&quot; which is difficult because of
                     different devices (web, mobile, tablets). Instead, React&#39;s guiding principle is
                     <strong>&quot;Learn once, write anywhere&quot;</strong>. If you know React, you can build for many
-                    different platforms, including mobile with React Native.</p>
+                    different platforms, including mobile with React Native.
+                </p>
                 <h3 id="why-do-we-use-react-advantages-">Why Do We Use React? (Advantages)</h3>
                 <p>We use React because it solves a big problem: how to build <strong>large applications</strong> where
                     the data <strong>changes frequently</strong>.</p>
@@ -52,7 +53,8 @@
                 <p><strong>Simple Explanation:</strong> The <strong>DOM (Document Object Model)</strong> is how your web
                     browser shows your website. Changing the actual DOM is one of the slowest jobs a computer does. To
                     solve this, React keeps a lightweight, <strong>Virtual Copy</strong> of the DOM, called the
-                    <strong>VDOM</strong>.</p>
+                    <strong>VDOM</strong>.
+                </p>
                 <p><strong>How it works (The Analogy):</strong> Imagine you are editing a long, physical book.</p>
                 <ul>
                     <li><strong>The Real DOM:</strong> This is the actual published book. Changing one sentence means
@@ -65,7 +67,8 @@
                     <li>When data changes, React quickly generates a new Virtual DOM copy (a <strong>VTree</strong>).
                     </li>
                     <li>React then uses a smart <strong>&quot;diffing algorithm&quot;</strong> to quickly compare the
-                        <em>new</em> VDOM with the <em>old</em> VDOM.</li>
+                        <em>new</em> VDOM with the <em>old</em> VDOM.
+                    </li>
                     <li>The algorithm finds <strong>only the small differences</strong> (the &quot;stream of DOM
                         operations&quot;).</li>
                     <li>Finally, React updates <strong>only those specific, tiny changed parts</strong> on the real
@@ -93,7 +96,8 @@
                         one noodle (data), it might unexpectedly pull five other noodles (views/models) you didn&#39;t
                         mean to change. In large apps, this leads to an &quot;explosion of arrows&quot; and
                         <strong>spaghetti relationships</strong>, making it almost impossible to know <em>why</em> your
-                        data changed. This can even result in infinite event loops.</li>
+                        data changed. This can even result in infinite event loops.
+                    </li>
                 </ul>
                 <h3 id="react-s-solution-one-way-flow-">React’s Solution (One-Way Flow)</h3>
                 <p>React simplifies everything. Data starts in a main Component, flows <strong>down</strong> to child
@@ -195,7 +199,8 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">App</sp
                 <h2 id="step-5-properties-props-">Step 5: Properties (Props)</h2>
                 <p><strong>Simple Explanation:</strong> <strong>Props</strong> (short for properties) are how a
                     <strong>Parent Component</strong> passes <strong>fixed settings or data DOWN</strong> to its
-                    <strong>Child Components</strong>.</p>
+                    <strong>Child Components</strong>.
+                </p>
                 <p><strong>Key Rule:</strong> Props are <strong>immutable</strong>, meaning they <strong>cannot be
                         changed</strong> by the child component that receives them.</p>
                 <p><strong>Analogy:</strong> If you build a house (Parent Component), you give the painter (Child
@@ -249,7 +254,8 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">Message
                     <li><strong>Where/How to use it:</strong> If you run the app and forget to pass the
                         <code>text</code> prop (e.g., you write <code>&lt;Message /&gt;</code> instead of
                         <code>&lt;Message text=&quot;Hi&quot; /&gt;</code>), your app console will show an <strong>error
-                            or warning</strong>, helping you find the bug quickly.</li>
+                            or warning</strong>, helping you find the bug quickly.
+                    </li>
                     <li><strong>Default Values:</strong> You can also provide a default value (like a fallback) if the
                         parent component doesn&#39;t pass a prop, using <code>static defaultProps</code>.</li>
                 </ul>
@@ -258,7 +264,8 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">Message
                 <p><strong>Simple Explanation:</strong> Unlike Props (which are fixed data coming from outside),
                     <strong>State</strong> is data that a component <strong>keeps track of internally</strong> and that
                     is designed to <strong>change over time</strong>. When the State changes, the component
-                    automatically <strong>rerenders</strong> (updates itself).</p>
+                    automatically <strong>rerenders</strong> (updates itself).
+                </p>
                 <p><strong>Key Difference:</strong> Props are for initialization (static values), while State is for
                     internal, private data that affects how the component renders.</p>
                 <p><strong>Analogy:</strong> If Props are the fixed dimensions of a ruler, the State is the flexible
@@ -342,7 +349,8 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">Message
                         the parent, used for initialization.</li>
                     <li><strong>State is Mutable:</strong> It is internal data that can <strong>change</strong> within
                         the component itself, triggering an automatic re-render. You must update state using
-                        <code>this.setState()</code>.</li>
+                        <code>this.setState()</code>.
+                    </li>
                 </ul>
                 <h3 id="practical-examples-i-can-try-right-away">Practical Examples I Can Try Right Away</h3>
                 <ol>
@@ -351,21 +359,25 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">Message
                         <ul>
                             <li>Create a simple <code>Greeting</code> component.</li>
                             <li>In the parent <code>App</code> component, render it like this:
-                                <code>&lt;Greeting name=&quot;Hassan&quot; /&gt;</code>.</li>
+                                <code>&lt;Greeting name=&quot;Hassan&quot; /&gt;</code>.
+                            </li>
                             <li>In the <code>Greeting</code> component, display the name using
                                 <code>{this.props.name}</code>. (This confirms you understand Props are read-only
-                                input).</li>
+                                input).
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <p><strong>Managing State (Simple Counter):</strong></p>
                         <ul>
                             <li>Create a <code>Counter</code> component with a starting <code>state</code> of
-                                <code>{ count: 0 }</code> in the constructor.</li>
+                                <code>{ count: 0 }</code> in the constructor.
+                            </li>
                             <li>Display the current count: <code>{this.state.count}</code>.</li>
                             <li>Create a button linked to a function that calls
                                 <code>this.setState({ count: this.state.count + 1 })</code>. (This confirms you can
-                                change internal data and trigger a re-render).</li>
+                                change internal data and trigger a re-render).
+                            </li>
                         </ul>
                     </li>
                 </ol>
@@ -376,7 +388,8 @@ export <span class="hljs-keyword">default</span> <span class="hljs-type">Message
                         actions inside the component, use <strong>State</strong>.</li>
                     <li><strong>Never Use Direct Assignment:</strong> Outside of the <code>constructor</code>, always
                         update data using the official function <code>this.setState()</code>—never try to change
-                        <code>this.state.count = 5</code> directly.</li>
+                        <code>this.state.count = 5</code> directly.
+                    </li>
                     <li><strong>Start Small with Components:</strong> Before writing a huge file, try to break the UI
                         down into the smallest possible reusable pieces (like a button, a label, or an input box).</li>
                 </ol>

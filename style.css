@@ -150,3 +150,48 @@
   table * {
     text-align: left !important;
   }
+
+
+  /* Balloon container */
+  .balloon {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(90deg, #008c3a, #80e064);
+    border-radius: 60% 60% 55% 55%;
+    box-shadow: 0 6px 18px rgba(212, 209, 209, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Balloon string */
+  .string {
+    position: fixed;
+    bottom: 0;
+    right: 97px;
+    width: 2px;
+    height: 40px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
