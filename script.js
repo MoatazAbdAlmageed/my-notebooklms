@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const baseFolder = "/" + parts.join("/") + "/";
 
     // Title text
-    const titleText = `${folderName} - ${isIndexFile ? "00" : pad(fileNumber)}`;
+    const titleText = ` ${isIndexFile ? "00" : pad(fileNumber)} - ${folderName} `;
 
     // Set page title
     document.title = titleText;
