@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en" dir="ltr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+                <p>Ahlan! Welcome to Chapter 3: <strong>Solving Problems Differently with Flux and Redux</strong>.</p>
+                <p>This chapter is about managing the <strong>data</strong> (or &quot;state&quot;) in your application
+                    as it grows larger. When an app gets complicated, keeping track of how data changes can become a
+                    huge headache. Flux and Redux offer smart, organized ways to handle this data so your app stays
+                    predictable, clean, and easy to debug.</p>
+                <p>We will go through the ideas step-by-step, focusing on why these patterns were created and how they
+                    work.</p>
+                <hr>
+                <h2 id="step-1-understanding-the-problem-the-mvc-pattern-">Step 1: Understanding the Problem (The MVC
+                    Pattern)</h2>
+                <p><strong>Simple Explanation:</strong> Historically, many apps used the Model-View-Controller (MVC)
+                    pattern. This pattern tries to separate the parts of the code: the <strong>Model</strong> handles
+                    the data, the <strong>View</strong> shows the data to the user, and the <strong>Controller</strong>
+                    manages user input.</p>
+                <h3 id="the-challenge-of-the-spaghetti-relationship-">The Challenge of the &quot;Spaghetti
+                    Relationship&quot;</h3>
+                <p>When an application is small, the MVC pattern works well.</p>
+                <ul>
+                    <li><strong>Practical Example (The Spaghetti Analogy):</strong> Imagine a large kitchen where every
+                        part is connected directly to every other part (two-way data binding). When a user changes data
+                        in one place (e.g., changes a username), that change immediately updates the data (Model). The
+                        Model automatically updates every single View that uses that data.</li>
+                    <li><strong>The Problem:</strong> In a big application with many Models and many Views, changing
+                        data in one place can cause unexpected changes in five other places. This creates an
+                        &quot;explosion of arrows&quot; or a <strong>spaghetti relationship</strong>. It becomes really
+                        tough to debug and sometimes even leads to unending update loops.</li>
+                </ul>
+                <hr>
+                <h2 id="step-2-introducing-flux-the-predictable-flow-">Step 2: Introducing Flux (The Predictable Flow)
+                </h2>
+                <p><strong>Simple Explanation:</strong> Facebook invented <strong>Flux</strong> to solve the MVC
+                    spaghetti problem. Flux rejects the complex two-way binding of MVC and forces data to flow in
+                    <strong>one direction only</strong> (<strong>unidirectional data flow</strong>).</p>
+                <h3 id="the-parts-of-the-flux-architecture">The Parts of the Flux Architecture</h3>
+                <p>Flux is more of a pattern than a strict framework, and it uses three main parts that work together to
+                    manage data:</p>
+                <ol>
+                    <li><strong>Action (The Request):</strong> This is a simple object that describes <em>what just
+                            happened</em> (e.g., &quot;User clicked &#39;Like&#39;&quot;).</li>
+                    <li><strong>Dispatcher (The Traffic Cop):</strong> This is the central hub that manages all data
+                        flow. It receives all Actions and directs them to the correct Stores. It ensures updates happen
+                        in an orderly, predictable way and prevents the spaghetti mess.</li>
+                    <li><strong>Store (The Data/Logic):</strong> This holds the application&#39;s data (state) and the
+                        logic needed to change that data. After the Store is updated, it tells the View it changed.</li>
+                </ol>
+                <p><strong>How it works (The Flow):</strong> User interacts $\rightarrow$ <strong>Action</strong>
+                    $\rightarrow$ <strong>Dispatcher</strong> $\rightarrow$ <strong>Store</strong> (updates data)
+                    $\rightarrow$ <strong>View</strong> (screen updates).</p>
+                <ul>
+                    <li><strong>Benefit:</strong> Because data always flows in one single direction, it is easy to
+                        understand, modify, and pinpoint bugs.</li>
+                </ul>
+                <hr>
+                <h2 id="step-3-focusing-on-redux-the-single-state-container-">Step 3: Focusing on Redux (The Single
+                    State Container)</h2>
+                <p><strong>Simple Explanation:</strong> <strong>Redux</strong> is the most popular solution today, built
+                    on the ideas of Flux and inspired by functional programming. It is known as a
+                    <strong>&quot;predictable state container&quot;</strong> for JavaScript applications. Redux enforces
+                    a very strict architecture where the entire app&#39;s data lives in one single place: the
+                    <strong>Store</strong>.</p>
+                <h3 id="the-role-of-pure-functions">The Role of Pure Functions</h3>
+                <p>Redux uses functional programming concepts, meaning it relies heavily on <strong>pure
+                        functions</strong>.</p>
+                <ul>
+                    <li><strong>Practical Example (The Pure Function Rule):</strong> A pure function is like a
+                        calculator. If you give it the inputs (arguments) 2 and 3, it will <em>always</em> return 5.
+                        Crucially, it <strong>never modifies</strong> the original inputs; it only returns a brand-new
+                        result. This makes the code predictable, reusable, and easy to test.</li>
+                </ul>
+                <h3 id="the-three-pillars-of-redux">The Three Pillars of Redux</h3>
+                <p>Redux simplifies Flux into three main core concepts:</p>
+                <ol>
+                    <li><strong>Action:</strong> Describes <em>what happened</em>.</li>
+                    <li><strong>Reducer:</strong> The <strong>pure function</strong> that calculates the new state.</li>
+                    <li><strong>Store:</strong> The single place that holds all the data.</li>
+                </ol>
+                <hr>
+                <h2 id="step-4-redux-core-concepts-explained-action-reducer-store-">Step 4: Redux Core Concepts
+                    Explained (Action, Reducer, Store)</h2>
+                <p>Let&#39;s look closely at these three pillars using a simple example of adding a new item to a To-Do
+                    list.</p>
+                <h3 id="1-action-the-request-">1. Action (The Request)</h3>
+                <p><strong>Simple Explanation:</strong> An Action is a plain JavaScript object that always has a
+                    <code>type</code> property, explaining the event that occurred.</p>
+                <p><strong>How to Use It:</strong> You use a function called <code>dispatch()</code> to send the action
+                    to the Store.</p>
+                <p><strong>Simple Code Example (Defining and Dispatching an Action):</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-comment">// Step A: Define the Action (what happened)</span>
+<span class="hljs-keyword">const</span> ADD_TODO = <span class="hljs-string">'ADD_TODO'</span>;
+
+<span class="hljs-comment">// Step B: Action Creator (a function that creates the action object)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTodo</span>(<span class="hljs-params">text</span>) </span>{
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attribute">type</span>: ADD_TODO,
+        <span class="hljs-attribute">text</span>: text, <span class="hljs-comment">// The data (payload) being sent</span>
+        <span class="hljs-attribute">id:</span><span class="hljs-string"> Date.now</span>()
+    }
+}
+
+<span class="hljs-comment">// Step C: Dispatching (sending the action to the store)</span>
+<span class="hljs-keyword">this</span>.props.dispatch(addTodo(<span class="hljs-string">"Buy milk"</span>))
+</code></pre>
+                <ul>
+                    <li><strong><code>const ADD_TODO = &#39;ADD_TODO&#39;;</code></strong>: This defines the unique name
+                        (type) for the event.</li>
+                    <li><strong><code>function addTodo(text) { ... }</code></strong>: This is the action creator, which
+                        prepares the action object.</li>
+                    <li><strong><code>this.props.dispatch(addTodo(&quot;Buy milk&quot;))</code></strong>: This is the
+                        command that sends the action object
+                        (<code>{ type: &#39;ADD_TODO&#39;, text: &#39;Buy milk&#39;, ... }</code>) to the Store.</li>
+                </ul>
+                <h3 id="2-reducer-the-chef-">2. Reducer (The Chef)</h3>
+                <p><strong>Simple Explanation:</strong> A Reducer is a <strong>pure function</strong> that takes the
+                    <strong>old state</strong> and the <strong>Action</strong>, and returns the <strong>new
+                        state</strong>. The Reducer is the <em>only</em> place where the state is allowed to change.</p>
+                <p><strong>Key Rule:</strong> Reducers must <em>never</em> modify the old state directly; they must
+                    always return a brand-new state object (this is the pure function rule).</p>
+                <p><strong>Simple Code Example (Handling the ADD_TODO Action):</strong></p>
+                <pre><code class="lang-javascript">// The Reducer function
+const todos = (<span class="hljs-keyword">state</span> = [], action) =&gt; {
+    switch (action.type) {
+        case 'ADD_TODO': // If the action type is ADD_TODO
+            return [
+                ...<span class="hljs-keyword">state</span>, // Take <span class="hljs-literal">all</span> items <span class="hljs-keyword">from</span> the old <span class="hljs-keyword">state</span>
+                { // Add the new item
+                    id: action.id,
+                    text: action.text,
+                    completed: false
+                }
+            ]
+        <span class="hljs-keyword">default</span>:
+            return <span class="hljs-keyword">state</span> // If it's not an action we care about, return the original <span class="hljs-keyword">state</span>
+    }
+}
+export <span class="hljs-keyword">default</span> todos
+</code></pre>
+                <ul>
+                    <li><strong><code>const todos = (state = [], action) =&gt; { ... }</code></strong>: This function
+                        takes the current state (defaulting to an empty array <code>[]</code>) and the incoming action
+                        object.</li>
+                    <li><strong><code>switch (action.type)</code></strong>: The reducer checks the type of the action to
+                        decide what logic to run.</li>
+                    <li><strong><code>case &#39;ADD_TODO&#39;: return [ ... ]</code></strong>: If the action matches, it
+                        uses the spread operator (<code>...state</code>) to create a <em>new</em> array that includes
+                        all the old items plus the new one described in the Action.</li>
+                </ul>
+                <h3 id="3-store-the-fridge-">3. Store (The Fridge)</h3>
+                <p><strong>Simple Explanation:</strong> The Store is a single object that holds the <strong>entire
+                        application state</strong>. It acts as the &quot;one source of truth&quot; for all the data in
+                    your app.</p>
+                <p><strong>How to Use It:</strong> You use <code>createStore()</code> to make the Store and tell it
+                    which Reducers to use. For complex apps, the <code>combineReducers()</code> utility helps merge
+                    multiple Reducers into one root Reducer for the single Store.</p>
+                <p><strong>Code Idea (Creating the Store):</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+<span class="hljs-keyword">import</span> rootReducer <span class="hljs-keyword">from</span> <span class="hljs-string">'../reducers'</span> <span class="hljs-comment">// This contains all combined reducers</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store = createStore(rootReducer)
+</code></pre>
+                <hr>
+                <h2 id="step-5-redux-with-react-native-connecting-the-ui-">Step 5: Redux with React Native (Connecting
+                    the UI)</h2>
+                <p><strong>Simple Explanation:</strong> To make your React Native components talk to the single Redux
+                    Store, we use a library called <code>react-redux</code>.</p>
+                <h3 id="a-providing-the-store">A. Providing the Store</h3>
+                <p>To start, you must wrap your entire application component (like <code>TodoApp</code> from the source
+                    example) inside a special component called <strong>Provider</strong>.</p>
+                <p><strong>Code Idea:</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">'./src/store'</span>
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+
+<span class="hljs-comment">// ... later in the render function:</span>
+<span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TodoApp</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>
+);
+</code></pre>
+                <ul>
+                    <li><strong><code>&lt;Provider store={store}&gt;</code></strong>: This makes the Store available to
+                        <em>every</em> component inside the <code>TodoApp</code> tree, no matter how deep they are.</li>
+                </ul>
+                <h3 id="b-smart-vs-dumb-components">B. Smart vs. Dumb Components</h3>
+                <p>When using Redux, components are often categorized into two types:</p>
+                <ol>
+                    <li><strong>Dumb / Presentational Components:</strong> These only display UI. They have no idea that
+                        Redux exists and only receive data via standard <strong>Props</strong> (Chapter 1). (Example:
+                        <code>TodoList.js</code> just displays items.)</li>
+                    <li><strong>Smart / Container Components:</strong> These interact directly with the Redux Store.
+                        They know how to dispatch Actions and read data from the Store. (Example:
+                        <code>AddTodo.js</code> needs to dispatch the <code>ADD_TODO</code> action.)</li>
+                </ol>
+                <h3 id="c-connecting-a-smart-component">C. Connecting a Smart Component</h3>
+                <p>You use the <code>connect</code> helper method from <code>react-redux</code> to turn a dumb component
+                    into a smart container component.</p>
+                <p><strong>Code Example (The AddTodo Container):</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { <span class="hljs-built_in">connect</span> } from <span class="hljs-string">'react-redux'</span>
+<span class="hljs-comment">// ... (The rest of the AddTodo component code) ...</span>
+<span class="hljs-keyword">export</span> <span class="hljs-built_in">default</span> <span class="hljs-built_in">connect</span>()(AddTodo); <span class="hljs-comment">// This connects the component to the Store</span>
+</code></pre>
+                <ul>
+                    <li><strong><code>export default connect()(AddTodo);</code></strong>: This makes the component
+                        smart. Now, functions like <code>this.props.dispatch()</code> are automatically available inside
+                        the <code>AddTodo</code> component, allowing it to send actions.</li>
+                </ul>
+                <hr>
+                <h2 id="step-6-benefits-of-using-redux">Step 6: Benefits of Using Redux</h2>
+                <p>Although Redux adds some complexity at the beginning, it provides many crucial advantages for serious
+                    applications:</p>
+                <ol>
+                    <li><strong>Expected Outcomes:</strong> There is no confusion about where the data comes from; the
+                        <strong>Store</strong> is the one single source of truth. This simplifies maintenance.</li>
+                    <li><strong>Ease of Testing:</strong> Because Reducers are designed as small, isolated, <strong>pure
+                            functions</strong>, they are perfect candidates for writing easy and reliable tests.</li>
+                    <li><strong>Predictability:</strong> The strict, one-way data flow means that tracking <em>why</em>
+                        a piece of data changed is simple, unlike the messy MVC pattern.</li>
+                </ol>
+                <h2 id="-">---</h2>
+                <h2 id="chapter-3-summary-and-practical-guide">Chapter 3 Summary and Practical Guide</h2>
+                <h3 id="short-chapter-summary">Short Chapter Summary</h3>
+                <p>Chapter 3 explains how design patterns like Flux and Redux solve the problem of complex data
+                    management (state) faced by traditional MVC patterns, where many models and views create
+                    difficult-to-debug &quot;spaghetti relationships&quot;. <strong>Flux</strong> introduced the idea of
+                    a strict <strong>unidirectional data flow</strong> involving Actions, a Dispatcher, and Stores.
+                    <strong>Redux</strong> is the popular successor, acting as a <strong>predictable state
+                        container</strong> built on three core pillars: <strong>Actions</strong> (describing events),
+                    <strong>Reducers</strong> (pure functions that calculate the new state from the old state), and a
+                    single <strong>Store</strong> (holding all data). Using the <code>react-redux</code>
+                    <code>Provider</code> and <code>connect</code> helper methods links the UI components to this
+                    predictable data flow, making large applications much easier to test and maintain.</p>
+                <h3 id="main-key-ideas-to-remember">Main Key Ideas to Remember</h3>
+                <ul>
+                    <li><strong>MVC Problem:</strong> Too many arrows lead to unpredictable data changes (spaghetti).
+                    </li>
+                    <li><strong>Unidirectional Flow:</strong> Data must flow in only one direction (e.g., Action
+                        $\rightarrow$ Reducer $\rightarrow$ Store $\rightarrow$ View).</li>
+                    <li><strong>Redux Pillars:</strong> Actions (What happened), Reducers (How to change state), Store
+                        (Where state lives).</li>
+                    <li><strong>Reducers are Pure:</strong> Reducers must always return a brand new state object and
+                        <em>never</em> modify the original state directly.</li>
+                    <li><strong>Single Source of Truth:</strong> All application data lives in one central
+                        <strong>Store</strong>.</li>
+                </ul>
+                <h3 id="2-3-practical-examples-i-can-try-right-away">2–3 Practical Examples I Can Try Right Away</h3>
+                <ol>
+                    <li>
+                        <p><strong>The Pure Function Test:</strong></p>
+                        <ul>
+                            <li>Write a simple JavaScript function for adding an item to a list
+                                (<code>addItem(list, newItem)</code>).</li>
+                            <li>Ensure the function uses the spread operator (<code>...list</code>) to return a
+                                <strong>new</strong> list, proving it adheres to the Redux/pure function rule by not
+                                modifying the original list.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Dispatching an Action:</strong></p>
+                        <ul>
+                            <li>In a smart component (one wrapped with <code>connect</code>), create a button&#39;s
+                                <code>onPress</code> handler.</li>
+                            <li>Call <code>this.props.dispatch({ type: &#39;BUTTON_CLICKED&#39; })</code>.</li>
+                            <li>This confirms you understand the mechanism of sending the &quot;event&quot; (Action)
+                                into the Redux system.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3 id="3-quick-tips-to-help-apply-what-i-learned">3 Quick Tips to Help Apply What I Learned</h3>
+                <ol>
+                    <li><strong>Don&#39;t Touch the State Directly:</strong> If you are inside a Reducer, remember the
+                        golden rule: Never use operators that change the original data in place (like <code>push</code>
+                        or <code>splice</code>). Always return a <strong>new object or array</strong>.</li>
+                    <li><strong>Isolate Logic:</strong> Keep your Reducers focused only on calculating the new state.
+                        Keep complex, external logic (like talking to a server or timing events) out of the Reducer.
+                    </li>
+                    <li><strong>Separate Components:</strong> Immediately categorize your UI components: If a component
+                        only <em>displays</em> data, make it a simple, dumb component. If it needs to <em>change</em>
+                        data (like a Save button), make it a smart component and use <code>connect()</code>.</li>
+                </ol>
+                <h3 id="3-short-quiz-questions-to-test-basic-understanding">3 Short Quiz Questions to Test Basic
+                    Understanding</h3>
+                <ol>
+                    <li>In a complex MVC application, what common problem is often described using the term
+                        &quot;spaghetti relationship&quot;?</li>
+                    <li>In Redux, which of the three core concepts (Action, Reducer, or Store) is required to be a
+                        <strong>pure function</strong>?</li>
+                    <li>What is the purpose of the Redux <strong>Store</strong>?</li>
+                </ol>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

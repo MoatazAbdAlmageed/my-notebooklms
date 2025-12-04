@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en" dir="ltr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+
+
+
+                <p>Ahlan! Now that you have mastered the basics of React (Chapter 1), it&#39;s time for the exciting
+                    part: starting your journey with <strong>React Native</strong>.</p>
+                <p>Chapter 2 is titled: <strong>The Simplest Program: Hello World with React Native</strong>. This is
+                    where we set up our tools and create our very first working mobile app! We will learn by doing,
+                    following simple examples to understand the key concepts.</p>
+                <hr>
+                <h2 id="step-1-what-is-react-native-">Step 1: What is React Native?</h2>
+                <p><strong>Simple Explanation:</strong> React Native (RN) is an open-source platform that allows you to
+                    build <strong>truly native mobile applications</strong> for iOS (Apple) and Android (Google). The
+                    cool part is that you use common web technologies you already know, like JavaScript (JSX).</p>
+                <ul>
+                    <li><strong>The Big Goal:</strong> The philosophy of RN is <strong>“Learn once, write
+                            anywhere”</strong>. This means the skills and components you learn for RN can be used for
+                        both iOS and Android, even though they are different platforms.</li>
+                    <li><strong>Performance:</strong> Unlike older &quot;hybrid&quot; apps that load a website inside a
+                        phone frame (a slow method called WebView-based), React Native apps use the same native building
+                        blocks (like Objective-C, Swift, or Java) as 100% native apps, making them fast and smooth.</li>
+                </ul>
+                <h2 id="step-2-getting-ready-installation-">Step 2: Getting Ready (Installation)</h2>
+                <p><strong>Simple Explanation:</strong> React Native is built using JavaScript that runs in Node.js, so
+                    we need a few tools installed first.</p>
+                <ol>
+                    <li><strong>Installing Node.js and npm:</strong>
+                        <ul>
+                            <li>Node.js is a platform that lets JavaScript run outside a browser (like in your
+                                computer&#39;s terminal).</li>
+                            <li><strong>npm</strong> (Node Package Manager) is installed along with Node and is like a
+                                package manager (similar to CocoaPods for iOS) that helps you install and manage
+                                reusable code modules.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Installing the React Native Tool (CLI):</strong>
+                        <ul>
+                            <li>We use a simple command-line tool (<code>create-react-native-app</code>) to quickly set
+                                up our project structure.</li>
+                            <li><strong>Code Idea:</strong> You run <code>npm install -g create-react-native-app</code>
+                                to install this tool globally.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="step-3-your-first-app-skeleton-using-expo">Step 3: Your First App Skeleton using Expo</h2>
+                <p><strong>Simple Explanation:</strong> We create the basic structure (skeleton) of our app. We will
+                    call our project &quot;HouseShare,&quot; which the book uses as an example for building a primitive
+                    property search application. We use <strong>Expo</strong> to make testing very easy.</p>
+                <ol>
+                    <li><strong>Creating the Project:</strong>
+                        <ul>
+                            <li><strong>Code:</strong> <code>create-react-native-app HouseShare</code>.</li>
+                            <li><strong>What this does:</strong> This command creates a folder named
+                                <code>HouseShare</code> with all the necessary starting files.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Starting the Development Server:</strong>
+                        <ul>
+                            <li><strong>Code:</strong> <code>cd HouseShare</code> then <code>yarn start</code>.</li>
+                            <li><strong>What this does:</strong> This starts a development server (Node package manager)
+                                called the <strong>React Native Packager</strong>. This server needs to be running and
+                                open in your terminal the whole time you are working, as it reads and builds the
+                                JavaScript code.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Testing with Expo (The Magic):</strong>
+                        <ul>
+                            <li><strong>Analogy:</strong> Expo is like a universal remote control for testing. Instead
+                                of installing heavy software kits (SDKs) for iOS and Android, you get a <strong>QR
+                                    code</strong> in your terminal.</li>
+                            <li>If you download the <strong>Expo app</strong> on your physical phone (or use a
+                                simulator), you scan that QR code. Your app loads instantly inside the Expo app,
+                                allowing you to test right away without complicated setup.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="step-4-writing-the-hello-world-code">Step 4: Writing the &quot;Hello World&quot; Code</h2>
+                <p><strong>Simple Explanation:</strong> We look at the main file, usually <code>App.js</code>, which
+                    contains the code for what is shown on the screen.</p>
+                <h3 id="code-example-app-js-">Code Example (<code>App.js</code>):</h3>
+                <pre><code class="lang-javascript"><span class="hljs-comment">// A. Import necessary building blocks</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { StyleSheet, Text, View } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;
+
+<span class="hljs-comment">// B. Define the App Component</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{styles.container}</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>
+                    Hello World
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>
+        );
+    }
+}
+
+<span class="hljs-comment">// C. Define how the component looks (Styling)</span>
+<span class="hljs-keyword">const</span> styles = StyleSheet.create({
+    <span class="hljs-attr">container</span>: {
+        <span class="hljs-attr">flex</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">backgroundColor</span>: <span class="hljs-string">'#fff'</span>,
+        <span class="hljs-attr">alignItems</span>: <span class="hljs-string">'center'</span>,
+        <span class="hljs-attr">justifyContent</span>: <span class="hljs-string">'center'</span>,
+    },
+});
+</code></pre>
+                <h3 id="code-explanation-step-by-step-">Code Explanation (Step-by-Step):</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">Code Block</th>
+                            <th style="text-align:left">What it Does</th>
+                            <th style="text-align:left">Why it is Written This Way</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">
+                                <code>import { StyleSheet, Text, View } from &#39;react-native&#39;;</code></td>
+                            <td style="text-align:left">This pulls in the core RN building blocks we need to display
+                                things.</td>
+                            <td style="text-align:left"><strong>Destructuring:</strong> We use <code>{}</code> to assign
+                                multiple object properties (<code>StyleSheet</code>, <code>Text</code>,
+                                <code>View</code>) to a single variable, saving time from typing
+                                <code>React.StyleSheet</code> everywhere.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>export default class App extends React.Component {</code>
+                            </td>
+                            <td style="text-align:left">This creates our main <strong>component class</strong>.</td>
+                            <td style="text-align:left">React applications are built from components (reusable pieces),
+                                and this component defines the entire screen.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>render() { return ( ... ); }</code></td>
+                            <td style="text-align:left">This mandatory function describes exactly <strong>what the
+                                    component shows</strong> on the screen using JSX markup (HTML-like syntax).</td>
+                            <td style="text-align:left">The <code>render()</code> function must be a <strong>pure
+                                    function</strong> (immutable), meaning it should only describe the UI and
+                                <em>never</em> try to change data inside itself, or it causes infinite loops.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>&lt;View&gt;</code> and <code>&lt;Text&gt;</code></td>
+                            <td style="text-align:left">These are the fundamental <strong>core components</strong> of
+                                React Native.</td>
+                            <td style="text-align:left">In React Native, we do not use web elements like
+                                <code>&lt;div&gt;</code> or <code>&lt;p&gt;</code>. We use
+                                <strong><code>&lt;View&gt;</code></strong> (like a container or
+                                <code>&lt;div&gt;</code>) and <strong><code>&lt;Text&gt;</code></strong> (the only thing
+                                that can display words).</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>style={styles.container}</code></td>
+                            <td style="text-align:left">This applies styling to the <code>&lt;View&gt;</code>.</td>
+                            <td style="text-align:left">The layout system uses <strong>Flexbox</strong> (similar to CSS
+                                Flex Box Layout from CSS3) to help elements automatically adjust to different screen
+                                sizes and device rotations.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>const styles = StyleSheet.create({ ... });</code></td>
+                            <td style="text-align:left">This defines the styling rules using the <code>StyleSheet</code>
+                                component.</td>
+                            <td style="text-align:left">The rules here are very similar to CSS, defining properties like
+                                background color (<code>backgroundColor</code>), alignment (<code>alignItems</code>),
+                                and layout ratios (<code>flex: 1</code>).</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h2 id="step-5-the-miracle-of-live-reload">Step 5: The Miracle of Live Reload</h2>
+                <p><strong>Simple Explanation:</strong> This is one of the best features! When you change the JavaScript
+                    code in <code>App.js</code> (for example, changing &quot;Hello World&quot; to &quot;Hello
+                    HouseShare&quot;) and save the file, the app screen <strong>reloads instantly</strong> on the
+                    simulator or device, showing your changes.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> In traditional native development, changing the code is like building
+                        a whole house again (slow recompilation). With Live Reload, it&#39;s like changing one small
+                        picture on the wall—the screen updates in a fraction of a second.</li>
+                    <li><strong>How to Activate:</strong> It is active by default. You can also manually reload by
+                        pressing <code>Command + R</code> in the simulator.</li>
+                </ul>
+                <hr>
+                <h2 id="step-6-what-makes-react-native-different-native-vs-hybrid-">Step 6: What Makes React Native
+                    Different? (Native vs. Hybrid)</h2>
+                <p><strong>Simple Explanation:</strong> RN&#39;s difference comes down to performance and architecture.
+                    RN runs faster because it does not suffer from the same problems as older hybrid frameworks.</p>
+                <ol>
+                    <li><strong>It is Not a WebView:</strong> WebView frameworks (like Phonegap) load HTML/JavaScript
+                        inside a web view component, which is slow because DOM manipulations are slow. <strong>React
+                            Native avoids this entirely</strong>.</li>
+                    <li><strong>Separate Threads:</strong> RN is fundamentally different because it runs all layouts on
+                        <strong>separate threads</strong>.<ul>
+                            <li><strong>The Main Thread (UI Kit):</strong> This is where the core device UI (graphics,
+                                touches) runs.</li>
+                            <li><strong>The JavaScript Thread:</strong> This is where your code runs.</li>
+                            <li>By keeping your application code off the main thread, the UI remains smooth, fast, and
+                                responsive, just like 100% native apps.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The Bridge:</strong> The <strong>JavaScriptCore framework</strong> is used in iOS to
+                        allow JavaScript and native Objective-C/Swift code to communicate with each other. For example,
+                        the RN <code>&lt;View&gt;</code> tag in your code translates directly into a native
+                        <code>UIView</code> in iOS.</li>
+                </ol>
+                <hr>
+                <h2 id="step-7-project-anatomy-the-folder-structure-">Step 7: Project Anatomy (The Folder Structure)
+                </h2>
+                <p><strong>Simple Explanation:</strong> When you start a React Native project, it creates folders for
+                    the necessary native components for both platforms. Although we started with Expo (which hides these
+                    folders), the book shows the full structure after you perform an &quot;eject&quot;.</p>
+                <ol>
+                    <li><strong>The Native Folders:</strong>
+                        <ul>
+                            <li><strong><code>ios</code>:</strong> Contains all the native iOS code, like the
+                                <code>AppDelegate</code> (the starting point of any iOS app) and the Xcode project file
+                                (<code>HouseShare.xcodeproj</code>).</li>
+                            <li><strong><code>android</code>:</strong> Contains all the native Android code.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The JavaScript Folders/Files:</strong>
+                        <ul>
+                            <li><strong><code>App.js</code>:</strong> Where you start writing your application code.
+                            </li>
+                            <li><strong><code>package.json</code>:</strong> Contains metadata about your app and lists
+                                all the dependencies (other necessary code/libraries).</li>
+                            <li><strong><code>node_modules</code>:</strong> This is where all the downloaded
+                                dependencies from <code>package.json</code> live.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The Native Entry Point:</strong>
+                        <ul>
+                            <li>In iOS, the <code>AppDelegate.m</code> file uses a special component called
+                                <strong><code>RCTRootView</code></strong>. This Swift class is inherited from the native
+                                iOS <code>UIView</code> class and its job is to <strong>take your JavaScript code and
+                                    execute it</strong>.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h2 id="step-8-debugging">Step 8: Debugging</h2>
+                <p><strong>Simple Explanation:</strong> Debugging (finding mistakes in your code) in React Native is
+                    easy because it uses tools that web developers are already familiar with.</p>
+                <ol>
+                    <li><strong>Accessing the Debug Menu:</strong> You access debugging options by &quot;shaking the
+                        device&quot; (or using the hardware menu in the simulator).</li>
+                    <li><strong>Reload:</strong> The simplest option is <strong>Reload</strong> (or pressing
+                        <code>Command + R</code>), which refreshes the screen with the latest JavaScript changes.</li>
+                    <li><strong>Debugging in Chrome:</strong> You can debug your JavaScript code directly in the
+                        <strong>Chrome browser</strong>. By using the <strong>React Developer Tools</strong> extension,
+                        Chrome shows you the component hierarchy (which components are inside others) and their
+                        properties and state values.</li>
+                    <li><strong>Performance Monitor:</strong> This option shows your Frames Per Second (FPS). It&#39;s
+                        great for apps with a lot of animations or graphics to make sure they are running smoothly and
+                        not slow or &quot;lethargic&quot;.</li>
+                    <li><strong>Inspect Element:</strong> Similar to web browsers, you can inspect a specific UI element
+                        in the simulator to see its styling properties (like font size or alignment).</li>
+                </ol>
+                <h2 id="-">---</h2>
+                <h2 id="chapter-2-summary-and-practical-guide">Chapter 2 Summary and Practical Guide</h2>
+                <h3 id="short-chapter-summary">Short Chapter Summary</h3>
+                <p>Chapter 2 introduces React Native (RN) as an open-source platform for building <strong>fast, native
+                        mobile applications</strong> using JavaScript and the &quot;Learn once, write anywhere&quot;
+                    principle. After setup, the chapter focuses on creating the basic project structure (like the
+                    HouseShare example) using <strong>Expo CLI</strong>, which simplifies testing with instant loading
+                    and a crucial feature called <strong>Live Reload</strong>. We learned about core RN components like
+                    <code>&lt;View&gt;</code> and <code>&lt;Text&gt;</code>, the component-based code structure
+                    (App.js), and how to efficiently debug the running application using tools like Chrome Developer
+                    Tools. RN achieves its speed by running layouts on separate threads and communicating with native
+                    APIs via the JavaScriptCore framework, avoiding the slowness of traditional WebView-based apps.</p>
+                <h3 id="main-key-ideas-to-remember">Main Key Ideas to Remember</h3>
+                <ul>
+                    <li><strong>Native Performance:</strong> React Native does not use slow WebViews (HTML inside a
+                        container); it uses native UI components like <strong><code>RCTText</code></strong> and
+                        <strong><code>RCTView</code></strong> for speed.</li>
+                    <li><strong>Expo for Speed:</strong> <strong>Expo</strong> is the tool chain that makes development
+                        incredibly fast by handling setup and providing an easy way to test the app on a device using a
+                        QR code.</li>
+                    <li><strong>Core Components:</strong> The fundamental building blocks are
+                        <strong><code>&lt;View&gt;</code></strong> (the container, like a <code>&lt;div&gt;</code>) and
+                        <strong><code>&lt;Text&gt;</code></strong> (the only way to show words).</li>
+                    <li><strong>Live Reload:</strong> Saves significant time during development because changes to the
+                        JavaScript code appear on the device instantly upon saving.</li>
+                    <li><strong>The Packager:</strong> The React Native Packager (started with <code>yarn start</code>)
+                        must be running at all times to read and build the JavaScript code for the native environment.
+                    </li>
+                </ul>
+                <h3 id="practical-examples-i-can-try-right-away">Practical Examples I Can Try Right Away</h3>
+                <ol>
+                    <li><strong>Create the Project Skeleton:</strong>
+                        <ul>
+                            <li>Install the global tool: <code>npm install -g create-react-native-app</code>.</li>
+                            <li>Create the project: <code>create-react-native-app MyNewApp</code>.</li>
+                            <li>Start the server: <code>cd MyNewApp</code> then <code>yarn start</code>.</li>
+                            <li>(This will immediately show you the QR code for testing via the Expo app on your phone.)
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Test Live Reload:</strong>
+                        <ul>
+                            <li>Open <code>App.js</code> in your new project.</li>
+                            <li>Find the <code>&lt;Text&gt;</code> component and change the words inside it.</li>
+                            <li>Save the file immediately (<code>Ctrl + S</code> or <code>Command + S</code>) and watch
+                                the simulator/device update instantly.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Basic Layout Practice:</strong>
+                        <ul>
+                            <li>Add a style to the <code>&lt;View&gt;</code> component, for example, changing the
+                                <code>backgroundColor</code> in the <code>StyleSheet.create</code> block. This confirms
+                                you can modify the application&#39;s look immediately.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h3 id="quick-tips-to-help-me-apply-what-i-learned">Quick Tips to Help Me Apply What I Learned</h3>
+                <ol>
+                    <li><strong>Master <code>View</code> and <code>Text</code>:</strong> Remember, everything visible is
+                        either wrapped in a <code>&lt;View&gt;</code> (for structure and layout) or is a
+                        <code>&lt;Text&gt;</code> (if it contains words). They are the only two necessary UI components.
+                    </li>
+                    <li><strong>Keep the Terminal Open:</strong> Always ensure your React Native Packager (the window
+                        where you ran <code>yarn start</code>) is active and not accidentally closed, or your app will
+                        stop running.</li>
+                    <li><strong>Use Chrome DevTools:</strong> If your app acts weirdly, immediately use the Debug menu
+                        to open Chrome (Debug in Chrome option). This lets you see the actual values of your code while
+                        the app is running.</li>
+                </ol>
+                <h3 id="short-quiz-questions-to-test-basic-understanding">Short Quiz Questions to Test Basic
+                    Understanding</h3>
+                <ol>
+                    <li>What is the purpose of <strong>Expo</strong> in React Native development?</li>
+                    <li>If you want to display words on the screen in a React Native app, which core component
+                        <strong>must</strong> you use?</li>
+                    <li>If you change your JavaScript code, what feature allows you to see the result instantly without
+                        manually recompiling the app?</li>
+                </ol>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+        crossorigin="anonymous"></script>
+
+    <script src="../script.js"> </script>
+
+
+</body>
+
+</html>
