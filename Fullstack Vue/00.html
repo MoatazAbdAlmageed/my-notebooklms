@@ -55,11 +55,13 @@
           <li>
             <p><strong><code>v-bind</code> (for HTML Attributes):</strong> If you want to connect data to an attribute
               inside an HTML tag (like the <code>src</code> of an image or <code>href</code> of a link), you use the
-              <code>v-bind</code> directive, or the short version, <code>:</code>.</p>
+              <code>v-bind</code> directive, or the short version, <code>:</code>.
+            </p>
             <ul>
               <li><strong>Simple Example:</strong> If your data has an image location
                 <code>my_photo: &#39;me.jpg&#39;</code>, you show it like this:
-                <code>&lt;img :src=&quot;my_photo&quot;&gt;</code>.</li>
+                <code>&lt;img :src=&quot;my_photo&quot;&gt;</code>.
+              </li>
             </ul>
           </li>
         </ul>
@@ -68,7 +70,8 @@
           many times. You use the <code>v-for</code> directive to repeat a template for every item in your list.</p>
         <ul>
           <li><strong>Simple Example:</strong> If you have an array <code>students</code>, you loop over it:
-            <code>&lt;li v-for=&quot;student in students&quot;&gt;{{ student.name }}&lt;/li&gt;</code>.</li>
+            <code>&lt;li v-for=&quot;student in students&quot;&gt;{{ student.name }}&lt;/li&gt;</code>.
+          </li>
         </ul>
         <h4 id="4-computed-properties-smart-calculation-">4. Computed Properties (Smart Calculation)</h4>
         <p>These are like special, smart functions that automatically calculate and return a value based on your main
@@ -81,7 +84,8 @@
         </ul>
         <h4 id="5-event-handling-v-on-">5. Event Handling (<code>v-on</code> / <code>@</code>)</h4>
         <p>This is how Vue makes your application interactive by listening to user actions (like a click). You use the
-          <code>v-on</code> directive, or the short version, <code>@</code>.</p>
+          <code>v-on</code> directive, or the short version, <code>@</code>.
+        </p>
         <ul>
           <li><strong>Simple Example:</strong> To run a function called <code>increaseVote</code> when a button is
             clicked: <code>&lt;button @click=&quot;increaseVote&quot;&gt;Vote&lt;/button&gt;</code>.</li>
@@ -195,14 +199,16 @@
           <li><strong>Mutations:</strong> The <strong>ONLY</strong> way to officially change the State. They must be
             fast and <strong>synchronous</strong> (happen immediately).<ul>
               <li><strong>Code Snippet (Concept):</strong>
-                <code>ADD_NOTE(state, payload) { state.notes.push(payload); }</code></li>
+                <code>ADD_NOTE(state, payload) { state.notes.push(payload); }</code>
+              </li>
             </ul>
           </li>
           <li><strong>Actions:</strong> Components call Actions to start a change. Actions handle any complex or
             <strong>asynchronous</strong> logic (like fetching data from a server) before they finally call a Mutation.
             <ul>
               <li><strong>Code Snippet (Concept):</strong>
-                <code>addNote(context, payload) { context.commit(&#39;ADD_NOTE&#39;, payload); }</code></li>
+                <code>addNote(context, payload) { context.commit(&#39;ADD_NOTE&#39;, payload); }</code>
+              </li>
               <li><em>Practical Explanation:</em> If you need to save a note, the component calls an Action. The Action
                 talks to the server (asynchronous). Once the server confirms, the Action calls a Mutation, and the
                 Mutation updates the State.</li>
@@ -212,7 +218,8 @@
         <h4 id="2-vuex-modules">2. Vuex Modules</h4>
         <p>To keep a large Vuex Store organized, you break it into <strong>Modules</strong> based on function (e.g., a
           <code>cartModule</code> handles cart data, and a <code>productModule</code> handles product data). Each module
-          has its own State, Getters, Mutations, and Actions.</p>
+          has its own State, Getters, Mutations, and Actions.
+        </p>
         <h4 id="3-persistence-with-servers">3. Persistence with Servers</h4>
         <p><strong>Persistence</strong> means saving your data to a server so that if the user refreshes the page, the
           data is still there.</p>
@@ -277,7 +284,8 @@
         <ul>
           <li><strong>Mocha and Chai:</strong> Mocha helps you organize your tests (<code>describe</code> for groups,
             <code>it</code> for individual checks). Chai lets you write clear checks
-            (<code>expect(A).to.equal(B)</code>).</li>
+            (<code>expect(A).to.equal(B)</code>).
+          </li>
           <li><strong><code>vue-test-utils</code>:</strong> The dedicated library for testing Vue components.</li>
           <li><strong>Shallow Mounting:</strong> This essential technique renders only the component you are testing,
             completely ignoring any complex child components. This ensures your test runs quickly and is truly isolated.
@@ -306,7 +314,8 @@
               <td style="text-align:left">Your first Vue.js App</td>
               <td style="text-align:left">Learn core fundamentals: the Vue instance, data binding (<code>{{}}</code>,
                 <code>:</code>), looping (<code>v-for</code>), click events (<code>@</code>), and organizing with
-                components and props.</td>
+                components and props.
+              </td>
             </tr>
             <tr>
               <td style="text-align:left"><strong>II</strong></td>
@@ -343,13 +352,15 @@
               <td style="text-align:left">Routing</td>
               <td style="text-align:left">Build multi-page applications using <code>vue-router</code>. Learn
                 <code>router-view</code>, <code>router-link</code>, dynamic routes, and security checks (Navigation
-                Guards).</td>
+                Guards).
+              </td>
             </tr>
             <tr>
               <td style="text-align:left"><strong>VIII</strong></td>
               <td style="text-align:left">Unit Testing</td>
               <td style="text-align:left">Learn how to write structured tests (Unit Testing) using Mocha, Chai, and the
-                <code>vue-test-utils</code> library to verify components work reliably in isolation.</td>
+                <code>vue-test-utils</code> library to verify components work reliably in isolation.
+              </td>
             </tr>
             <tr>
               <td style="text-align:left"><strong>IX</strong></td>
