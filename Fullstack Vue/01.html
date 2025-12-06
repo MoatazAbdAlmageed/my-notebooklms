@@ -17,6 +17,345 @@
         <div class="row">
             <div class="col-12">
 
+                <p>Ahlan! This is Chapter 1: <strong>Your first Vue.js Web Application</strong>. This chapter is your
+                    starting point, where you will learn all the basic tools (the core fundamentals) you need to build
+                    dynamic web pages using Vue.js.</p>
+                <p>In this chapter, you build a simple voting application called &quot;UpVote!&quot; that looks like
+                    social news websites. This app displays a list of submissions sorted by the number of votes, and
+                    users can click an icon to increase a submission&#39;s vote count, making the list instantly
+                    re-sort.</p>
+                <hr>
+                <h3 id="step-1-getting-started">Step 1: Getting Started</h3>
+                <p><strong>We need a simple setup to start learning Vue quickly.</strong>
+                    For this first step, we use a very simple setup where we load Vue directly from a link on the
+                    internet (a Content Delivery Network, or CDN) inside an HTML file. This lets us run the app
+                    immediately by just opening the HTML file in the browser.</p>
+                <p><strong>Your application needs a place to live on the web page.</strong>
+                    You must define a space (an HTML element) that your Vue application will control. This space is
+                    called the <strong>view</strong>. In the example app, this is done with a <code>&lt;div&gt;</code>
+                    that has the ID <code>app</code>.</p>
+                <p><strong>Code Example (index.html):</strong></p>
+                <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- This is the space Vue controls --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title has-text-centered dividing-header"</span>&gt;</span>UpVote!<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+                <ul>
+                    <li><code>id=&quot;app&quot;</code>: This tag marks the spot where the Vue application will be
+                        <strong>mounted</strong> (attached).</li>
+                    <li><code>&lt;script src=&quot;...&quot;&gt;</code>: This line loads the main Vue library from the
+                        CDN, making the special <code>Vue</code> function available for us to use.</li>
+                </ul>
+                <h3 id="step-2-the-vue-instance-the-brain-">Step 2: The Vue Instance (The Brain)</h3>
+                <p><strong>Every Vue application must have a starting point or a &quot;brain.&quot;</strong>
+                    This starting point is called the <strong>Vue instance</strong>. It is created using the special
+                    <code>Vue</code> function, and you give it options like where to attach itself and what data it
+                    holds.</p>
+                <p><strong>You must tell the Vue instance which part of the HTML it controls.</strong>
+                    You use the <code>el</code> option (short for &quot;element&quot;) to point the Vue instance to the
+                    container you defined in the HTML (the <code>&lt;div id=&quot;app&quot;&gt;</code>).</p>
+                <p><strong>Code Example (main.js):</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Vue</span>({
+  <span class="hljs-attribute">el</span>: <span class="hljs-string">'#app'</span> // <span class="hljs-number">1</span>. Tell Vue to control the element with ID <span class="hljs-string">'app'</span>
+});
+</code></pre>
+                <ul>
+                    <li><code>new Vue({...})</code>: This creates the brain of your application.</li>
+                    <li><code>el: &#39;#app&#39;</code>: This option tells the Vue instance to <strong>mount</strong>
+                        (attach) to the HTML element that has the ID <code>app</code>.</li>
+                </ul>
+                <h3 id="step-3-making-the-view-data-driven">Step 3: Making the View Data-Driven</h3>
+                <p><strong>We store all the information that the app needs inside the Vue instance.</strong>
+                    The information is stored in a <code>data</code> object inside your Vue instance. This is how you
+                    link your JavaScript variables directly to what the user sees on the screen.</p>
+                <p><strong>Code Example (main.js):</strong>
+                    Imagine you have a list of product ideas in a JavaScript variable called
+                    <code>Seed.submissions</code>.</p>
+                <pre><code class="lang-javascript"><span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Vue</span>({
+  <span class="hljs-attribute">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attribute">data</span>: {
+    <span class="hljs-comment">// 2. Put your application data here:</span>
+    <span class="hljs-attribute">submissions</span>: Seed.submissions
+  }
+});
+</code></pre>
+                <ul>
+                    <li><code>data: {...}</code>: This is where you specify the data that the Vue instance will manage.
+                    </li>
+                    <li><code>submissions: Seed.submissions</code>: We create a property named <code>submissions</code>
+                        inside the Vue instance and give it the list of items from our sample data.</li>
+                </ul>
+                <h3 id="step-4-data-binding-connecting-data-to-the-screen-">Step 4: Data Binding (Connecting Data to the
+                    Screen)</h3>
+                <p><strong>Data binding means connecting your stored information directly to the HTML display.</strong>
+                    When the data changes in your Vue instance, the part of the HTML connected to it changes
+                    automatically (it is <strong>reactive</strong>).</p>
+                <h4 id="4a-showing-text-data-mustache-syntax-">4a. Showing Text Data (Mustache Syntax)</h4>
+                <p><strong>To show text information on the screen, use the &quot;Mustache&quot; syntax: double curly
+                        braces.</strong>
+                    The double curly braces <code>{{ }}</code> look like a mustache, and Vue replaces everything inside
+                    them with the actual value of your data property.</p>
+                <ul>
+                    <li><strong>Practical Example:</strong> If you want to show the title of the first item in your
+                        <code>submissions</code> list, you write <code>{{ submissions.title }}</code> in your HTML.</li>
+                </ul>
+                <h4 id="4b-binding-to-html-attributes-v-bind-">4b. Binding to HTML Attributes (v-bind)</h4>
+                <p><strong>To connect data to attributes inside an HTML tag (like the link of an image or a link URL),
+                        you must use the <code>v-bind</code> directive.</strong>
+                    The <code>v-bind</code> directive is a special Vue instruction that tells Vue to connect a data
+                    value to an HTML attribute (like <code>src</code> for an image or <code>href</code> for a link).</p>
+                <ul>
+                    <li><strong>Practical Example:</strong> If you want to connect the image URL
+                        (<code>submissionImage</code>) of your first item to the <code>src</code> attribute of an
+                        <code>&lt;img&gt;</code> tag, you write:
+                        <code>&lt;img v-bind:src=&quot;submissions.submissionImage&quot;&gt;</code>.</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">Full Syntax</th>
+                            <th style="text-align:left">Shorthand (Quick Way)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left"><code>v-bind:src=&quot;...&quot;</code></td>
+                            <td style="text-align:left"><code>:src=&quot;...&quot;</code></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left"><code>v-on:click=&quot;...&quot;</code></td>
+                            <td style="text-align:left"><code>@click=&quot;...&quot;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 id="step-5-list-rendering-showing-many-items-">Step 5: List Rendering (Showing Many Items)</h3>
+                <p><strong>If you have a list of many things (like all the submissions), you must repeat the same design
+                        block for each item.</strong>
+                    You use the special Vue instruction <strong><code>v-for</code></strong> to repeat an element or
+                    component for every item in a data list.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> Think of <code>v-for</code> as a photocopier for your HTML. You design
+                        one copy (the template), and <code>v-for</code> prints out a copy for every piece of data in
+                        your list.</li>
+                </ul>
+                <p><strong>Code Example:</strong>
+                    To repeat the design block (<code>&lt;article class=&quot;media&quot;&gt;</code>) for every
+                    <code>submission</code> object in your <code>submissions</code> list:</p>
+                <pre><code class="lang-html">&lt;article v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"submission in submissions"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+  <span class="xml"><span class="hljs-comment">&lt;!-- Content for one submission goes here --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ submission.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"submission.submissionImage"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+                <ul>
+                    <li><code>v-for=&quot;submission in submissions&quot;</code>: This instruction loops through the
+                        array named <code>submissions</code> and temporarily names the current item
+                        <code>submission</code>.</li>
+                    <li>Inside the loop, you use <code>submission.title</code> instead of
+                        <code>submissions.title</code>.</li>
+                </ul>
+                <p><strong>Important Tip: The <code>key</code> Attribute</strong>
+                    When using <code>v-for</code>, you should always add a <code>:key</code> attribute with a unique ID
+                    for every repeated item (like <code>submission.id</code>). This helps Vue keep track of each item
+                    efficiently, especially when the list changes order.</p>
+                <pre><code class="lang-html">&lt;article v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"submission in submissions"</span> v-bind:key=<span class="hljs-string">"submission.id"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+  <span class="xml"><span class="hljs-comment">&lt;!-- ... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+                <h3 id="step-6-computed-properties-smart-automatic-calculations-">Step 6: Computed Properties (Smart,
+                    Automatic Calculations)</h3>
+                <p><strong>Computed properties are special functions that automatically calculate and return a value
+                        based on your data.</strong>
+                    If the underlying data changes, the computed property automatically runs again and updates the
+                    display instantly. This is perfect for sorting, filtering, or complex mathematical tasks in your
+                    application.</p>
+                <ul>
+                    <li><strong>Practical Example (Sorting):</strong> In the UpVote! app, submissions must always be
+                        sorted by the number of votes, highest first.</li>
+                </ul>
+                <p><strong>Code Example (main.js):</strong>
+                    We define <code>sortedSubmissions</code> inside the <code>computed</code> property of the Vue
+                    instance.</p>
+                <pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Vue({
+  <span class="hljs-comment">// ... data object is here</span>
+  computed: {
+    sortedSubmissions () {
+      <span class="hljs-comment">// 1. We get the original list: this.submissions</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.submissions.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+        <span class="hljs-comment">// 2. We sort it by votes (b.votes - a.votes sorts highest to lowest)</span>
+        <span class="hljs-keyword">return</span> b.votes - a.votes
+      });
+    }
+  }
+});
+</code></pre>
+                <p>Then, we update the <code>v-for</code> loop in the HTML to use the sorted list instead of the
+                    original one:</p>
+                <pre><code class="lang-html">&lt;article v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"submission in sortedSubmissions"</span> v-bind:key=<span class="hljs-string">"submission.id"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+  <span class="xml"><span class="hljs-comment">&lt;!-- ... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+                <p>Now, Vue automatically uses the sorted list, and if any submission&#39;s votes change, Vue
+                    automatically re-runs this function and updates the list order on the screen.</p>
+                <h3 id="step-7-event-handling-making-the-app-interactive-">Step 7: Event Handling (Making the App
+                    Interactive)</h3>
+                <p><strong>To respond to user actions (like a click), you use the <code>v-on</code> directive, or the
+                        shorthand <code>@</code>.</strong>
+                    The <code>v-on</code> directive listens for events in the DOM (like <code>click</code>,
+                    <code>mouseover</code>, <code>submit</code>) and runs a JavaScript method when that event happens.
+                </p>
+                <ul>
+                    <li><strong>Practical Example (Up-voting):</strong> We want a method called <code>upvote</code> to
+                        run when the user clicks the arrow icon.</li>
+                </ul>
+                <p><strong>Code Example (HTML Template):</strong>
+                    We attach the event listener directly to the element the user clicks:</p>
+                <pre><code class="lang-html">&lt;span <span class="hljs-keyword">class</span>=<span class="hljs-string">"icon is-small"</span> v-<span class="hljs-keyword">on</span>:click=<span class="hljs-string">"upvote(submission.id)"</span>&gt;
+  &lt;i <span class="hljs-keyword">class</span>=<span class="hljs-string">"fa fa-chevron-up"</span>&gt;&lt;/i&gt;
+&lt;/span&gt;
+</code></pre>
+                <ul>
+                    <li><code>v-on:click</code>: This tells Vue to listen for a click event.</li>
+                    <li><code>&quot;upvote(submission.id)&quot;</code>: When the click happens, run the method named
+                        <code>upvote</code> and pass the unique ID of the current item to it.</li>
+                </ul>
+                <p><strong>Code Example (Vue Instance - main.js):</strong>
+                    You define the <code>upvote</code> function inside the <code>methods</code> property of the Vue
+                    instance.</p>
+                <pre><code class="lang-javascript"><span class="hljs-symbol">new</span> Vue({
+  // ... <span class="hljs-meta">data</span> <span class="hljs-keyword">and </span>computed properties here
+<span class="hljs-symbol">  methods:</span> {
+    upvote(<span class="hljs-keyword">submissionId) </span>{
+      // <span class="hljs-number">1</span>. Find the <span class="hljs-keyword">item </span>that matches the ID passed in
+      const <span class="hljs-keyword">submission </span>= this.<span class="hljs-keyword">submissions.find(
+</span>        <span class="hljs-keyword">submission </span>=&gt; <span class="hljs-keyword">submission.id </span>=== <span class="hljs-keyword">submissionId
+</span>      )<span class="hljs-comment">;</span>
+      // <span class="hljs-number">2</span>. Increase <span class="hljs-keyword">its </span>vote count <span class="hljs-keyword">by </span><span class="hljs-number">1</span>.
+      <span class="hljs-keyword">submission.votes++;
+</span>    }
+  }
+})<span class="hljs-comment">;</span>
+</code></pre>
+                <p>When <code>submission.votes</code> increases, Vue automatically detects the change, and the
+                    <code>sortedSubmissions</code> computed property re-runs, instantly updating the list order on the
+                    screen. This is called <strong>reactive state</strong>.</p>
+                <h3 id="step-8-components-building-blocks-">Step 8: Components (Building Blocks)</h3>
+                <p><strong>For large applications, putting everything in one big file is messy. Components help you
+                        organize your code into small, reusable pieces.</strong>
+                    A <strong>component</strong> is an isolated module that groups together its own design (HTML),
+                    behavior (JavaScript logic), and sometimes styling (CSS). This makes the code easier to maintain and
+                    reuse.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> If your whole app is a building, the main Vue instance is the
+                        blueprint for the whole building, but components are the standardized parts, like windows,
+                        doors, or entire standardized apartments, which you can use many times.</li>
+                </ul>
+                <p><strong>Parent-Child Relationship</strong>
+                    In the UpVote! app, the main Vue instance (the <code>new Vue({})</code> part) becomes the
+                    <strong>parent</strong>, and the individual submission item becomes a <strong>child
+                        component</strong>.</p>
+                <p><strong>1. Define the Child Component (main.js):</strong>
+                    We define the component logic and template separately:</p>
+                <pre><code class="lang-javascript">const submissionComponent = {
+  <span class="hljs-comment">// The design (HTML) for ONE submission item</span>
+  template: `&lt;div&gt;... all the HTML for one submission ...&lt;/div&gt;`,
+
+  <span class="hljs-comment">// What data this component receives from its parent</span>
+  props: [<span class="hljs-string">'submission'</span>, <span class="hljs-string">'submissions'</span>],
+
+  <span class="hljs-comment">// The methods that run when this component is interacted with</span>
+  methods: {
+    upvote(submissionId) {
+      <span class="hljs-comment">// ... upvote logic using this.submissions ...</span>
+    }
+  }
+};
+</code></pre>
+                <ul>
+                    <li><code>template</code>: Contains the HTML markup for a single submission item.</li>
+                    <li><strong>Props:</strong> This is how the parent component sends data <em>down</em> to the child
+                        component. The child must explicitly declare the data names it expects (here:
+                        <code>submission</code> details and the main <code>submissions</code> list).</li>
+                </ul>
+                <p><strong>2. Register the Child Component (main.js):</strong>
+                    You register the child component inside the parent Vue instance so the parent knows about it:</p>
+                <pre><code class="lang-javascript"><span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Vue</span>({
+  <span class="hljs-attribute">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-comment">// ... data and computed properties here</span>
+  <span class="hljs-attribute">components</span>: {
+    <span class="hljs-string">'submission-component'</span>: submissionComponent
+  }
+});
+</code></pre>
+                <p><strong>3. Use the Child Component (HTML Template):</strong>
+                    In the parent&#39;s HTML, you use the component like any other HTML tag inside your
+                    <code>v-for</code> loop:</p>
+                <pre><code class="lang-html">&lt;article v-<span class="hljs-keyword">for</span>=<span class="hljs-string">"submission in sortedSubmissions"</span> v-bind:key=<span class="hljs-string">"submission.id"</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"media"</span>&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">submission-component</span>
+    <span class="hljs-attr">v-bind:submission</span>=<span class="hljs-string">"submission"</span>
+    <span class="hljs-attr">v-bind:submissions</span>=<span class="hljs-string">"sortedSubmissions"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">submission-component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span>
+</code></pre>
+                <ul>
+                    <li><code>v-bind:submission=&quot;submission&quot;</code>: This passes the current item data
+                        (<code>submission</code>) down as a <strong>prop</strong> named <code>submission</code> to the
+                        child component.</li>
+                </ul>
+                <hr>
+                <h3 id="summary-and-practical-advice">Summary and Practical Advice</h3>
+                <h4 id="short-chapter-summary">Short Chapter Summary</h4>
+                <p>Chapter 1 introduces the core fundamentals of building a Vue application by creating the UpVote!
+                    voting app. Key ideas include defining the Vue instance (<code>new Vue</code>) and mounting it to
+                    the DOM (<code>el: &#39;#app&#39;</code>) to control a view. We learned data binding using
+                    <code>{{ }}</code> for text and <code>v-bind</code> (or <code>:</code>) for attributes, and how
+                    <code>v-for</code> renders lists. Finally, we implemented interactivity with <code>v-on</code> (or
+                    <code>@</code>) to run methods and used components and <code>props</code> to organize the
+                    application into reusable blocks.</p>
+                <h4 id="main-key-ideas-to-remember">Main Key Ideas to Remember</h4>
+                <ol>
+                    <li><strong>The Vue Instance is the Start:</strong> Everything begins with <code>new Vue()</code>
+                        controlling an area of your HTML (<code>el</code>).</li>
+                    <li><strong>Reactivity is Automatic:</strong> When data in your <code>data</code> property changes,
+                        the HTML that is bound to it updates instantly.</li>
+                    <li><strong>Use Computed Properties for Logic:</strong> Use <code>computed</code> properties for any
+                        calculation (like sorting or filtering) that depends on existing data, as they update
+                        automatically.</li>
+                    <li><strong>Components and Props:</strong> Break your app into small components for organization,
+                        and always pass data <em>down</em> from parent to child using <code>props</code>.</li>
+                </ol>
+                <h4 id="2-3-practical-examples-i-can-try-right-away">2–3 Practical Examples I Can Try Right Away</h4>
+                <ol>
+                    <li><strong>Dynamic Welcome Message:</strong> Create a Vue instance with
+                        <code>data: { name: &#39;Ali&#39; }</code>. In your HTML, use
+                        <code>&lt;h1&gt;Welcome, {{ name }}!&lt;/h1&gt;</code>. Change the <code>name</code> value in
+                        the console (e.g., <code>vm.name = &#39;Ahmed&#39;</code>) to see the screen update immediately.
+                    </li>
+                    <li><strong>Simple Counter Button:</strong> Create a data property <code>count: 0</code>. In your
+                        HTML, show the count <code>{{ count }}</code> next to a button
+                        <code>&lt;button @click=&quot;count++&quot;&gt;Increase&lt;/button&gt;</code>. Every click will
+                        update the count instantly.</li>
+                </ol>
+                <h4 id="3-quick-tips-to-help-apply-what-i-learned">3 Quick Tips to Help Apply What I Learned</h4>
+                <ol>
+                    <li><strong>Use Shorthands:</strong> Always use the quick syntax: <code>:</code> instead of
+                        <code>v-bind:</code> and <code>@</code> instead of <code>v-on:</code> to keep your HTML clean.
+                    </li>
+                    <li><strong>Start with Data:</strong> Before writing HTML, define <em>all</em> the data your
+                        component needs in the <code>data</code> object first.</li>
+                    <li><strong>Use Computed for Sorting/Filtering:</strong> If you need to manipulate a list before
+                        displaying it (like sorting votes or filtering products), always use a <code>computed</code>
+                        property for that task.</li>
+                </ol>
+                <h4 id="3-short-quiz-questions-to-test-basic-understanding">3 Short Quiz Questions to Test Basic
+                    Understanding</h4>
+                <ol>
+                    <li>What is the main purpose of a <strong>Vue Instance</strong>?</li>
+                    <li>Which Vue directive do you use to repeat an HTML block for every item in an array?</li>
+                    <li>If a parent component wants to send data down to a child component, what mechanism must it use?
+                    </li>
+                </ol>
 
 
 

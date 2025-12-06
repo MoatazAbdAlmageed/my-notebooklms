@@ -16,6 +16,268 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <p>Ahlan! Chapter 2 is a very important step. In Chapter 1, you learned the basic pieces of Vue, but
+                    everything was in one big file. In Chapter 2, <strong>Single-file components</strong>, we learn how
+                    to organize a bigger application professionally using special file types and tools like Webpack and
+                    npm. This makes your code much cleaner and easier to manage as your app grows.</p>
+                <p>In this chapter, you build a simple <strong>Calendar App</strong> that manages day-to-day events.</p>
+                <hr>
+                <h3 id="step-1-setting-up-your-development-environment">Step 1: Setting up Your Development Environment
+                </h3>
+                <p><strong>To build professional Vue apps, you need a powerful setup.</strong>
+                    In Chapter 1, we used a simple setup by loading Vue from a CDN (a link on the internet). For larger
+                    applications, professional developers use tools like <strong>Node.js</strong> and
+                    <strong>npm</strong> (Node Package Manager).</p>
+                <ul>
+                    <li><strong>Node.js (The JavaScript Runner):</strong> This lets you run JavaScript code outside of a
+                        web browser (like running programs on your computer). You need this to run the build tools.</li>
+                    <li><strong>npm (The Package Helper):</strong> This tool helps you install, manage, and run all the
+                        necessary software packages (like Vue itself, or Webpack) that your application needs.</li>
+                </ul>
+                <p><strong>You need a smart tool to bundle everything together.</strong>
+                    When you start working with advanced files (like the <code>.vue</code> files we will see next), the
+                    browser cannot understand them directly. <strong>Webpack</strong> is the tool that bundles
+                    (packages) all your files and complex code into simple JavaScript files that the browser can read.
+                    To run Webpack projects, you use npm commands like <code>npm install</code> (to get all the
+                    necessary packages) and <code>npm run serve</code> or <code>npm run start</code> (to run the
+                    application and see it in your browser, often at <code>http://localhost:8080</code>).</p>
+                <hr>
+                <h3 id="step-2-single-file-components-sfcs-">Step 2: Single-File Components (SFCs)</h3>
+                <p><strong>Professional apps keep the code for each part organized in one place.</strong>
+                    In Chapter 1, our components used a separate JavaScript object for logic and a string for the
+                    template (HTML). This becomes messy quickly. The solution is the <strong>Single-File Component
+                        (SFC)</strong>.</p>
+                <ul>
+                    <li>
+                        <p><strong>SFCs are special <code>.vue</code> files.</strong> They put the HTML, JavaScript, and
+                            CSS for a single component all together in one file.</p>
+                    </li>
+                    <li>
+                        <p><strong>Analogy:</strong> If a regular component is like having separate papers for the
+                            design (HTML), instructions (JS), and colors (CSS), an SFC is like having a perfectly
+                            organized binder for just one specific part of your app.</p>
+                    </li>
+                </ul>
+                <p>A single-file component has three main parts (tags):</p>
+                <ol>
+                    <li><strong><code>&lt;template&gt;</code>:</strong> Contains the component&#39;s design in plain
+                        HTML markup.</li>
+                    <li><strong><code>&lt;script&gt;</code>:</strong> Exports the component&#39;s JavaScript logic,
+                        including its data, methods, and props.</li>
+                    <li><strong><code>&lt;style&gt;</code>:</strong> Holds the CSS rules for the component. You can add
+                        the word <code>scoped</code> to this tag so the styles only apply to this component and do not
+                        affect other parts of your app.</li>
+                </ol>
+                <p><strong>Code Example (MyComponent.vue):</strong></p>
+                <pre><code class="lang-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span><span class="hljs-template-variable">{{ getGreeting }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is the Hello World component.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'MyComponent'</span>, <span class="hljs-comment">// Name for debugging/devtools</span>
+  data () {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">reversedGreeting</span>: <span class="hljs-string">'!dlrow olleH'</span> <span class="hljs-comment">// The data needed by this component</span>
+    }
+  },
+  <span class="hljs-attr">computed</span>: {
+    getGreeting() {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reversedGreeting.split(<span class="hljs-string">""</span>).reverse().join(<span class="hljs-string">""</span>); <span class="hljs-comment">// Logic</span>
+    }
+  }
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"scss"</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+<span class="hljs-comment">/* CSS rules that only apply here */</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span>
+</code></pre>
+                <hr>
+                <h3 id="step-3-organizing-the-app-with-component-hierarchy">Step 3: Organizing the App with Component
+                    Hierarchy</h3>
+                <p><strong>To manage complexity, you must break the application into small, manageable pieces.</strong>
+                    In the Calendar App, you split the whole interface (the Parent <strong>App</strong> component) into
+                    smaller parts like <strong>CalendarWeek</strong> and <strong>CalendarEntry</strong> (which are
+                    siblings). Then, <strong>CalendarWeek</strong> is broken down further into multiple
+                    <strong>CalendarDay</strong> components, and <strong>CalendarDay</strong> is broken into
+                    <strong>CalendarEvent</strong> components.</p>
+                <ul>
+                    <li><strong>Component-Based Architecture</strong> is the practice of splitting an interface into
+                        these self-contained modules based on function.</li>
+                </ul>
+                <p><strong>The data flow between these pieces must be clear.</strong></p>
+                <ol>
+                    <li><strong>Parent to Child:</strong> Data moves <em>down</em> the hierarchy using
+                        <strong>Props</strong>. For example, CalendarWeek passes the details for a single day down to
+                        the CalendarDay component.</li>
+                    <li><strong>Child to Parent:</strong> Data moves <em>up</em> the hierarchy using <strong>Custom
+                            Events</strong> (we will look at this more in Chapter 3). The child announces something
+                        happened, and the parent listens for it.</li>
+                    <li><strong>Sibling to Sibling:</strong> Components next to each other (like CalendarDay and
+                        CalendarEntry) cannot share data directly using Props or Custom Events. This requires a special
+                        method called <strong>State Management</strong>.</li>
+                </ol>
+                <hr>
+                <h3 id="step-4-two-way-data-binding-for-forms-v-model-">Step 4: Two-Way Data Binding for Forms
+                    (<code>v-model</code>)</h3>
+                <p><strong>Forms need a special way to keep the user input synchronized with the data.</strong>
+                    When you have an input field (like a text box) in a form, you need its value to instantly update a
+                    data variable in your JavaScript, and if the JavaScript variable changes, the input field should
+                    instantly update too. This is <strong>two-way data binding</strong>.</p>
+                <ul>
+                    <li>
+                        <p><strong>Directive:</strong> You use the <code>v-model</code> directive for this.</p>
+                    </li>
+                    <li>
+                        <p><strong>Practical Example:</strong> In the Calendar App, if the user types event details into
+                            an input box in the <code>CalendarEntry</code> component, you use <code>v-model</code> to
+                            link that input directly to a data property like <code>inputEntry</code>.</p>
+                    </li>
+                </ul>
+                <p><strong>Code Example (In CalendarEntry.vue):</strong></p>
+                <pre><code class="lang-html">&lt;input <span class="hljs-class"><span class="hljs-keyword">type</span></span>=<span class="hljs-string">"text"</span> placeholder=<span class="hljs-string">"New Event"</span> v-model=<span class="hljs-string">"inputEntry"</span> /&gt;
+</code></pre>
+                <pre><code class="lang-javascript">// In the <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"> section <span class="hljs-keyword">of</span> CalendarEntry.vue
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  data () {
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">inputEntry</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// This property stays synced with the input field</span>
+    }
+  }
+}</span>
+</code></pre>
+                <ul>
+                    <li><code>v-model=&quot;inputEntry&quot;</code>: This line tells Vue to connect this input box
+                        directly to the <code>inputEntry</code> data variable. If the user types &quot;Meeting&quot;,
+                        the <code>inputEntry</code> variable instantly becomes &quot;Meeting&quot;.</li>
+                </ul>
+                <hr>
+                <h3 id="step-5-simple-state-management-the-shared-notebook-">Step 5: Simple State Management (The Shared
+                    Notebook)</h3>
+                <p><strong>When distant components need to share data, they use a central &quot;Store.&quot;</strong>
+                    Since sibling components cannot talk directly using props or events, they need a middleman to manage
+                    shared data. This is called the <strong>Simple State Management</strong> pattern, often implemented
+                    by creating a single, shared object called the <strong>Store</strong>.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> Imagine three students (components) working on a project, but they
+                        can&#39;t talk to each other. They decide to use a central notebook (the Store) to write down
+                        important shared information.</li>
+                </ul>
+                <p><strong>The Store defines the data and the official ways to change it.</strong>
+                    The Store contains the application&#39;s data (<strong>State</strong>). It also defines specific
+                    functions to change that data (<strong>Mutations</strong> or <strong>Actions</strong>). Components
+                    read data from the Store and tell the Store to run an action when they need a change.</p>
+                <ul>
+                    <li><strong>Store Structure (Simplified):</strong>
+                        <ul>
+                            <li><code>state</code>: Holds all the shared data (like the calendar days and events).</li>
+                            <li><code>mutations</code>/<code>actions</code>: The official functions used to update the
+                                <code>state</code>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Practical Example:</strong> In the Calendar App, <code>CalendarDay</code> and
+                    <code>CalendarEntry</code> need to know which day is currently active.</p>
+                <ol>
+                    <li>
+                        <p><strong>Store Setup (store.js):</strong></p>
+                        <pre><code class="lang-javascript">export const store = {
+  <span class="hljs-keyword">state</span>: {
+    seedData: [...] // Contains <span class="hljs-literal">all</span> days and events
+  },
+  // Mutation/Action <span class="hljs-keyword">to</span> change the active day:
+  <span class="hljs-built_in">set</span>ActiveDay (dayId) {
+    this.<span class="hljs-keyword">state</span>.seedData.map((dayObj) =&gt; { // This function runs when asked
+      dayObj.id === dayId ? dayObj.active = true : dayObj.active = false;
+    });
+  }
+};
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Component Reads Data (CalendarWeek.vue):</strong> Components import the store and
+                            create a local reference to the shared state.</p>
+                        <pre><code class="lang-javascript">// In CalendarWeek.vue <span class="hljs-variable">&lt;script&gt;</span>
+import { store } <span class="hljs-keyword">from</span> '../store.js';
+export <span class="hljs-keyword">default</span> {
+  data () { return { sharedState: store.<span class="hljs-keyword">state</span> } } // Component gets the shared <span class="hljs-keyword">state</span>
+}
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Component Calls Action (CalendarDay.vue):</strong> When a user clicks a day, the
+                            <code>CalendarDay</code> component calls the Store&#39;s action.</p>
+                        <pre><code class="lang-javascript"><span class="hljs-comment">// In CalendarDay.vue &lt;template&gt;</span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"day column"</span> @click=<span class="hljs-string">"setActiveDay(day.id)"</span>&gt; <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> <span class="hljs-comment">// Runs component method</span>
+
+<span class="hljs-comment">// In CalendarDay.vue &lt;script&gt;</span>
+methods: {
+  setActiveDay (dayId) {
+    store.setActiveDay(dayId); <span class="hljs-comment">// Tells the shared Store to change the active day</span>
+  }
+}
+</code></pre>
+                    </li>
+                </ol>
+                <p>When <code>store.setActiveDay</code> runs, the <code>state</code> changes. Because of Vue&#39;s
+                    <strong>reactivity</strong>, any component relying on the <code>state</code> (like
+                    <code>CalendarEntry</code> displaying the active day&#39;s title) automatically updates.</p>
+                <hr>
+                <h3 id="summary-and-practical-advice">Summary and Practical Advice</h3>
+                <h4 id="short-chapter-summary">Short Chapter Summary</h4>
+                <p>Chapter 2 moves from simple web pages to building large, maintainable applications using professional
+                    tools like Webpack and npm. The core concept introduced is the <strong>Single-File Component
+                        (SFC)</strong> (files ending in <code>.vue</code>), which keeps a component&#39;s HTML, JS, and
+                    CSS together. We also learned how components communicate, using <strong>Props</strong> for
+                    parent-to-child data flow. For managing shared data across the app (like between sibling
+                    components), we introduced the <strong>Simple Store Pattern</strong>, ensuring all data manipulation
+                    happens in a centralized location. Finally, for form inputs, the <code>v-model</code> directive
+                    provides easy two-way data binding.</p>
+                <h4 id="main-key-ideas-to-remember">Main Key Ideas to Remember</h4>
+                <ol>
+                    <li><strong>Use Single-File Components (.vue):</strong> This is the best way to keep the code for a
+                        component (template, script, style) organized and reusable.</li>
+                    <li><strong>State Management Centralization:</strong> Any data that needs to be shared between
+                        non-related components should be kept in a central <strong>Store</strong> (or Vuex, for larger
+                        apps).</li>
+                    <li><strong>One-Way Data Flow (Props) vs. Centralized State:</strong> Use <code>props</code> for
+                        direct parent-to-child communication, but use the <code>Store</code> for global application data
+                        changes.</li>
+                </ol>
+                <h4 id="2-3-practical-examples-i-can-try-right-away">2–3 Practical Examples I Can Try Right Away</h4>
+                <ol>
+                    <li><strong>SFC Structure:</strong> Create a file named <code>UserProfile.vue</code>. Add
+                        <code>&lt;template&gt;</code>, <code>&lt;script&gt;</code>, and
+                        <code>&lt;style scoped&gt;</code> tags inside it. Put a simple
+                        <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> in the template to understand the basic structure.</li>
+                    <li><strong>Simple v-model:</strong> Create an input field using
+                        <code>&lt;input type=&quot;text&quot; v-model=&quot;message&quot;&gt;</code>. In your script,
+                        define <code>data: { message: &#39;&#39; }</code>. Show the user input instantly below the box
+                        using <code>{{ message }}</code>.</li>
+                </ol>
+                <h4 id="3-quick-tips-to-help-apply-what-i-learned">3 Quick Tips to Help Apply What I Learned</h4>
+                <ol>
+                    <li><strong>Define Structure First:</strong> Always follow the recommended steps: start with the
+                        static look, then break it into components, and <em>then</em> add the data logic.</li>
+                    <li><strong>Style Locally:</strong> When writing CSS in your SFC&#39;s <code>&lt;style&gt;</code>
+                        tag, always add the <code>scoped</code> attribute so you don&#39;t accidentally change the look
+                        of another component.</li>
+                    <li><strong>Use <code>v-model</code> for Inputs:</strong> For any form input, use
+                        <code>v-model</code> to instantly manage the link between the input field and your
+                        component&#39;s data.</li>
+                </ol>
+                <h4 id="3-short-quiz-questions-to-test-basic-understanding">3 Short Quiz Questions to Test Basic
+                    Understanding</h4>
+                <ol>
+                    <li>What three sections (tags) must a <strong>Single-File Component</strong> (<code>.vue</code>
+                        file) contain?</li>
+                    <li>Which directive do you use to quickly achieve two-way data binding in an HTML
+                        <code>&lt;input&gt;</code> element?</li>
+                    <li>If Component A and Component B are next to each other (siblings), what pattern do they use to
+                        share data?</li>
+                </ol>
 
 
 

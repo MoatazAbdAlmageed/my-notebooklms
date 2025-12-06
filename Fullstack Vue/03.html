@@ -17,6 +17,207 @@
         <div class="row">
             <div class="col-12">
 
+                <p>Ahlan! Chapter 3 is all about <strong>Custom Events</strong> and how different parts of your
+                    application (components) talk to each other, especially when data needs to move in the opposite
+                    direction from what you learned with Props. You will build a simple <strong>Note-Taking
+                        Application</strong> to learn these ideas.</p>
+                <hr>
+                <h3 id="step-1-understanding-why-components-need-to-talk">Step 1: Understanding Why Components Need to
+                    Talk</h3>
+                <p><strong>In large applications, components need clear ways to share information.</strong>
+                    In Chapter 1 and 2, we learned that a Parent component sends data to a Child component using
+                    <strong>Props</strong> (the data flows down, Parent to Child). But what if the Child component does
+                    something important, like a user clicking a button, and the <strong>Parent needs to know</strong>?
+                    The Child cannot use props to talk back up.</p>
+                <p><strong>Vue Custom Events</strong> are the solution for communication that goes from the
+                    <strong>Child back up to the Parent</strong> component,.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> If Props are like a Parent giving a Child money for lunch, Custom
+                        Events are like the Child calling the Parent to say, &quot;I finished lunch!&quot;</li>
+                </ul>
+                <h3 id="step-2-emitting-custom-events-child-talking-up-">Step 2: Emitting Custom Events (Child Talking
+                    Up)</h3>
+                <p><strong>The Child component announces or &#39;shouts&#39; a message to its Parent.</strong>
+                    When a specific user action happens inside the Child component (like pressing &quot;Enter&quot; in
+                    an input box in the note-taking app), the Child component uses the special function
+                    <strong><code>$emit</code></strong> to announce a named event,.</p>
+                <ul>
+                    <li><strong>Syntax:</strong> <code>$emit(&#39;nameOfEvent&#39;)</code>,.</li>
+                    <li>The Child can also pass information (a <strong>payload</strong>) along with the announcement,
+                        which is often a data object,.</li>
+                </ul>
+                <p><strong>Practical Example: Emitting a new note</strong>
+                    In the note-taking app, the input field is inside the <code>input-component</code> (the Child). When
+                    the user types a note and presses the &quot;Enter&quot; key, the Child needs to send that note (the
+                    payload) up to the main Vue instance (the Parent).</p>
+                <p><strong>Code Example (Inside the Child Component&#39;s <code>&lt;script&gt;</code> methods):</strong>
+                </p>
+                <pre><code class="lang-javascript">monitorEnterKey() {
+  <span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'add-note'</span>, { <span class="hljs-comment">// Announce the event 'add-note'</span>
+    note: <span class="hljs-keyword">this</span>.input,      <span class="hljs-comment">// Pass the text the user typed (the note)</span>
+    timestamp: new Date().toLocaleString() <span class="hljs-comment">// Pass the time</span>
+  });
+  <span class="hljs-keyword">this</span>.input = <span class="hljs-string">''</span>; <span class="hljs-comment">// Clear the input field for the next note</span>
+}
+</code></pre>
+                <ul>
+                    <li><code>this.$emit(&#39;add-note&#39;, { ... })</code>: This line tells Vue to fire a custom event
+                        named <code>add-note</code>.</li>
+                    <li>The object <code>{ note: this.input, timestamp: ... }</code> is the data payload attached to the
+                        event.</li>
+                </ul>
+                <p>This <code>monitorEnterKey()</code> method is attached to the input field using the
+                    <code>@keyup.enter</code> shortcut,.</p>
+                <h3 id="step-3-listening-for-custom-events-parent-hearing-the-child-">Step 3: Listening for Custom
+                    Events (Parent Hearing the Child)</h3>
+                <p><strong>The Parent component listens for the specific message the Child announced.</strong>
+                    The Parent component uses the familiar <strong><code>v-on</code></strong> directive (or the shortcut
+                    <strong><code>@</code></strong>) on the Child component&#39;s declaration in its template to listen
+                    for custom events,.</p>
+                <p><strong>When the Parent hears the event, it runs a function (a method) to handle the data.</strong>
+                    When the Parent sets up the listener, Vue automatically passes the data payload (what the Child sent
+                    with <code>$emit</code>) as the first argument to the Parent&#39;s handling method,.</p>
+                <p><strong>Practical Example: Parent handling the new note</strong>
+                    The main Vue instance (Parent) needs to display the note and timestamp.</p>
+                <p><strong>Code Example (Inside the Parent Component&#39;s template):</strong></p>
+                <pre><code class="lang-html">&lt;input-component <span class="hljs-variable">@add</span>-note=<span class="hljs-string">"addNote"</span> <span class="hljs-symbol">:placeholder=<span class="hljs-string">"placeholder"</span>&gt;&lt;/input-component&gt;</span>
+</code></pre>
+                <ul>
+                    <li><code>@add-note=&quot;addNote&quot;</code>: This tells the Parent, &quot;When the
+                        <code>input-component</code> shouts &#39;add-note&#39;, run my <code>addNote</code>
+                        function&quot;,.</li>
+                </ul>
+                <p><strong>Code Example (Inside the Parent Component&#39;s <code>&lt;script&gt;</code>
+                        methods):</strong></p>
+                <pre><code class="lang-javascript"><span class="hljs-comment">// This method runs when the Parent hears 'add-note'</span>
+addNote(<span class="hljs-keyword">event</span>) {
+  <span class="hljs-comment">// 'event' here is the payload object sent by the Child</span>
+  <span class="hljs-keyword">this</span>.notes.push(<span class="hljs-keyword">event</span>.note);         <span class="hljs-comment">// Add the note text to the parent's data list</span>
+  <span class="hljs-keyword">this</span>.timestamps.push(<span class="hljs-keyword">event</span>.timestamp); <span class="hljs-comment">// Add the timestamp to the parent's data list</span>
+}
+</code></pre>
+                <ul>
+                    <li>The <code>event</code> parameter contains the payload object
+                        (<code>{ note: &#39;...&#39;, timestamp: &#39;...&#39; }</code>).</li>
+                    <li>When <code>this.notes</code> and <code>this.timestamps</code> (which are part of the Vue
+                        Instance&#39;s data) are updated, the screen automatically re-renders using the
+                        <code>v-for</code> directives placed in the HTML template.</li>
+                </ul>
+                <h3 id="step-4-the-event-bus-global-communication-">Step 4: The Event Bus (Global Communication)</h3>
+                <p><strong>Sometimes, two components that are not Parent/Child (like distant cousins) need to talk to
+                        each other.</strong>
+                    If Component A and Component B are siblings (or far apart in the component tree), they cannot use
+                    direct Custom Events because A is not the Parent of B,. This requires a <strong>Global Event
+                        Bus</strong>,.</p>
+                <ul>
+                    <li><strong>Analogy:</strong> An Event Bus is like a central radio station. Any component can tune
+                        in to listen (<code>$on</code>) or broadcast a message (<code>$emit</code>),.</li>
+                </ul>
+                <p><strong>How to create and use an Event Bus:</strong></p>
+                <ol>
+                    <li>
+                        <p><strong>Create the Bus:</strong> An Event Bus is simply a new, separate Vue instance.</p>
+                        <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> EventBus = <span class="hljs-keyword">new</span> Vue(); <span class="hljs-comment">// The central radio station</span>
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Broadcast (Emit) Globally:</strong> A component sends a message using the Bus&#39;s
+                            <code>$emit</code> function instead of its own,.</p>
+                        <ul>
+                            <li><em>Example (Child Component):</em>
+                                <code>EventBus.$emit(&#39;add-note&#39;, payload);</code>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Listen Globally:</strong> Any component in the app can listen for that event using
+                            the Bus&#39;s special listener function, <strong><code>$on</code></strong>.</p>
+                    </li>
+                </ol>
+                <p><strong>When to listen (<code>$on</code>): Lifecycle Hooks</strong></p>
+                <p><strong>You must tell the component when to start listening for global announcements.</strong>
+                    When a component is created, destroyed, or updated, Vue runs special built-in functions called
+                    <strong>Lifecycle Hooks</strong>. The perfect time to tell a component to start listening to the
+                    Event Bus is right after it is created and ready, which is the <strong><code>created()</code>
+                        hook</strong>,.</p>
+                <ul>
+                    <li><strong>The <code>created()</code> hook</strong> runs immediately after a Vue instance (or
+                        component) is created and before it is placed on the screen,.</li>
+                </ul>
+                <p><strong>Practical Example: Updating a Note Counter</strong>
+                    Imagine you add a new component, <code>note-count-component</code>, which is a sibling of the input
+                    component. It must know when the input component submits a new note.</p>
+                <p><strong>Code Example (Inside the NoteCountComponent&#39;s <code>&lt;script&gt;</code>):</strong></p>
+                <pre><code class="lang-javascript">created() {
+  <span class="hljs-comment">// When this component is created, it tunes into the radio station (EventBus)</span>
+  EventBus.$<span class="hljs-keyword">on</span>(<span class="hljs-string">'add-note'</span>, <span class="hljs-keyword">event</span> =&gt; <span class="hljs-keyword">this</span>.noteCount++); <span class="hljs-comment">// When it hears 'add-note', it increases its count</span>
+}
+</code></pre>
+                <ul>
+                    <li><code>created()</code>: This hook runs once when the component is born.</li>
+                    <li><code>EventBus.$on(&#39;add-note&#39;, ...)</code>: This sets up the permanent listener,.</li>
+                    <li>This setup allows the Input Component to talk to the Note Count Component, even though they are
+                        separate pieces of the application.</li>
+                </ul>
+                <hr>
+                <h3 id="summary-and-practical-advice">Summary and Practical Advice</h3>
+                <h4 id="short-chapter-summary">Short Chapter Summary</h4>
+                <p>Chapter 3 focuses on component communication, specifically moving data from a Child up to a Parent
+                    using <strong>Custom Events</strong>. This is achieved by the Child component announcing a message
+                    using the <strong><code>$emit</code></strong> method, and the Parent component listening for that
+                    named event using the <code>@</code> (or <code>v-on</code>) directive on the Child&#39;s tag,. For
+                    communication between components that are not directly related (siblings or distant relatives), a
+                    <strong>Global Event Bus</strong> (a separate Vue instance) is used. Components typically start
+                    listening to the Event Bus announcements using the <strong><code>created()</code> Lifecycle
+                        Hook</strong>.</p>
+                <h4 id="main-key-ideas-to-remember">Main Key Ideas to Remember</h4>
+                <ol>
+                    <li><strong>Communication Up (Child to Parent):</strong> Use Custom Events (<code>$emit</code> in
+                        the child, <code>@event-name</code> in the parent),.</li>
+                    <li><strong>Lifecycle Hooks:</strong> These functions (<code>created()</code>,
+                        <code>updated()</code>, etc.) run automatically at different stages of a component&#39;s life
+                        and are perfect for setting up listeners.</li>
+                    <li><strong>Event Bus for Global Talk:</strong> Use a separate Vue instance (the Event Bus) for
+                        components that need to talk but don&#39;t have a direct parent-child relationship,.</li>
+                    <li><strong>Avoid Global Bus for Large Apps:</strong> While simple, the global Event Bus is
+                        <strong>not the recommended way</strong> for managing complex application data because it makes
+                        changes difficult to track,,. For serious data management, <strong>Vuex</strong> is preferred.
+                    </li>
+                </ol>
+                <h4 id="2-3-practical-examples-i-can-try-right-away">2–3 Practical Examples I Can Try Right Away</h4>
+                <ol>
+                    <li><strong>Child Button Notification:</strong> Create a button component (Child) with an
+                        <code>@click</code> handler that calls
+                        <code>this.$emit(&#39;button-clicked&#39;, &#39;Hello!&#39;)</code>. In the main Vue instance
+                        (Parent), include the button:
+                        <code>&lt;child-button @button-clicked=&quot;showMessage&quot;&gt;&lt;/child-button&gt;</code>,
+                        where <code>showMessage</code> simply displays the &quot;Hello!&quot; message.</li>
+                    <li><strong>Event Bus for Header Update:</strong> Create a global <code>EventBus</code>. In one
+                        component, include a button that runs
+                        <code>EventBus.$emit(&#39;update-title&#39;, &#39;New Title&#39;)</code>. In a completely
+                        separate component (like a header), use the <code>created()</code> hook to listen:
+                        <code>EventBus.$on(&#39;update-title&#39;, (title) =&gt; { this.headerText = title; })</code>.
+                    </li>
+                </ol>
+                <h4 id="3-quick-tips-to-help-apply-what-i-learned">3 Quick Tips to Help Apply What I Learned</h4>
+                <ol>
+                    <li><strong>Use <code>created()</code> for Setup:</strong> If you need to fetch initial data, set up
+                        global listeners, or configure anything that runs once when the component starts, use the
+                        <strong><code>created()</code></strong> hook.</li>
+                    <li><strong>Be Clear with Names:</strong> Give your custom events clear, simple names (e.g.,
+                        <code>add-note</code>, <code>item-deleted</code>) so the Parent knows exactly what the Child
+                        did.</li>
+                    <li><strong>Check the Payload:</strong> Always remember that the function listening in the Parent
+                        component automatically receives the data sent by the Child as the first argument (the payload
+                        or <code>event</code> object).</li>
+                </ol>
+                <h4 id="3-short-quiz-questions-to-test-basic-understanding">3 Short Quiz Questions to Test Basic
+                    Understanding</h4>
+                <ol>
+                    <li>If a Child component needs to send data up to its Parent, what function must it use?</li>
+                    <li>Which special function runs right after a Vue component is initialized and ready to go?</li>
+                    <li>Why is using a Global Event Bus discouraged for managing core data in very large applications?
+                    </li>
+                </ol>
 
 
 
