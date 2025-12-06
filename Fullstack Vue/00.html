@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en" dir="ltr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <p>Ahlan! Welcome! I am very happy to help you learn about this book. Don&#39;t worry, learning Vue.js is fun,
+          and we will explain everything step-by-step using clear and easy words, just like we do in Egypt—simple and
+          practical!</p>
+        <p>This book, <em>Fullstack Vue: The Complete Guide to Vue.js and Friends</em>, is a complete guide to learning
+          how to build strong and dependable web applications using Vue.js.</p>
+        <p>Vue.js is a special kind of JavaScript tool because it is &quot;progressive&quot;. This means you can start
+          with a very small, simple application (like adding one line of code to your HTML) and later build it up into a
+          very large, complex application as your skills grow.</p>
+        <hr>
+        <h3 id="step-1-your-first-vue-js-application-chapter-i-">Step 1: Your First Vue.js Application (Chapter I)</h3>
+        <p>This chapter teaches you the basic building blocks of Vue:</p>
+        <h4 id="1-the-vue-instance-the-engine-">1. The Vue Instance (The Engine)</h4>
+        <p>Every Vue application starts with a <strong>Vue Instance</strong>. Think of it as the brain or engine of your
+          application. You tell this engine which part of your HTML page it should control.</p>
+        <ul>
+          <li><strong>Simple Example:</strong>
+            If you have a <code>&lt;div&gt;</code> in your HTML with <code>id=&quot;app&quot;</code>, you tell Vue to
+            control it by writing:
+            <pre><code class="lang-javascript"><span class="hljs-selector-tag">new</span> <span class="hljs-selector-tag">Vue</span>({
+  <span class="hljs-attribute">el</span>: <span class="hljs-string">'#app'</span> // Control the element with ID <span class="hljs-string">'app'</span>
+});
+</code></pre>
+          </li>
+        </ul>
+        <h4 id="2-data-binding-connecting-data-to-the-screen-">2. Data Binding (Connecting Data to the Screen)</h4>
+        <p>Data binding means connecting your data (variables) directly to what the user sees on the screen (the HTML).
+        </p>
+        <ul>
+          <li>
+            <p><strong>Mustache Syntax (for Text):</strong> You use double curly braces <code>{{ }}</code>.</p>
+            <ul>
+              <li><strong>Simple Example:</strong> If your data is <code>city: &#39;Cairo&#39;</code>, you show it in
+                your HTML like this: <code>&lt;h1&gt;Welcome to {{ city }}&lt;/h1&gt;</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong><code>v-bind</code> (for HTML Attributes):</strong> If you want to connect data to an attribute
+              inside an HTML tag (like the <code>src</code> of an image or <code>href</code> of a link), you use the
+              <code>v-bind</code> directive, or the short version, <code>:</code>.</p>
+            <ul>
+              <li><strong>Simple Example:</strong> If your data has an image location
+                <code>my_photo: &#39;me.jpg&#39;</code>, you show it like this:
+                <code>&lt;img :src=&quot;my_photo&quot;&gt;</code>.</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="3-lists-v-for-">3. Lists (<code>v-for</code>)</h4>
+        <p>If you have a list of many things (like products, or students), you don&#39;t want to copy and paste the HTML
+          many times. You use the <code>v-for</code> directive to repeat a template for every item in your list.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> If you have an array <code>students</code>, you loop over it:
+            <code>&lt;li v-for=&quot;student in students&quot;&gt;{{ student.name }}&lt;/li&gt;</code>.</li>
+        </ul>
+        <h4 id="4-computed-properties-smart-calculation-">4. Computed Properties (Smart Calculation)</h4>
+        <p>These are like special, smart functions that automatically calculate and return a value based on your main
+          data. If your main data changes, the computed property automatically re-calculates, and the screen updates.
+        </p>
+        <ul>
+          <li><strong>Simple Example:</strong> If you have a list of products with votes, a computed property can
+            constantly check and return the list sorted from highest votes to lowest votes, without you needing to
+            manually sort it every time.</li>
+        </ul>
+        <h4 id="5-event-handling-v-on-">5. Event Handling (<code>v-on</code> / <code>@</code>)</h4>
+        <p>This is how Vue makes your application interactive by listening to user actions (like a click). You use the
+          <code>v-on</code> directive, or the short version, <code>@</code>.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> To run a function called <code>increaseVote</code> when a button is
+            clicked: <code>&lt;button @click=&quot;increaseVote&quot;&gt;Vote&lt;/button&gt;</code>.</li>
+        </ul>
+        <h4 id="6-components-lego-blocks-">6. Components (Lego Blocks)</h4>
+        <p>Components are small, separate, reusable pieces of your application. Breaking your app into components makes
+          the code much easier to manage and maintain.</p>
+        <h4 id="7-props-data-flow-down-">7. Props (Data Flow Down)</h4>
+        <p><strong>Props</strong> are how a parent component sends information or data down to a child component. The
+          data flows only in one direction: <strong>Parent to Child</strong>.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> If you have a <code>ProductList</code> (Parent) component, and inside it
+            many <code>ProductItem</code> (Child) components, the Parent passes the details for <em>one</em> specific
+            product down to the Child using a prop called <code>product</code>.</li>
+        </ul>
+        <hr>
+        <h3 id="step-2-organizing-your-code-chapter-ii-">Step 2: Organizing Your Code (Chapter II)</h3>
+        <p>This chapter shows how to organize larger applications.</p>
+        <h4 id="1-single-file-components-sfcs-">1. Single-File Components (SFCs)</h4>
+        <p>Instead of putting all HTML, JavaScript, and CSS in one large file, you put everything related to one
+          component in a single <code>.vue</code> file.</p>
+        <ul>
+          <li><strong>How it looks:</strong>
+            <ul>
+              <li><code>&lt;template&gt;</code>: Contains the HTML part.</li>
+              <li><code>&lt;script&gt;</code>: Contains the JavaScript logic (like data, methods).</li>
+              <li><code>&lt;style&gt;</code>: Contains the CSS rules.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>This requires tools like Webpack and npm to compile everything so the browser can read it.</p>
+        <h4 id="2-two-way-data-binding-v-model-for-forms-">2. Two-Way Data Binding (<code>v-model</code> for Forms)</h4>
+        <p>When dealing with inputs like text fields or checkboxes, <code>v-model</code> is your friend. It keeps the
+          input field value and your JavaScript data property perfectly synchronized.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> If you have data <code>username: &#39;&#39;</code>:
+            <code>&lt;input type=&quot;text&quot; v-model=&quot;username&quot;&gt;</code>
+            If the user types &quot;Ali&quot;, the <code>username</code> variable instantly becomes &quot;Ali&quot;. If
+            you change <code>username</code> in code, the input field instantly shows the new value.
+          </li>
+        </ul>
+        <h4 id="3-simple-state-management">3. Simple State Management</h4>
+        <p>When you have components that are siblings (next to each other) or not directly related, they can&#39;t use
+          props to communicate. To share data easily across the whole application, you create a <strong>Store</strong>
+          (a shared data object).</p>
+        <ul>
+          <li><strong>How it works (Simplified):</strong> Components look at the shared store to get data. If a
+            component needs to change data, it calls an action defined in the store. This keeps all shared data changes
+            centralized.</li>
+        </ul>
+        <hr>
+        <h3 id="step-3-communication-between-components-chapter-iii-">Step 3: Communication Between Components (Chapter
+          III)</h3>
+        <p>This chapter focuses on the ways different components talk to each other.</p>
+        <h4 id="1-custom-events-child-talking-up-">1. Custom Events (Child Talking Up)</h4>
+        <p>If props send data down (Parent to Child), Custom Events send notifications <em>up</em> (Child to Parent).
+          The child announces that something happened, and the parent listens.</p>
+        <ul>
+          <li>
+            <p><strong>Code Example (Child Component):</strong> When the child finishes entering a note, it announces
+              it:
+              <code>this.$emit(&#39;add-note&#39;, { note: &#39;My new note&#39; });</code>
+            </p>
+            <ul>
+              <li><em>Practical Explanation:</em> <code>$emit</code> is like the child shouting a specific message
+                (&quot;add-note&quot;) that only the parent can hear.</li>
+            </ul>
+          </li>
+          <li>
+            <p><strong>Code Example (Parent Component):</strong> The parent listens for that specific shout on the child
+              component declaration:
+              <code>&lt;input-component @add-note=&quot;handleNote&quot;&gt;&lt;/input-component&gt;</code>
+            </p>
+            <ul>
+              <li><em>Practical Explanation:</em> <code>@add-note</code> tells the parent, &quot;When the child shouts
+                &#39;add-note&#39;, run my <code>handleNote</code> function.&quot;</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="2-the-event-bus-global-announcement-">2. The Event Bus (Global Announcement)</h4>
+        <p>Sometimes you need completely separate components (like two distant cousins) to communicate directly. An
+          Event Bus is a simple, separate Vue instance used specifically for this global communication.</p>
+        <ul>
+          <li><strong>Code Example (Sending/Emitting):</strong> Any component can send a message:
+            <code>EventBus.$emit(&#39;global-update&#39;);</code>
+          </li>
+          <li><strong>Code Example (Receiving/Listening):</strong> Any component can listen to it, usually in the
+            <code>created()</code> lifecycle hook:
+            <code>EventBus.$on(&#39;global-update&#39;, function() { console.log(&#39;Heard the update!&#39;); });</code>
+          </li>
+        </ul>
+        <h4 id="3-lifecycle-hooks">3. Lifecycle Hooks</h4>
+        <p>These are functions that run automatically when your component is born, put on the screen, updated, or
+          destroyed.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> The <code>created()</code> hook runs right after the component is
+            created, making it the perfect time to set up things like event listeners or fetch initial data.</li>
+        </ul>
+        <hr>
+        <h3 id="step-4-mastering-state-management-chapters-iv-v-">Step 4: Mastering State Management (Chapters IV &amp;
+          V)</h3>
+        <p>These chapters introduce the professional way to manage all your application data using Vuex and connect it
+          to a server.</p>
+        <h4 id="1-vuex-the-central-bank-for-data-">1. Vuex (The Central Bank for Data)</h4>
+        <p>Vuex is the formal tool that uses the <strong>Flux pattern</strong>. It ensures your data flow is always
+          one-way and predictable. This is crucial for large applications.</p>
+        <ul>
+          <li><strong>State:</strong> The single source of truth—all your application data lives here.</li>
+          <li><strong>Getters:</strong> Used to <em>read</em> or <em>calculate</em> data from the State (like computed
+            properties for the Store).</li>
+          <li><strong>Mutations:</strong> The <strong>ONLY</strong> way to officially change the State. They must be
+            fast and <strong>synchronous</strong> (happen immediately).<ul>
+              <li><strong>Code Snippet (Concept):</strong>
+                <code>ADD_NOTE(state, payload) { state.notes.push(payload); }</code></li>
+            </ul>
+          </li>
+          <li><strong>Actions:</strong> Components call Actions to start a change. Actions handle any complex or
+            <strong>asynchronous</strong> logic (like fetching data from a server) before they finally call a Mutation.
+            <ul>
+              <li><strong>Code Snippet (Concept):</strong>
+                <code>addNote(context, payload) { context.commit(&#39;ADD_NOTE&#39;, payload); }</code></li>
+              <li><em>Practical Explanation:</em> If you need to save a note, the component calls an Action. The Action
+                talks to the server (asynchronous). Once the server confirms, the Action calls a Mutation, and the
+                Mutation updates the State.</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="2-vuex-modules">2. Vuex Modules</h4>
+        <p>To keep a large Vuex Store organized, you break it into <strong>Modules</strong> based on function (e.g., a
+          <code>cartModule</code> handles cart data, and a <code>productModule</code> handles product data). Each module
+          has its own State, Getters, Mutations, and Actions.</p>
+        <h4 id="3-persistence-with-servers">3. Persistence with Servers</h4>
+        <p><strong>Persistence</strong> means saving your data to a server so that if the user refreshes the page, the
+          data is still there.</p>
+        <ul>
+          <li><strong>The Workflow:</strong> When the app starts, an Action fetches data from the server. A Mutation
+            updates the local Vuex State. When the user changes data (e.g., adds an item), an Action tells the server
+            (using an API call). The server saves the data and often sends back the updated list, which is used by a
+            Mutation to keep the Vuex State in sync.</li>
+        </ul>
+        <hr>
+        <h3 id="step-5-handling-user-input-and-routing-chapters-vi-vii-">Step 5: Handling User Input and Routing
+          (Chapters VI &amp; VII)</h3>
+        <p>These chapters cover professional handling of user input and navigating between different views.</p>
+        <h4 id="1-advanced-form-handling">1. Advanced Form Handling</h4>
+        <p>Forms are usually complex because they need to validate user input and synchronize many fields.</p>
+        <ul>
+          <li><strong>Validation:</strong> Checking if inputs are correct (e.g., email format, required fields). You can
+            use <strong>computed properties</strong> and <code>v-if</code> to show errors instantly as the user types
+            (real-time validation).</li>
+          <li><strong>Forms with Vuex:</strong> If you are using Vuex, you <strong>cannot</strong> use
+            <code>v-model</code> directly on the store state because this would break the rule that only Mutations can
+            change the state.<ul>
+              <li><strong>The Correct Way:</strong> Instead of <code>v-model</code>, you use one-way binding for reading
+                the data (<code>:value=&quot;stateProperty&quot;</code>) and an event handler for writing changes
+                (<code>@input=&quot;commitMutation&quot;</code>). The event handler manually calls a Mutation to update
+                the state.</li>
+            </ul>
+          </li>
+        </ul>
+        <h4 id="2-routing-and-multiple-views">2. Routing and Multiple Views</h4>
+        <p><strong>Routing</strong> means using the URL (like <code>/home</code> or <code>/products</code>) to determine
+          which part of the application is shown. This is crucial for <strong>Single-Page Applications (SPAs)</strong>,
+          which load the main page once and then use JavaScript to switch views without reloading the entire page.</p>
+        <ul>
+          <li><strong><code>vue-router</code>:</strong> The official library for handling navigation.</li>
+          <li><strong><code>router-view</code>:</strong> This special tag is where the correct component (or
+            &quot;page&quot;) for the current URL route is displayed.</li>
+          <li><strong><code>router-link</code>:</strong> This is used instead of a normal HTML <code>&lt;a&gt;</code>
+            tag. When clicked, it changes the URL immediately without telling the browser to reload the page.</li>
+          <li><strong>Dynamic Routing:</strong> Creating a route where part of the URL changes, usually to select a
+            specific item (e.g., <code>/products/:id</code>). The <code>:id</code> part is the dynamic parameter.</li>
+          <li><strong>Programmatic Navigation:</strong> Using a JavaScript function like
+            <code>this.$router.push(&#39;/cart&#39;)</code> to force navigation, usually inside an Action or method.
+          </li>
+        </ul>
+        <h4 id="3-navigation-guards">3. Navigation Guards</h4>
+        <p>These are checks (functions) that run <em>before</em> a user enters a route. They are often used to check
+          permissions.</p>
+        <ul>
+          <li><strong>Simple Example:</strong> Checking if a user is logged in before letting them see the
+            <code>/products</code> page. If they are not logged in, the guard redirects them to <code>/login</code>.
+          </li>
+          <li><strong>Vue Watchers:</strong> A powerful feature (<code>watch</code>) used in routing to monitor
+            properties like a login token. When the token changes (meaning the user logged in or out), you can run
+            necessary functions (like fetching initial data).</li>
+        </ul>
+        <hr>
+        <h3 id="step-6-testing-your-application-chapter-viii-">Step 6: Testing Your Application (Chapter VIII)</h3>
+        <p>Testing is writing code to automatically check if your application works correctly. This is very important to
+          find bugs early. We focus on <strong>Unit Testing</strong> (testing small parts in isolation).</p>
+        <h4 id="1-testing-tools">1. Testing Tools</h4>
+        <ul>
+          <li><strong>Mocha and Chai:</strong> Mocha helps you organize your tests (<code>describe</code> for groups,
+            <code>it</code> for individual checks). Chai lets you write clear checks
+            (<code>expect(A).to.equal(B)</code>).</li>
+          <li><strong><code>vue-test-utils</code>:</strong> The dedicated library for testing Vue components.</li>
+          <li><strong>Shallow Mounting:</strong> This essential technique renders only the component you are testing,
+            completely ignoring any complex child components. This ensures your test runs quickly and is truly isolated.
+          </li>
+          <li><strong>Mock Stores:</strong> When testing a component that uses Vuex, you create a &quot;fake&quot; Vuex
+            store (a <strong>Mock Store</strong>) that only returns the data the component expects. This isolates the
+            component from the actual complexity of the real store logic.</li>
+        </ul>
+        <h4 id="2-testing-logic">2. Testing Logic</h4>
+        <p>When testing components, you simulate user actions (like typing in an input or clicking a button) and assert
+          that the application state (data) or the rendered HTML updates correctly.</p>
+        <hr>
+        <h3 id="summary-and-practical-advice">Summary and Practical Advice</h3>
+        <h4 id="short-summary-for-each-chapter">Short Summary for Each Chapter</h4>
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:left">Chapter</th>
+              <th style="text-align:left">Topic</th>
+              <th style="text-align:left">Short Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><strong>I</strong></td>
+              <td style="text-align:left">Your first Vue.js App</td>
+              <td style="text-align:left">Learn core fundamentals: the Vue instance, data binding (<code>{{}}</code>,
+                <code>:</code>), looping (<code>v-for</code>), click events (<code>@</code>), and organizing with
+                components and props.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>II</strong></td>
+              <td style="text-align:left">Single-file Components</td>
+              <td style="text-align:left">Learn how to structure applications professionally using <code>.vue</code>
+                files (HTML/JS/CSS together) and manage simple shared data (Simple State Management).</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>III</strong></td>
+              <td style="text-align:left">Custom Events</td>
+              <td style="text-align:left">Learn communication between components: using custom events
+                (<code>$emit</code>) for Child-to-Parent communication and the Event Bus for global communication.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>IV</strong></td>
+              <td style="text-align:left">Introduction to Vuex</td>
+              <td style="text-align:left">Introduction to the official data management tool. Learn the strict data flow:
+                State, Getters, Actions (Async), and Mutations (Sync).</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>V</strong></td>
+              <td style="text-align:left">Vuex and Servers</td>
+              <td style="text-align:left">Connect Vuex to a server to save data (Persistence). Learn how to keep the
+                local Vuex State synchronized with the remote Server State using Modules.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>VI</strong></td>
+              <td style="text-align:left">Form Handling</td>
+              <td style="text-align:left">Master user input: learn two-way binding (<code>v-model</code>), handle
+                multiple fields, implement real-time validation, and adapt form data handling for Vuex rules.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>VII</strong></td>
+              <td style="text-align:left">Routing</td>
+              <td style="text-align:left">Build multi-page applications using <code>vue-router</code>. Learn
+                <code>router-view</code>, <code>router-link</code>, dynamic routes, and security checks (Navigation
+                Guards).</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>VIII</strong></td>
+              <td style="text-align:left">Unit Testing</td>
+              <td style="text-align:left">Learn how to write structured tests (Unit Testing) using Mocha, Chai, and the
+                <code>vue-test-utils</code> library to verify components work reliably in isolation.</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><strong>IX</strong></td>
+              <td style="text-align:left">Screencast</td>
+              <td style="text-align:left">A practical application of all concepts learned by building and deploying a
+                final real-world project (SimpleCoinCap).</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 id="main-key-ideas-of-the-book">Main Key Ideas of the Book</h4>
+        <ol>
+          <li><strong>Component-Based Architecture:</strong> Always break down your application into small, independent,
+            reusable components (like Lego pieces).</li>
+          <li><strong>Unidirectional Data Flow (Props Down):</strong> Data primarily flows from Parent to Child using
+            Props. For opposite communication, use Custom Events (<code>$emit</code>).</li>
+          <li><strong>Reactive State:</strong> Vue automatically tracks when data changes and instantly updates the
+            parts of the HTML view that depend on that data.</li>
+          <li><strong>Centralized State Management (Vuex):</strong> For large applications, all shared application data
+            must live in a central Vuex Store to ensure predictability and maintainability.</li>
+          <li><strong>Separation of Concerns:</strong> Keep code organized using Single-File Components
+            (<code>.vue</code> files) and Vuex Modules.</li>
+        </ol>
+        <h4 id="practical-examples-i-can-use-right-away">Practical Examples I Can Use Right Away</h4>
+        <ol>
+          <li><strong>Rendering a Dynamic List (v-for):</strong> If you fetch a list of articles, use <code>v-for</code>
+            to display each one without writing redundant HTML.</li>
+          <li><strong>Creating Interactive Elements (@click):</strong> Use the <code>@click</code> directive to run a
+            specific JavaScript method any time a user interacts with an element.</li>
+          <li><strong>Creating a Simple Form Input (v-model):</strong> Use <code>v-model</code> to instantly save user
+            input into your application&#39;s data property.</li>
+          <li><strong>Displaying Calculated Data (Computed Properties):</strong> Use computed properties for sorting
+            lists or calculating a total price that should update automatically when the input data changes.</li>
+          <li><strong>Navigating Pages (<code>router-link</code>):</strong> When you build a multi-page app, replace
+            standard <code>&lt;a&gt;</code> tags with <code>&lt;router-link&gt;</code> to ensure fast, smooth,
+            non-reloading navigation between views.</li>
+        </ol>
+        <h4 id="simple-tips-to-help-me-apply-what-i-learned">Simple Tips to Help Me Apply What I Learned</h4>
+        <ol>
+          <li><strong>Start Static:</strong> When building a new feature, always create the HTML/CSS first (the static
+            view) before adding any dynamic Vue logic.</li>
+          <li><strong>Define Boundaries:</strong> Before writing code, decide exactly where components start and end
+            (Component Hierarchy).</li>
+          <li><strong>Use Shorthands:</strong> Use the shorter syntax often: <code>:</code> for <code>v-bind</code>
+            (e.g., <code>:src</code>) and <code>@</code> for <code>v-on</code> (e.g., <code>@click</code>). It makes
+            code cleaner.</li>
+          <li><strong>Practice Isolation in Testing:</strong> When you test a component, use <strong>Shallow
+              Mounting</strong> to ensure you only test that specific part and nothing else. This saves you time later!
+          </li>
+          <li><strong>Plan State Changes:</strong> When working with Vuex, always remember the path: Action is
+            dispatched -&gt; Action performs async work (if needed) -&gt; Action calls Mutation -&gt; Mutation changes
+            State. Never change the State directly!.</li>
+        </ol>
+
+
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" //
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Y2XIdI6kB1jRVVbR4D9M1zYjFq2D" //
+    crossorigin="anonymous"></script>
+
+  <script src="../script.js"> </script>
+
+
+</body>
+
+</html>

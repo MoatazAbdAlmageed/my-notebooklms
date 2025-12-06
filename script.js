@@ -1,3 +1,27 @@
+
+
+async function includeHTML(selector, file) {
+    try {
+        const element = document.querySelector(selector);
+        if (!element) return;
+
+        const response = await fetch(file);
+        const html = await response.text();
+
+        element.innerHTML = html;
+    } catch (err) {
+        console.error("Include error:", err);
+    }
+}
+
+// Run after page loads
+document.addEventListener("DOMContentLoaded", () => {
+    includeHTML("#header", "/header.html");
+    includeHTML("#footer", "/footer.html");
+});
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
